@@ -6,124 +6,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ayuda Plan - Asesoría Corporativa en Isapres | Optimiza tu Plan de Salud</title>
     <style>
-        /* Variables con los dos colores oficiales del logotipo: Azul Marino y Verde Turquesa */
         :root {
-            --primary: #0b2545;       /* Azul Marino Institucional */
-            --primary-light: #134074; /* Azul Claro Corporativo */
-            --brand-color: #139a8c;   /* Verde Turquesa Salud de tu Logotipo */
-            --brand-hover: #0e7c71;   /* Turquesa Oscuro para Efectos */
-            --accent: #22c55e;        /* Verde Vivo Oficial de WhatsApp */
-            --accent-hover: #16a34a;  /* Verde WhatsApp Hover */
-            --text-dark: #0b2545;     /* Texto Principal */
-            --text-muted: #475569;    /* Texto Secundario */
-            --bg-body: #f8fafc;
-            --bg-card: #ffffff;
-            --border-color: #e2e8f0;
+            --primary: #0b2545; --primary-light: #134074; --brand-color: #139a8c; --brand-hover: #0e7c71;
+            --accent: #22c55e; --accent-hover: #16a34a; --text-dark: #0b2545; --text-muted: #475569;
+            --bg-body: #f8fafc; --bg-contrast: #f1f5f9; --bg-card: #ffffff; --border-color: #e2e8f0;
         }
-
-        body { 
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
-            background-color: var(--bg-body); 
-            color: var(--text-dark); 
-            margin: 0; 
-            padding: 0; 
-            line-height: 1.6; 
-            -webkit-font-smoothing: antialiased;
-        }
-
-        /* Navbar Principal con Colores Corporativos de Dos Tonos */
-        header { 
-            background-color: #ffffff; 
-            box-shadow: 0 1px 3px rgba(0,0,0,0.05); 
-            position: sticky; 
-            top: 0; 
-            z-index: 50; 
-            border-bottom: 3px solid var(--brand-color); /* Línea turquesa de tu imagen */
-        }
-        .nav-container { 
-            max-width: 1100px; 
-            margin: 0 auto; 
-            padding: 22px 20px; 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-        }
-        
-        /* Logotipo adaptado a los dos colores de tu imagen */
-        .logo { 
-            font-size: 28px; 
-            font-weight: 800; 
-            color: var(--primary); 
-            text-decoration: none; 
-            letter-spacing: -0.02em; 
-        }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background-color: var(--bg-body); color: var(--text-dark); margin: 0; padding: 0; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+        header { background-color: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 50; border-bottom: 3px solid var(--brand-color); }
+        .nav-container { max-width: 1100px; margin: 0 auto; padding: 22px 20px; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 28px; font-weight: 800; color: var(--primary); text-decoration: none; letter-spacing: -0.02em; }
         .logo span { color: var(--brand-color); }
-        
-        .top-right-contact {
-            font-size: 13.5px;
-            color: var(--text-muted);
-            font-weight: 600;
-            letter-spacing: 0.02em;
-        }
-        .top-right-contact a {
-            color: var(--brand-color);
-            text-decoration: none;
-        }
+        .top-right-contact { font-size: 13.5px; color: var(--text-muted); font-weight: 600; letter-spacing: 0.02em; }
+        .top-right-contact a { color: var(--brand-color); text-decoration: none; }
         .top-right-contact a:hover { text-decoration: underline; }
-
-        /* Sección Hero */
-        .hero { 
-            max-width: 850px; 
-            margin: 0 auto; 
-            padding: 90px 20px 60px 20px; 
-            text-align: center; 
-        }
         
-        /* Letras del título más estiradas, separadas y profesionales */
-        h1 { 
-            font-size: 46px; 
-            font-weight: 900; 
-            color: var(--primary); 
-            line-height: 1.3; 
-            margin-bottom: 24px; 
-            letter-spacing: 0.08em !important; /* Tracking estirado y elegante de tu imagen */
-            text-transform: uppercase;
-        }
-        h1 span { 
-            color: var(--brand-color);
-            display: block;
-            margin-top: 8px;
-            letter-spacing: 0.08em !important;
-        }
+        /* Secciones con contraste desglosado institucional alternado */
+        .hero { max-width: 850px; margin: 0 auto; padding: 90px 20px 60px 20px; text-align: center; }
+        .advanced-solutions { padding: 80px 20px; background-color: #ffffff; border-top: 2px solid var(--border-color); }
+        .services { padding: 80px 20px; background-color: var(--bg-contrast); border-top: 3px solid var(--brand-color); }
+        .faq-section { padding: 80px 20px; background-color: #ffffff; border-top: 2px solid var(--border-color); }
+        .why-us { padding: 85px 20px !important; background-color: var(--bg-contrast) !important; border-top: 3px solid var(--brand-color) !important; display: block !important; text-align: center !important; }
         
-        .hero-p { 
-            font-size: 20px; 
-            color: var(--text-muted); 
-            max-width: 700px; 
-            margin: 0 auto 45px auto; 
-            letter-spacing: 0.01em;
-        }
-
-        /* Sección de soluciones avanzadas en carrusel horizontal */
-        .advanced-solutions { padding: 80px 20px; background-color: #ffffff; border-top: 1px solid var(--border-color); }
+        h1 { font-size: 46px; font-weight: 900; color: var(--primary); line-height: 1.3; margin-bottom: 24px; letter-spacing: 0.08em !important; text-transform: uppercase; }
+        h1 span { color: var(--brand-color); display: block; margin-top: 8px; letter-spacing: 0.08em !important; }
+        .hero-p { font-size: 20px; color: var(--text-muted); max-width: 700px; margin: 0 auto 45px auto; letter-spacing: 0.01em; }
         .section-title { font-size: 32px; font-weight: 800; text-align: center; color: var(--primary); margin-bottom: 12px; letter-spacing: 0.02em; }
         .section-subtitle { text-align: center; color: var(--text-muted); font-size: 16px; margin-top: 0; margin-bottom: 50px; }
         
         .carousel-wrapper { max-width: 1000px; margin: 0 auto; position: relative; display: flex; align-items: center; }
         .carousel-container { width: 100%; overflow: hidden; }
         .carousel-track { display: flex; transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1); gap: 20px; width: 100%; }
-        
-        .carousel-slide { 
-            min-width: 100%; 
-            box-sizing: border-box; 
-            display: flex; 
-            background: var(--bg-body); 
-            border-radius: 14px; 
-            border: 1px solid var(--border-color); 
-            overflow: hidden; 
-            align-items: center;
-            padding: 24px 35px;
-        }
+        .carousel-slide { min-width: 100%; box-sizing: border-box; display: flex; background: var(--bg-body); border-radius: 14px; border: 1px solid var(--border-color); overflow: hidden; align-items: center; padding: 24px 35px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02); }
         .slide-badge { background: var(--primary); color: white; padding: 15px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 26px; margin-right: 25px; min-width: 58px; height: 58px; box-sizing: border-box; }
         .slide-badge.alt { background: var(--brand-color); }
         .slide-text { flex: 1; text-align: left; }
@@ -133,53 +46,41 @@
         
         .carousel-btn { position: absolute; background: white; border: 1px solid var(--border-color); width: 44px; height: 44px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 20px; color: var(--brand-color); box-shadow: 0 3px 6px rgba(0,0,0,0.05); z-index: 10; user-select: none; transition: all 0.2s; }
         .carousel-btn:hover { background: var(--primary); color: white; border-color: var(--primary); }
-        .carousel-btn.prev { left: -22px; }
-        .carousel-btn.next { right: -22px; }
-
-        /* Grilla Corporativa de Servicios */
-        .services { padding: 80px 20px; background: var(--bg-body); border-top: 1px solid var(--border-color); }
+        .carousel-btn.prev { left: -22px; } .carousel-btn.next { right: -22px; }
+        
         .grid { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 32px; }
         .card { padding: 40px 30px; background-color: #ffffff; border-radius: 14px; border: 1px solid var(--border-color); box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02); transition: all 0.2s ease; }
         .card:hover { transform: translateY(-3px); box-shadow: 0 12px 20px -3px rgba(11,37,69,0.08); }
         .card h3 { font-size: 21px; font-weight: 800; margin: 18px 0 12px 0; color: var(--primary); }
         .card p { font-size: 15px; color: var(--text-muted); margin: 0; line-height: 1.6; }
         .icon { font-size: 26px; background: #e0f2fe; width: 54px; height: 54px; display: flex; align-items: center; justify-content: center; border-radius: 12px; color: var(--brand-color); }
-
-        /* Nueva Sección de Captación CTA Adaptada en un 100% a tus colores oscuros */
-        .cta-dark-section { 
-            background-color: #031930 !important; /* Fondo azul oscuro profundo de tu primera imagen */
-            color: #ffffff !important; 
-            padding: 70px 20px !important; 
-            text-align: center !important;
-            border-top: 1px solid #0f2c59;
-        }
+        
+        .cta-dark-section { background-color: #031930 !important; color: #ffffff !important; padding: 70px 20px !important; text-align: center !important; border-top: 1px solid #0f2c59; }
         .cta-dark-section h2 { font-size: 34px !important; font-weight: 800 !important; margin: 0 0 12px 0 !important; color: #ffffff !important; letter-spacing: -0.01em !important; }
         .cta-dark-section .cta-sub-p { color: #cbd5e1 !important; font-size: 16px !important; max-width: 600px !important; margin: 0 auto 35px auto !important; font-weight: 400 !important; }
-        
         .btn-flex-container { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-bottom: 45px; }
-        
-        /* Botones idénticos a los de tu imagen adjunta con estilos blindados */
-        .btn-premium-wa { 
-            background-color: var(--accent) !important; color: white !important; font-weight: 700 !important; padding: 16px 36px !important; border-radius: 50px !important; text-decoration: none !important; font-size: 16px !important; display: inline-flex !important; align-items: center !important; gap: 10px !important; box-shadow: 0 4px 15px rgba(34,197,94,0.3) !important; transition: all 0.2s ease !important; 
-        }
+        .btn-premium-wa { background-color: var(--accent) !important; color: white !important; font-weight: 700 !important; padding: 16px 36px !important; border-radius: 50px !important; text-decoration: none !important; font-size: 16px !important; display: inline-flex !important; align-items: center !important; gap: 10px !important; box-shadow: 0 4px 15px rgba(34,197,94,0.3) !important; transition: all 0.2s ease !important; }
         .btn-premium-wa:hover { background-color: var(--accent-hover) !important; transform: translateY(-1px); }
-        
-        .btn-premium-mail { 
-            background-color: var(--brand-color) !important; color: white !important; font-weight: 700 !important; padding: 16px 36px !important; border-radius: 50px !important; text-decoration: none !important; font-size: 16px !important; display: inline-flex !important; align-items: center !important; gap: 10px !important; box-shadow: 0 4px 15px rgba(19,154,140,0.3) !important; transition: all 0.2s ease !important; 
-        }
+        .btn-premium-mail { background-color: var(--brand-color) !important; color: white !important; font-weight: 700 !important; padding: 16px 36px !important; border-radius: 50px !important; text-decoration: none !important; font-size: 16px !important; display: inline-flex !important; align-items: center !important; gap: 10px !important; box-shadow: 0 4px 15px rgba(19,154,140,0.3) !important; transition: all 0.2s ease !important; }
         .btn-premium-mail:hover { background-color: var(--brand-hover) !important; transform: translateY(-1px); }
-
-        /* Bloque Informativo de Alcance con Escudo e Icono */
+        
         .info-box-dark { max-width: 950px; margin: 0 auto; padding: 24px 30px; background-color: #021122; border-radius: 12px; border: 1px solid #0f2c59; display: flex; gap: 20px; align-items: flex-start; text-align: left; }
         .info-box-dark .shield-icon { font-size: 24px; margin-top: 2px; flex-shrink: 0; }
         .info-box-dark p { margin: 0; font-size: 14.5px; color: #94a3b8; line-height: 1.6; }
         .info-box-dark strong { color: #f8fafc; font-weight: 700; }
-
-        /* Bloques de FAQs y Cierre */
-        .faq-section { padding: 80px 20px; background-color: #ffffff; border-top: 1px solid var(--border-color); }
+        
         .faq-container { max-width: 780px; margin: 0 auto; }
-<!-- TERMINO DE DIVISION 1 --
-<!-- INISIO DIVISION 2 -->
+        .faq-item { border: 1px solid var(--border-color); border-radius: 10px; margin-bottom: 14px; background-color: var(--bg-contrast); overflow: hidden; transition: all 0.2s ease; }
+        .faq-question { font-weight: 700; font-size: 17px; color: var(--primary); padding: 20px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; user-select: none; }
+        .faq-question::after { content: '+'; font-size: 20px; color: var(--brand-color); font-weight: bold; transition: transform 0.2s ease; }
+        .faq-item.active .faq-question::after { content: '−'; }
+        .faq-answer { color: var(--text-muted); font-size: 15.5px; padding: 0 20px 20px 20px; display: none; border-top: 1px solid var(--border-color); background-color: #ffffff; padding-top: 18px; }
+        
+        .why-title-container { max-width: 600px !important; margin: 0 auto 50px auto !important; text-align: center !important; }
+        .why-us h2 { font-size: 32px !important; font-weight: 800 !important; color: var(--primary) !important; margin: 0 0 12px 0 !important; letter-spacing: -0.02em !important; }
+        .title-divider { width: 60px !important; height: 4px !important; background-color: var(--brand-color) !important; margin: 0 auto !important; border-radius: 2px !important; }
+        .why-grid { max-width: 1100px !important; margin: 0 auto !important; display: grid !important; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important; gap: 32px !important; }
+        .why-card { background: #ffffff !important; padding: 40px 30px !important; border-radius: 14px !important; border: 1px solid #edf2f7 !important; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.01) !important; text-align: center !important; box-sizing: border-box !important; }
     <section class="hero">
         <h1>Tu Salud Merece<br><span>El Mejor Plan</span></h1>
         <p class="hero-p">Te asesoro de forma transparente y personalizada para encontrar la cobertura de Isapre que realmente se adapta a tus necesidades, optimizando tu presupuesto de salud.</p>
@@ -218,7 +119,7 @@
         </div>
     </section>
 
-    <!-- ZONA DE SERVICIOS CORPORATIVOS -->
+    <!-- ZONA DE SERVICIOS CORPORATIVOS CON FONDO DE CONTRASTE ALIENADO -->
     <section class="services">
         <h2 class="section-title">Mis Servicios de Asesoría</h2>
         <p class="section-subtitle">Acompañamiento integral en todo el proceso de evaluación y corretaje previsional.</p>
@@ -241,7 +142,6 @@
             </div>
         </div>
     </section>
-
     <!-- SECCIÓN CTA OSCURA INTEGRAL RESTAURADA CON TUS BOTONES OVALADOS Y ALCANCE LEGAL -->
     <section class="cta-dark-section">
         <h2>¿Listo para optimizar tu previsión?</h2>
@@ -263,8 +163,8 @@
             <p><strong>Información de Alcance:</strong> El proceso de Pre-Evaluación y diagnóstico técnico inicial no posee costo para el afiliado. Tras el análisis de su caso por parte de la consultora, si el requerimiento exige el diseño de una estrategia corporativa de optimización avanzada, reestructuración previsional integral o gestión de nicho de alta complejidad, las condiciones de honorarios profesionales serán evaluadas y notificadas de manera formal y previa vía correo electrónico.</p>
         </div>
     </section>
-<!-- TERMINO DIVISION 2 -->
-<!-- INICIO DE DIVISION 3 -->
+
+    <!-- SECCIÓN DE PREGUNTAS FRECUENTES INTERACTIVAS -->
     <section class="faq-section">
         <h2 class="section-title">Información Útil para el Afiliado</h2>
         <p class="section-subtitle">Conceptos clave que debes conocer sobre tu sistema previsional de salud.</p>
@@ -285,6 +185,7 @@
         </div>
     </section>
 
+    <!-- SECCIÓN DE CONFIANZA CORPORATIVA CON LÍNEA TURQUESA CENTRADA -->
     <section class="why-us">
         <div class="why-title-container">
             <h2>Por qué elegir una asesoría profesional</h2>
@@ -307,6 +208,7 @@
         </div>
     </section>
 
+    <!-- PIE DE PÁGINA INSTITUCIONAL -->
     <footer>
         <p>Administrados por FullWeb &copy; 2026 AyudaPlan.cl. Todos los derechos reservados.</p>
         <p class="brand-signature">Asesoría Previsional de Calidad | Despliegue Estático FullWeb</p>
@@ -344,7 +246,7 @@
 
         function updateCarousel() {
             if(track) {
-                track.style.transform = `translateX(-${index * 100}%)`;
+                track.style.transform = 'translateX(-' + (index * 100) + '%)';
             }
         }
 
@@ -363,4 +265,3 @@
 
 </body>
 </html>
-<!-- TERMINO DIVISION 3 -->
