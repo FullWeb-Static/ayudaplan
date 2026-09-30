@@ -1,3 +1,4 @@
+<!-- INICIO DE DIVISION 1 -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -5,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ayuda Plan - Asesoría Corporativa en Isapres | Optimiza tu Plan de Salud</title>
     <style>
-        /* Paleta de colores corporativa e institucional */
+        /* Variables y Paleta de Colores Corporativos */
         :root {
             --primary: #0f172a;
             --primary-light: #1e293b;
@@ -30,7 +31,7 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* Navbar principal con los datos de contacto en la esquina superior derecha */
+        /* Navbar Principal */
         header { 
             background-color: #ffffff; 
             box-shadow: 0 1px 3px rgba(0,0,0,0.05); 
@@ -64,18 +65,15 @@
             color: var(--brand-color);
             text-decoration: none;
         }
-        .top-right-contact a:hover {
-            text-decoration: underline;
-        }
+        .top-right-contact a:hover { text-decoration: underline; }
 
-        /* Hero Area */
+        /* Sección Hero */
         .hero { 
             max-width: 850px; 
             margin: 0 auto; 
             padding: 80px 20px 55px 20px; 
             text-align: center; 
         }
-        
         h1 { 
             font-size: 54px; 
             font-weight: 900; 
@@ -85,13 +83,7 @@
             letter-spacing: -0.03em; 
         }
         h1 span { color: var(--brand-color); }
-        
-        .hero-p { 
-            font-size: 20px; 
-            color: var(--text-muted); 
-            max-width: 700px; 
-            margin: 0 auto 40px auto; 
-        }
+        .hero-p { font-size: 20px; color: var(--text-muted); max-width: 700px; margin: 0 auto 40px auto; }
         
         .cta-heading { font-size: 19px; font-weight: 700; color: var(--primary); margin-bottom: 12px; }
         .cta-sub { color: var(--text-muted); font-size: 15px; margin-top: 0; margin-bottom: 25px; }
@@ -102,7 +94,6 @@
             text-decoration: none; font-size: 16px; box-shadow: 0 4px 14px rgba(34,197,94,0.3); transition: all 0.2s ease;
         }
         .btn-wa:hover { background-color: var(--accent-hover); transform: translateY(-1px); }
-        
         .btn-mail { 
             background-color: var(--primary); color: white; font-weight: 600; padding: 14px 30px; border-radius: 10px; 
             text-decoration: none; font-size: 16px; box-shadow: 0 4px 14px rgba(15,23,42,0.15); transition: all 0.2s ease;
@@ -112,20 +103,38 @@
         .section-title { font-size: 30px; font-weight: 800; text-align: center; color: var(--primary); margin-bottom: 12px; letter-spacing: -0.02em; }
         .section-subtitle { text-align: center; color: var(--text-muted); font-size: 16px; margin-top: 0; margin-bottom: 45px; }
 
-        /* Estudios Técnicos Avanzados */
+        /* NUEVOS ESTILOS: Carrusel Horizontal Estilizado y Delgado */
         .advanced-solutions { padding: 70px 20px; background-color: #ffffff; border-top: 1px solid var(--border-color); }
-        .premium-container { max-width: 1000px; margin: 0 auto; display: flex; flex-direction: column; gap: 30px; }
-        .premium-row { display: flex; background: var(--bg-body); border-radius: 16px; border: 1px solid var(--border-color); overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02); flex-wrap: wrap; }
-        .premium-badge-area { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); color: white; padding: 30px; display: flex; flex-direction: column; justify-content: center; align-items: center; width: 220px; text-align: center; box-sizing: border-box; }
-        .premium-badge-area.alt { background: linear-gradient(135deg, var(--brand-color) 0%, var(--brand-hover) 100%); }
-        .badge-icon { font-size: 32px; margin-bottom: 10px; }
-        .badge-tag { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; opacity: 0.9; }
-        .premium-content-area { flex: 1; padding: 35px; min-width: 280px; }
-        .premium-content-area h3 { margin: 0 0 12px 0; font-size: 22px; font-weight: 800; color: var(--primary); }
-        .premium-content-area p { margin: 0 0 16px 0; font-size: 16px; color: var(--text-muted); }
-        .premium-tagline { font-size: 13px; font-weight: 700; color: var(--brand-color); text-transform: uppercase; letter-spacing: 0.05em; display: flex; align-items: center; gap: 6px; }
+        .carousel-wrapper { max-width: 1000px; margin: 0 auto; position: relative; display: flex; align-items: center; }
+        .carousel-container { width: 100%; overflow: hidden; }
+        .carousel-track { display: flex; transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1); gap: 20px; width: 100%; }
+        
+        /* Formato horizontal delgado solicitado */
+        .carousel-slide { 
+            min-width: 100%; 
+            box-sizing: border-box; 
+            display: flex; 
+            background: var(--bg-body); 
+            border-radius: 12px; 
+            border: 1px solid var(--border-color); 
+            overflow: hidden; 
+            align-items: center;
+            padding: 20px 30px;
+        }
+        .slide-badge { background: var(--primary); color: white; padding: 15px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 24px; margin-right: 25px; min-width: 55px; height: 55px; box-sizing: border-box; }
+        .slide-badge.alt { background: var(--brand-color); }
+        .slide-text { flex: 1; text-align: left; }
+        .slide-text h3 { margin: 0 0 6px 0; font-size: 19px; font-weight: 800; color: var(--primary); }
+        .slide-text p { margin: 0 0 8px 0; font-size: 14.5px; color: var(--text-muted); }
+        .slide-tag { font-size: 12px; font-weight: 700; color: var(--brand-color); text-transform: uppercase; letter-spacing: 0.05em; }
+        
+        /* Botones del carrusel */
+        .carousel-btn { position: absolute; background: white; border: 1px solid var(--border-color); width: 40px; height: 40px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 18px; color: var(--brand-color); box-shadow: 0 2px 4px rgba(0,0,0,0.05); z-index: 10; user-select: none; transition: background 0.2s; }
+        .carousel-btn:hover { background: var(--bg-body); }
+        .carousel-btn.prev { left: -20px; }
+        .carousel-btn.next { right: -20px; }
 
-        /* Nueva zona restaurada: Estilos de la Grilla de Servicios de tu imagen */
+        /* Grilla de Servicios Estándar */
         .services { padding: 70px 20px; background: var(--bg-body); border-top: 1px solid var(--border-color); }
         .grid { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 28px; }
         .card { padding: 35px 28px; background-color: #ffffff; border-radius: 14px; border: 1px solid var(--border-color); box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02); transition: all 0.2s ease; }
@@ -134,10 +143,9 @@
         .card p { font-size: 15px; color: var(--text-muted); margin: 0; }
         .icon { font-size: 24px; background: #e0f2fe; width: 52px; height: 52px; display: flex; align-items: center; justify-content: center; border-radius: 12px; color: var(--brand-color); }
         
-        /* Caja de Información de Alcance de tu imagen */
         .info-box { max-width: 1000px; margin: 50px auto 0 auto; padding: 24px; background-color: #f0f9ff; border-left: 4px solid var(--brand-color); border-radius: 0 12px 12px 0; font-size: 14.5px; color: #0369a1; text-align: left; box-sizing: border-box; }
 
-        /* Acordeón de FAQs */
+        /* FAQs e Interacción */
         .faq-section { padding: 70px 20px; background-color: #ffffff; border-top: 1px solid var(--border-color); }
         .faq-container { max-width: 780px; margin: 0 auto; }
         .faq-item { border: 1px solid var(--border-color); border-radius: 10px; margin-bottom: 14px; background-color: var(--bg-body); overflow: hidden; transition: all 0.2s ease; }
@@ -145,16 +153,6 @@
         .faq-question::after { content: '+'; font-size: 20px; color: var(--brand-color); font-weight: bold; transition: transform 0.2s ease; }
         .faq-item.active .faq-question::after { content: '−'; }
         .faq-answer { color: var(--text-muted); font-size: 15.5px; padding: 0 20px 20px 20px; display: none; border-top: 1px solid var(--border-color); background-color: #ffffff; padding-top: 18px; }
-
-        /* Por Qué Elegirnos */
-        .why-us { padding: 70px 20px; background-color: var(--bg-body); border-top: 1px solid var(--border-color); }
-        .why-grid { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 28px; }
-        .why-card { background: white; padding: 30px; border-radius: 14px; border: 1px solid var(--border-color); box-shadow: 0 2px 4px rgba(0,0,0,0.01); }
-        .why-card h4 { font-size: 19px; font-weight: 700; margin: 0 0 10px 0; color: var(--primary); }
-        .why-card p { font-size: 15px; color: var(--text-muted); margin: 0; }
-
-        footer { background-color: var(--primary); color: #94a3b8; padding: 45px 20px; text-align: center; font-size: 14px; border-top: 1px solid #1e293b; }
-        footer p { margin: 6px 0; }
     </style>
 </head>
 <body>
@@ -167,24 +165,55 @@
             </div>
         </div>
     </header>
+<!-- TERMINO DIVISION 1 -->
+<!-- INICIO DE DIVISION 2 -->
     <section class="hero">
         <h1>Tu Salud Merece<br><span>El Mejor Plan</span></h1>
-        <p class="hero-p">Te asesoro de forma transparente y personalizada para encontrar la cobertura de Isapre que realmente se adapta a tus necesidades.</p>
+        <p class="hero-p">Te asesoro de forma transparente y personalizada para encontrar la cobertura de Isapre que realmente se adapta a tus necesidades, optimizando tu presupuesto de salud.</p>
+        
+        <h3 class="cta-heading">¿Listo para optimizar tu previsión?</h3>
+        <p class="cta-sub">Elige el canal que te resulte más cómodo para agendar tu pre-evaluación inmediata con la asesora:</p>
+        
         <div class="btn-container">
             <a href="https://wa.me" target="_blank" class="btn-wa">Contactar por WhatsApp</a>
+            <a href="mailto:contacto@ayudaplan.cl" class="btn-mail">Enviar un Correo</a>
         </div>
     </section>
 
+    <!-- ZONA DEL CARRUSEL DELGADO INTERACTIVO RECONSTRUIDO -->
     <section class="advanced-solutions">
         <h2 class="section-title">Estudios Técnicos y Soluciones Avanzadas</h2>
-        <p class="section-subtitle">Análisis estratégico especializado para la optimización de coberturas.</p>
+        <p class="section-subtitle">Análisis estratégico especializado para la optimización de coberturas de alta complejidad.</p>
+        
+        <div class="carousel-wrapper">
+            <button class="carousel-btn prev" id="prevBtn">‹</button>
+            <div class="carousel-container">
+                <div class="carousel-track" id="carouselTrack">
+                    <!-- Tarjeta 1 (Carrusel Delgado) -->
+                    <div class="carousel-slide">
+                        <div class="slide-badge">📊</div>
+                        <div class="slide-text">
+                            <h3>Planificación y Adecuación de Cobertura Isapre</h3>
+                            <p>Análisis comparativo de planes según el marco normativo de la Superintendencia de Salud. Maximizamos el rendimiento de tu 7% legal con convenios específicos.</p>
+                            <div class="slide-tag">🔹 Análisis Normativo: Optimización Estratégica</div>
+                        </div>
+                    </div>
+                    <!-- Tarjeta 2 (Carrusel Delgado) -->
+                    <div class="carousel-slide">
+                        <div class="slide-badge alt">💎</div>
+                        <div class="slide-text">
+                            <h3>Reestructuración de Excedentes y Mitigación de Excesos</h3>
+                            <p>Diseño de planes con foco en la acumulación eficiente de excedentes para uso en farmacias y prestaciones ambulatorias, eliminando cobros invisibles.</p>
+                            <div class="slide-tag">🔹 Consultoría de Nicho: Estructuración Eficiente</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-btn next" id="nextBtn">›</button>
+        </div>
     </section>
 
-    <section class="services">
-        <h2 class="section-title">Mis Servicios de Asesoría</h2>
-        <p>Acompañamiento integral en todo el proceso de evaluación previsional.</p>
-    </section>
-    <!-- SECCIÓN DE SERVICIOS ADAPTADA A TU IMAGEN -->
+    <!-- ZONA DE SERVICIOS ADAPTADA A TU IMAGEN REINTEGRADA -->
     <section class="services">
         <h2 class="section-title">Mis Servicios de Asesoría</h2>
         <p class="section-subtitle">Acompañamiento integral en todo el proceso de evaluación y corretaje previsional.</p>
@@ -212,8 +241,8 @@
             <strong>🛡️ Información de Alcance:</strong> El proceso de <em>Pre-Evaluación y diagnóstico técnico inicial no posee costo</em> para el afiliado. Tras el análisis de su caso por parte de la consultora, si el requerimiento exige el diseño de una estrategia corporativa de optimización avanzada, reestructuración previsional integral o gestión de nicho de alta complejidad, las condiciones de honorarios profesionales serán evaluadas y notificadas de manera formal y previa vía correo electrónico.
         </div>
     </section>
-
-    <!-- SECCIÓN DE PREGUNTAS FRECUENTES INTERACTIVAS -->
+<!-- TERMINO DIVISION 2 -->
+<!-- INICIO DE DIVISION 3 -->
     <section class="faq-section">
         <h2 class="section-title">Información Útil para el Afiliado</h2>
         <p class="section-subtitle">Conceptos clave que debes conocer sobre tu sistema previsional de salud.</p>
@@ -221,7 +250,7 @@
         <div class="faq-container">
             <div class="faq-item">
                 <div class="faq-question">¿Cuál es la diferencia entre Excedentes y Excesos?</div>
-                <div class="faq-answer">Los excedentes se generan cuando tu cotización legal (7%) es mayor al costo del plan contratado y sirven para farmacias o bonos. Los excesos ocurren cuando pagas más allá del 7% por errores del empleador y se devuelven en dinero anualmente.</div>
+                <div class="faq-answer">Los excedentes se generan cuando tu cotización legal (7%) es mayor al costo del plan contratado y sirven para farmacias o bonos; los excesos ocurren cuando pagas más allá del 7% por errores del empleador y se devuelven en dinero anualmente.</div>
             </div>
             <div class="faq-item">
                 <div class="faq-question">¿Por qué es importante revisar mi plan de salud periódicamente?</div>
@@ -234,7 +263,6 @@
         </div>
     </section>
 
-    <!-- SECCIÓN DE VALOR CORPORATIVO -->
     <section class="why-us">
         <h2 class="section-title">Por qué elegir una asesoría profesional</h2>
         <p class="section-subtitle">Garantizamos los más altos estándares de confidencialidad y rigor analítico.</p>
@@ -255,14 +283,14 @@
         </div>
     </section>
 
-    <!-- PIE DE PÁGINA -->
     <footer>
         <p>&copy; 2026 AyudaPlan.cl. Todos los derechos reservados. Asesoría Previsional de Calidad.</p>
         <p style="font-size: 11px; color: #64748b; margin-top: 12px; font-weight: 500;">Despliegue de Infraestructura Ágil por FullWeb Estático</p>
     </footer>
 
-    <!-- LÓGICA JAVASCRIPT FUNCIONAL PARA EL ACORDEÓN -->
+    <!-- LOGICA JAVASCRIPT FUNCIONAL CENTRALIZADA (FAQs + Carrusel) -->
     <script>
+        // 1. Funcionalidad de Acordeón interactivo para las FAQs
         document.querySelectorAll('.faq-question').forEach(button => {
             button.addEventListener('click', () => {
                 const faqItem = button.parentElement;
@@ -283,7 +311,29 @@
                 }
             });
         });
+
+        // 2. Funcionalidad interactiva para el carrusel horizontal delgado
+        const track = document.getElementById('carouselTrack');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        let index = 0;
+
+        function updateCarousel() {
+            // Desplaza la grilla de forma horizontal según el índice de la diapositiva
+            track.style.transform = `translateX(-${index * 100}%)`;
+        }
+
+        nextBtn.addEventListener('click', () => {
+            index = (index < 1) ? index + 1 : 0; // Cambiar al número máximo de tarjetas - 1
+            updateCarousel();
+        });
+
+        prevBtn.addEventListener('click', () => {
+            index = (index > 0) ? index - 1 : 1;
+            updateCarousel();
+        });
     </script>
 
 </body>
 </html>
+<!-- TERMINO DIVISION 3 -->
