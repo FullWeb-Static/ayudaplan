@@ -30,7 +30,7 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* Navbar principal con datos de contacto a la derecha */
+        /* Navbar principal con los datos de contacto alineados en la esquina superior derecha */
         header { 
             background-color: #ffffff; 
             box-shadow: 0 1px 3px rgba(0,0,0,0.05); 
@@ -41,29 +41,29 @@
         .nav-container { 
             max-width: 1100px; 
             margin: 0 auto; 
-            padding: 18px 20px; 
+            padding: 22px 20px; 
             display: flex; 
             justify-content: space-between; 
             align-items: center; 
         }
         .logo { 
-            font-size: 24px; 
+            font-size: 26px; 
             font-weight: 800; 
             color: var(--brand-color); 
             text-decoration: none; 
             letter-spacing: -0.03em; 
         }
         
-        /* Ajuste solicitado: Datos de contacto en el lado superior derecho */
+        /* Datos de contacto alineados al extremo superior derecho */
         .top-right-contact {
-            font-size: 13px;
+            font-size: 13.5px;
             color: var(--text-muted);
-            font-weight: 500;
+            font-weight: 600;
+            letter-spacing: 0.02em;
         }
         .top-right-contact a {
             color: var(--brand-color);
             text-decoration: none;
-            font-weight: 600;
         }
         .top-right-contact a:hover {
             text-decoration: underline;
@@ -73,24 +73,20 @@
         .hero { 
             max-width: 850px; 
             margin: 0 auto; 
-            padding: 80px 20px 50px 20px; 
+            padding: 80px 20px 55px 20px; 
             text-align: center; 
         }
         
-        /* Ajuste solicitado: Título con iniciales en mayúsculas y estilo corporativo premium */
+        /* Título con iniciales en mayúsculas y estilo corporativo premium */
         h1 { 
-            font-size: 52px; 
+            font-size: 54px; 
             font-weight: 900; 
             color: var(--primary); 
             line-height: 1.15; 
             margin-bottom: 24px; 
             letter-spacing: -0.03em; 
         }
-        h1 span { 
-            background: linear-gradient(135deg, var(--brand-color) 0%, #06b6d4; 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+        h1 span { color: var(--brand-color); }
         
         .hero-p { 
             font-size: 20px; 
@@ -99,98 +95,267 @@
             margin: 0 auto 40px auto; 
         }
         
-        .cta-heading { font-size: 19px; font-weight: 700; color: var(--primary); margin-bottom: 12px; }
-        .cta-sub { color: var(--text-muted); font-size: 15px; margin-top: 0; margin-bottom: 25px; }
-        .btn-container { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-bottom: 20px; }
+        .cta-heading {
+            font-size: 19px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 12px;
+        }
+        .cta-sub {
+            color: var(--text-muted); 
+            font-size: 15px; 
+            margin-top: 0; 
+            margin-bottom: 25px;
+        }
+        .btn-container { 
+            display: flex; 
+            gap: 16px; 
+            justify-content: center; 
+            flex-wrap: wrap; 
+            margin-bottom: 20px;
+        }
         .btn-wa { 
-            background-color: var(--accent); color: white; font-weight: 600; padding: 14px 30px; border-radius: 10px; 
-            text-decoration: none; font-size: 16px; box-shadow: 0 4px 14px rgba(34,197,94,0.3); transition: all 0.2s ease;
+            background-color: var(--accent); 
+            color: white; 
+            font-weight: 600; 
+            padding: 14px 30px; 
+            border-radius: 10px; 
+            text-decoration: none; 
+            font-size: 16px; 
+            box-shadow: 0 4px 14px rgba(34,197,94,0.3); 
+            transition: all 0.2s ease;
         }
         .btn-wa:hover { background-color: var(--accent-hover); transform: translateY(-1px); }
         .btn-mail { 
-            background-color: var(--primary); color: white; font-weight: 600; padding: 14px 30px; border-radius: 10px; 
-            text-decoration: none; font-size: 16px; box-shadow: 0 4px 14px rgba(15,23,42,0.15); transition: all 0.2s ease;
+            background-color: var(--primary); 
+            color: white; 
+            font-weight: 600; 
+            padding: 14px 30px; 
+            border-radius: 10px; 
+            text-decoration: none; 
+            font-size: 16px; 
+            box-shadow: 0 4px 14px rgba(15,23,42,0.15); 
+            transition: all 0.2s ease;
         }
         .btn-mail:hover { background-color: var(--primary-light); transform: translateY(-1px); }
         
         /* Contenedores globales de secciones */
-        .section-title { font-size: 30px; font-weight: 800; text-align: center; color: var(--primary); margin-bottom: 12px; letter-spacing: -0.02em; }
-        .section-subtitle { text-align: center; color: var(--text-muted); font-size: 16px; margin-top: 0; margin-bottom: 45px; }
+        .section-title { 
+            font-size: 30px; 
+            font-weight: 800; 
+            text-align: center; 
+            color: var(--primary); 
+            margin-bottom: 12px; 
+            letter-spacing: -0.02em;
+        }
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 16px;
+            margin-top: 0;
+            margin-bottom: 45px;
+        }
 
-        /* Soluciones Avanzadas Corporativas */
+        /* Sección: Soluciones Avanzadas Corporativas */
         .advanced-solutions { padding: 70px 20px; background-color: #ffffff; border-top: 1px solid var(--border-color); }
         .premium-container { max-width: 1000px; margin: 0 auto; display: flex; flex-direction: column; gap: 30px; }
-        .premium-row { display: flex; background: var(--bg-body); border-radius: 16px; border: 1px solid var(--border-color); overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02); flex-wrap: wrap; }
-        .premium-badge-area { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); color: white; padding: 30px; display: flex; flex-direction: column; justify-content: center; align-items: center; width: 220px; text-align: center; box-sizing: border-box; }
-        .premium-badge-area.alt { background: linear-gradient(135deg, var(--brand-color) 0%, var(--brand-hover) 100%); }
+        .premium-row {
+            display: flex;
+            background: var(--bg-body);
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02);
+            flex-wrap: wrap;
+        }
+        .premium-badge-area {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 220px;
+            text-align: center;
+            box-sizing: border-box;
+        }
+        .premium-badge-area.alt {
+            background: linear-gradient(135deg, var(--brand-color) 0%, var(--brand-hover) 100%);
+        }
         .badge-icon { font-size: 32px; margin-bottom: 10px; }
         .badge-tag { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; opacity: 0.9; }
-        .premium-content-area { flex: 1; padding: 35px; min-width: 280px; }
+        .premium-content-area {
+            flex: 1;
+            padding: 35px;
+            min-width: 280px;
+        }
         .premium-content-area h3 { margin: 0 0 12px 0; font-size: 22px; font-weight: 800; color: var(--primary); }
         .premium-content-area p { margin: 0 0 16px 0; font-size: 16px; color: var(--text-muted); }
         .premium-tagline { font-size: 13px; font-weight: 700; color: var(--brand-color); text-transform: uppercase; letter-spacing: 0.05em; display: flex; align-items: center; gap: 6px; }
 
         /* Sección de Servicios Estándar */
         .services { padding: 70px 20px; background: var(--bg-body); border-top: 1px solid var(--border-color); }
-        .grid { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 28px; }
-        .card { padding: 35px 28px; background-color: #ffffff; border-radius: 14px; border: 1px solid var(--border-color); box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02); transition: all 0.2s ease; }
+        .grid { 
+            max-width: 1000px; 
+            margin: 0 auto; 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+            gap: 28px; 
+        }
+        .card { 
+            padding: 35px 28px; 
+            background-color: #ffffff; 
+            border-radius: 14px; 
+            border: 1px solid var(--border-color); 
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02);
+            transition: all 0.2s ease;
+        }
         .card:hover { transform: translateY(-3px); box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05); }
         .card h3 { font-size: 20px; font-weight: 700; margin: 15px 0 10px 0; color: var(--primary); }
         .card p { font-size: 15px; color: var(--text-muted); margin: 0; }
-        .icon { font-size: 24px; background: #e0f2fe; width: 52px; height: 52px; display: flex; align-items: center; justify-content: center; border-radius: 12px; color: var(--brand-color); }
+        .icon { 
+            font-size: 24px; 
+            background: #e0f2fe; 
+            width: 52px; 
+            height: 52px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            border-radius: 12px; 
+            color: var(--brand-color);
+        }
         
         /* Acordeón de FAQs */
         .faq-section { padding: 70px 20px; background-color: #ffffff; border-top: 1px solid var(--border-color); }
         .faq-container { max-width: 780px; margin: 0 auto; }
-        .faq-item { border: 1px solid var(--border-color); border-radius: 10px; margin-bottom: 14px; background-color: var(--bg-body); overflow: hidden; transition: all 0.2s ease; }
-        .faq-question { font-weight: 700; font-size: 17px; color: var(--primary); padding: 20px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; user-select: none; }
-        .faq-question::after { content: '+'; font-size: 20px; color: var(--brand-color); font-weight: bold; transition: transform 0.2s ease; }
+        .faq-item { 
+            border: 1px solid var(--border-color); 
+            border-radius: 10px; 
+            margin-bottom: 14px; 
+            background-color: var(--bg-body);
+            overflow: hidden;
+            transition: all 0.2s ease;
+        }
+        .faq-question { 
+            font-weight: 700; 
+            font-size: 17px; 
+            color: var(--primary); 
+            padding: 20px; 
+            cursor: pointer; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            user-select: none;
+        }
+        .faq-question::after {
+            content: '+';
+            font-size: 20px;
+            color: var(--brand-color);
+            font-weight: bold;
+            transition: transform 0.2s ease;
+        }
         .faq-item.active .faq-question::after { content: '−'; }
-        .faq-answer { color: var(--text-muted); font-size: 15.5px; padding: 0 20px 20px 20px; display: none; border-top: 1px solid var(--border-color); background-color: #ffffff; padding-top: 18px; }
+        .faq-answer { 
+            color: var(--text-muted); 
+            font-size: 15.5px; 
+            padding: 0 20px 20px 20px; 
+            display: none; 
+            border-top: 1px solid var(--border-color);
+            background-color: #ffffff;
+            padding-top: 18px;
+        }
 
         /* Sección Por Qué Elegirnos */
         .why-us { padding: 70px 20px; background-color: var(--bg-body); border-top: 1px solid var(--border-color);}
-        .why-grid { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 28px; }
+        .why-grid { 
+            max-width: 1000px; 
+            margin: 0 auto; 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); 
+            gap: 28px; 
+        }
         .why-card { background: white; padding: 30px; border-radius: 14px; border: 1px solid var(--border-color); box-shadow: 0 2px 4px rgba(0,0,0,0.01); }
-        .why-card h4 { font-size: 19px; font-weight: 700; margin: 0 0 10px 0; color: var(--primary); }
-        .why-card p { font-size: 15px; color: var(--text-muted); margin: 0; }
-
-        footer { background-color: var(--primary); color: #94a3b8; padding: 45px 20px; text-align: center; font-size: 14px; border-top: 1px solid #1e293b; }
-        footer p { margin: 6px 0; }
-    </style>
-</head>
-<body>
-
-    <header>
-        <div class="nav-container">
-            <a href="#" class="logo">Ayuda Plan</a>
-            <!-- El correo pequeño y la web se despliegan de forma responsiva arriba a la derecha -->
-            <div class="top-right-contact">
-                www.ayudaplan.cl &nbsp;|&nbsp; <a href="mailto:contacto@ayudaplan.cl">contacto@ayudaplan.cl</a>
-            </div>
-        </div>
-    </header>
     <section class="hero">
         <h1>Tu Salud Merece<br><span>El Mejor Plan</span></h1>
         <p class="hero-p">Te asesoro de forma transparente y personalizada para encontrar la cobertura de Isapre que realmente se adapta a tus necesidades.</p>
-        
         <div class="btn-container">
-            <a href="https://wa.me" class="btn-wa">Contactar por WhatsApp</a>
-            <a href="mailto:contacto@ayudaplan.cl" class="btn-mail">Enviar un Correo</a>
+            <a href="https://wa.me" target="_blank" class="btn-wa">Contactar por WhatsApp</a>
         </div>
     </section>
-    <!-- (Sección de servicios e información resumida en el código completo) -->
+
+    <section class="services">
+        <h2 class="section-title">Mis Servicios de Asesoría</h2>
+        <p class="section-subtitle">Acompañamiento integral en todo el proceso de evaluación previsional.</p>
+    </section>
     <section class="faq-section">
-        <h2 class="section-title">Información Útil</h2>
+        <h2 class="section-title">Información Útil para el Afiliado</h2>
+        <p class="section-subtitle">Conceptos clave que debes conocer sobre tu sistema previsional de salud.</p>
+        
         <div class="faq-container">
             <div class="faq-item">
                 <div class="faq-question">¿Cuál es la diferencia entre Excedentes y Excesos?</div>
-                <div class="faq-answer">Los excedentes corresponden a la diferencia cuando tu cotización es mayor al plan; los excesos ocurren cuando pagas más allá del 7% legal.</div>
+                <div class="faq-answer">Los excedentes provienen de cotizaciones mayores al plan y sirven para farmacias o bonos; los excesos se originan por pagos sobre el 7% debido a errores del empleador y se devuelven anualmente.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">¿Por qué es importante revisar mi plan de salud periódicamente?</div>
+                <div class="faq-answer">Permite mejorar coberturas o disminuir costos mensuales ante los cambios constantes del mercado y nuevas ofertas de las Isapres.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">¿Qué costo tiene la Consultoría Previsional?</div>
+                <div class="faq-answer">La revisión inicial básica no tiene costo. Los servicios avanzados de optimización o reestructuración informan sus honorarios oportunamente antes de iniciar.</div>
             </div>
         </div>
     </section>
+
+    <section class="why-us">
+        <h2 class="section-title">Por qué elegir una asesoría profesional</h2>
+        <p class="section-subtitle">Garantizamos los más altos estándares de rigor analítico.</p>
+        
+        <div class="why-grid">
+            <div class="why-card">
+                <h4>Pre-Evaluación Inicial</h4>
+                <p>Estudiamos la viabilidad y factibilidad de tu caso de forma ágil y confidencial.</p>
+            </div>
+            <div class="why-card">
+                <h4>Transparencia Total</h4>
+                <p>Explicaciones claras, sin letra chica. Sabrás exactamente qué cubre tu plan.</p>
+            </div>
+            <div class="why-card">
+                <h4>Especialización Avanzada</h4>
+                <p>Análisis estratégico a medida para perfiles que buscan optimizar su inversión al máximo.</p>
+            </div>
+        </div>
+    </section>
+
     <footer>
-        <p>&copy; 2026 AyudaPlan.cl. Todos los derechos reservados.</p>
+        <p>&copy; 2026 AyudaPlan.cl. Todos los derechos reservados. Asesoría Previsional de Calidad.</p>
+        <p style="font-size: 11px; color: #64748b; margin-top: 12px; font-weight: 500;">Despliegue de Infraestructura Ágil por FullWeb Estático</p>
     </footer>
+
+    <script>
+        // Lógica interactiva para controlar el acordeón de las FAQ corporativas
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const faqItem = button.parentElement;
+                const answer = button.nextElementSibling;
+                
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    if (item !== faqItem) {
+                        item.classList.remove('active');
+                        item.querySelector('.faq-answer').style.display = 'none';
+                    }
+                });
+
+                faqItem.classList.toggle('active');
+                if (faqItem.classList.contains('active')) {
+                    answer.style.display = 'block';
+                } else {
+                    answer.style.display = 'none';
+                }
+            });
+        });
+    </script>
+
 </body>
 </html>
