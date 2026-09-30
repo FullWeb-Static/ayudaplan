@@ -336,15 +336,14 @@
             });
         });
 
-        // 2. Funcionalidad interactiva para el carrusel horizontal delgado
-        const track = document.getElementById('carouselTrack');
+                const track = document.getElementById('carouselTrack');
         const prevBtn = document.getElementById('prevBtn');
         const nextBtn = document.getElementById('nextBtn');
         let index = 0;
 
         function updateCarousel() {
             if(track) {
-                track.style.transform = `translateX(-${index * 100}%)`;
+                track.style.transform = 'translateX(-' + (index * 100) + '%)';
             }
         }
 
