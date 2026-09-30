@@ -263,34 +263,55 @@
         </div>
     </section>
 
-    <!-- ESTILOS INTERNOS FORZADOS PARA ELIMINAR EL EFECTO TEXTO PLANO -->
+    <!-- ESTILOS INTERNOS INYECTADOS DIRECTOS PARA IMAGEN CORPORATIVA -->
     <style>
         .why-us { 
-            padding: 70px 20px; 
-            background-color: #f8fafc !important; 
+            padding: 80px 20px !important; 
+            background-color: #ffffff !important; 
             border-top: 1px solid #e2e8f0 !important;
             display: block !important;
+            text-align: center !important;
+        }
+        .why-title-container {
+            max-width: 600px !important;
+            margin: 0 auto 50px auto !important;
+            text-align: center !important;
+        }
+        .why-us h2 {
+            font-size: 32px !important;
+            font-weight: 800 !important;
+            color: #0284c7 !important;
+            margin: 0 0 12px 0 !important;
+            letter-spacing: -0.02em !important;
+        }
+        /* Línea verde/turquesa decorativa de la imagen */
+        .title-divider {
+            width: 60px !important;
+            height: 4px !important;
+            background-color: #06b6d4 !important;
+            margin: 0 auto !important;
+            border-radius: 2px !important;
         }
         .why-grid { 
-            max-width: 1000px !important; 
+            max-width: 1100px !important; 
             margin: 0 auto !important; 
             display: grid !important; 
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)) !important; 
-            gap: 28px !important; 
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important; 
+            gap: 32px !important; 
         }
         .why-card { 
-            background: #ffffff !important; 
-            padding: 30px !important; 
+            background: #f8fafc !important; 
+            padding: 40px 30px !important; 
             border-radius: 14px !important; 
-            border: 1px solid #e2e8f0 !important; 
-            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02), 0 2px 4px -1px rgba(0,0,0,0.01) !important;
-            text-align: left !important;
+            border: 1px solid #edf2f7 !important; 
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.01) !important;
+            text-align: center !important;
             box-sizing: border-box !important;
         }
         .why-card h4 { 
-            font-size: 19px !important; 
-            font-weight: 700 !important; 
-            margin: 0 0 10px 0 !important; 
+            font-size: 20px !important; 
+            font-weight: 800 !important; 
+            margin: 0 0 16px 0 !important; 
             color: #0f172a !important; 
         }
         .why-card p { 
@@ -298,22 +319,34 @@
             color: #475569 !important; 
             margin: 0 !important;
             line-height: 1.6 !important;
+            font-weight: 400 !important;
         }
         footer { 
             background-color: #0f172a !important; 
             color: #94a3b8 !important; 
-            padding: 45px 20px !important; 
+            padding: 50px 20px !important; 
             text-align: center !important; 
-            font-size: 14px !important; 
+            font-size: 14.5px !important; 
             border-top: 1px solid #1e293b !important; 
             display: block !important;
+            line-height: 1.7 !important;
         }
-        footer p { margin: 6px 0 !important; }
+        footer p { margin: 4px 0 !important; }
+        footer .brand-signature {
+            font-size: 12px !important;
+            color: #64748b !important;
+            margin-top: 12px !important;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
     </style>
 
     <section class="why-us">
-        <h2 class="section-title">Por qué elegir una asesoría profesional</h2>
-        <p class="section-subtitle">Garantizamos los más altos estándares de confidencialidad y rigor analítico.</p>
+        <div class="why-title-container">
+            <h2>Por qué elegir una asesoría profesional</h2>
+            <div class="title-divider"></div>
+        </div>
         
         <div class="why-grid">
             <div class="why-card">
@@ -332,8 +365,8 @@
     </section>
 
     <footer>
-        <p>&copy; 2026 AyudaPlan.cl. Todos los derechos reservados. Asesoría Previsional de Calidad.</p>
-        <p style="font-size: 11px; color: #64748b; margin-top: 12px; font-weight: 500;">Despliegue de Infraestructura Ágil por FullWeb Estático</p>
+        <p>Administrados por FullWeb &copy; 2026 AyudaPlan.cl. Todos los derechos reservados.</p>
+        <p class="brand-signature">Asesoría Previsional de Calidad | Despliegue Estático FullWeb</p>
     </footer>
 
     <!-- LOGICA JAVASCRIPT FUNCIONAL CENTRALIZADA (FAQs + Carrusel) -->
@@ -388,3 +421,4 @@
 </body>
 </html>
 <!-- TERMINO DIVISION 3 -->
+          
