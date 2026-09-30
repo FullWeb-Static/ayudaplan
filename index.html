@@ -263,6 +263,54 @@
         </div>
     </section>
 
+    <!-- ESTILOS INTERNOS FORZADOS PARA ELIMINAR EL EFECTO TEXTO PLANO -->
+    <style>
+        .why-us { 
+            padding: 70px 20px; 
+            background-color: #f8fafc !important; 
+            border-top: 1px solid #e2e8f0 !important;
+            display: block !important;
+        }
+        .why-grid { 
+            max-width: 1000px !important; 
+            margin: 0 auto !important; 
+            display: grid !important; 
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)) !important; 
+            gap: 28px !important; 
+        }
+        .why-card { 
+            background: #ffffff !important; 
+            padding: 30px !important; 
+            border-radius: 14px !important; 
+            border: 1px solid #e2e8f0 !important; 
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02), 0 2px 4px -1px rgba(0,0,0,0.01) !important;
+            text-align: left !important;
+            box-sizing: border-box !important;
+        }
+        .why-card h4 { 
+            font-size: 19px !important; 
+            font-weight: 700 !important; 
+            margin: 0 0 10px 0 !important; 
+            color: #0f172a !important; 
+        }
+        .why-card p { 
+            font-size: 15px !important; 
+            color: #475569 !important; 
+            margin: 0 !important;
+            line-height: 1.6 !important;
+        }
+        footer { 
+            background-color: #0f172a !important; 
+            color: #94a3b8 !important; 
+            padding: 45px 20px !important; 
+            text-align: center !important; 
+            font-size: 14px !important; 
+            border-top: 1px solid #1e293b !important; 
+            display: block !important;
+        }
+        footer p { margin: 6px 0 !important; }
+    </style>
+
     <section class="why-us">
         <h2 class="section-title">Por qué elegir una asesoría profesional</h2>
         <p class="section-subtitle">Garantizamos los más altos estándares de confidencialidad y rigor analítico.</p>
@@ -319,19 +367,22 @@
         let index = 0;
 
         function updateCarousel() {
-            // Desplaza la grilla de forma horizontal según el índice de la diapositiva
-            track.style.transform = `translateX(-${index * 100}%)`;
+            if(track) {
+                track.style.transform = `translateX(-${index * 100}%)`;
+            }
         }
 
-        nextBtn.addEventListener('click', () => {
-            index = (index < 1) ? index + 1 : 0; // Cambiar al número máximo de tarjetas - 1
-            updateCarousel();
-        });
+        if(nextBtn && prevBtn) {
+            nextBtn.addEventListener('click', () => {
+                index = (index < 1) ? index + 1 : 0;
+                updateCarousel();
+            });
 
-        prevBtn.addEventListener('click', () => {
-            index = (index > 0) ? index - 1 : 1;
-            updateCarousel();
-        });
+            prevBtn.addEventListener('click', () => {
+                index = (index > 0) ? index - 1 : 1;
+                updateCarousel();
+            });
+        }
     </script>
 
 </body>
