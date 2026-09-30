@@ -1,297 +1,450 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ayuda Plan - Asesoría Previsional</title>
 
     <!-- ==================================================================== -->
-    <!-- ESTILOS CSS CON COLORES IMPONENTES Y MEJORAS EN LA TIPOGRAFÍA        -->
+    <!-- ESTILOS CSS Y PALETA DE COLORES CORPORATIVOS RENOVADA                -->
     <!-- ==================================================================== -->
     <style>
-        /* Variables globales con tonos corporativos mejorados */
-        :root {
-            --ocean-blue-dark: #0a192f;  /* Azul oscuro profundo */
-            --ocean-blue-bright: #0284c7;/* Azul océano brillante */
-            --navy-heavy: #1e3a8a;       /* Azul marino imponente */
-            --green-gradient: linear-gradient(135deg, #10b981 0%, #059669 100%); /* Verde degradado nítido */
-            
-            --text-dark: #0f172a;        /* Texto oscuro nítido */
-            --text-muted: #334155;       /* Texto secundario de alta legibilidad */
-            --text-light: #ffffff;      
-            
-            --bg-pure-white: #ffffff;    
-            --bg-light-clean: #f1f5f9;  
-            --border-color: #cbd5e1;    
-        }
+      /* Variables globales con tonos azules corporativos y fondos limpios */
+      :root {
+          --ocean-blue: #0f2b48;       /* Azul Océano Profundo para secciones principales */
+          --navy-blue: #1e40af;        /* Azul Marino Corporativo para acentos y botones */
+          --brand-blue: #0284c7;       /* Azul Brillante para enlaces y logos */
+          --brand-hover: #0369a1;      /* Azul de interacción (hover) */
+          --accent-green: #25d366;     /* Verde WhatsApp brillante y limpio */
+          --accent-green-hover: #128c7e;/* Verde oscuro WhatsApp interacción */
 
-        /* Reset general */
-        body {
-            font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
-            background-color: var(--bg-pure-white);
-            color: var(--text-dark);
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
-        }
+          --text-dark: #0f172a;        /* Texto principal en tonos oscuros limpios */
+          --text-muted: #475569;       /* Texto secundario */
+          --text-light: #ffffff;       /* Texto blanco */
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
+          --bg-pure-white: #ffffff;    /* Fondo Blanco Puro */
+          --bg-light-clean: #f1f5f9;   /* Fondo Gris Claro Neutro Limpio (delimita secciones) */
+          --border-color: #cbd5e1;     /* Bordes bien definidos */
+      }
 
-        /* ==================================================================== */
-        <!-- 1. CABECERA (HEADER) Y CONTACTOS SUPERIORES                          -->
-        /* ==================================================================== */
-        .main-header {
-            background-color: var(--bg-pure-white);
-            border-bottom: 3px solid var(--ocean-blue-dark);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
-        }
+      /* Reset y estilos generales */
+      body {
+          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+          background-color: var(--bg-pure-white);
+          color: var(--text-dark);
+          margin: 0;
+          padding: 0;
+          line-height: 1.6;
+      }
 
-        .main-header .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 18px 20px;
-        }
+      .container {
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 0 20px;
+      }
 
-        /* Marca Ayuda Plan: Más imponente y atrayente */
-        .logo h1 {
-            margin: 0;
-            font-size: 2.2rem;
-            color: var(--ocean-blue-dark);
-            font-weight: 900;
-            letter-spacing: -0.5px;
-            text-transform: uppercase;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
-        }
+      /* 1. CABECERA (HEADER) - Fondo Blanco Puro con Borde Azul */
+      .main-header {
+          background-color: var(--bg-pure-white);
+          border-bottom: 3px solid var(--navy-blue);
+          position: sticky;
+          top: 0;
+          z-index: 1000;
+      }
 
-        /* Área de información y enlaces del header */
-        .header-info {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            font-size: 0.95rem;
-            font-weight: 700;
-        }
+      .main-header .container {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 15px 20px;
+      }
 
-        /* Sitio web nítido */
-        .web-link {
-            color: var(--ocean-blue-dark);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
+      .logo h1 {
+          margin: 0;
+          font-size: 1.8rem;
+          color: var(--ocean-blue);
+          font-weight: 800;
+      }
 
-        .web-link:hover {
-            color: var(--ocean-blue-bright);
-        }
+      .nav-menu ul {
+          list-style: none;
+          margin: 0;
+          padding: 0;
+          display: flex;
+          gap: 25px;
+      }
 
-        /* Correo de contacto con DEGRADADO VERDE */
-        .contact-email {
-            background: var(--green-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-weight: 800;
-            text-decoration: none;
-            padding: 4px 8px;
-            border: 1px solid #10b981;
-            border-radius: 4px;
-        }
+      .nav-menu a {
+          text-decoration: none;
+          color: var(--ocean-blue);
+          font-weight: 700;
+          transition: color 0.3s;
+      }
 
-        .nav-menu ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            gap: 20px;
-        }
+      .nav-menu a:hover {
+          color: var(--navy-blue);
+      }
 
-        .nav-menu a {
-            text-decoration: none;
-            color: var(--ocean-blue-dark);
-            font-weight: 700;
-            transition: color 0.3s;
-        }
+      /* 2. SECCIÓN HERO - Fondo Azul Océano */
+      .hero-section {
+          background: linear-gradient(135deg, var(--ocean-blue) 0%, #1e3a8a 100%);
+          color: var(--text-light);
+          padding: 90px 0;
+          text-align: center;
+      }
 
-        .nav-menu a:hover {
-            color: var(--ocean-blue-bright);
-        }
+      .hero-section .main-title {
+          font-size: 2.8rem;
+          margin-bottom: 20px;
+          font-weight: 800;
+      }
 
-        /* ==================================================================== */
-        <!-- 2. SECCIÓN HERO (TÍTULO PRINCIPAL MEJORADO)                         -->
-        /* ==================================================================== */
-        .hero-section {
-            background: linear-gradient(135deg, var(--ocean-blue-dark) 0%, #1e293b 100%);
-            color: var(--text-light);
-            padding: 110px 0;
-            text-align: center;
-            border-bottom: 4px solid var(--ocean-blue-bright);
-        }
+      .hero-section .subtitle {
+          font-size: 1.25rem;
+          max-width: 750px;
+          margin: 0 auto 35px auto;
+          color: #e2e8f0;
+      }
 
-        /* Título ampliado, con mayor espacio entre letras y color imponente */
-        .hero-section .main-title {
-            font-size: 3.2rem;
-            margin-bottom: 25px;
-            font-weight: 900;
-            letter-spacing: 2px; /* Mayor separación de letras */
-            text-transform: uppercase;
-            background: linear-gradient(180deg, #ffffff 0%, #e2e8f0 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-        }
+      .btn-primary {
+          display: inline-block;
+          background-color: var(--navy-blue);
+          color: var(--text-light);
+          padding: 15px 35px;
+          border-radius: 6px;
+          text-decoration: none;
+          font-weight: bold;
+          font-size: 1.1rem;
+          border: 2px solid #3b82f6;
+          transition: all 0.3s;
+      }
 
-        .hero-section .subtitle {
-            font-size: 1.3rem;
-            max-width: 800px;
-            margin: 0 auto 40px auto;
-            color: #94a3b8;
-            letter-spacing: 0.5px;
-            font-weight: 500;
-        }
+      .btn-primary:hover {
+          background-color: #2563eb;
+          transform: translateY(-2px);
+      }
 
-        .btn-primary {
-            display: inline-block;
-            background-color: var(--ocean-blue-bright);
-            color: var(--text-light);
-            padding: 16px 40px;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: 800;
-            font-size: 1.1rem;
-            letter-spacing: 1px;
-            box-shadow: 0 4px 15px rgba(2, 132, 199, 0.4);
-            transition: all 0.3s;
-        }
+      /* 3. SECCIÓN CARRUSEL - Fondo Blanco Puro */
+      .carousel-section {
+          padding: 70px 0;
+          background-color: var(--bg-pure-white);
+      }
 
-        .btn-primary:hover {
-            background-color: #0369a1;
-            transform: translateY(-3px);
-        }
+      .carousel-section h2 {
+          text-align: center;
+          color: var(--ocean-blue);
+          font-size: 2rem;
+          margin-bottom: 30px;
+      }
 
-        /* Estilos de las demás secciones */
-        .carousel-section { padding: 70px 0; background-color: var(--bg-pure-white); }
-        .carousel-section h2 { text-align: center; color: var(--ocean-blue-dark); font-size: 2rem; margin-bottom: 30px; }
-        .carousel-container { display: flex; overflow-x: auto; gap: 20px; padding-bottom: 20px; }
-        .carousel-card { flex: 0 0 320px; border: 2px solid var(--border-color); border-radius: 10px; padding: 25px; background-color: var(--bg-light-clean); }
-        
-        .services-section { padding: 70px 0; background-color: var(--bg-light-clean); border-top: 1px solid var(--border-color); }
-        .services-section h2 { text-align: center; color: var(--ocean-blue-dark); font-size: 2rem; }
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 40px; }
-        .service-card { background-color: var(--bg-pure-white); padding: 35px; border-radius: 10px; border-left: 5px solid var(--ocean-blue-bright); box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+      .carousel-container {
+          display: flex;
+          overflow-x: auto;
+          gap: 20px;
+          padding: 10px 0 25px 0;
+          scroll-snap-type: x mandatory;
+      }
 
-        .contact-section { padding: 70px 0; background-color: var(--ocean-blue-dark); color: var(--text-light); text-align: center; }
-        .btn-whatsapp { display: inline-block; background: var(--green-gradient); color: #fff; padding: 16px 36px; border-radius: 50px; text-decoration: none; font-weight: 800; font-size: 1.2rem; box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4); }
+      .carousel-card {
+          flex: 0 0 320px;
+          scroll-snap-align: start;
+          border: 2px solid var(--border-color);
+          border-radius: 10px;
+          padding: 25px;
+          background-color: var(--bg-light-clean);
+          box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+      }
 
-        .main-footer { background-color: #020617; color: #64748b; padding: 30px 0; text-align: center; }
+      .carousel-card h3 {
+          color: var(--navy-blue);
+          margin-top: 0;
+      }
+
+      /* 4. SECCIÓN SERVICIOS - Fondo Gris Claro Limpio (Delimitado) */
+      .services-section {
+          padding: 70px 0;
+          background-color: var(--bg-light-clean);
+          border-top: 1px solid var(--border-color);
+          border-bottom: 1px solid var(--border-color);
+      }
+
+      .services-section h2 {
+          text-align: center;
+          color: var(--ocean-blue);
+          font-size: 2rem;
+      }
+
+      .services-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+          gap: 30px;
+          margin-top: 40px;
+      }
+
+      .service-card {
+          background-color: var(--bg-pure-white);
+          padding: 35px;
+          border-radius: 10px;
+          border-left: 5px solid var(--navy-blue);
+          box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+      }
+
+      .service-card h3 {
+          color: var(--ocean-blue);
+          margin-top: 0;
+      }
+
+      /* 5. SECCIÓN FAQ - Fondo Blanco Puro */
+      .faq-section {
+          padding: 70px 0;
+          background-color: var(--bg-pure-white);
+      }
+
+      .faq-section h2 {
+          text-align: center;
+          color: var(--ocean-blue);
+          font-size: 2rem;
+          margin-bottom: 40px;
+      }
+
+      .faq-item {
+          border: 1px solid var(--border-color);
+          border-radius: 8px;
+          padding: 20px;
+          margin-bottom: 15px;
+          background-color: var(--bg-light-clean);
+      }
+
+      .faq-question {
+          font-weight: bold;
+          font-size: 1.15rem;
+          color: var(--ocean-blue);
+      }
+
+      .faq-answer {
+          margin-top: 10px;
+          color: var(--text-muted);
+      }
+
+      /* 6. SECCIÓN CONTACTO Y WHATSAPP - Fondo Azul Océano */
+      .contact-section {
+          padding: 70px 0;
+          background-color: var(--ocean-blue);
+          color: var(--text-light);
+          text-align: center;
+      }
+
+      .contact-section h2 {
+          font-size: 2.2rem;
+          margin-bottom: 15px;
+      }
+
+      .whatsapp-container {
+          margin-top: 30px;
+      }
+
+      .btn-whatsapp {
+          display: inline-block;
+          background-color: var(--accent-green);
+          color: var(--text-light);
+          padding: 16px 36px;
+          border-radius: 50px;
+          text-decoration: none;
+          font-weight: bold;
+          font-size: 1.2rem;
+          box-shadow: 0 4px 14px rgba(37, 211, 102, 0.4);
+          transition: all 0.3s;
+      }
+
+      .btn-whatsapp:hover {
+          background-color: var(--accent-green-hover);
+          transform: scale(1.05);
+      }
+
+      /* 7. PIE DE PÁGINA (FOOTER) */
+      .main-footer {
+          background-color: #081a2d;
+          color: #94a3b8;
+          padding: 30px 0;
+          text-align: center;
+          border-top: 1px solid #1e293b;
+      }
+
+      .main-footer p {
+          margin: 0;
+      }
     </style>
-</head>
-<body>
-
+  </head>
+  <body>
     <!-- ==================================================================== -->
-    <!-- 1. ENCABEZADO Y MARCA                                                -->
+    <!-- 1. ENCABEZADO Y MENÚ DE NAVEGACIÓN (HEADER)                           -->
     <!-- ==================================================================== -->
     <header class="main-header">
-        <div class="container">
-            <!-- LOGO IMPONENTE -->
-            <div class="logo">
-                <h1>Ayuda Plan</h1>
-            </div>
-
-            <!-- ENLACES NÍTIDOS Y CORREO CON DEGRADADO VERDE -->
-            <div class="header-info">
-                <a href="https://www.ayudaplan.cl" class="web-link">www.ayudaplan.cl</a>
-                <a href="mailto:contacto@ayudaplan.cl" class="contact-email">contacto@ayudaplan.cl</a>
-            </div>
-
-            <!-- MENÚ -->
-            <nav class="nav-menu">
-                <ul>
-                    <li><a href="#inicio">Inicio</a></li>
-                    <li><a href="#servicios">Servicios</a></li>
-                    <li><a href="#contacto">Contacto</a></li>
-                </ul>
-            </nav>
+      <div class="container">
+        <div class="logo">
+          <h1>Ayuda Plan</h1>
         </div>
+        <nav class="nav-menu">
+          <ul>
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#carrusel">Destacados</a></li>
+            <li><a href="#servicios">Servicios</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+          </ul>
+        </nav>
+      </div>
     </header>
 
     <main>
+      <!-- ================================================================ -->
+      <!-- 2. SECCIÓN PRINCIPAL / HERO                                      -->
+      <!-- ================================================================ -->
+      <section id="inicio" class="hero-section">
+        <div class="container">
+          <h1 class="main-title">Tu Salud Merece El Mejor Plan</h1>
+          <p class="subtitle">
+            Asesoría previsional experta y personalizada para orientarte a
+            elegir la mejor cobertura de salud en Isapres y Fonasa.
+          </p>
+          <a href="#contacto" class="btn-primary"
+            >Solicitar Asesoría Gratuita</a
+          >
+        </div>
+      </section>
 
-        <!-- ================================================================ -->
-        <!-- 2. SECCIÓN HERO (TÍTULO PRINCIPAL MEJORADO Y ESPACIADO)          -->
-        <!-- ================================================================ -->
-        <section id="inicio" class="hero-section">
-            <div class="container">
-                <!-- Título imponente con letras separadas -->
-                <h1 class="main-title">Tu Salud Merece El Mejor Plan</h1>
-                <p class="subtitle">Asesoría previsional experta y personalizada para orientarte a elegir la mejor cobertura de salud en Isapres y Fonasa.</p>
-                <a href="#contacto" class="btn-primary">Solicitar Asesoría Gratuita</a>
+      <!-- ================================================================ -->
+      <!-- 3. SECCIÓN DE CARRUSEL HORIZONTAL                                -->
+      <!-- ================================================================ -->
+      <section id="carrusel" class="carousel-section">
+        <div class="container">
+          <h2>Opciones Destacadas de Cobertura</h2>
+          <div class="carousel-container">
+            <div class="carousel-card">
+              <h3>Plan Familiar</h3>
+              <p>
+                Cobertura integral diseñada para proteger a todos los
+                integrantes de tu hogar con convenios hospitalarios.
+              </p>
             </div>
-        </section>
 
-        <!-- ================================================================ -->
-        <!-- 3. CARRUSEL DESTACADO                                           -->
-        <!-- ================================================================ -->
-        <section id="carrusel" class="carousel-section">
-            <div class="container">
-                <h2>Opciones Destacadas de Cobertura</h2>
-                <div class="carousel-container">
-                    <div class="carousel-card">
-                        <h3 style="color: var(--ocean-blue-dark);">Plan Familiar</h3>
-                        <p>Cobertura integral diseñada para proteger a todos los integrantes de tu hogar.</p>
-                    </div>
-                    <div class="carousel-card">
-                        <h3 style="color: var(--ocean-blue-dark);">Plan Profesional</h3>
-                        <p>Planes optimizados para trabajadores independientes o cotizaciones altas.</p>
-                    </div>
-                </div>
+            <div class="carousel-card">
+              <h3>Plan Profesional</h3>
+              <p>
+                Planes optimizados para trabajadores independientes o con
+                cotizaciones superiores al 7% legal.
+              </p>
             </div>
-        </section>
 
-        <!-- ================================================================ -->
-        <!-- 4. SERVICIOS                                                     -->
-        <!-- ================================================================ -->
-        <section id="servicios" class="services-section">
-            <div class="container">
-                <h2>Nuestros Servicios de Asesoría</h2>
-                <div class="services-grid">
-                    <article class="service-card">
-                        <h3 style="color: var(--ocean-blue-dark);">Evaluación de Plan Actual</h3>
-                        <p>Revisamos tu plan de salud vigente para verificar si estás pagando de más.</p>
-                    </article>
-                    <article class="service-card">
-                        <h3 style="color: var(--ocean-blue-dark);">Cambio y Adecuación</h3>
-                        <p>Te guiamos paso a paso en el proceso de cambio de Isapre o Fonasa.</p>
-                    </article>
-                </div>
+            <div class="carousel-card">
+              <h3>Optimización Fonasa</h3>
+              <p>
+                Asesoría especializada para complementar tu tramo de Fonasa con
+                seguros de salud colectivos e individuales.
+              </p>
             </div>
-        </section>
+          </div>
+        </div>
+      </section>
 
-        <!-- ================================================================ -->
-        <!-- 5. CONTACTO Y WHATSAPP                                           -->
-        <!-- ================================================================ -->
-        <section id="contacto" class="contact-section">
-            <div class="container">
-                <h2>¿Necesitas orientarte sobre tu plan?</h2>
-                <p style="color: #94a3b8; margin-bottom: 30px;">Habla directamente por WhatsApp con un ejecutivo especializado.</p>
-                <a href="https://wa.me/56931182494" target="_blank" class="btn-whatsapp">
-                    Contactar por WhatsApp (+56 9 3118 2494)
-                </a>
+      <!-- ================================================================ -->
+      <!-- 4. SECCIÓN DE SERVICIOS                                          -->
+      <!-- ================================================================ -->
+      <section id="servicios" class="services-section">
+        <div class="container">
+          <h2>Nuestros Servicios de Asesoría</h2>
+          <div class="services-grid">
+            <article class="service-card">
+              <h3>Evaluación de Plan Actual</h3>
+              <p>
+                Revisamos tu plan de salud vigente para verificar si estás
+                pagando de más o si existen mejores alternativas según tus
+                necesidades actuales.
+              </p>
+            </article>
+
+            <article class="service-card">
+              <h3>Cambio y Adecuación</h3>
+              <p>
+                Te guiamos paso a paso en el proceso de cambio de Isapre o
+                migración entre sistemas de salud con total transparencia.
+              </p>
+            </article>
+
+            <article class="service-card">
+              <h3>Aprovechamiento de Excedentes</h3>
+              <p>
+                Te enseñamos cómo utilizar y gestionar adecuadamente tus saldos
+                de excedentes en prestaciones de salud y farmacias.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================================================================ -->
+      <!-- 5. SECCIÓN DE PREGUNTAS FRECUENTES (FAQ)                         -->
+      <!-- ================================================================ -->
+      <section id="faq" class="faq-section">
+        <div class="container">
+          <h2>Preguntas Frecuentes</h2>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              ¿La asesoría tiene algún costo para mí?
             </div>
-        </section>
+            <div class="faq-answer">
+              No, nuestra orientación y evaluación de planes de salud es 100%
+              gratuita para el cotizante.
+            </div>
+          </div>
 
+          <div class="faq-item">
+            <div class="faq-question">
+              ¿Puedo cambiarme de plan si tengo preexistencias?
+            </div>
+            <div class="faq-answer">
+              Evaluamos detalladamente tu historial médico previo para
+              recomendarte las opciones legales disponibles y vigentes.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================================================================ -->
+      <!-- 6. SECCIÓN DE CONTACTO Y WHATSAPP                                -->
+      <!-- ================================================================ -->
+      <section id="contacto" class="contact-section">
+        <div class="container">
+          <h2>¿Necesitas orientarte sobre tu plan?</h2>
+          <p>
+            Haz clic en el siguiente botón para hablar directamente por WhatsApp
+            con un ejecutivo especializado.
+          </p>
+
+          <div class="whatsapp-container">
+            <a
+              href="https://wa.me/56931182494"
+              target="_blank"
+              class="btn-whatsapp"
+            >
+              Contactar por WhatsApp (+56 9 3118 2494)
+            </a>
+          </div>
+        </div>
+      </section>
     </main>
 
+    <!-- ==================================================================== -->
+    <!-- 7. PIE DE PÁGINA (FOOTER)                                            -->
+    <!-- ==================================================================== -->
     <footer class="main-footer">
-        <div class="container">
-            <p>© 2026 Ayuda Plan - Asesoría Previsional. Todos los derechos reservados.</p>
-        </div>
+      <div class="container">
+        <p>
+          © 2026 Ayuda Plan - Asesoría Previsional. Todos los derechos
+          reservados.
+        </p>
+      </div>
     </footer>
-
-</body>
+  </body>
 </html>
