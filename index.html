@@ -5,47 +5,248 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ayuda Plan - Asesoría en Isapres | Optimiza tu Plan de Salud</title>
     <style>
-        /* Estilos CSS internos y garantizados para GitHub Pages */
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background-color: #f8fafc; color: #1e293b; margin: 0; padding: 0; line-height: 1.6; }
-        header { background-color: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 50; }
-        .nav-container { max-width: 1000px; margin: 0 auto; padding: 16px; display: flex; justify-content: space-between; items-center; }
-        .logo { font-size: 22px; font-weight: 800; color: #0284c7; text-decoration: none; tracking-tight: -0.025em; }
+        /* Estilos CSS premium garantizados sin librerías externas */
+        :root {
+            --primary: #0284c7;
+            --primary-dark: #0369a1;
+            --secondary: #22c55e;
+            --secondary-dark: #16a34a;
+            --text-main: #1e293b;
+            --text-muted: #475569;
+            --bg-light: #f8fafc;
+        }
+
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
+            background-color: var(--bg-light); 
+            color: var(--text-main); 
+            margin: 0; 
+            padding: 0; 
+            line-height: 1.6; 
+        }
+
+        /* Barra de contacto superior */
+        .top-bar {
+            background-color: #0f172a;
+            color: #f8fafc;
+            font-size: 13px;
+            padding: 8px 20px;
+            text-align: center;
+            border-bottom: 1px solid #1e293b;
+        }
+        .top-bar a {
+            color: #38bdf8;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .top-bar a:hover { text-decoration: underline; }
+
+        /* Navbar principal */
+        header { 
+            background-color: #ffffff; 
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05); 
+            position: sticky; 
+            top: 0; 
+            z-index: 50; 
+        }
+        .nav-container { 
+            max-width: 1000px; 
+            margin: 0 auto; 
+            padding: 16px 20px; 
+            display: flex; 
+            justify-content: space-between; 
+            items-center; 
+        }
+        .logo { 
+            font-size: 24px; 
+            font-weight: 800; 
+            color: var(--primary); 
+            text-decoration: none; 
+            letter-spacing: -0.03em; 
+        }
+
+        /* Bloque de Presentación (Hero) */
+        .hero { 
+            max-width: 800px; 
+            margin: 0 auto; 
+            padding: 60px 20px 40px 20px; 
+            text-align: center; 
+        }
+        h1 { 
+            font-size: 46px; 
+            font-weight: 800; 
+            color: #0f172a; 
+            line-height: 1.15; 
+            margin-bottom: 20px; 
+            letter-spacing: -0.02.5em; 
+        }
+        h1 span { color: var(--primary); }
+        .hero-p { 
+            font-size: 19px; 
+            color: var(--text-muted); 
+            max-width: 650px; 
+            margin: 0 auto 35px auto; 
+        }
         
-        .hero { max-width: 800px; margin: 0 auto; padding: 70px 20px; text-align: center; }
-        h1 { font-size: 44px; font-weight: 800; color: #0f172a; line-height: 1.2; margin-bottom: 20px; letter-spacing: -0.02em; }
-        h1 span { color: #0284c7; }
-        .hero-p { font-size: 19px; color: #475569; max-width: 650px; margin: 0 auto 35px auto; }
+        .cta-heading {
+            font-size: 18px;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 15px;
+        }
+        .btn-container { 
+            display: flex; 
+            gap: 16px; 
+            justify-content: center; 
+            flex-wrap: wrap; 
+            margin-bottom: 20px;
+        }
+        .btn-wa { 
+            background-color: var(--secondary); 
+            color: white; 
+            font-weight: 600; 
+            padding: 14px 28px; 
+            border-radius: 10px; 
+            text-decoration: none; 
+            font-size: 16px; 
+            box-shadow: 0 4px 14px rgba(34,197,94,0.3); 
+            transition: all 0.2s ease;
+        }
+        .btn-wa:hover { background-color: var(--secondary-dark); transform: translateY(-1px); }
+        .btn-mail { 
+            background-color: #0f172a; 
+            color: white; 
+            font-weight: 600; 
+            padding: 14px 28px; 
+            border-radius: 10px; 
+            text-decoration: none; 
+            font-size: 16px; 
+            box-shadow: 0 4px 14px rgba(15,23,42,0.15); 
+            transition: all 0.2s ease;
+        }
+        .btn-mail:hover { background-color: #1e293b; transform: translateY(-1px); }
         
-        .btn-container { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
-        .btn-wa { background-color: #22c55e; color: white; font-weight: 600; padding: 14px 28px; border-radius: 10px; text-decoration: none; font-size: 16px; display: inline-flex; items-center; gap: 8px; box-shadow: 0 4px 12px rgba(34,197,94,0.2); }
-        .btn-mail { background-color: #0f172a; color: white; font-weight: 600; padding: 14px 28px; border-radius: 10px; text-decoration: none; font-size: 16px; box-shadow: 0 4px 12px rgba(15,23,42,0.15); }
+        /* Contenedores de secciones */
+        .section-title { 
+            font-size: 28px; 
+            font-weight: 800; 
+            text-align: center; 
+            color: #0f172a; 
+            margin-bottom: 40px; 
+            letter-spacing: -0.02em;
+        }
+        .services { padding: 60px 20px; background: white; border-top: 1px solid #e2e8f0; }
+        .grid { 
+            max-width: 1000px; 
+            margin: 0 auto; 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+            gap: 28px; 
+        }
+        .card { 
+            padding: 30px 24px; 
+            background-color: var(--bg-light); 
+            border-radius: 14px; 
+            border: 1px solid #edf2f7; 
+            transition: transform 0.2s;
+        }
+        .card:hover { transform: translateY(-2px); }
+        .card h3 { font-size: 20px; font-weight: 700; margin: 15px 0 10px 0; color: #0f172a; }
+        .card p { font-size: 15px; color: var(--text-muted); margin: 0; }
+        .icon { 
+            font-size: 26px; 
+            background: #e0f2fe; 
+            width: 52px; 
+            height: 52px; 
+            display: flex; 
+            items-center; 
+            justify-content: center; 
+            border-radius: 12px; 
+        }
         
-        .section-title { font-size: 28px; font-weight: 800; text-align: center; color: #0f172a; margin-bottom: 40px; }
-        .services { padding: 60px 20px; border-top: 1px solid #e2e8f0; }
-        .grid { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 28px; }
-        .card { padding: 30px 24px; background-color: #ffffff; border-radius: 14px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); border: 1px solid #f1f5f9; }
-        .card h3 { font-size: 19px; font-weight: 700; margin: 15px 0 10px 0; color: #0f172a; }
-        .card p { font-size: 15px; color: #475569; margin: 0; }
-        .icon { font-size: 28px; background: #e0f2fe; width: 50px; height: 50px; display: flex; items-center; justify-content: center; border-radius: 10px; }
+        /* Caja de descargo de responsabilidad */
+        .info-box { 
+            max-width: 950px; 
+            margin: 50px auto 0 auto; 
+            padding: 24px; 
+            background-color: #f0f9ff; 
+            border-left: 4px solid var(--primary); 
+            border-radius: 0 12px 12px 0; 
+            font-size: 14.5px; 
+            color: #0369a1; 
+        }
         
-        .info-box { max-width: 950px; margin: 40px auto 0 auto; padding: 24px; background-color: #f0f9ff; border-left: 4px solid #0284c7; border-radius: 0 12px 12px 0; font-size: 14px; color: #0369a1; }
-        
+        /* Acordeón de FAQs */
         .faq-section { padding: 60px 20px; background-color: #ffffff; border-top: 1px solid #e2e8f0; }
         .faq-container { max-width: 750px; margin: 0 auto; }
-        .faq-item { border-bottom: 1px solid #edf2f7; padding: 20px 0; }
-        .faq-question { font-weight: 700; font-size: 17px; color: #0f172a; margin-bottom: 8px; }
-        .faq-answer { color: #475569; font-size: 15px; }
+        .faq-item { 
+            border: 1px solid #e2e8f0; 
+            border-radius: 10px; 
+            margin-bottom: 12px; 
+            background-color: var(--bg-light);
+            overflow: hidden;
+        }
+        .faq-question { 
+            font-weight: 700; 
+            font-size: 16.5px; 
+            color: #0f172a; 
+            padding: 18px 20px; 
+            cursor: pointer; 
+            display: flex; 
+            justify-content: space-between; 
+            items-center; 
+            user-select: none;
+        }
+        .faq-question::after {
+            content: '+';
+            font-size: 20px;
+            color: var(--primary);
+            font-weight: bold;
+            transition: transform 0.2s ease;
+        }
+        .faq-item.active .faq-question::after {
+            content: '−';
+        }
+        .faq-answer { 
+            color: var(--text-muted); 
+            font-size: 15px; 
+            padding: 0 20px 18px 20px; 
+            display: none; 
+            border-top: 1px solid #e2e8f0;
+            background-color: #ffffff;
+            padding-top: 15px;
+        }
 
-        .why-us { padding: 60px 20px; background-color: #f8fafc; }
-        .why-grid { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 24px; text-align: center; }
-        .why-card h4 { font-size: 18px; font-weight: 700; margin-bottom: 8px; color: #0f172a; }
-        .why-card p { font-size: 14px; color: #475569; }
+        /* Sección Por Qué Elegirnos */
+        .why-us { padding: 60px 20px; background-color: var(--bg-light); border-top: 1px solid #e2e8f0;}
+        .why-grid { 
+            max-width: 1000px; 
+            margin: 0 auto; 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); 
+            gap: 28px; 
+        }
+        .why-card { background: white; padding: 25px; border-radius: 12px; border: 1px solid #e2e8f0; }
+        .why-card h4 { font-size: 18px; font-weight: 700; margin: 0 0 10px 0; color: #0f172a; }
+        .why-card p { font-size: 14.5px; color: var(--text-muted); margin: 0; }
 
-        footer { background-color: #0f172a; color: #94a3b8; padding: 40px 20px; text-align: center; font-size: 14px; border-top: 1px solid #1e293b; }
+        footer { 
+            background-color: #0f172a; 
+            color: #94a3b8; 
+            padding: 40px 20px; 
+            text-align: center; 
+            font-size: 14px; 
+            border-top: 1px solid #1e293b; 
+        }
         footer p { margin: 6px 0; }
     </style>
 </head>
 <body>
+
+    <!-- Barra Superior Informativa -->
+    <div class="top-bar">
+        <span>www.ayudaplan.cl &nbsp;|&nbsp; Correo: <a href="mailto:contacto@ayudaplan.cl">contacto@ayudaplan.cl</a></span>
+    </div>
 
     <header>
         <div class="nav-container">
@@ -56,8 +257,12 @@
     <section class="hero">
         <h1>Tu salud merece el<br><span>mejor plan</span></h1>
         <p class="hero-p">Te asesoro de forma transparente y personalizada para encontrar la cobertura de Isapre que realmente se adapta a tus necesidades, optimizando tu presupuesto de salud.</p>
+        
+        <h3 class="cta-heading">¿Listo para optimizar tu previsión?</h3>
+        <p style="color: var(--text-muted); font-size: 15px; margin-top:-5px; margin-bottom:20px;">Elige el canal que te resulte más cómodo para agendar tu pre-evaluación inmediata con la asesora:</p>
+        
         <div class="btn-container">
-            <!-- REEMPLAZAR EL NÚMERO 569XXXXXXXX CON TU TELÉFONO REAL -->
+            <!-- REEMPLAZAR EL TELÉFONO 569XXXXXXXX CON EL REAL DEL CLIENTE -->
             <a href="https://wa.me" target="_blank" class="btn-wa">Contactar por WhatsApp</a>
             <a href="mailto:contacto@ayudaplan.cl" class="btn-mail">Enviar un Correo</a>
         </div>
@@ -78,56 +283,3 @@
             </div>
             <div class="card">
                 <div class="icon">💼</div>
-                <h3>Orientación y Contratación</h3>
-                <p>Te acompaño en todo el proceso administrativo de incorporación o cambio de Isapre, de manera rápida, transparente y sin salir de tu casa.</p>
-            </div>
-        </div>
-
-        <div class="info-box">
-            <strong>🛡️ Información de Alcance:</strong> El proceso de <em>Pre-Evaluación y diagnóstico técnico inicial no posee costo</em> para el afiliado. Tras el análisis de su caso por parte de la consultora, si el requerimiento exige el diseño de una estrategia corporativa de optimización avanzada, reestructuración previsional integral o gestión de nicho de alta complejidad, las condiciones de honorarios profesionales serán evaluadas y notificadas de manera formal y previa vía correo electrónico.
-        </div>
-    </section>
-
-    <section class="faq-section">
-        <h2 class="section-title">Información Útil para el Afiliado</h2>
-        <div class="faq-container">
-            <div class="faq-item">
-                <div class="faq-question">¿Cuál es la diferencia entre Excedentes y Excesos?</div>
-                <div class="faq-answer">Los excedentes se generan cuando tu cotización legal (7%) es mayor al costo del plan contratado y sirven para farmacias o bonos. Los excesos ocurren cuando pagas más allá del 7% por errores del empleador y se devuelven en dinero anualmente.</div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question">¿Por qué es importante revisar mi plan de salud periódicamente?</div>
-                <div class="faq-answer">El mercado previsional cambia y las Isapres lanzan nuevos planes constantemente. Una revisión oportuna te permite mejorar coberturas en clínicas específicas o disminuir el costo mensual sin desproteger tu salud.</div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question">¿Qué costo tiene la Consultoría Previsional?</div>
-                <div class="faq-answer">La revisión técnica inicial básica no tiene valor asociado. Una vez ingresado tu requerimiento, la asesora evaluará tu perfil; en caso de requerir un estudio de optimización avanzada, reestructuración previsional o soluciones de nicho de alta complejidad, se te informará oportunamente el valor de los honorarios especializados vía correo electrónico antes de iniciar el diseño.</div>
-            </div>
-        </div>
-    </section>
-
-    <section class="why-us">
-        <h2 class="section-title">Por qué elegir una asesoría profesional</h2>
-        <div class="why-grid">
-            <div class="why-card">
-                <h4>Pre-Evaluación Inicial</h4>
-                <p>Estudiamos la viabilidad y factibilidad de tu caso de forma ágil y confidencial.</p>
-            </div>
-            <div class="why-card">
-                <h4>Transparencia Total</h4>
-                <p>Explicaciones claras, sin letra chica. Sabrás exactamente qué cubre tu plan.</p>
-            </div>
-            <div class="why-card">
-                <h4>Especialización Avanzada</h4>
-                <p>Análisis estratégico a medida para perfiles que buscan optimizar su inversión al máximo.</p>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <p>&copy; 2026 AyudaPlan.cl. Todos los derechos reservados. Asesoría Previsional de Quality.</p>
-        <p style="font-size: 11px; color: #475569; margin-top: 10px;">Desplegado de forma eficiente por FullWeb Estático</p>
-    </footer>
-
-</body>
-</html>
