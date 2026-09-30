@@ -1,15 +1,10 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ayuda Plan - Asesoría Previsional</title>
-
-    <!-- ==================================================================== -->
-    <!-- ESTILOS CSS Y PALETA DE COLORES CORPORATIVOS RENOVADA                -->
-    <!-- ==================================================================== -->
     <style>
-      /* Variables globales con tonos azules corporativos y fondos limpios */
       :root {
           --ocean-blue: #0f2b48;       /* Azul Océano Profundo para secciones principales */
           --navy-blue: #1e40af;        /* Azul Marino Corporativo para acentos y botones */
@@ -17,17 +12,14 @@
           --brand-hover: #0369a1;      /* Azul de interacción (hover) */
           --accent-green: #25d366;     /* Verde WhatsApp brillante y limpio */
           --accent-green-hover: #128c7e;/* Verde oscuro WhatsApp interacción */
-
           --text-dark: #0f172a;        /* Texto principal en tonos oscuros limpios */
           --text-muted: #475569;       /* Texto secundario */
           --text-light: #ffffff;       /* Texto blanco */
-
           --bg-pure-white: #ffffff;    /* Fondo Blanco Puro */
           --bg-light-clean: #f1f5f9;   /* Fondo Gris Claro Neutro Limpio (delimita secciones) */
           --border-color: #cbd5e1;     /* Bordes bien definidos */
       }
 
-      /* Reset y estilos generales */
       body {
           font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
           background-color: var(--bg-pure-white);
@@ -43,7 +35,7 @@
           padding: 0 20px;
       }
 
-      /* 1. CABECERA (HEADER) - Fondo Blanco Puro con Borde Azul */
+      /* 1. CABECERA (HEADER) MODIFICADA CON SECTOR DE ENGANCHE DERECHO */
       .main-header {
           background-color: var(--bg-pure-white);
           border-bottom: 3px solid var(--navy-blue);
@@ -66,22 +58,34 @@
           font-weight: 800;
       }
 
-      .nav-menu ul {
-          list-style: none;
-          margin: 0;
-          padding: 0;
+      /* Sector Derecho de Enganche (Web + Barra + Correo) */
+      .header-hook-right {
           display: flex;
-          gap: 25px;
-      }
-
-      .nav-menu a {
-          text-decoration: none;
+          align-items: center;
+          gap: 0.8rem;
+          font-size: 1rem;
+          font-weight: 600;
           color: var(--ocean-blue);
-          font-weight: 700;
-          transition: color 0.3s;
       }
 
-      .nav-menu a:hover {
+      .header-web-text {
+          color: var(--text-muted);
+          letter-spacing: 0.3px;
+      }
+
+      .header-divider {
+          color: var(--brand-blue);
+          font-weight: normal;
+          opacity: 0.7;
+      }
+
+      .header-hook-right a {
+          color: var(--ocean-blue);
+          text-decoration: none;
+          transition: color 0.2s;
+      }
+
+      .header-hook-right a:hover {
           color: var(--navy-blue);
       }
 
@@ -89,7 +93,7 @@
       .hero-section {
           background: linear-gradient(135deg, var(--ocean-blue) 0%, #1e3a8a 100%);
           color: var(--text-light);
-          padding: 90px 0;
+          padding: 70px 0;
           text-align: center;
       }
 
@@ -106,61 +110,31 @@
           color: #e2e8f0;
       }
 
-      .btn-primary {
-          display: inline-block;
-          background-color: var(--navy-blue);
-          color: var(--text-light);
-          padding: 15px 35px;
-          border-radius: 6px;
-          text-decoration: none;
-          font-weight: bold;
-          font-size: 1.1rem;
-          border: 2px solid #3b82f6;
-          transition: all 0.3s;
+      /* ESTILOS DEL CARRUSEL PANORÁMICO HORIZONTAL INTEGRADO */
+      .carousel-wrapper { 
+          max-width: 950px; 
+          margin: 2.5rem auto 1rem auto; 
+          position: relative; 
+          padding-bottom: 35%; 
+          overflow: hidden; 
+          border-radius: 12px; 
+          box-shadow: 0 12px 30px rgba(15, 76, 129, 0.25); 
+          border: 1px solid var(--border-color); 
+          background-color: #cbd5e1; 
       }
-
-      .btn-primary:hover {
-          background-color: #2563eb;
-          transform: translateY(-2px);
-      }
-
-      /* 3. SECCIÓN CARRUSEL - Fondo Blanco Puro */
-      .carousel-section {
-          padding: 70px 0;
-          background-color: var(--bg-pure-white);
-      }
-
-      .carousel-section h2 {
-          text-align: center;
-          color: var(--ocean-blue);
-          font-size: 2rem;
-          margin-bottom: 30px;
-      }
-
-      .carousel-container {
-          display: flex;
-          overflow-x: auto;
-          gap: 20px;
-          padding: 10px 0 25px 0;
-          scroll-snap-type: x mandatory;
-      }
-
-      .carousel-card {
-          flex: 0 0 320px;
-          scroll-snap-align: start;
-          border: 2px solid var(--border-color);
-          border-radius: 10px;
-          padding: 25px;
-          background-color: var(--bg-light-clean);
-          box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-      }
-
-      .carousel-card h3 {
-          color: var(--navy-blue);
-          margin-top: 0;
-      }
-
-      /* 4. SECCIÓN SERVICIOS - Fondo Gris Claro Limpio (Delimitado) */
+      .carousel-open { display: none; }
+      .carousel-inner { position: absolute; top: 0; left: 0; width: 200%; height: 100%; display: flex; transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1); }
+      .carousel-slide { width: 50%; height: 100%; background-size: cover; background-position: center; background-repeat: no-repeat; position: relative; }
+      
+      .carousel-control { position: absolute; top: 50%; transform: translateY(-50%); background-color: rgba(15, 76, 129, 0.9); color: var(--white); width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; border-radius: 50%; cursor: pointer; font-weight: bold; font-size: 1.4rem; user-select: none; z-index: 10; transition: background 0.2s, transform 0.2s; border: none; box-shadow: 0 4px 10px rgba(0,0,0,0.15); }
+      .carousel-control:hover { background-color: var(--brand-blue); transform: translateY(-50%) scale(1.05); }
+      .control-prev { left: 20px; }
+      .control-next { right: 20px; }
+      
+      .slide-caption { position: absolute; bottom: 0; left: 0; right: 0; background: rgba(15, 43, 72, 0.9); color: var(--text-light); padding: 0.8rem 1.5rem; font-size: 0.95rem; font-weight: 600; text-align: center; letter-spacing: 0.3px; }
+      #slide1:checked ~ .carousel-inner { transform: translateX(0); }
+      #slide2:checked ~ .carousel-inner { transform: translateX(-50%); }
+      /* 4. SECCIÓN SERVICIOS - Fondo Gris Claro Limpio */
       .services-section {
           padding: 70px 0;
           background-color: var(--bg-light-clean);
@@ -172,6 +146,7 @@
           text-align: center;
           color: var(--ocean-blue);
           font-size: 2rem;
+          margin-bottom: 10px;
       }
 
       .services-grid {
@@ -187,264 +162,225 @@
           border-radius: 10px;
           border-left: 5px solid var(--navy-blue);
           box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+          transition: transform 0.3s ease;
       }
+      .service-card:hover { transform: translateY(-5px); }
 
       .service-card h3 {
           color: var(--ocean-blue);
           margin-top: 0;
+          margin-bottom: 10px;
       }
 
-      /* 5. SECCIÓN FAQ - Fondo Blanco Puro */
-      .faq-section {
-          padding: 70px 0;
-          background-color: var(--bg-pure-white);
-      }
-
-      .faq-section h2 {
-          text-align: center;
-          color: var(--ocean-blue);
-          font-size: 2rem;
-          margin-bottom: 40px;
-      }
-
-      .faq-item {
-          border: 1px solid var(--border-color);
-          border-radius: 8px;
-          padding: 20px;
-          margin-bottom: 15px;
-          background-color: var(--bg-light-clean);
-      }
-
-      .faq-question {
-          font-weight: bold;
-          font-size: 1.15rem;
-          color: var(--ocean-blue);
-      }
-
-      .faq-answer {
-          margin-top: 10px;
-          color: var(--text-muted);
-      }
-
-      /* 6. SECCIÓN CONTACTO Y WHATSAPP - Fondo Azul Océano */
+      /* 6. CENTRALIZADO: SECCIÓN CONTACTO ÚNICA CON ALTO CONTRASTE */
       .contact-section {
           padding: 70px 0;
-          background-color: var(--ocean-blue);
+          background-color: #0b223a;
           color: var(--text-light);
           text-align: center;
+          border-top: 3px solid var(--brand-blue);
       }
 
       .contact-section h2 {
           font-size: 2.2rem;
           margin-bottom: 15px;
+          font-weight: 800;
+      }
+      .contact-section p { color: #cbd5e1; margin-bottom: 30px; font-size: 1.1rem; }
+
+      .contact-group {
+          display: flex;
+          justify-content: center;
+          gap: 1.5rem;
+          flex-wrap: wrap;
       }
 
-      .whatsapp-container {
-          margin-top: 30px;
+      .btn-contact {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          gap: 0.75rem;
+          text-decoration: none;
+          padding: 1rem 2.5rem;
+          border-radius: 50px;
+          font-weight: 700;
+          transition: all 0.3s ease;
+          font-size: 1.05rem;
+          border: none;
+          cursor: pointer;
       }
 
       .btn-whatsapp {
-          display: inline-block;
           background-color: var(--accent-green);
           color: var(--text-light);
-          padding: 16px 36px;
-          border-radius: 50px;
-          text-decoration: none;
-          font-weight: bold;
-          font-size: 1.2rem;
-          box-shadow: 0 4px 14px rgba(37, 211, 102, 0.4);
-          transition: all 0.3s;
+          box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
       }
+      .btn-whatsapp:hover { background-color: var(--accent-green-hover); transform: translateY(-3px); }
 
-      .btn-whatsapp:hover {
-          background-color: var(--accent-green-hover);
-          transform: scale(1.05);
+      .btn-email {
+          background-color: var(--brand-blue);
+          color: var(--text-light);
+          box-shadow: 0 4px 15px rgba(2, 132, 199, 0.3);
       }
+      .btn-email:hover { background-color: var(--brand-hover); transform: translateY(-3px); }
+      .icon-svg { width: 22px; height: 22px; fill: currentColor; }
 
-      /* 7. PIE DE PÁGINA (FOOTER) */
-      .main-footer {
-          background-color: #081a2d;
-          color: #94a3b8;
-          padding: 30px 0;
-          text-align: center;
-          border-top: 1px solid #1e293b;
-      }
+      /* SECCIÓN DELGADA: CAPTACIÓN Y AVISO DE HONORARIOS IMPLÍCITOS */
+      .pricing-notice-section { background-color: var(--primary-darker); padding: 2rem 0; color: #94a3b8; border-bottom: 3px solid var(--brand-blue); font-size: 0.95rem; border-top: 1px solid rgba(255,255,255,0.1); }
+      .notice-content { display: flex; align-items: center; justify-content: center; gap: 1rem; max-width: 900px; margin: 0 auto; text-align: left; }
+      .notice-icon { font-size: 1.5rem; color: var(--brand-blue); flex-shrink: 0; }
+      .notice-text em { color: var(--white); font-style: normal; font-weight: 600; }
 
-      .main-footer p {
-          margin: 0;
+      /* 5. SECCIÓN FAQ INTERACTIVA (Acordeón nativo sin JS) */
+      .faq-section { padding: 70px 0; background-color: var(--bg-pure-white); }
+      .faq-section h2 { text-align: center; color: var(--ocean-blue); font-size: 2rem; margin-bottom: 40px; font-weight: 800; }
+      .faq-wrapper { max-width: 750px; margin: 0 auto; }
+      .faq-item { margin-bottom: 1.2rem; border: 1px solid var(--border-color); border-radius: 8px; overflow: hidden; }
+      .faq-input { display: none; }
+      .faq-label { display: flex; justify-content: space-between; align-items: center; padding: 1.3rem 1.5rem; background-color: var(--bg-light-clean); color: var(--ocean-blue); font-weight: 700; cursor: pointer; transition: background-color 0.2s; }
+      .faq-label:hover { background-color: #e2e8f0; }
+      .faq-label::after { content: '+'; font-size: 1.4rem; transition: transform 0.3s; color: var(--brand-blue); font-weight: bold; }
+      .faq-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; background-color: var(--white); padding: 0 1.5rem; }
+      .faq-content p { padding: 1.3rem 0; color: var(--text-dark); font-size: 1rem; border-top: 1px solid #edf2f7; }
+      .faq-input:checked ~ .faq-content { max-height: 250px; }
+      .faq-input:checked ~ .faq-label::after { transform: rotate(45deg); }
+      
+      /* Adaptación móvil rápida */
+      @media (max-width: 768px) { 
+          .hero-section .main-title { font-size: 2.1rem; } 
+          .nav-container { flex-direction: column; gap: 0.6rem; text-align: center; }
+          .carousel-wrapper { padding-bottom: 52%; }
+          .notice-content { flex-direction: column; text-align: center; } 
+          .contact-group { flex-direction: column; align-items: center; gap: 1.2rem; } 
+          .btn-contact { width: 100%; max-width: 340px; } 
       }
     </style>
-  </head>
-  <body>
-    <!-- ==================================================================== -->
-    <!-- 1. ENCABEZADO Y MENÚ DE NAVEGACIÓN (HEADER)                           -->
-    <!-- ==================================================================== -->
+</head>
+<body>
     <header class="main-header">
       <div class="container">
+        <!-- Izquierda: Tu logotipo textual -->
         <div class="logo">
           <h1>Ayuda Plan</h1>
         </div>
-        <nav class="nav-menu">
-          <ul>
-            <li><a href="#inicio">Inicio</a></li>
-            <li><a href="#carrusel">Destacados</a></li>
-            <li><a href="#servicios">Servicios</a></li>
-            <li><a href="#faq">FAQ</a></li>
-            <li><a href="#contacto">Contacto</a></li>
-          </ul>
-        </nav>
+        <!-- Modificado: Sector Superior Derecho de Enganche (Web + Barra + Correo) -->
+        <div class="header-hook-right">
+            <span class="header-web-text">www.ayudaplan.cl</span>
+            <span class="header-divider">|</span>
+            <a href="mailto:contacto@ayudaplan.cl?subject=Solicitud%20de%20Evaluación%20de%20Isapre">contacto@ayudaplan.cl</a>
+        </div>
       </div>
     </header>
 
-    <main>
-      <!-- ================================================================ -->
-      <!-- 2. SECCIÓN PRINCIPAL / HERO                                      -->
-      <!-- ================================================================ -->
-      <section id="inicio" class="hero-section">
-        <div class="container">
-          <h1 class="main-title">Tu Salud Merece El Mejor Plan</h1>
-          <p class="subtitle">
-            Asesoría previsional experta y personalizada para orientarte a
-            elegir la mejor cobertura de salud en Isapres y Fonasa.
-          </p>
-          <a href="#contacto" class="btn-primary"
-            >Solicitar Asesoría Gratuita</a
-          >
-        </div>
-      </section>
-
-      <!-- ================================================================ -->
-      <!-- 3. SECCIÓN DE CARRUSEL HORIZONTAL                                -->
-      <!-- ================================================================ -->
-      <section id="carrusel" class="carousel-section">
-        <div class="container">
-          <h2>Opciones Destacadas de Cobertura</h2>
-          <div class="carousel-container">
-            <div class="carousel-card">
-              <h3>Plan Familiar</h3>
-              <p>
-                Cobertura integral diseñada para proteger a todos los
-                integrantes de tu hogar con convenios hospitalarios.
-              </p>
-            </div>
-
-            <div class="carousel-card">
-              <h3>Plan Profesional</h3>
-              <p>
-                Planes optimizados para trabajadores independientes o con
-                cotizaciones superiores al 7% legal.
-              </p>
-            </div>
-
-            <div class="carousel-card">
-              <h3>Optimización Fonasa</h3>
-              <p>
-                Asesoría especializada para complementar tu tramo de Fonasa con
-                seguros de salud colectivos e individuales.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ================================================================ -->
-      <!-- 4. SECCIÓN DE SERVICIOS                                          -->
-      <!-- ================================================================ -->
-      <section id="servicios" class="services-section">
-        <div class="container">
-          <h2>Nuestros Servicios de Asesoría</h2>
-          <div class="services-grid">
-            <article class="service-card">
-              <h3>Evaluación de Plan Actual</h3>
-              <p>
-                Revisamos tu plan de salud vigente para verificar si estás
-                pagando de más o si existen mejores alternativas según tus
-                necesidades actuales.
-              </p>
-            </article>
-
-            <article class="service-card">
-              <h3>Cambio y Adecuación</h3>
-              <p>
-                Te guiamos paso a paso en el proceso de cambio de Isapre o
-                migración entre sistemas de salud con total transparencia.
-              </p>
-            </article>
-
-            <article class="service-card">
-              <h3>Aprovechamiento de Excedentes</h3>
-              <p>
-                Te enseñamos cómo utilizar y gestionar adecuadamente tus saldos
-                de excedentes en prestaciones de salud y farmacias.
-              </p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- ================================================================ -->
-      <!-- 5. SECCIÓN DE PREGUNTAS FRECUENTES (FAQ)                         -->
-      <!-- ================================================================ -->
-      <section id="faq" class="faq-section">
-        <div class="container">
-          <h2>Preguntas Frecuentes</h2>
-
-          <div class="faq-item">
-            <div class="faq-question">
-              ¿La asesoría tiene algún costo para mí?
-            </div>
-            <div class="faq-answer">
-              No, nuestra orientación y evaluación de planes de salud es 100%
-              gratuita para el cotizante.
-            </div>
-          </div>
-
-          <div class="faq-item">
-            <div class="faq-question">
-              ¿Puedo cambiarme de plan si tengo preexistencias?
-            </div>
-            <div class="faq-answer">
-              Evaluamos detalladamente tu historial médico previo para
-              recomendarte las opciones legales disponibles y vigentes.
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ================================================================ -->
-      <!-- 6. SECCIÓN DE CONTACTO Y WHATSAPP                                -->
-      <!-- ================================================================ -->
-      <section id="contacto" class="contact-section">
-        <div class="container">
-          <h2>¿Necesitas orientarte sobre tu plan?</h2>
-          <p>
-            Haz clic en el siguiente botón para hablar directamente por WhatsApp
-            con un ejecutivo especializado.
-          </p>
-
-          <div class="whatsapp-container">
-            <a
-              href="https://wa.me/56931182494"
-              target="_blank"
-              class="btn-whatsapp"
-            >
-              Contactar por WhatsApp (+56 9 3118 2494)
-            </a>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <!-- ==================================================================== -->
-    <!-- 7. PIE DE PÁGINA (FOOTER)                                            -->
-    <!-- ==================================================================== -->
-    <footer class="main-footer">
+    <section class="hero-section">
       <div class="container">
-        <p>
-          © 2026 Ayuda Plan - Asesoría Previsional. Todos los derechos
-          reservados.
-        </p>
+        <h1 class="main-title">Tu salud merece el mejor plan</h1>
+        <p class="subtitle">Te asesoro de forma transparente y personalizada para encontrar la cobertura de Isapre que realmente se adapta a tus necesidades, optimizando tu presupuesto de salud.</p>
+        
+        <!-- INTEGRADO: Carrusel Panorámico Horizontal con Datos de Enganche -->
+        <div class="carousel-wrapper">
+            <input type="radio" name="carousel-control" id="slide1" checked style="display:none;">
+            <input type="radio" name="carousel-control" id="slide2" style="display:none;">
+            
+            <div class="carousel-inner">
+                <!-- Banner 1 -->
+                <div class="carousel-slide" style="background-image: url('https://picsum.photos'); background-color: #0f4c81; display: flex; justify-content: center; align-items: center; color: white;">
+                    <div style="padding: 2rem; background: rgba(15, 43, 72, 0.85); width: 85%; border-radius: 8px; border: 1px solid var(--secondary); text-align: left;">
+                        <span style="background: var(--secondary); color: #0f2b48; padding: 0.2rem 0.6rem; border-radius: 4px; font-size: 0.8rem; font-weight: 700; text-transform: uppercase;">Estudio Técnico Avanzado</span>
+                        <h2 style="font-size: 1.5rem; margin: 0.5rem 0 0.3rem 0; font-weight: 800;">📊 Planificación y Adecuación de Cobertura Isapre</h2>
+                        <p style="font-size: 0.95rem; color: #e2e8f0; font-weight: 500;">Análisis comparativo de planes según el marco normativo de la Superintendencia de Salud. Maximizamos el rendimiento de tu 7% legal con convenios específicos en clínicas de alta complejidad.</p>
+                    </div>
+                    <label for="slide2" class="carousel-control control-next">&gt;</label>
+                    <div class="slide-caption">Análisis Normativo: Optimización Estratégica de tu Cobertura de Salud</div>
+                </div>
+                
+                <!-- Banner 2 -->
+                <div class="carousel-slide" style="background-image: url('https://picsum.photos'); background-color: #2ec4b6; display: flex; justify-content: center; align-items: center; color: white;">
+                    <div style="padding: 2rem; background: rgba(15, 43, 72, 0.85); width: 85%; border-radius: 8px; border: 1px solid #ffffff; text-align: left;">
+                        <span style="background: white; color: #0f2b48; padding: 0.2rem 0.6rem; border-radius: 4px; font-size: 0.8rem; font-weight: 700; text-transform: uppercase;">Solución de Finanzas Médicas</span>
+                        <h2 style="font-size: 1.5rem; margin: 0.5rem 0 0.3rem 0; font-weight: 800;">💎 Reestructuración de Excedentes y Mitigación de Excesos</h2>
+                        <p style="font-size: 0.95rem; color: #f0f4f8; font-weight: 500;">Diseño de planes con foco en la acumulación eficiente de excedentes para uso en farmacias y prestaciones ambulatorias, eliminando cobros invisibles y reajustes innecesarios.</p>
+                    </div>
+                    <label for="slide1" class="carousel-control control-prev">&lt;</label>
+                    <div class="slide-caption">Consultoría de Nicho: Mitigación de Costos y Estructuración de Excedentes</div>
+                </div>
+            </div>
+        </div>
       </div>
-    </footer>
-  </body>
-</html>
+    </section>
+
+    <section class="services-section">
+      <div class="container">
+        <h2>Mis Servicios de Asesoría</h2>
+        <div class="services-grid">
+          <div class="service-card">
+            <h3>🔍 Análisis de Cobertura</h3>
+            <p>Evaluamos tu plan vigente para identificar si estás pagando de más o si existen brechas de cobertura en clínicas de tu interés.</p>
+          </div>
+          <div class="service-card">
+            <h3>📈 Optimización de Planes</h3>
+            <p>Búsqueda y comparación objetiva entre las mejores alternativas del mercado para maximizar tus excedentes y coberturas.</p>
+          </div>
+          <div class="service-card">
+            <h3>💼 Orientación Completa</h3>
+            <p>Te acompaño en todo el proceso administrativo de incorporación o cambio de Isapre de manera rápida y transparente.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACTO ÚNICO CENTRALIZADO CON TUS CANALES OFICIALES -->
+    <section class="contact-section">
+      <div class="container">
+        <h2>¿Listo para optimizar tu previsión?</h2>
+        <p>Elige el canal que te resulte más cómodo para agendar tu pre-evaluación inmediata con la asesora:</p>
+        <div class="contact-group">
+            <a href="https://wa.me" target="_blank" class="btn-contact btn-whatsapp">
+                <svg class="icon-svg" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.713-1.457L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.37 9.863-9.748.002-2.607-1.01-5.057-2.85-6.897-1.84-1.84-4.291-2.853-6.899-2.854-5.444 0-9.871 4.372-9.874 9.75-.001 1.73.458 3.422 1.33 4.925l-.995 3.636 3.7-.962zm10.974-6.93c-.3-.15-1.771-.875-2.04-.972-.269-.099-.465-.148-.659.15s-.752.972-.922 1.167c-.17.195-.341.213-.641.064-1.138-.57-1.83-1.034-2.54-2.246-.188-.328.188-.305.541-1.012.06-.121.03-.226-.015-.317s-.465-1.12-.638-1.53c-.169-.406-.341-.35-.465-.356l-.396-.007c-.136 0-.357.051-.543.254-.187.203-.714.698-.714 1.701 0 1.003.731 1.973.833 2.11s1.44 2.194 3.488 3.077c1.378.595 1.947.674 2.645.57.439-.065 1.351-.552 1.542-1.057.19-.504.19-.937.133-1.029-.056-.092-.208-.142-.508-.292z"/></svg>
+                Contactar por WhatsApp
+            </a>
+            <a href="mailto:contacto@ayudaplan.cl?subject=Solicitud%20de%20Evaluación%20de%20Isapre" class="btn-contact btn-email">
+                <svg class="icon-svg" viewBox="0 0 24 24"><path d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z"/></svg>
+                Enviar un Correo
+            </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- MARCO DE VALORES IMPLÍCITOS SEGÚN COMPLEJIDAD -->
+    <section class="pricing-notice-section">
+        <div class="container">
+            <div class="notice-content">
+                <span class="notice-icon">🛡️</span>
+                <p class="notice-text">
+                    <strong>Nota de Alcance Comercial:</strong> El diagnóstico de <em>Pre-Evaluación previsional inicial no posee costo</em> para el afiliado. Tras el análisis de su caso por parte de la especialista, si el requerimiento amerita una consultoría de optimización avanzada de alta complejidad o reestructuración previsional a medida, las condiciones de honorarios profesionales serán evaluadas y notificadas de forma previa y legítima vía correo electrónico.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq-section">
+      <div class="container">
+        <h2>Información Útil para el Afiliado</h2>
+        <div class="faq-wrapper">
+            <div class="faq-item">
+                <input type="checkbox" id="faq1" class="faq-input">
+                <label for="faq1" class="faq-label">¿Cuál es la diferencia entre Excedentes y Excesos?</label>
+                <div class="faq-content"><p>Los excedentes se generan cuando tu cotización legal (7%) es mayor al costo del plan contratado y sirven para farmacias o bonos. Los excesos ocurren cuando pagas más allá del 7% por errores del empleador y se devuelven en dinero anualmente.</p></div>
+            </div>
+            <div class="faq-item">
+                <input type="checkbox" id="faq2" class="faq-input">
+                <label for="faq2" class="faq-label">¿Por qué es importante revisar mi plan de salud periódicamente?</label>
+                <div class="faq-content"><p>El mercado previsional cambia y las Isapres lanzan nuevos planes constantemente. Una revisión oportuna te permite mejorar coberturas en clínicas específicas o disminuir el costo mensual sin desproteger tu salud.</p></div>
+            </div>
+            <div class="faq-item">
+                <input type="checkbox" id="faq3" class="faq-input">
+                <label for="faq3" class="faq-label">¿Qué costo tiene la Consultoría Previsional?</label>
+                <div class="faq-content"><p>La revisión técnica inicial básica no tiene valor asociado. Una vez ingresado tu requerimiento, la asesora evaluará tu perfil; en caso de requerir un estudio de optimización avanzada, reestructuración previsional o soluciones de nicho de alta complejidad, se te informará oportunamente el valor de los honorarios especializados vía correo electrónico antes de iniciar el diseño.</p></div>
+            </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="services-section" style="background-color: var(--bg-pure-white); border: none;">
+        <div class="container">
