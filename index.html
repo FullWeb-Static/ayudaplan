@@ -6,18 +6,18 @@
     <title>Ayuda Plan - Asesoría Previsional</title>
     <style>
       :root {
-          --ocean-blue: #0f2b48;       /* Azul Océano Profundo para secciones principales */
-          --navy-blue: #1e40af;        /* Azul Marino Corporativo para acentos y botones */
-          --brand-blue: #0284c7;       /* Azul Brillante para enlaces y logos */
-          --brand-hover: #0369a1;      /* Azul de interacción (hover) */
-          --accent-green: #25d366;     /* Verde WhatsApp brillante y limpio */
-          --accent-green-hover: #128c7e;/* Verde oscuro WhatsApp interacción */
-          --text-dark: #0f172a;        /* Texto principal en tonos oscuros limpios */
+          --ocean-blue: #0f2b48;       /* Azul Océano Profundo */
+          --navy-blue: #1e40af;        /* Azul Marino Corporativo */
+          --brand-blue: #0284c7;       /* Azul Brillante */
+          --brand-hover: #0369a1;      /* Azul interacción */
+          --accent-green: #25d366;     /* Verde WhatsApp oficial */
+          --accent-green-hover: #128c7e;/* Verde WhatsApp interacción */
+          --text-dark: #0f172a;        /* Texto oscuro principal */
           --text-muted: #475569;       /* Texto secundario */
           --text-light: #ffffff;       /* Texto blanco */
           --bg-pure-white: #ffffff;    /* Fondo Blanco Puro */
-          --bg-light-clean: #f1f5f9;   /* Fondo Gris Claro Neutro Limpio (delimita secciones) */
-          --border-color: #cbd5e1;     /* Bordes bien definidos */
+          --bg-light-clean: #f1f5f9;   /* Fondo Gris Claro Neutro */
+          --border-color: #cbd5e1;     /* Bordes definidos */
       }
 
       * {
@@ -27,19 +27,23 @@
           font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
       }
 
-      body {
+      /* EVITA EL DESBORDE LATERAL EN CELULARES (Saca la parte sobresaliente derecha) */
+      html, body {
           background-color: var(--bg-pure-white);
           color: var(--text-dark);
           line-height: 1.6;
+          overflow-x: hidden;
+          width: 100%;
       }
 
       .container {
           max-width: 1200px;
           margin: 0 auto;
           padding: 0 20px;
+          width: 100%;
       }
 
-      /* 1. CABECERA (HEADER) - Distribución Profesional Balanceada */
+      /* 1. CABECERA (HEADER) - Limpia, sin rutas inútiles y alineada a los extremos */
       .main-header {
           background-color: var(--bg-pure-white);
           border-bottom: 3px solid var(--navy-blue);
@@ -47,6 +51,7 @@
           top: 0;
           z-index: 1000;
           box-shadow: 0 2px 8px rgba(15, 43, 72, 0.08);
+          width: 100%;
       }
 
       .main-header .container {
@@ -54,6 +59,8 @@
           justify-content: space-between;
           align-items: center;
           padding: 15px 20px;
+          flex-wrap: wrap;
+          gap: 10px;
       }
 
       .logo h1 {
@@ -63,26 +70,7 @@
           font-weight: 800;
       }
 
-      /* Navegación Tradicional */
-      .nav-menu ul {
-          list-style: none;
-          display: flex;
-          gap: 25px;
-      }
-
-      .nav-menu a {
-          text-decoration: none;
-          color: var(--ocean-blue);
-          font-weight: 700;
-          font-size: 1rem;
-          transition: color 0.3s;
-      }
-
-      .nav-menu a:hover {
-          color: var(--navy-blue);
-      }
-
-      /* Sector Derecho de Enganche (Web + Barra + Correo) */
+      /* Sector Derecho de Enganche Directo */
       .header-hook-right {
           display: flex;
           align-items: center;
@@ -119,6 +107,7 @@
           color: var(--text-light);
           padding: 80px 0;
           text-align: center;
+          width: 100%;
       }
 
       .hero-section .main-title {
@@ -134,7 +123,6 @@
           margin: 0 auto 35px auto;
           color: #e2e8f0;
       }
-
       .btn-primary {
           display: inline-block;
           background-color: var(--navy-blue);
@@ -153,10 +141,12 @@
           background-color: #2563eb;
           transform: translateY(-2px);
       }
-      /* 3. SECCIÓN OPCIONES DESTACADAS - Fondo Blanco Puro */
+
+      /* 3. SECCIÓN OPCIONES DESTACADAS */
       .featured-section {
           padding: 70px 0;
           background-color: var(--bg-pure-white);
+          width: 100%;
       }
 
       .featured-section h2 {
@@ -199,12 +189,13 @@
           font-size: 1.05rem;
       }
 
-      /* 4. SECCIÓN SERVICIOS - Fondo Gris Claro Limpio (Delimitado) */
+      /* 4. SECCIÓN SERVICIOS */
       .services-section {
           padding: 70px 0;
           background-color: var(--bg-light-clean);
           border-top: 1px solid var(--border-color);
           border-bottom: 1px solid var(--border-color);
+          width: 100%;
       }
 
       .services-section h2 {
@@ -240,13 +231,15 @@
           color: var(--text-muted);
           font-size: 1rem;
       }
-      /* 5. SECCIÓN CONTACTO Y WHATSAPP - Fondo Azul Océano */
+
+      /* 5. SECCIÓN CONTACTO Y WHATSAPP */
       .contact-section {
           padding: 70px 0;
           background-color: var(--ocean-blue);
           color: var(--text-light);
           text-align: center;
           border-top: 3px solid var(--brand-blue);
+          width: 100%;
       }
 
       .contact-section h2 {
@@ -299,6 +292,7 @@
           padding: 30px 0;
           text-align: center;
           border-top: 1px solid #1e293b;
+          width: 100%;
       }
 
       .main-footer p {
@@ -308,9 +302,8 @@
 
       @media (max-width: 768px) {
           .hero-section .main-title { font-size: 2.1rem; }
-          .nav-container { flex-direction: column; gap: 0.8rem; text-align: center; }
-          .header-hook-right { font-size: 0.85rem; gap: 0.5rem; }
-          .nav-menu ul { gap: 15px; }
+          .nav-container { flex-direction: column; text-align: center; gap: 10px; }
+          .header-hook-right { font-size: 0.9rem; justify-content: center; width: 100%; }
           .featured-grid, .services-grid { grid-template-columns: 1fr; }
           .btn-whatsapp { width: 100%; max-width: 340px; }
       }
@@ -319,34 +312,32 @@
   <body>
     <header class="main-header">
       <div class="container">
+        <!-- Izquierda: Marca Limpia original -->
         <div class="logo">
           <h1>Ayuda Plan</h1>
         </div>
-        <nav class="nav-menu">
-          <ul>
-            <li><a href="#inicio">Inicio</a></li>
-            <li><a href="#servicios">Servicios</a></li>
-            <li><a href="#contacto">Contacto</a></li>
-          </ul>
-        </nav>
+
+        <!-- CORREGIDO: Rutas erradicadas. Solo queda el sector de enganche directo horizontal -->
         <div class="header-hook-right">
           <span class="header-web-text">www.ayudaplan.cl</span>
           <span class="header-divider">|</span>
+          <!-- ENLACE CORREO CORREGIDO -->
           <a
-            href="mailto:contacto@ayudaplan.cl?subject=Solicitud%20de%20Asesoria"
+            href="mailto:contacto@ayudaplan.cl?subject=Solicitud%20de%20Información%20Plan%20de%20Salud"
             >contacto@ayudaplan.cl</a
           >
         </div>
       </div>
     </header>
 
-    <section id="inicio" class="hero-section">
+    <section class="hero-section">
       <div class="container">
         <h1 class="main-title">Tu Salud Merece El Mejor Plan</h1>
         <p class="subtitle">
           Asesoría previsional experta y personalizada para orientarte a elegir
           la mejor cobertura de salud en Isapres y Fonasa.
         </p>
+        <!-- ENLACE WHATSAPP PRINCIPAL CORREGIDO -->
         <a href="https://wa.me" target="_blank" class="btn-primary"
           >Solicitar Asesoría Gratuita</a
         >
@@ -375,7 +366,7 @@
       </div>
     </section>
 
-    <section id="servicios" class="services-section">
+    <section class="services-section">
       <div class="container">
         <h2>Nuestros Servicios de Asesoría</h2>
         <div class="services-grid">
@@ -397,7 +388,7 @@
       </div>
     </section>
 
-    <section id="contacto" class="contact-section">
+    <section class="contact-section">
       <div class="container">
         <h2>¿Necesitas orientarte sobre tu plan?</h2>
         <p>
@@ -405,6 +396,7 @@
           resolver tus dudas de inmediato.
         </p>
         <div class="whatsapp-container">
+          <!-- ENLACE WHATSAPP INFERIOR CORREGIDO CON ICONO NATIVO -->
           <a href="https://wa.me" target="_blank" class="btn-whatsapp">
             <svg class="icon-svg" viewBox="0 0 24 24">
               <path
@@ -420,8 +412,10 @@
     <footer class="main-footer">
       <div class="container">
         <p>
-          &copy; 2026 Ayuda Plan - Asesoría Previsional. Todos los derechos
-          reservados | Web Administrado & Enlazada por www.fullweb.cl.
+          &copy; 2026 Ayuda Plan - Asesoría Previsional. Todos los derechos reservados. 
+        </p>
+      <p>
+          Interconexiones y Administracion por <a href="https://www.fullweb.cl" target="_blank">www.fullweb.cl</a>
         </p>
       </div>
     </footer>
