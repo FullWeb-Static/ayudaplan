@@ -47,10 +47,10 @@
       .main-header {
     background-color: var(--bg-pure-white);
     border-bottom: 3px solid var(--navy-blue);
-    position: -webkit-sticky; /* Refuerzo para navegadores Safari */
-    position: sticky;
+    position: fixed; /* Forzamos el anclaje permanente */
     top: 0;
-    z-index: 9999; /* Subimos el nivel para que flote sobre absolutamente todo */
+    left: 0;
+    z-index: 9999; /* Asegura que flote sobre todo el contenido */
     box-shadow: 0 2px 8px rgba(15, 43, 72, 0.08);
     width: 100%;
 }
