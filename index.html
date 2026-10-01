@@ -45,14 +45,15 @@
 
       /* 1. CABECERA (HEADER) - Limpia, sin rutas inútiles y alineada a los extremos */
       .main-header {
-          background-color: var(--bg-pure-white);
-          border-bottom: 3px solid var(--navy-blue);
-          position: sticky;
-          top: 0;
-          z-index: 1000;
-          box-shadow: 0 2px 8px rgba(15, 43, 72, 0.08);
-          width: 100%;
-      }
+    background-color: var(--bg-pure-white);
+    border-bottom: 3px solid var(--navy-blue);
+    position: -webkit-sticky; /* Refuerzo para navegadores Safari */
+    position: sticky;
+    top: 0;
+    z-index: 9999; /* Subimos el nivel para que flote sobre absolutamente todo */
+    box-shadow: 0 2px 8px rgba(15, 43, 72, 0.08);
+    width: 100%;
+}
 
       .main-header .container {
           display: flex;
