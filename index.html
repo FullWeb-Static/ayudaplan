@@ -192,10 +192,24 @@
       .control-prev { left: 15px; }
       .control-next { right: 15px; }
 
-      /* BARRA TRANSLÚCIDA INFERIOR DE LAS DIAPOSITIVAS */
-      .slide-caption { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(180deg, rgba(15, 43, 72, 0.85) 0%, rgba(5, 15, 30, 0.95) 100%) !important; color: var(--text-light) !important; padding: 10px 15px; font-size: 0.9rem; font-weight: 700; text-align: center; z-index: 5; text-shadow: 0 1px 3px rgba(0,0,0,0.5); }
-      #slide1:checked ~ .carousel-inner { transform: translateX(0); }
-      #slide2:checked ~ .carousel-inner { transform: translateX(-50%); }
+     /* BARRA TRANSLÚCIDA INFERIOR DE LAS DIAPOSITIVAS - TÉRMINO MEDIO PREMIUM */
+.slide-caption { 
+    position: absolute; 
+    bottom: 0; 
+    left: 0; 
+    right: 0; 
+    /* Fondo azul océano elegante con transparecia calibrada al 55% y 75% */
+    background: linear-gradient(180deg, rgba(15, 43, 72, 0.55) 0%, rgba(7, 24, 43, 0.75) 100%) !important; 
+    color: var(--text-light) !important; /* El texto vuelve a ser BLANCO para resaltar perfectamente */
+    padding: 10px 15px; 
+    font-size: 0.9rem; 
+    font-weight: 700; 
+    text-align: center; 
+    z-index: 5; 
+    text-shadow: 0 1px 2px rgba(0,0,0,0.4) !important; /* Sombra suave para separar el texto del fondo */
+}
+#slide1:checked ~ .carousel-inner { transform: translateX(0); }
+#slide2:checked ~ .carousel-inner { transform: translateX(-50%); }
 
       /* ==================================================================== */
       /* ESTILOS DE LOS TRES BLOQUES DE SERVICIOS PREVISIONALES GRIS CLARO    */
@@ -274,7 +288,7 @@
           .carousel-control { width: 38px; height: 46px; font-size: 1.2rem; border-radius: 4px; background-color: rgba(15, 43, 72, 0.85); }
           .control-prev { left: 0px; border-radius: 0 4px 4px 0; }
           .control-next { right: 0px; border-radius: 4px 0 0 4px; }
-          .slide-caption { font-size: 0.8rem; padding: 8px; }
+          .slide-caption { font-size: 0.8rem; padding: 8px; color: var(--text-light) !important; }
 
           .services-grid { grid-template-columns: 1fr; gap: 20px; padding: 0 5px; }
           .service-card { padding: 22px; }
