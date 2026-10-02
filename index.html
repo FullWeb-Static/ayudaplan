@@ -269,71 +269,89 @@
       /* ==================================================================== */
       /* MEDIA QUERIES HUMANA: CORRECCIÓN DE BOTONES DESFASADOS EN CELULARES   */
       /* ==================================================================== */
+            /* ==================================================================== */
+      /* MEDIA QUERIES DEFINITIVA: BLINDAJE DE ANCHO Y CENTRADO MILIMÉTRICO   */
+      /* ==================================================================== */
       @media (max-width: 768px) {
-          .main-header .container {
-              flex-direction: column;
-              text-align: center;
-              gap: 10px;
-              padding: 12px 10px;
-          }
-          .header-hook-right {
-              font-size: 0.9rem;
-              gap: 0.5rem;
-              justify-content: center;
-              width: 100%;
-          }
-          .hero-section {
-              padding: 45px 0;
-              margin-top: 110px !important;
-          }
-          .hero-section .main-title {
-              font-size: 2.1rem;
-          }
-          .hero-section .subtitle {
-              font-size: 1.1rem;
-              margin-bottom: 25px;
-          }
-          .btn-primary {
-              width: 100%;
-              max-width: 320px;
-              box-sizing: border-box;
-          }
-          .carousel-wrapper {
-              padding-bottom: 85%;
-              margin: 2rem 10px 0 10px;
-              border-radius: 8px;
-          }
-          .carousel-slide {
-              padding: 0 10px;
-          }
-          .carousel-slide > div {
+          /* Bloquea de forma estricta cualquier estiramiento o desborde lateral */
+          html, body {
+              overflow-x: hidden !important;
               width: 100% !important;
-              padding: 1.2rem !important;
+              max-width: 100% !important;
           }
-          .carousel-slide h2 {
-              font-size: 1.2rem !important;
-          }
-          .carousel-slide p {
-              font-size: 0.85rem !important;
-              line-height: 1.4 !important;
-          }
-          .carousel-control {
-              width: 38px;
-              height: 46px;
-              font-size: 1.2rem;
-              border-radius: 4px;
-              background-color: rgba(15, 43, 72, 0.85);
-          }
-          .control-prev {
-              left: 0px;
-              border-radius: 0 4px 4px 0;
-          }
-          .control-next {
-              right: 0px;
-              border-radius: 4px 0 0 4px;
+          
+          .container {
+              padding: 0 15px !important;
+              width: 100% !important;
+              max-width: 100% !important;
+              box-sizing: border-box !important;
           }
 
-          /* TEXTO ADAPTATIVO EN CELULARES DELGADOS */
+          .main-header .container { 
+              flex-direction: column; 
+              text-align: center; 
+              gap: 10px; 
+              padding: 12px 10px; 
+          }
+          .header-hook-right { 
+              font-size: 0.9rem; 
+              gap: 0.5rem; 
+              justify-content: center; 
+              width: 100%; 
+          }
+          .hero-section { 
+              padding: 45px 0; 
+              margin-top: 110px !important; 
+          }
+          .hero-section .main-title { 
+              font-size: 2.1rem; 
+          }
+          .hero-section .subtitle { 
+              font-size: 1.1rem; 
+              margin-bottom: 25px; 
+          }
+          
+          /* Ajuste simétrico para el botón azul superior */
+          .btn-primary { 
+              width: 100% !important; 
+              max-width: 320px !important; 
+              margin: 0 auto !important;
+              display: inline-block !important;
+              box-sizing: border-box !important; 
+          }
+          
+          /* Reducción elástica del contenedor del carrusel para que no estire la pantalla */
+          .carousel-wrapper { 
+              padding-bottom: 85% !important; 
+              margin: 2rem 5px 0 5px !important; 
+              border-radius: 8px; 
+              width: auto !important;
+          }
+          .carousel-slide { 
+              padding: 0 10px; 
+          }
+          .carousel-slide > div { 
+              width: 100% !important; 
+              padding: 1.2rem !important; 
+              box-sizing: border-box !important;
+          }
+          .carousel-slide h2 { 
+              font-size: 1.2rem !important; 
+          }
+          .carousel-slide p { 
+              font-size: 0.85rem !important; 
+              line-height: 1.4 !important; 
+          }
+          .carousel-control { 
+              width: 38px; 
+              height: 46px; 
+              font-size: 1.2rem; 
+              border-radius: 4px; 
+              background-color: rgba(15, 43, 72, 0.85); 
+          }
+          .control-prev { left: 0px; border-radius: 0 4px 4px 0; }
+          .control-next { right: 0px; border-radius: 4px 0 0 4px; }
+
           .slide-caption {
               font-size: 0.82rem !important;
               padding: 10px 15px !important;
@@ -342,385 +360,61 @@
               line-height: 1.3 !important;
           }
 
-          .services-grid {
-              grid-template-columns: 1fr;
-              gap: 20px;
-              padding: 0 5px;
+          .services-grid { 
+              grid-template-columns: 1fr !important; 
+              gap: 20px; 
+              padding: 0 5px; 
           }
-          .service-card {
-              padding: 22px;
+          .service-card { 
+              padding: 22px; 
           }
-          .faq-label {
-              font-size: 1rem;
-              padding: 15px;
+          .faq-label { 
+              font-size: 1rem; 
+              padding: 15px; 
           }
-          .faq-content p {
-              padding: 15px;
-              font-size: 0.95rem;
+          .faq-content p { 
+              padding: 15px; 
+              font-size: 0.95rem; 
           }
-
-          /* INGENIERÍA DE CENTRADO MÓVIL: Fuerza la simetría absoluta */
-          .contact-group {
-              flex-direction: column !important;
-              align-items: center !important;
-              justify-content: center !important;
-              gap: 12px;
-              width: 100% !important;
+          
+          /* CENTRADO ELÁSTICO TOTAL DE BOTONES (SANEADO AL 100%) */
+          .contact-group { 
+              flex-direction: column !important; 
+              align-items: center !important; 
+              justify-content: center !important; 
+              gap: 12px !important; 
+              width: 100% !important; 
               display: flex !important;
-          }
-          .btn-contact {
-              width: 100% !important;
-              max-width: 340px !important;
-              box-sizing: border-box !important;
+              padding: 0 !important;
               margin: 0 auto !important;
-              display: inline-flex !important;
+          }
+          .btn-contact { 
+              width: 100% !important; 
+              max-width: 320px !important; 
+              box-sizing: border-box !important; 
+              margin: 0 auto !important; /* Fuerza el reparto idéntico de márgenes */
+              display: inline-flex !important; 
+              justify-content: center !important;
+          }
+          
+          .notice-content { 
+              flex-direction: column; 
+              text-align: center; 
+              gap: 6px; 
           }
 
-          .notice-content {
-              flex-direction: column;
-              text-align: center;
-              gap: 6px;
+          /* PIE DE PÁGINA: Centrado forzado y remoción de márgenes residuales */
+          .main-footer {
+              text-align: center !important;
+              padding: 30px 15px !important;
+              width: 100% !important;
+              box-sizing: border-box !important;
+          }
+          .main-footer p {
+              text-align: center !important;
+              margin: 0 auto 10px auto !important;
+              width: 100% !important;
           }
       }
     </style>
   </head>
-  <body>
-    <!-- ==================================================================== -->
-    <!-- SECCIÓN 1: CABECERA SUPERIOR CLARA (LOGO Y EMAIL INSTITUCIONAL)      -->
-    <!-- ==================================================================== -->
-    <header class="main-header">
-      <div class="container">
-        <div class="logo">
-          <h1>Ayuda Plan</h1>
-        </div>
-        <div class="header-hook-right">
-          <span class="header-web-text">www.ayudaplan.cl</span>
-          <span class="header-divider">|</span>
-          <a
-            href="mailto:contacto@ayudaplan.cl?subject=Solicitud%20de%20Evaluación%20de%20Isapre"
-            >contacto@ayudaplan.cl</a
-          >
-        </div>
-      </div>
-    </header>
-
-    <!-- ==================================================================== -->
-    <!-- SECCIÓN 2: PRESENTACIÓN PRINCIPAL CON BOTÓN DE EMAIL PREDEFINIDO     -->
-    <!-- ==================================================================== -->
-    <section class="hero-section">
-      <div class="container">
-        <h1 class="main-title">Tu salud merece el mejor plan</h1>
-        <p class="subtitle">
-          Te asesoro de forma transparente y personalizada para encontrar la
-          cobertura de Isapre que realmente se adapta a tus necesidades,
-          optimizando tu presupuesto de salud.
-        </p>
-
-        <a
-          href="mailto:contacto@ayudaplan.cl?subject=Solicitud%20de%20Evaluación%20de%20Isapre"
-          class="btn-primary"
-          >Solicitar Asesoría Gratuita</a
-        >
-
-        <!-- ================================================================ -->
-        <!-- SECCIÓN 3: MÓDULO INTERACTIVO DEL CARRUSEL (LÁMINAS TÉCNICAS)    -->
-        <!-- ================================================================ -->
-        <div class="carousel-wrapper">
-          <input
-            type="radio"
-            name="carousel-control"
-            id="slide1"
-            checked
-            style="display:none;"
-          />
-          <input
-            type="radio"
-            name="carousel-control"
-            id="slide2"
-            style="display:none;"
-          />
-          <div class="carousel-inner">
-            <!-- Diapositiva 1 - Estudio Técnico -->
-            <div class="carousel-slide">
-              <div
-                style="padding: 1.8rem; background: #ffffff !important; width: 85%; border-radius: 8px; border: 1px solid #cbd5e1; text-align: left; box-shadow: 0 4px 10px rgba(0,0,0,0.05);"
-              >
-                <span
-                  style="background: var(--ocean-blue); color: #ffffff !important; padding: 0.2rem 0.6rem; border-radius: 4px; font-size: 0.8rem; font-weight: 700; text-transform: uppercase;"
-                  >Estudio Técnico Avanzado</span
-                >
-                <h2
-                  style="font-size: 1.4rem; margin: 0.5rem 0 0.3rem 0; font-weight: 800; color: #0f2b48 !important; -webkit-text-fill-color: #0f2b48 !important;"
-                >
-                  📊 Planificación y Adecuación de Cobertura
-                </h2>
-                <p
-                  style="font-size: 0.95rem; color: #334155 !important; -webkit-text-fill-color: #334155 !important; font-weight: 600;"
-                >
-                  Análisis comparativo de planes según el marco normativo de la
-                  Superintendencia de Salud. Maximizamos tu 7% legal en clínicas
-                  de alta complejidad.
-                </p>
-              </div>
-              <label for="slide2" class="carousel-control control-next"
-                >&gt;</label
-              >
-              <div class="slide-caption">
-                Análisis Normativo: Optimización Estratégica de tu Cobertura de
-                Salud
-              </div>
-            </div>
-
-            <!-- Diapositiva 2 - Finanzas Médicas -->
-            <div class="carousel-slide">
-              <div
-                style="padding: 1.8rem; background: #ffffff !important; width: 85%; border-radius: 8px; border: 1px solid #cbd5e1; text-align: left; box-shadow: 0 4px 10px rgba(0,0,0,0.05);"
-              >
-                <span
-                  style="background: var(--ocean-blue); color: #ffffff !important; padding: 0.2rem 0.6rem; border-radius: 4px; font-size: 0.8rem; font-weight: 700; text-transform: uppercase;"
-                  >Solución de Finanzas Médicas</span
-                >
-                <h2
-                  style="font-size: 1.4rem; margin: 0.5rem 0 0.3rem 0; font-weight: 800; color: #0f2b48 !important; -webkit-text-fill-color: #0f2b48 !important;"
-                >
-                  💎 Reestructuración de Excedentes e Isapres
-                </h2>
-                <p
-                  style="font-size: 0.95rem; color: #334155 !important; -webkit-text-fill-color: #334155 !important; font-weight: 600;"
-                >
-                  Diseño de planes con foco en la acumulación eficiente de
-                  excedentes para uso en farmacias y prestaciones ambulatorias,
-                  eliminando cobros invisibles.
-                </p>
-              </div>
-              <label for="slide1" class="carousel-control control-prev"
-                >&lt;</label
-              >
-              <div class="slide-caption">
-                Consultoría de Nicho: Mitigación de Costos y Estructuración de
-                Excedentes
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ==================================================================== -->
-    <!-- SECCIÓN 4: MIS SERVICIOS DE ASESORÍA (TRES COLUMNAS EN REJILLA)      -->
-    <!-- ==================================================================== -->
-    <section class="services-section">
-      <div class="container">
-        <h2>Mis Servicios de Asesoría</h2>
-        <div class="services-grid">
-          <div class="service-card">
-            <h3>🔍 Análisis de Cobertura</h3>
-            <p>
-              Evaluamos tu plan vigente para identificar si estás pagando de más
-              o si existen brechas de cobertura en clínicas de tu interés.
-            </p>
-          </div>
-          <div class="service-card">
-            <h3>📈 Optimización de Planes</h3>
-            <p>
-              Búsqueda y comparación objetiva entre las mejores alternativas del
-              mercado para maximizar tus excedentes y coberturas.
-            </p>
-          </div>
-          <div class="service-card">
-            <h3>💼 Orientación Completa</h3>
-            <p>
-              Te acompaño en todo el proceso administrativo de incorporación o
-              cambio de Isapre de manera rápida y transparente.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ==================================================================== -->
-    <!-- SECCIÓN 5: CANALES DE CONTACTO CON ENLACES LIMPIOS SANEADOS          -->
-    <!-- ==================================================================== -->
-    <section class="contact-section">
-      <div class="container">
-        <h2>¿Listo para optimizar tu previsión?</h2>
-        <p>
-          Elige el canal que te resulte más cómodo para agendar tu
-          pre-evaluación inmediata con la asesora:
-        </p>
-        <div class="contact-group">
-          <a
-            href="https://wa.me"
-            target="_blank"
-            class="btn-contact btn-whatsapp"
-          >
-            <svg class="icon-svg" viewBox="0 0 24 24">
-              <path
-                d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.713-1.457L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.37 9.863-9.748.002-2.607-1.01-5.057-2.85-6.897-1.84-1.84-4.291-2.853-6.899-2.854-5.444 0-9.871 4.372-9.874 9.75-.001 1.73.458 3.422 1.33 4.925l-.995 3.636 3.7-.962zm10.974-6.93c-.3-.15-1.771-.875-2.04-.972-.269-.099-.465-.148-.659.15s-.752.972-.922 1.167c-.17.195-.341.213-.641.064-1.138-.57-1.83-1.034-2.54-2.246-.188-.328.188-.305.541-1.012.06-.121.03-.226-.015-.317s-.465-1.12-.638-1.53c-.169-.406-.341-.35-.465-.356l-.396-.007c-.136 0-.357.051-.543.254-.187.203-.714.698-.714 1.701 0 1.003.731 1.973.833 2.11s1.44 2.194 3.488 3.077c1.378.595 1.947.674 2.645.57.439-.065 1.351-.552 1.542-1.057.19-.504.19-.937.133-1.029-.056-.092-.208-.142-.508-.292z"
-              />
-            </svg>
-            Contactar por WhatsApp
-          </a>
-          <a
-            href="mailto:contacto@ayudaplan.cl?subject=Solicitud%20de%20Evaluación%20de%20Isapre"
-            class="btn-contact btn-email"
-          >
-            <svg class="icon-svg" viewBox="0 0 24 24">
-              <path
-                d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z"
-              />
-            </svg>
-            Enviar un Correo
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ==================================================================== -->
-    <!-- SECCIÓN 6: NOTA DE ALCANCE COMERCIAL (AVISO DE TRANSACCIONES)        -->
-    <!-- ==================================================================== -->
-    <section class="pricing-notice-section">
-      <div class="container">
-        <div class="notice-content">
-          <span class="notice-icon">🛡️</span>
-          <p class="notice-text">
-            <strong>Nota de Alcance Comercial:</strong> El diagnóstico de
-            <em>Pre-Evaluación previsional inicial no posee costo</em> para el
-            afiliado. Tras el análisis de su caso por parte de la especialista,
-            si el requerimiento amerita una consultoría avanzada, las
-            condiciones serán notificadas vía correo electrónico.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ==================================================================== -->
-    <!-- SECCIÓN 7: INFORMACIÓN ÚTIL (ACORDEÓN DESPLEGABLE INTERACTIVO)       -->
-    <!-- ==================================================================== -->
-    <section class="faq-section">
-      <div class="container">
-        <h2>Información Útil para el Afiliado</h2>
-        <div class="faq-wrapper">
-          <div class="faq-item">
-            <input type="checkbox" id="faq1" class="faq-input" />
-            <label for="faq1" class="faq-label"
-              >¿Cuál es la diferencia entre Excedentes y Excesos?</label
-            >
-            <div class="faq-content">
-              <p>
-                Los excedentes se generan cuando tu cotización legal (7%) es
-                mayor al costo del plan contratado y sirven para farmacias o
-                bonos. Los excesos ocurren cuando pagas más allá del 7% por
-                errores del empleador y se devuelven en dinero anualmente.
-              </p>
-
-              <p>
-                Los excedentes se generan cuando tu cotización legal (7%) es
-                mayor al costo del plan contratado y sirven para farmacias o
-                bonos. Los excesos ocurren cuando pagas más allá del 7% por
-                errores del empleador y se devuelven en dinero anualmente.
-              </p>
-            </div>
-          </div>
-          <div class="faq-item">
-            <input type="checkbox" id="faq2" class="faq-input" />
-            <label for="faq2" class="faq-label"
-              >¿Por qué es importante revisar mi plan de salud
-              periódicamente?</label
-            >
-            <div class="faq-content">
-              <p>
-                El mercado previsional cambia y las Isapres lanzan nuevos planes
-                constantemente. Una revisión oportuna te permite mejorar
-                coberturas en clínicas específicas o disminuir el costo mensual
-                sin desproteger tu salud.
-              </p>
-            </div>
-          </div>
-          <div class="faq-item">
-            <input type="checkbox" id="faq3" class="faq-input" />
-            <label for="faq3" class="faq-label"
-              >¿Qué costo tiene la Consultoría Previsional?</label
-            >
-            <div class="faq-content">
-              <p>
-                La revisión técnica inicial básica no tiene valor asociado. En
-                caso de requerir un estudio de optimización avanzada o
-                soluciones de nicho de alta complejidad, se te informará
-                oportunamente el valor de los honorarios especializados vía
-                correo electrónico antes de iniciar el diseño.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ==================================================================== -->
-    <!-- SECCIÓN 8: BLOQUE DE CONFIANZA PROFESIONAL (3 TARJETAS EN FONDO BLANCO)-->
-    <!-- ==================================================================== -->
-    <section
-      class="services-section"
-      style="background-color: var(--bg-pure-white); border: none; padding-top: 10px !important; margin-top: -30px !important;"
-    >
-      <div class="container">
-        <h2>Por qué elegir una asesoría profesional</h2>
-        <div class="services-grid" style="margin-top: 20px;">
-          <div
-            class="service-card"
-            style="background-color: var(--bg-light-clean); padding: 35px; border-radius: 10px; border-left: 5px solid var(--navy-blue); box-shadow: 0 4px 10px rgba(0,0,0,0.05); text-align: left;"
-          >
-            <h3>Pre-Evaluación Inicial</h3>
-            <p>
-              Estudiamos la viabilidad y factibilidad de tu caso de forma ágil y
-              de manera confidencial.
-            </p>
-          </div>
-          <div
-            class="service-card"
-            style="background-color: var(--bg-light-clean); padding: 35px; border-radius: 10px; border-left: 5px solid var(--navy-blue); box-shadow: 0 4px 10px rgba(0,0,0,0.05); text-align: left;"
-          >
-            <h3>Transparencia Total</h3>
-            <p>
-              Explicaciones claras, sin letra chica. Sabrás exactamente qué
-              cubre tu plan.
-            </p>
-          </div>
-          <div
-            class="service-card"
-            style="background-color: var(--bg-light-clean); padding: 35px; border-radius: 10px; border-left: 5px solid var(--navy-blue); box-shadow: 0 4px 10px rgba(0,0,0,0.05); text-align: left;"
-          >
-            <h3>Especialización Avanzada</h3>
-            <p>
-              Análisis estratégico a medida para perfiles que buscan optimizar
-              su inversión al máximo.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ==================================================================== -->
-    <!-- SECCIÓN 9: PIE DE PÁGINA OSCURO INSTITUCIONAL CON FIRMA DE ADM FULLWEB-->
-    <!-- ==================================================================== -->
-    <footer class="main-footer">
-      <div class="container">
-        <p>
-          &copy; 2026 AyudaPlan.cl. Todos los derechos reservados. Asesoría
-          Previsional de Calidad.
-        </p>
-        <p
-          style="font-size: 0.85rem; color: #475569; margin-top: 10px; font-weight: 600; letter-spacing: 0.3px; margin-bottom: 0;"
-        >
-          Interconexiones y Administración por
-          <a
-            href="https://fullweb.cl"
-            target="_blank"
-            style="color: #0284c7; text-decoration: none; transition: color 0.2s;"
-            >www.fullweb.cl</a
-          >
-        </p>
-      </div>
-    </footer>
-  </body>
-</html>
