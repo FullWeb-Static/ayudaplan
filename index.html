@@ -8,23 +8,28 @@
     />
     <title>Ayuda Plan - Asesoría Previsional</title>
     <style>
+      /* ==================================================================== */
+      /* CONFIGURACIÓN DE COLORES GLOBALES DE LA MARCA (MANIPULA LOS TONOS DEL SITIO) */
+      /* ==================================================================== */
       :root {
-          --ocean-blue: #0f2b48;       /* Azul Océano Profundo */
-          --navy-blue: #1e40af;        /* Azul Marino Corporativo */
-          --brand-blue: #0284c7;       /* Azul Enlaces */
-          --brand-hover: #0369a1;
-          --accent-green: #25d366;     /* Verde WhatsApp */
-          --accent-green-hover: #128c7e;
-          --text-dark: #0f172a;
-          --text-muted: #475569;
-          --text-light: #ffffff;
-          --bg-pure-white: #ffffff;
-          --bg-light-clean: #f1f5f9;
-          --border-color: #cbd5e1;
-          --primary-darker: #071e33;
+          --ocean-blue: #0f2b48;       /* Azul Océano Profundo - Fondo principal de secciones oscuras */
+          --navy-blue: #1e40af;        /* Azul Marino Corporativo - Color de botones principales y bordes */
+          --brand-blue: #0284c7;       /* Azul Enlaces - Color de links, logos secundarios y acentos */
+          --brand-hover: #0369a1;      /* Azul Hover - Tono de interacción cuando el cursor pasa encima */
+          --accent-green: #25d366;     /* Verde WhatsApp - Tono corporativo de la app de mensajería */
+          --accent-green-hover: #128c7e;/* Verde Hover - Interacción del botón de WhatsApp */
+          --text-dark: #0f172a;        /* Texto Oscuro - Color de alta legibilidad para títulos en fondo claro */
+          --text-muted: #475569;       /* Texto Secundario - Color gris para descripciones largas */
+          --text-light: #ffffff;       /* Texto Claro - Color blanco para contrastar sobre fondos oscuros */
+          --bg-pure-white: #ffffff;    /* Fondo Blanco Puro - Base para las secciones claras */
+          --bg-light-clean: #f1f5f9;   /* Fondo Gris Claro Neutro - Alternador de lectura entre bloques */
+          --border-color: #cbd5e1;     /* Color de Bordes - Líneas divisorias de tarjetas y cajas */
+          --primary-darker: #071e33;   /* Azul Ultra Oscuro - Bloque de fondo para el aviso legal */
       }
 
-      /* RESET ESTRICTO PARA CELULARES */
+      /* ==================================================================== */
+      /* REINICIO DE MÁRGENES Y CONTROL DE PANTALLA PARA TELÉFONOS MÓVILES    */
+      /* ==================================================================== */
       html, body {
           font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
           background-color: var(--bg-pure-white);
@@ -32,9 +37,9 @@
           margin: 0;
           padding: 0;
           line-height: 1.6;
-          overflow-x: hidden;
+          overflow-x: hidden; /* Evita que el contenido desborde lateralmente en celulares */
           width: 100%;
-          -webkit-tap-highlight-color: transparent;
+          -webkit-tap-highlight-color: transparent; /* Elimina el parpadeo azul en pantallas táctiles */
       }
 
       .container {
@@ -45,11 +50,13 @@
           box-sizing: border-box;
       }
 
-      /* 1. CABECERA PERSIGUERA FIJA ARRIBA (CORREGIDA) */
+      /* ==================================================================== */
+      /* ESTILOS DE LA CABECERA BLANCA SUPERIOR FIJA (*STICKY*)                */
+      /* ==================================================================== */
       .main-header {
           background-color: var(--bg-pure-white) !important;
           border-bottom: 3px solid var(--navy-blue);
-          position: fixed !important;
+          position: fixed !important; /* Mantiene la barra flotando de forma permanente arriba */
           top: 0;
           left: 0;
           z-index: 1000;
@@ -85,14 +92,16 @@
       .header-hook-right a { color: var(--ocean-blue); text-decoration: none; transition: color 0.2s; }
       .header-hook-right a:hover { color: var(--navy-blue); }
 
-      /* 2. SECCIÓN HERO - Con margen correcto para que el Header Fijo no tape nada */
+      /* ==================================================================== */
+      /* ESTILOS DE LA PRESENTACIÓN AZUL PRINCIPAL (*HERO SECTION*)           */
+      /* ==================================================================== */
       .hero-section {
           background: linear-gradient(135deg, var(--ocean-blue) 0%, #1e3a8a 100%);
           color: var(--text-light);
           padding: 60px 0;
           text-align: center;
           width: 100%;
-          margin-top: 75px !important;
+          margin-top: 75px !important; /* Margen de colchón para que la barra fija no tape las letras */
       }
 
       .hero-section .main-title {
@@ -111,6 +120,7 @@
           padding: 0 15px;
       }
 
+      /* ESTILOS DEL BOTÓN AZUL DE ASESORÍA GRATUITA */
       .btn-primary {
           display: inline-block;
           background-color: var(--navy-blue);
@@ -127,7 +137,9 @@
       }
       .btn-primary:hover { background-color: #2563eb; transform: scale(1.02); }
       .btn-primary:active { transform: scale(0.98); }
-      /* 3. MEJORA DEL CARRUSEL: RESPONSIVO E INTERACTIVO EN CELULARES */
+      /* ==================================================================== */
+      /* ESTILOS DEL MÓDULO DEL CARRUSEL DE DATOS CON FONDO BLANCO            */
+      /* ==================================================================== */
       .carousel-wrapper {
           max-width: 950px;
           margin: 3.5rem auto 1rem auto;
@@ -137,7 +149,7 @@
           border-radius: 12px;
           box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
           border: 1px solid var(--border-color);
-          background-color: #ffffff !important;
+          background-color: #ffffff !important; /* Fuerza la base externa a blanco */
       }
       .carousel-open { display: none; }
       .carousel-inner { position: absolute; top: 0; left: 0; width: 200%; height: 100%; display: flex; transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
@@ -145,7 +157,7 @@
       .carousel-slide {
           width: 50%;
           height: 100%;
-          background-color: #ffffff !important;
+          background-color: #ffffff !important; /* Fuerza los fondos internos de las láminas a blanco */
           display: flex;
           align-items: center;
           justify-content: center;
@@ -153,6 +165,7 @@
           box-sizing: border-box;
       }
 
+      /* FLECHAS DE NAVEGACIÓN DEL CARRUSEL (< Y >) */
       .carousel-control {
           position: absolute;
           top: 50%;
@@ -179,10 +192,14 @@
       .control-prev { left: 15px; }
       .control-next { right: 15px; }
 
+      /* BARRA TRANSLÚCIDA INFERIOR DE LAS DIAPOSITIVAS */
       .slide-caption { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(180deg, rgba(15, 43, 72, 0.85) 0%, rgba(5, 15, 30, 0.95) 100%) !important; color: var(--text-light) !important; padding: 10px 15px; font-size: 0.9rem; font-weight: 700; text-align: center; z-index: 5; text-shadow: 0 1px 3px rgba(0,0,0,0.5); }
       #slide1:checked ~ .carousel-inner { transform: translateX(0); }
       #slide2:checked ~ .carousel-inner { transform: translateX(-50%); }
 
+      /* ==================================================================== */
+      /* ESTILOS DE LOS TRES BLOQUES DE SERVICIOS PREVISIONALES GRIS CLARO    */
+      /* ==================================================================== */
       .services-section {
           padding: 60px 0;
           background-color: var(--bg-light-clean);
@@ -197,6 +214,9 @@
       .service-card:hover { transform: translateY(-3px); }
       .service-card h3 { color: var(--ocean-blue); margin-top: 0; margin-bottom: 10px; font-size: 1.3rem; }
 
+      /* ==================================================================== */
+      /* ESTILOS DE LAS PREGUNTAS FRECUENTES (CELDAS INTERACTIVAS DESPLEGABLES)*/
+      /* ==================================================================== */
       .faq-section { padding: 60px 0; background-color: var(--bg-pure-white); width: 100%; }
       .faq-section h2 { text-align: center; color: var(--ocean-blue); font-size: 2rem; margin-bottom: 35px; font-weight: 800; }
       .faq-wrapper { max-width: 750px; margin: 0 auto; padding: 0 5px; }
@@ -209,6 +229,9 @@
       .faq-input:checked ~ .faq-content { max-height: 1000px; }
       .faq-input:checked ~ .faq-label::after { transform: rotate(45deg); color: var(--ocean-blue); }
 
+      /* ==================================================================== */
+      /* ESTILOS DEL BLOQUE DE RECUADROS DE CONTACTO (WHATSAPP Y CORREO)      */
+      /* ==================================================================== */
       .contact-section { padding: 60px 0; background-color: var(--ocean-blue); color: var(--text-light); text-align: center; border-top: 3px solid var(--brand-blue); width: 100%; }
       .contact-section h2 { font-size: 2rem; margin-bottom: 12px; font-weight: 800; }
       .contact-section p { color: #cbd5e1; margin-bottom: 30px; font-size: 1.1rem; padding: 0 15px; }
@@ -225,16 +248,24 @@
       .notice-content { display: flex; align-items: center; justify-content: center; gap: 12px; max-width: 900px; margin: 0 auto; text-align: left; }
       .notice-icon { font-size: 1.4rem; color: var(--brand-blue); flex-shrink: 0; }
 
-      /* 6. PIE DE PÁGINA OSCURO (CORREGIDO DE FORMA EXCLUSIVA) */
+      /* ==================================================================== */
+      /* ESTILOS DEL PIE DE PÁGINA OSCURO INSTITUCIONAL CON FIRMA             */
+      /* ==================================================================== */
       .main-footer { background-color: #081a2d !important; color: #94a3b8 !important; padding: 30px 15px; text-align: center; border-top: 1px solid #1e293b; width: 100%; font-size: 0.95rem; }
-
+      /* ==================================================================== */
+      /* RE-ARQUITECTURA DE DISEÑO PARA PANTALLAS DE TELÉFONOS MÓVILES (RESPONSIVE) */
+      /* ==================================================================== */
       @media (max-width: 768px) {
           .main-header .container { flex-direction: column; text-align: center; gap: 10px; padding: 12px 10px; }
           .header-hook-right { font-size: 0.9rem; gap: 0.5rem; justify-content: center; width: 100%; }
+
+          /* En celulares el Header fijo ocupa más espacio alto; se aumenta el colchón para no tapar letras */
           .hero-section { padding: 45px 0; margin-top: 110px !important; }
           .hero-section .main-title { font-size: 2.1rem; }
           .hero-section .subtitle { font-size: 1.1rem; margin-bottom: 25px; }
           .btn-primary { width: 100%; max-width: 320px; box-sizing: border-box; }
+
+          /* Proporción cuadrada móvil del carrusel para albergar los textos con holgura */
           .carousel-wrapper { padding-bottom: 85%; margin: 2rem 10px 0 10px; border-radius: 8px; }
           .carousel-slide { padding: 0 10px; }
           .carousel-slide > div { width: 100% !important; padding: 1.2rem !important; }
@@ -244,6 +275,7 @@
           .control-prev { left: 0px; border-radius: 0 4px 4px 0; }
           .control-next { right: 0px; border-radius: 4px 0 0 4px; }
           .slide-caption { font-size: 0.8rem; padding: 8px; }
+
           .services-grid { grid-template-columns: 1fr; gap: 20px; padding: 0 5px; }
           .service-card { padding: 22px; }
           .faq-label { font-size: 1rem; padding: 15px; }
@@ -255,7 +287,9 @@
     </style>
   </head>
   <body>
-    <!-- CABECERA: Fija arriba, blanca, limpia y persiguera sin molestar -->
+    <!-- ==================================================================== -->
+    <!-- SECCIÓN 1: CABECERA SUPERIOR CLARA (VINCULA LOGO Y CONTACTO DIRECTO)  -->
+    <!-- ==================================================================== -->
     <header class="main-header">
       <div class="container">
         <div class="logo">
@@ -272,6 +306,9 @@
       </div>
     </header>
 
+    <!-- ==================================================================== -->
+    <!-- SECCIÓN 2: PRESENTACIÓN AZUL PRINCIPAL (*HERO*) CON BOTÓN DE ASESORÍA-->
+    <!-- ==================================================================== -->
     <section class="hero-section">
       <div class="container">
         <h1 class="main-title">Tu salud merece el mejor plan</h1>
@@ -284,6 +321,9 @@
           >Solicitar Asesoría Gratuita</a
         >
 
+        <!-- ================================================================ -->
+        <!-- SECCIÓN 3: MODULO INTERACTIVO DEL CARRUSEL DE DIAPOSITIVAS BLANCAS -->
+        <!-- ================================================================ -->
         <div class="carousel-wrapper">
           <input
             type="radio"
@@ -299,6 +339,7 @@
             style="display:none;"
           />
           <div class="carousel-inner">
+            <!-- Diapositiva 1 - Estudio Técnico -->
             <div class="carousel-slide">
               <div
                 style="padding: 1.8rem; background: #ffffff !important; width: 85%; border-radius: 8px; border: 1px solid #cbd5e1; text-align: left; box-shadow: 0 4px 10px rgba(0,0,0,0.05);"
@@ -328,6 +369,8 @@
                 Salud
               </div>
             </div>
+
+            <!-- Diapositiva 2 - Finanzas Médicas -->
             <div class="carousel-slide">
               <div
                 style="padding: 1.8rem; background: #ffffff !important; width: 85%; border-radius: 8px; border: 1px solid #cbd5e1; text-align: left; box-shadow: 0 4px 10px rgba(0,0,0,0.05);"
@@ -362,6 +405,9 @@
       </div>
     </section>
 
+    <!-- ==================================================================== -->
+    <!-- SECCIÓN 4: MIS SERVICIOS DE ASESORÍA (TRES COLUMNAS EN FONDO GRIS)    -->
+    <!-- ==================================================================== -->
     <section class="services-section">
       <div class="container">
         <h2>Mis Servicios de Asesoría</h2>
@@ -390,6 +436,9 @@
         </div>
       </div>
     </section>
+    <!-- ==================================================================== -->
+    <!-- SECCIÓN 5: CANALES DE CONTACTO DIRECTO (ACCIONES DE LLAMADO DE COMPRA)-->
+    <!-- ==================================================================== -->
     <section class="contact-section">
       <div class="container">
         <h2>¿Listo para optimizar tu previsión?</h2>
@@ -413,6 +462,9 @@
       </div>
     </section>
 
+    <!-- ==================================================================== -->
+    <!-- SECCIÓN 6: NOTA DE ALCANCE COMERCIAL (AVISO EXCLUSIVO DE HONORARIOS) -->
+    <!-- ==================================================================== -->
     <section class="pricing-notice-section">
       <div class="container">
         <div class="notice-content">
@@ -428,6 +480,9 @@
       </div>
     </section>
 
+    <!-- ==================================================================== -->
+    <!-- SECCIÓN 7: INFORMACIÓN ÚTIL (ACORDEÓN EXPANDIBLE DE 3 PREGUNTAS)     -->
+    <!-- ==================================================================== -->
     <section class="faq-section">
       <div class="container">
         <h2>Información Útil para el Afiliado</h2>
@@ -480,20 +535,16 @@
       </div>
     </section>
 
+    <!-- ==================================================================== -->
+    <!-- SECCIÓN 8: BLOQUE DE CONFIANZA PROFESIONAL (3 TARJETAS EN FONDO BLANCO)-->
+    <!-- ==================================================================== -->
     <section
       class="services-section"
       style="background-color: var(--bg-pure-white); border: none; padding-top: 10px !important; margin-top: -30px !important;"
     >
       <div class="container">
-        <h2
-          style="text-align: center; color: var(--ocean-blue); font-size: 2rem; margin-bottom: 40px; font-weight: 800;"
-        >
-          Por qué elegir una asesoría profesional
-        </h2>
-        <div
-          class="services-grid"
-          style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 20px;"
-        >
+        <h2>Por qué elegir una asesoría profesional</h2>
+        <div class="services-grid" style="margin-top: 20px;">
           <div
             class="service-card"
             style="background-color: var(--bg-light-clean); padding: 35px; border-radius: 10px; border-left: 5px solid var(--navy-blue); box-shadow: 0 4px 10px rgba(0,0,0,0.05); text-align: left;"
@@ -528,7 +579,9 @@
       </div>
     </section>
 
-    <!-- PIE DE PÁGINA OSCURO INSTITUCIONAL COMPLETO -->
+    <!-- ==================================================================== -->
+    <!-- SECCIÓN 9: PIE DE PÁGINA OSCURO INSTITUCIONAL CON FIRMA DE ADM FULLWEB-->
+    <!-- ==================================================================== -->
     <footer class="main-footer">
       <div class="container">
         <p>
@@ -542,7 +595,7 @@
           <a
             href="https://fullweb.cl"
             target="_blank"
-            style="color: #0284c7; text-decoration: none;"
+            style="color: #0284c7; text-decoration: none; transition: color 0.2s;"
             >www.fullweb.cl</a
           >
         </p>
