@@ -122,11 +122,10 @@
           cursor: pointer;
       }
       .btn-primary:hover { background-color: #2563eb; transform: scale(1.02); }
-      .btn-primary:active { transform: scale(0.98); }
 
-      /* --- ESTILOS NATIVOS DE LA VITRINA ISAPRES --- */
+      /* --- SECCIÓN VITRINA ISAPRES DIDÁCTICA --- */
       .brands-section {
-          padding: 50px 0;
+          padding: 65px 0;
           background-color: var(--bg-pure-white);
           text-align: center;
           border-bottom: 1px solid #f1f5f9;
@@ -135,45 +134,78 @@
       .brands-subtitle {
           color: var(--text-muted);
           font-size: 1.1rem;
-          margin: 0 0 35px 0;
+          margin: 0 0 40px 0;
       }
 
       .brands-grid {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          gap: 20px;
-          flex-wrap: wrap;
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+          gap: 25px;
+          padding: 0 10px;
       }
 
       .brand-box {
           background: #f1f5f9;
-          padding: 12px 24px;
-          border-radius: 8px;
+          padding: 22px;
+          border-radius: 12px;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          text-align: left;
+          gap: 8px;
+          box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+          transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+          border: 1px solid #e2e8f0;
+          position: relative;
+          overflow: hidden;
+      }
+
+      .brand-header-inline {
           display: flex;
           align-items: center;
-          gap: 10px;
-          box-shadow: 0 2px 4px rgba(0,0,0,0.02);
-          transition: all 0.3s ease;
-          border: 1px solid #e2e8f0;
+          gap: 12px;
+          width: 100%;
       }
 
-      .brand-box:hover {
-          background: var(--ocean-blue);
-          color: white !important;
-          transform: translateY(-3px);
-      }
-
-      .brand-text-icon { font-size: 1.3rem; }
+      .brand-text-icon { font-size: 1.5rem; }
 
       .brand-name-tag {
-          font-weight: bold;
-          font-size: 0.9rem;
-          letter-spacing: 1px;
+          font-weight: 800;
+          font-size: 1.05rem;
+          letter-spacing: 0.5px;
           color: var(--ocean-blue);
+          transition: color 0.25s ease;
       }
 
+      .brand-detail-text {
+          font-size: 0.9rem;
+          color: var(--text-muted);
+          line-height: 1.4;
+          margin-top: 6px;
+          transition: color 0.25s ease;
+      }
+
+      /* COMPORTAMIENTO GENERAL HOVER COMPARTIDO */
+      .brand-box:hover {
+          transform: translateY(-4px);
+          box-shadow: 0 10px 20px rgba(15, 43, 72, 0.12);
+      }
       .brand-box:hover .brand-name-tag { color: #ffffff; }
+      .brand-box:hover .brand-detail-text { color: #f1f5f9; }
+
+      /* --- COLORES CORPORATIVOS ESPECÍFICOS PARA EL HOVER DE CADA ISAPRE --- */
+      .brand-box.box-banmedica:hover { background-color: #0f766e; border-color: #0f766e; } /* Azul Profesional Oscuro */
+
+      /* Colmena: Cambia a Amarillo Oro de forma estricta (el texto se vuelve oscuro para legibilidad) */
+      .brand-box.box-colmena:hover { background-color: #d97706; border-color: #d97706; }
+      .brand-box.box-colmena:hover .brand-name-tag { color: #ffffff; }
+      .brand-box.box-colmena:hover .brand-detail-text { color: #fffbeb; }
+
+      .brand-box.box-consalud:hover { background-color: #0f766e; border-color: #0f766e; } /* Azul Médico Brillante */
+      .brand-box.box-cruzblanca:hover { background-color: #0f766e; border-color: #0f766e; } /* Azul Marino */
+      .brand-box.box-esencial:hover { background-color: #0f766e; border-color: #0f766e; }  /* Azul Intermedio */
+      .brand-box.box-masvida:hover { background-color: #0f766e; border-color: #0f766e; }   /* Azul Profundo con matiz verde */
+      .brand-box.box-vidatres:hover { background-color: #0f766e; border-color: #0f766e; }  /* Azul Eléctrico Real */
       .carousel-wrapper {
           max-width: 950px;
           margin: 3.5rem auto 1rem auto;
@@ -249,6 +281,7 @@
           .control-prev { left: 0px; border-radius: 0 4px 4px 0; }
           .control-next { right: 0px; border-radius: 4px 0 0 4px; }
           .slide-caption { font-size: 0.82rem !important; padding: 10px 15px !important; text-align: center !important; color: var(--text-light) !important; line-height: 1.3 !important; }
+          .brands-grid { grid-template-columns: 1fr !important; gap: 20px !important; }
           .services-grid { grid-template-columns: 1fr !important; gap: 20px !important; padding: 0 5px !important; width: 100% !important; }
           .service-card { padding: 22px; width: 100% !important; box-sizing: border-box !important; }
           .faq-label { font-size: 1rem; padding: 15px; }
@@ -262,7 +295,7 @@
     </style>
   </head>
   <body>
-    <!-- CABECERA -->
+    <!-- HEADER -->
     <header class="main-header">
       <div class="container">
         <div class="logo">
@@ -279,7 +312,7 @@
       </div>
     </header>
 
-    <!-- SECCIÓN HERO -->
+    <!-- HERO -->
     <section class="hero-section">
       <div class="container">
         <h1 class="main-title">Tu salud merece el mejor plan</h1>
@@ -297,7 +330,7 @@
       </div>
     </section>
 
-    <!-- SECCIÓN DE LOGOTIPOS DE ISAPRES INYECTADA -->
+    <!-- VITRINA DIDÁCTICA INTERACTIVA CON MAQUETACIÓN DE COLORES PERSONALIZADOS EN EL HOVER -->
     <section class="brands-section">
       <div class="container">
         <p class="brands-subtitle">
@@ -306,44 +339,92 @@
         </p>
         <div class="brands-grid">
           <!-- Banmédica -->
-          <div class="brand-box">
-            <span class="brand-text-icon">🏥</span>
-            <span class="brand-name-tag">BANMÉDICA</span>
+          <div class="brand-box box-banmedica">
+            <div class="brand-header-inline">
+              <span class="brand-text-icon">🏥</span>
+              <span class="brand-name-tag">BANMÉDICA</span>
+            </div>
+            <p class="brand-detail-text">
+              Ofrece una amplia red prestadora y planes con accesos económicos
+              iniciales.
+            </p>
           </div>
 
           <!-- Colmena -->
-          <div class="brand-box">
-            <span class="brand-text-icon">🐝</span>
-            <span class="brand-name-tag">COLMENA</span>
+          <div class="brand-box box-colmena">
+            <div class="brand-header-inline">
+              <span class="brand-text-icon">🐝</span>
+              <span class="brand-name-tag">COLMENA</span>
+            </div>
+            <p class="brand-detail-text">
+              Cuenta con una gran variedad de planes y promedios competitivos en
+              el mercado.
+            </p>
           </div>
 
           <!-- Consalud -->
-          <div class="brand-box">
-            <span class="brand-text-icon">🩺</span>
-            <span class="brand-name-tag">CONSALUD</span>
+          <div class="brand-box box-consalud">
+            <div class="brand-header-inline">
+              <span class="brand-text-icon">🩺</span>
+              <span class="brand-name-tag">CONSALUD</span>
+            </div>
+            <p class="brand-detail-text">
+              Destaca por su cobertura hospitalaria focalizada en su red de
+              prestadores.
+            </p>
           </div>
 
           <!-- CruzBlanca -->
-          <div class="brand-box">
-            <span class="brand-text-icon">➕</span>
-            <span class="brand-name-tag">CRUZ BLANCA</span>
+          <div class="brand-box box-cruzblanca">
+            <div class="brand-header-inline">
+              <span class="brand-text-icon">➕</span>
+              <span class="brand-name-tag">CRUZ BLANCA</span>
+            </div>
+            <p class="brand-detail-text">
+              Posee una oferta extensa de planes de libre elección y red cerrada
+              asistencial.
+            </p>
+          </div>
+
+          <!-- Esencial -->
+          <div class="brand-box box-esencial">
+            <div class="brand-header-inline">
+              <span class="brand-text-icon">🌱</span>
+              <span class="brand-name-tag">ESENCIAL</span>
+            </div>
+            <p class="brand-detail-text">
+              Una de las alternativas más nuevas enfocada en simplificar la
+              cobertura previsional.
+            </p>
           </div>
 
           <!-- Nueva Masvida -->
-          <div class="brand-box">
-            <span class="brand-text-icon">🧬</span>
-            <span class="brand-name-tag">NUEVA MASVIDA</span>
+          <div class="brand-box box-masvida">
+            <div class="brand-header-inline">
+              <span class="brand-text-icon">🧬</span>
+              <span class="brand-name-tag">NUEVA MASVIDA</span>
+            </div>
+            <p class="brand-detail-text">
+              Presente en gran parte del territorio nacional con planes
+              altamente flexibles.
+            </p>
           </div>
 
           <!-- Vida Tres -->
-          <div class="brand-box">
-            <span class="brand-text-icon">💎</span>
-            <span class="brand-name-tag">VIDA TRES</span>
+          <div class="brand-box box-vidatres">
+            <div class="brand-header-inline">
+              <span class="brand-text-icon">💎</span>
+              <span class="brand-name-tag">VIDA TRES</span>
+            </div>
+            <p class="brand-detail-text">
+              Enfocada tradicionalmente en segmentos de mayores ingresos y
+              prestadores preferentes.
+            </p>
           </div>
         </div>
       </div>
     </section>
-    <!-- SECCIÓN DEL CAROUSEL -->
+    <!-- CAROUSEL -->
     <div class="container">
       <div class="carousel-wrapper">
         <input
@@ -462,7 +543,7 @@
         </p>
         <div class="contact-group">
           <a
-            href="https://wa.me/56931182494"
+            href="https://wa.me"
             target="_blank"
             class="btn-contact btn-whatsapp"
           >
@@ -488,7 +569,7 @@
       </div>
     </section>
 
-    <!-- NOTA -->
+    <!-- NOTA COMERCIAL -->
     <section class="pricing-notice-section">
       <div class="container">
         <div class="notice-content">
