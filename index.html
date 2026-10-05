@@ -578,7 +578,7 @@
         </div>
       </div>
     </section>
-           <!-- ========================================== -->
+            <!-- ========================================== -->
     <!--  FORMULARIO INTERACTIVO AUTOMATIZADO REAL  -->
     <!-- ========================================== -->
     <section style="padding: 60px 0; background-color: #f1f5f9; width: 100%; border-top: 1px solid #cbd5e1; border-bottom: 1px solid #cbd5e1;">
@@ -587,10 +587,9 @@
         <h2 style="text-align: center; color: #0f2b48; font-size: 2rem; font-weight: 800; margin: 0 0 10px 0;">Solicitar Estudio de Isapre</h2>
         <p style="text-align: center; color: #475569; font-size: 1rem; margin: 0 0 30px 0;">Ingresa tus datos para recibir tu propuesta de optimización de salud de forma automática.</p>
         
-        <!-- Formulario conectado a la ruta oficial de Web3Forms -->
-        <form action="https://api.web3forms.com/submit" method="POST" id="formAyudaPlan" style="background: #ffffff; padding: 40px; border-radius: 14px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); border: 1px solid #cbd5e1; box-sizing: border-box;">
+        <form action="https://web3forms.com" method="POST" id="formAyudaPlan" style="background: #ffffff; padding: 40px; border-radius: 14px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); border: 1px solid #cbd5e1; box-sizing: border-box;">
           
-          <!-- Clave real de acceso de AyudaPlan vinculada con éxito -->
+          <!-- Clave real de acceso de tu captura de Web3Forms -->
           <input type="hidden" name="access_key" value="5f7a6d57-a887-459c-975a-c1215f0f7129">
           <input type="hidden" name="subject" value="Nueva Solicitud de Asesoría - AyudaPlan.cl">
           <input type="hidden" name="from_name" value="AyudaPlan Web">
@@ -642,14 +641,13 @@
             Enviar Solicitud Gratuita
           </button>
           
-          <!-- Contenedor para el aviso de éxito o error en pantalla -->
           <div id="formResult" style="margin-top: 15px; text-align: center; font-weight: 700; font-size: 1.05rem; display: none;"></div>
 
         </form>
       </div>
     </section>
 
-    <!-- Script de procesamiento invisible corregido -->
+    <!-- Script de procesamiento invisible unificado -->
     <script>
       const form = document.getElementById('formAyudaPlan');
       const result = document.getElementById('formResult');
@@ -664,7 +662,7 @@
         result.style.color = "#0f2b48";
         result.innerHTML = "Procesando tu solicitud...";
 
-        fetch('https://api.web3forms.com/submit', {
+        fetch('https://web3forms.com', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
