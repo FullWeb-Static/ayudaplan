@@ -43,6 +43,19 @@
           width: 100%;
           box-sizing: border-box;
       }
+
+      /* --- ANIMACIONES DE DESTELLO VÍTREO Y REFLÉJO LÍQUIDO --- */
+      @keyframes glassShine {
+          0% { left: -100%; }
+          100% { left: 200%; }
+      }
+
+      @keyframes fluidWave {
+          0% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+          100% { background-position: 0% 50%; }
+      }
+      /* --- STICKY HEADER ORIGINAL REVISADO --- */
       .main-header {
           background-color: var(--bg-pure-white) !important;
           border-bottom: 3px solid var(--navy-blue);
@@ -68,6 +81,7 @@
       .header-hook-right a { color: var(--ocean-blue); text-decoration: none; transition: color 0.2s; }
       .header-hook-right a:hover { color: var(--navy-blue); }
 
+      /* --- HERO SECTION ORIGINAL CON INTEGRACIÓN DE DESTELLO --- */
       .hero-section {
           background: linear-gradient(135deg, var(--ocean-blue) 0%, #1e3a8a 100%);
           color: var(--text-light);
@@ -75,6 +89,7 @@
           text-align: center;
           width: 100%;
           margin-top: 75px !important;
+          position: relative;
       }
 
       .hero-section .main-title { font-size: 2.8rem; margin-bottom: 20px; font-weight: 800; letter-spacing: -0.5px; padding: 0 10px; }
@@ -96,20 +111,14 @@
       }
       .btn-primary:hover { background-color: #2563eb; transform: scale(1.02); }
 
-      /* --- SECCIÓN DE ISAPRES: DEGRADADO DE REFLEJO LÍQUIDO GRAFITO --- */
+      /* --- SECCIÓN MEDIA DE ISAPRES: UNICA CON FONDO GRAFITO OSCURO Y REFLEJO --- */
       .brands-section {
           padding: 65px 0;
           text-align: center;
           border-bottom: 1px solid #111827;
           background: linear-gradient(270deg, #1e2530, #2a3545, #1e2530);
           background-size: 400% 400%;
-          animation: fluidReflect 8s infinite ease-in-out;
-      }
-
-      @keyframes fluidReflect {
-          0% { background-position: 0% 50%; }
-          50% { background-position: 100% 50%; }
-          100% { background-position: 0% 50%; }
+          animation: fluidWave 8s infinite ease-in-out;
       }
 
       .brands-subtitle { color: #94a3b8; font-size: 1.1rem; margin: 0 0 40px 0; }
@@ -124,22 +133,21 @@
           transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
           border: 1px solid rgba(255, 255, 255, 0.1);
           overflow: hidden;
+          position: relative;
+      }
+
+      /* Efecto de destello de cristal elegante y casual (Glassmorphism) */
+      .brand-box::after, .service-card::after, .faq-item::after {
+          content: ""; position: absolute; top: 0; left: -100%; width: 50%; height: 100%;
+          background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.12), transparent);
+          transform: skewX(-25deg); pointer-events: none;
+      }
+      .brand-box:hover::after, .service-card:hover::after, .faq-item:hover::after {
+          animation: glassShine 0.85s ease-in-out;
       }
 
       .brand-toggle { display: none; }
-
-      .brand-header-label {
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          padding: 20px 22px;
-          width: 100%;
-          cursor: pointer;
-          user-select: none;
-          box-sizing: border-box;
-          transition: background-color 0.25s ease;
-      }
-
+      .brand-header-label { display: flex; align-items: center; justify-content: space-between; padding: 20px 22px; width: 100%; cursor: pointer; user-select: none; box-sizing: border-box; transition: background-color 0.25s ease; }
       .brand-header-inline { display: flex; align-items: center; gap: 12px; }
       .brand-text-icon { font-size: 1.5rem; }
       .brand-name-tag { font-weight: 800; font-size: 1.05rem; letter-spacing: 0.5px; color: #f1f5f9; transition: color 0.25s ease; }
@@ -152,18 +160,19 @@
       .brand-box.box-unificado:hover { transform: translateY(-4px); background-color: #0f766e; border-color: #14b8a6; box-shadow: 0 8px 25px rgba(15, 118, 110, 0.4); }
       .brand-box.box-unificado:hover .brand-action-btn { color: #ffffff !important; }
 
-      /* --- EXCLUSIVO COLMENA: ANIMACIÓN HALO DORADO CONSTANTE EN REPOSO Y HOVER ORO --- */
-      .brand-box.box-colmena { border-color: rgba(217, 119, 6, 0.3); animation: goldenGlow 2.5s infinite alternate ease-in-out; }
+      /* AURA DORADA EXCLUSIVA PARA COLMENA EN FONDO OSCURO */
+      .brand-box.box-colmena { border-color: rgba(217, 119, 6, 0.3); animation: colmenaGlow 2.5s infinite alternate ease-in-out; }
       .brand-box.box-colmena .brand-action-btn { color: #f59e0b; }
 
-      @keyframes goldenGlow {
-          0% { box-shadow: 0 4px 10px rgba(0,0,0,0.15), 0 0 6px rgba(217, 119, 6, 0.1); }
-          100% { box-shadow: 0 4px 10px rgba(0,0,0,0.15), 0 0 16px rgba(217, 119, 6, 0.35); }
+      @keyframes colmenaGlow {
+          0% { box-shadow: 0 4px 10px rgba(0,0,0,0.15), 0 0 5px rgba(217, 119, 6, 0.15); }
+          100% { box-shadow: 0 4px 10px rgba(0,0,0,0.15), 0 0 15px rgba(217, 119, 6, 0.4); }
       }
-
-      .brand-box.box-colmena:hover { transform: translateY(-4px); background-color: #d97706; border-color: #fbbf24; box-shadow: 0 0 28px rgba(217, 119, 6, 0.6), 0 10px 20px rgba(217, 119, 6, 0.2) !important; animation: none; }
+      .brand-box.box-colmena:hover { transform: translateY(-4px); background-color: #d97706; border-color: #fbbf24; box-shadow: 0 0 28px rgba(217, 119, 6, 0.6) !important; animation: none; }
+      .brand-box.box-colmena:hover .brand-name-tag { color: #ffffff !important; }
       .brand-box.box-colmena:hover .brand-action-btn { color: #ffffff !important; }
 
+      /* MANEJO DE ACORDEÓN ABIERTO */
       .brand-box.box-unificado .brand-toggle:checked ~ .brand-header-label { background-color: #0f766e; }
       .brand-box.box-unificado .brand-toggle:checked ~ .brand-header-label .brand-action-btn { color: #ffffff !important; transform: rotate(45deg); }
       .brand-box.box-unificado .brand-toggle:checked ~ .brand-detail-wrapper { background-color: #0f766e; }
@@ -175,35 +184,47 @@
       .brand-box.box-colmena:has(.brand-toggle:checked) { border-color: #fbbf24; background-color: #d97706; box-shadow: 0 0 25px rgba(217, 119, 6, 0.4) !important; animation: none; }
 
       .brand-toggle:checked ~ .brand-detail-wrapper { max-height: 200px; }
+      /* --- RESTAURACIÓN DE SECCIONES BLANCAS, PULCRAS Y MEDICAS --- */
+      .services-section {
+          padding: 60px 0;
+          background-color: var(--bg-light-clean);
+          border-top: 1px solid var(--border-color);
+          border-bottom: 1px solid var(--border-color);
+          width: 100%;
+      }
+
+      .services-section h2, .faq-section h2 { text-align: center; color: var(--ocean-blue); font-size: 2rem; font-weight: 800; margin-bottom: 10px; }
+      .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-top: 30px; }
+
+      /* Tarjetas de servicios en blanco pulcro con efecto destello */
+      .service-card {
+          background-color: var(--bg-pure-white);
+          padding: 30px; border-radius: 12px; border-left: 5px solid var(--navy-blue);
+          box-shadow: 0 4px 15px rgba(0,0,0,0.04); transition: all 0.25s ease;
+          position: relative; overflow: hidden;
+      }
+      .service-card:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(0,0,0,0.08); }
+      .service-card h3 { color: var(--ocean-blue); margin-top: 0; margin-bottom: 10px; font-size: 1.3rem; }
+
       .carousel-wrapper { max-width: 950px; margin: 3.5rem auto 1rem auto; position: relative; padding-bottom: 35%; overflow: hidden; border-radius: 12px; box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15); border: 1px solid var(--border-color); background-color: #ffffff !important; }
       .carousel-open { display: none; }
       .carousel-inner { position: absolute; top: 0; left: 0; width: 200%; height: 100%; display: flex; transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
       .carousel-slide { width: 50%; height: 100%; background-color: #ffffff !important; display: flex; align-items: center; justify-content: center; position: relative; box-sizing: border-box; }
       .carousel-control { position: absolute; top: 50%; transform: translateY(-50%); background-color: rgba(15, 43, 72, 0.95); color: var(--text-light); width: 46px; height: 46px; display: flex; align-items: center; justify-content: center; border-radius: 50%; cursor: pointer; font-weight: bold; font-size: 1.5rem; user-select: none; z-index: 10; transition: all 0.2s; border: none; box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
       .carousel-control:hover { background-color: var(--brand-blue); transform: translateY(-50%) scale(1.08); }
-      .carousel-control:active { transform: translateY(-50%) scale(0.92); }
-      .control-prev { left: 15px; }
-      .control-next { right: 15px; }
-      .slide-caption { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(180deg, rgba(15, 43, 72, 0.35) 0%, rgba(7, 24, 43, 0.55) 100%) !important; color: var(--text-light) !important; padding: 12px 40px; font-size: 0.95rem; font-weight: 700; text-align: center !important; box-sizing: border-box; width: 100%; display: block; z-index: 5; text-shadow: 0 1px 2px rgba(0,0,0,0.6) !important; }
+      .control-prev { left: 15px; } .control-next { right: 15px; }
+      .slide-caption { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(180deg, rgba(15, 43, 72, 0.35) 0%, rgba(7, 24, 43, 0.55) 100%) !important; color: var(--text-light) !important; padding: 12px 40px; font-size: 0.95rem; font-weight: 700; text-align: center !important; width: 100%; display: block; z-index: 5; text-shadow: 0 1px 2px rgba(0,0,0,0.6) !important; }
       #slide1:checked ~ .carousel-inner { transform: translateX(0); }
       #slide2:checked ~ .carousel-inner { transform: translateX(-50%); }
 
-      .services-section { padding: 60px 0; background-color: var(--bg-light-clean); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); width: 100%; }
-      .services-section h2 { text-align: center; color: var(--ocean-blue); font-size: 2rem; font-weight: 800; margin-bottom: 10px; }
-      .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-top: 30px; }
-      .service-card { background-color: var(--bg-pure-white); padding: 30px; border-radius: 12px; border-left: 5px solid var(--navy-blue); box-shadow: 0 4px 15px rgba(0,0,0,0.04); transition: transform 0.2s; }
-      .service-card:hover { transform: translateY(-3px); }
-      .service-card h3 { color: var(--ocean-blue); margin-top: 0; margin-bottom: 10px; font-size: 1.3rem; }
-
       .faq-section { padding: 60px 0; background-color: var(--bg-pure-white); width: 100%; }
-      .faq-section h2 { text-align: center; color: var(--ocean-blue); font-size: 2rem; margin-bottom: 35px; font-weight: 800; }
       .faq-wrapper { max-width: 750px; margin: 0 auto; padding: 0 5px; }
-      .faq-item { border: 1px solid var(--border-color); border-radius: 10px; padding: 0; margin-bottom: 15px; background-color: var(--bg-light-clean); overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.02); }
+      .faq-item { border: 1px solid var(--border-color); border-radius: 10px; padding: 0; margin-bottom: 15px; background-color: var(--bg-light-clean); overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.02); position: relative; }
       .faq-input { display: none; }
       .faq-label { display: flex; justify-content: space-between; align-items: center; color: var(--ocean-blue); font-weight: 700; font-size: 1.1rem; padding: 18px 20px; cursor: pointer; user-select: none; }
       .faq-label::after { content: '+'; font-size: 1.4rem; color: var(--brand-blue); transition: transform 0.2s; font-weight: bold; }
       .faq-content { max-height: 0; overflow: hidden; transition: max-height 0.3s cubic-bezier(0, 1, 0, 1); background-color: var(--bg-pure-white); }
-      .faq-content p { padding: 18px 20px; margin: 0; color: var(--text-muted); font-size: 1rem; border-top: 1px solid var(--border-color); }
+      .faq-content p { padding: 18px 20px; margin: 0; color: #475569; font-size: 1rem; border-top: 1px solid var(--border-color); }
       .faq-input:checked ~ .faq-content { max-height: 1000px; }
       .faq-input:checked ~ .faq-label::after { transform: rotate(45deg); color: var(--ocean-blue); }
 
@@ -271,7 +292,7 @@
       </div>
     </header>
 
-    <!-- HERO -->
+    <!-- HERO EN FONDO CLARO PULCRO -->
     <section class="hero-section">
       <div class="container">
         <h1 class="main-title">Tu salud merece el mejor plan</h1>
@@ -289,7 +310,7 @@
       </div>
     </section>
 
-    <!-- VITRINA INTERACTIVA -->
+    <!-- VITRINA INTERACTIVA EXCLUSIVA EN GRAFITO OSCURO -->
     <section class="brands-section">
       <div class="container">
         <p class="brands-subtitle">
@@ -429,7 +450,7 @@
       </div>
     </section>
 
-    <!-- CAROUSEL -->
+    <!-- CAROUSEL ORIGINAL RESTAURADO -->
     <div class="container">
       <div class="carousel-wrapper">
         <input
@@ -509,7 +530,7 @@
       </div>
     </div>
 
-    <!-- SERVICIOS -->
+    <!-- MIS SERVICIOS DE ASESORÍA PULCROS -->
     <section class="services-section">
       <div class="container">
         <h2>Mis Servicios de Asesoría</h2>
@@ -548,7 +569,7 @@
         </p>
         <div class="contact-group">
           <a
-            href="https://wa.me"
+            href="https://wa.me/56931182494"
             target="_blank"
             class="btn-contact btn-whatsapp"
           >
@@ -574,7 +595,7 @@
       </div>
     </section>
 
-    <!-- NOTA -->
+    <!-- NOTA COMERCIAL -->
     <section class="pricing-notice-section">
       <div class="container">
         <div class="notice-content">
@@ -590,7 +611,7 @@
       </div>
     </section>
 
-    <!-- FAQ -->
+    <!-- FAQ BLANCO PULCRO -->
     <section class="faq-section">
       <div class="container">
         <h2>Information Útil para el Afiliado</h2>
@@ -643,7 +664,7 @@
       </div>
     </section>
 
-    <!-- VENTAJAS -->
+    <!-- VENTAJAS CON DESTELLO DE CRISTAL -->
     <section
       class="services-section"
       style="background-color: var(--bg-pure-white); border: none; padding-top: 10px !important; margin-top: -30px !important;"
