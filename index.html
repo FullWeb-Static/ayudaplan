@@ -31,7 +31,7 @@
           margin: 0;
           padding: 0;
           line-height: 1.6;
-          overflow-x: hidden !important; /* Bloqueo estricto de desborde lateral */
+          overflow-x: hidden !important;
           width: 100%;
           -webkit-tap-highlight-color: transparent;
       }
@@ -68,7 +68,6 @@
           color: var(--ocean-blue);
           font-weight: 800;
       }
-
       .header-hook-right {
           display: flex;
           align-items: center;
@@ -82,6 +81,7 @@
       .header-divider { color: var(--brand-blue); opacity: 0.7; }
       .header-hook-right a { color: var(--ocean-blue); text-decoration: none; transition: color 0.2s; }
       .header-hook-right a:hover { color: var(--navy-blue); }
+
       .hero-section {
           background: linear-gradient(135deg, var(--ocean-blue) 0%, #1e3a8a 100%);
           color: var(--text-light);
@@ -124,6 +124,56 @@
       .btn-primary:hover { background-color: #2563eb; transform: scale(1.02); }
       .btn-primary:active { transform: scale(0.98); }
 
+      /* --- ESTILOS NATIVOS DE LA VITRINA ISAPRES --- */
+      .brands-section {
+          padding: 50px 0;
+          background-color: var(--bg-pure-white);
+          text-align: center;
+          border-bottom: 1px solid #f1f5f9;
+      }
+
+      .brands-subtitle {
+          color: var(--text-muted);
+          font-size: 1.1rem;
+          margin: 0 0 35px 0;
+      }
+
+      .brands-grid {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 20px;
+          flex-wrap: wrap;
+      }
+
+      .brand-box {
+          background: #f1f5f9;
+          padding: 12px 24px;
+          border-radius: 8px;
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+          transition: all 0.3s ease;
+          border: 1px solid #e2e8f0;
+      }
+
+      .brand-box:hover {
+          background: var(--ocean-blue);
+          color: white !important;
+          transform: translateY(-3px);
+      }
+
+      .brand-text-icon { font-size: 1.3rem; }
+
+      .brand-name-tag {
+          font-weight: bold;
+          font-size: 0.9rem;
+          letter-spacing: 1px;
+          color: var(--ocean-blue);
+      }
+
+      .brand-box:hover .brand-name-tag { color: #ffffff; }
       .carousel-wrapper {
           max-width: 950px;
           margin: 3.5rem auto 1rem auto;
@@ -137,74 +187,20 @@
       }
       .carousel-open { display: none; }
       .carousel-inner { position: absolute; top: 0; left: 0; width: 200%; height: 100%; display: flex; transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
-
-      .carousel-slide {
-          width: 50%;
-          height: 100%;
-          background-color: #ffffff !important;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          position: relative;
-          box-sizing: border-box;
-      }
-
-      .carousel-control {
-          position: absolute;
-          top: 50%;
-          transform: translateY(-50%);
-          background-color: rgba(15, 43, 72, 0.95);
-          color: var(--text-light);
-          width: 46px;
-          height: 46px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          border-radius: 50%;
-          cursor: pointer;
-          font-weight: bold;
-          font-size: 1.5rem;
-          user-select: none;
-          z-index: 10;
-          transition: all 0.2s;
-          border: none;
-          box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-      }
+      .carousel-slide { width: 50%; height: 100%; background-color: #ffffff !important; display: flex; align-items: center; justify-content: center; position: relative; box-sizing: border-box; }
+      .carousel-control { position: absolute; top: 50%; transform: translateY(-50%); background-color: rgba(15, 43, 72, 0.95); color: var(--text-light); width: 46px; height: 46px; display: flex; align-items: center; justify-content: center; border-radius: 50%; cursor: pointer; font-weight: bold; font-size: 1.5rem; user-select: none; z-index: 10; transition: all 0.2s; border: none; box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
       .carousel-control:hover { background-color: var(--brand-blue); transform: translateY(-50%) scale(1.08); }
       .carousel-control:active { transform: translateY(-50%) scale(0.92); }
       .control-prev { left: 15px; }
       .control-next { right: 15px; }
-
-      .slide-caption {
-          position: absolute;
-          bottom: 0;
-          left: 0;
-          right: 0;
-          background: linear-gradient(180deg, rgba(15, 43, 72, 0.35) 0%, rgba(7, 24, 43, 0.55) 100%) !important;
-          color: var(--text-light) !important;
-          padding: 12px 40px;
-          font-size: 0.95rem;
-          font-weight: 700;
-          text-align: center !important;
-          box-sizing: border-box;
-          width: 100%;
-          display: block;
-          z-index: 5;
-          text-shadow: 0 1px 2px rgba(0,0,0,0.6) !important;
-      }
+      .slide-caption { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(180deg, rgba(15, 43, 72, 0.35) 0%, rgba(7, 24, 43, 0.55) 100%) !important; color: var(--text-light) !important; padding: 12px 40px; font-size: 0.95rem; font-weight: 700; text-align: center !important; box-sizing: border-box; width: 100%; display: block; z-index: 5; text-shadow: 0 1px 2px rgba(0,0,0,0.6) !important; }
       #slide1:checked ~ .carousel-inner { transform: translateX(0); }
       #slide2:checked ~ .carousel-inner { transform: translateX(-50%); }
-      .services-section {
-          padding: 60px 0;
-          background-color: var(--bg-light-clean);
-          border-top: 1px solid var(--border-color);
-          border-bottom: 1px solid var(--border-color);
-          width: 100%;
-      }
 
+      .services-section { padding: 60px 0; background-color: var(--bg-light-clean); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); width: 100%; }
       .services-section h2 { text-align: center; color: var(--ocean-blue); font-size: 2rem; font-weight: 800; margin-bottom: 10px; }
       .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-top: 30px; }
-      .service-card { background-color: var(--bg-pure-white); padding: 30px; border-radius: 12px; border-left: 5px solid var(--navy-blue); box-shadow: 0 4px 15 rgba(0,0,0,0.04); transition: transform 0.2s; }
+      .service-card { background-color: var(--bg-pure-white); padding: 30px; border-radius: 12px; border-left: 5px solid var(--navy-blue); box-shadow: 0 4px 15px rgba(0,0,0,0.04); transition: transform 0.2s; }
       .service-card:hover { transform: translateY(-3px); }
       .service-card h3 { color: var(--ocean-blue); margin-top: 0; margin-bottom: 10px; font-size: 1.3rem; }
 
@@ -223,7 +219,6 @@
       .contact-section { padding: 60px 0; background-color: var(--ocean-blue); color: var(--text-light); text-align: center; border-top: 3px solid var(--brand-blue); width: 100%; }
       .contact-section h2 { font-size: 2rem; margin-bottom: 12px; font-weight: 800; }
       .contact-section p { color: #cbd5e1; margin-bottom: 30px; font-size: 1.1rem; padding: 0 15px; }
-
       .contact-group { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; padding: 0 15px; }
       .btn-contact { display: inline-flex; align-items: center; justify-content: center; gap: 10px; text-decoration: none; padding: 15px 30px; border-radius: 50px; font-weight: 700; transition: all 0.2s ease; font-size: 1.05rem; min-height: 48px; }
       .btn-whatsapp { background-color: var(--accent-green); color: var(--text-light); box-shadow: 0 4px 14px rgba(37, 211, 102, 0.3); }
@@ -235,7 +230,6 @@
       .pricing-notice-section { background-color: var(--primary-darker); padding: 20px 15px; color: #94a3b8; border-bottom: 3px solid var(--brand-blue); text-align: center; font-size: 0.95rem; }
       .notice-content { display: flex; align-items: center; justify-content: center; gap: 12px; max-width: 900px; margin: 0 auto; text-align: left; }
       .notice-icon { font-size: 1.4rem; color: var(--brand-blue); flex-shrink: 0; }
-
       .main-footer { background-color: #081a2d; color: #94a3b8; padding: 30px 15px; text-align: center; border-top: 1px solid #1e293b; width: 100%; font-size: 0.95rem; }
 
       @media (max-width: 768px) {
@@ -254,50 +248,21 @@
           .carousel-control { width: 38px; height: 46px; font-size: 1.2rem; border-radius: 4px; background-color: rgba(15, 43, 72, 0.85); }
           .control-prev { left: 0px; border-radius: 0 4px 4px 0; }
           .control-next { right: 0px; border-radius: 4px 0 0 4px; }
-
-          .slide-caption {
-              font-size: 0.82rem !important;
-              padding: 10px 15px !important;
-              text-align: center !important;
-              color: var(--text-light) !important;
-              line-height: 1.3 !important;
-          }
-
-          /* SOLUCIÓN AL DESBORE: Fuerza a que las grillas de tarjetas colapsen obligatoriamente hacia abajo */
+          .slide-caption { font-size: 0.82rem !important; padding: 10px 15px !important; text-align: center !important; color: var(--text-light) !important; line-height: 1.3 !important; }
           .services-grid { grid-template-columns: 1fr !important; gap: 20px !important; padding: 0 5px !important; width: 100% !important; }
           .service-card { padding: 22px; width: 100% !important; box-sizing: border-box !important; }
           .faq-label { font-size: 1rem; padding: 15px; }
           .faq-content p { padding: 15px; font-size: 0.95rem; }
-
-          /* CENTRADO SIMÉTRICO FORZADO PARA BOTONES */
-                    .contact-group {
-              flex-direction: column !important;
-              align-items: center !important;
-              justify-content: center !important;
-              gap: 12px !important;
-              width: 100% !important;
-              display: flex !important;
-              padding: 0 !important; /* Quita de raíz el espacio fantasma que empuja a la derecha */
-              margin: 0 auto !important;
-          }
-          .btn-contact {
-              width: 100% !important;
-              max-width: 320px !important; /* Se ajusta de forma perfecta a pantallas delgadas */
-              box-sizing: border-box !important;
-              margin: 0 auto !important;
-              display: inline-flex !important;
-              justify-content: center !important;
-          }
-
+          .contact-group { flex-direction: column !important; align-items: center !important; justify-content: center !important; gap: 12px !important; width: 100% !important; display: flex !important; padding: 0 !important; margin: 0 auto !important; }
+          .btn-contact { width: 100% !important; max-width: 320px !important; box-sizing: border-box !important; margin: 0 auto !important; display: inline-flex !important; justify-content: center !important; }
           .notice-content { flex-direction: column; text-align: center; gap: 6px; }
-
-          /* FORCE ALINEACIÓN CENTRAL DE LA FIRMA */
           .main-footer { text-align: center !important; width: 100% !important; box-sizing: border-box !important; }
           .main-footer p { text-align: center !important; margin: 0 auto 10px auto !important; width: 100% !important; }
       }
     </style>
   </head>
   <body>
+    <!-- CABECERA -->
     <header class="main-header">
       <div class="container">
         <div class="logo">
@@ -314,6 +279,7 @@
       </div>
     </header>
 
+    <!-- SECCIÓN HERO -->
     <section class="hero-section">
       <div class="container">
         <h1 class="main-title">Tu salud merece el mejor plan</h1>
@@ -328,86 +294,136 @@
           class="btn-primary"
           >Solicitar Asesoría Gratuita</a
         >
+      </div>
+    </section>
 
-        <div class="carousel-wrapper">
-          <input
-            type="radio"
-            name="carousel-control"
-            id="slide1"
-            checked
-            style="display:none;"
-          />
-          <input
-            type="radio"
-            name="carousel-control"
-            id="slide2"
-            style="display:none;"
-          />
-          <div class="carousel-inner">
-            <div class="carousel-slide">
-              <div
-                style="padding: 1.8rem; background: #ffffff !important; width: 85%; border-radius: 8px; border: 1px solid #cbd5e1; text-align: left; box-shadow: 0 4px 10px rgba(0,0,0,0.05);"
-              >
-                <span
-                  style="background: var(--ocean-blue); color: #ffffff !important; padding: 0.2rem 0.6rem; border-radius: 4px; font-size: 0.8rem; font-weight: 700; text-transform: uppercase;"
-                  >Estudio Técnico Avanzado</span
-                >
-                <h2
-                  style="font-size: 1.4rem; margin: 0.5rem 0 0.3rem 0; font-weight: 800; color: #0f2b48 !important; -webkit-text-fill-color: #0f2b48 !important;"
-                >
-                  📊 Planificación y Adecuación de Cobertura
-                </h2>
-                <p
-                  style="font-size: 0.95rem; color: #334155 !important; -webkit-text-fill-color: #334155 !important; font-weight: 600;"
-                >
-                  Análisis comparativo de planes según el marco normativo de la
-                  Superintendencia de Salud. Maximizamos tu 7% legal en clínicas
-                  de alta complejidad.
-                </p>
-              </div>
-              <label for="slide2" class="carousel-control control-next"
-                >&gt;</label
-              >
-              <div class="slide-caption">
-                Análisis Normativo: Optimización Strategica de tu Cobertura de
-                Salud
-              </div>
-            </div>
+    <!-- SECCIÓN DE LOGOTIPOS DE ISAPRES INYECTADA -->
+    <section class="brands-section">
+      <div class="container">
+        <p class="brands-subtitle">
+          Analizamos, optimizamos y cotizamos tus coberturas en las principales
+          instituciones de salud del país
+        </p>
+        <div class="brands-grid">
+          <!-- Banmédica -->
+          <div class="brand-box">
+            <span class="brand-text-icon">🏥</span>
+            <span class="brand-name-tag">BANMÉDICA</span>
+          </div>
 
-            <div class="carousel-slide">
-              <div
-                style="padding: 1.8rem; background: #ffffff !important; width: 85%; border-radius: 8px; border: 1px solid #cbd5e1; text-align: left; box-shadow: 0 4px 10px rgba(0,0,0,0.05);"
-              >
-                <span
-                  style="background: var(--ocean-blue); color: #ffffff !important; padding: 0.2rem 0.6rem; border-radius: 4px; font-size: 0.8rem; font-weight: 700; text-transform: uppercase;"
-                  >Solución de Finanzas Médicas</span
-                >
-                <h2
-                  style="font-size: 1.4rem; margin: 0.5rem 0 0.3rem 0; font-weight: 800; color: #0f2b48 !important; -webkit-text-fill-color: #0f2b48 !important;"
-                >
-                  💎 Reestructuración de Excedentes e Isapres
-                </h2>
-                <p
-                  style="font-size: 0.95rem; color: #334155 !important; -webkit-text-fill-color: #334155 !important; font-weight: 600;"
-                >
-                  Diseño de planes con foco en la acumulación eficiente de
-                  excedentes para uso en farmacias y prestaciones ambulatorias,
-                  eliminando cobros invisibles.
-                </p>
-              </div>
-              <label for="slide1" class="carousel-control control-prev"
-                >&lt;</label
-              >
-              <div class="slide-caption">
-                Consultoría de Nicho: Mitigación de Costos y Estructuración de
-                Excedentes
-              </div>
-            </div>
+          <!-- Colmena -->
+          <div class="brand-box">
+            <span class="brand-text-icon">🐝</span>
+            <span class="brand-name-tag">COLMENA</span>
+          </div>
+
+          <!-- Consalud -->
+          <div class="brand-box">
+            <span class="brand-text-icon">🩺</span>
+            <span class="brand-name-tag">CONSALUD</span>
+          </div>
+
+          <!-- CruzBlanca -->
+          <div class="brand-box">
+            <span class="brand-text-icon">➕</span>
+            <span class="brand-name-tag">CRUZ BLANCA</span>
+          </div>
+
+          <!-- Nueva Masvida -->
+          <div class="brand-box">
+            <span class="brand-text-icon">🧬</span>
+            <span class="brand-name-tag">NUEVA MASVIDA</span>
+          </div>
+
+          <!-- Vida Tres -->
+          <div class="brand-box">
+            <span class="brand-text-icon">💎</span>
+            <span class="brand-name-tag">VIDA TRES</span>
           </div>
         </div>
       </div>
     </section>
+    <!-- SECCIÓN DEL CAROUSEL -->
+    <div class="container">
+      <div class="carousel-wrapper">
+        <input
+          type="radio"
+          name="carousel-control"
+          id="slide1"
+          checked
+          style="display:none;"
+        />
+        <input
+          type="radio"
+          name="carousel-control"
+          id="slide2"
+          style="display:none;"
+        />
+        <div class="carousel-inner">
+          <div class="carousel-slide">
+            <div
+              style="padding: 1.8rem; background: #ffffff !important; width: 85%; border-radius: 8px; border: 1px solid #cbd5e1; text-align: left; box-shadow: 0 4px 10px rgba(0,0,0,0.05);"
+            >
+              <span
+                style="background: var(--ocean-blue); color: #ffffff !important; padding: 0.2rem 0.6rem; border-radius: 4px; font-size: 0.8rem; font-weight: 700; text-transform: uppercase;"
+                >Estudio Técnico Avanzado</span
+              >
+              <h2
+                style="font-size: 1.4rem; margin: 0.5rem 0 0.3rem 0; font-weight: 800; color: #0f2b48 !important; -webkit-text-fill-color: #0f2b48 !important;"
+              >
+                📊 Planificación y Adecuación de Cobertura
+              </h2>
+              <p
+                style="font-size: 0.95rem; color: #334155 !important; -webkit-text-fill-color: #334155 !important; font-weight: 600;"
+              >
+                Análisis comparativo de planes según el marco normativo de la
+                Superintendencia de Salud. Maximizamos tu 7% legal en clínicas
+                de alta complejidad.
+              </p>
+            </div>
+            <label for="slide2" class="carousel-control control-next"
+              >&gt;</label
+            >
+            <div class="slide-caption">
+              Análisis Normativo: Optimización Strategica de tu Cobertura de
+              Salud
+            </div>
+          </div>
 
+          <div class="carousel-slide">
+            <div
+              style="padding: 1.8rem; background: #ffffff !important; width: 85%; border-radius: 8px; border: 1px solid #cbd5e1; text-align: left; box-shadow: 0 4px 10px rgba(0,0,0,0.05);"
+            >
+              <span
+                style="background: var(--ocean-blue); color: #ffffff !important; padding: 0.2rem 0.6rem; border-radius: 4px; font-size: 0.8rem; font-weight: 700; text-transform: uppercase;"
+                >Solución de Finanzas Médicas</span
+              >
+              <h2
+                style="font-size: 1.4rem; margin: 0.5rem 0 0.3rem 0; font-weight: 800; color: #0f2b48 !important; -webkit-text-fill-color: #0f2b48 !important;"
+              >
+                💎 Reestructuración de Excedentes e Isapres
+              </h2>
+              <p
+                style="font-size: 0.95rem; color: #334155 !important; -webkit-text-fill-color: #334155 !important; font-weight: 600;"
+              >
+                Diseño de planes con foco en la acumulación eficiente de
+                excedentes para uso en farmacias y prestaciones ambulatorias,
+                eliminando cobros invisibles.
+              </p>
+            </div>
+            <label for="slide1" class="carousel-control control-prev"
+              >&lt;</label
+            >
+            <div class="slide-caption">
+              Consultoría de Nicho: Mitigación de Costos y Estructuración de
+              Excedentes
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SERVICIOS -->
     <section class="services-section">
       <div class="container">
         <h2>Mis Servicios de Asesoría</h2>
@@ -436,6 +452,7 @@
         </div>
       </div>
     </section>
+    <!-- CONTACTO -->
     <section class="contact-section">
       <div class="container">
         <h2>¿Listo para optimizar tu previsión?</h2>
@@ -471,6 +488,7 @@
       </div>
     </section>
 
+    <!-- NOTA -->
     <section class="pricing-notice-section">
       <div class="container">
         <div class="notice-content">
@@ -486,6 +504,7 @@
       </div>
     </section>
 
+    <!-- FAQ -->
     <section class="faq-section">
       <div class="container">
         <h2>Information Útil para el Afiliado</h2>
@@ -538,7 +557,7 @@
       </div>
     </section>
 
-    <!-- SECCIÓN 8 CORREGIDA DESDE EL HTML: Agregada clase responsiva directa inline para forzar apilamiento móvil -->
+    <!-- VENTAJAS -->
     <section
       class="services-section"
       style="background-color: var(--bg-pure-white); border: none; padding-top: 10px !important; margin-top: -30px !important;"
@@ -580,6 +599,7 @@
       </div>
     </section>
 
+    <!-- FOOTER -->
     <footer class="main-footer">
       <div class="container">
         <p>
