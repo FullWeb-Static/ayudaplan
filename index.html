@@ -43,7 +43,6 @@
           width: 100%;
           box-sizing: border-box;
       }
-
       .main-header {
           background-color: var(--bg-pure-white) !important;
           border-bottom: 3px solid var(--navy-blue);
@@ -62,21 +61,8 @@
           padding: 15px 20px;
       }
 
-      .logo h1 {
-          margin: 0;
-          font-size: 1.8rem;
-          color: var(--ocean-blue);
-          font-weight: 800;
-      }
-      .header-hook-right {
-          display: flex;
-          align-items: center;
-          gap: 0.8rem;
-          font-size: 1rem;
-          font-weight: 600;
-          color: var(--ocean-blue);
-      }
-
+      .logo h1 { margin: 0; font-size: 1.8rem; color: var(--ocean-blue); font-weight: 800; }
+      .header-hook-right { display: flex; align-items: center; gap: 0.8rem; font-size: 1rem; font-weight: 600; color: var(--ocean-blue); }
       .header-web-text { color: var(--text-muted); letter-spacing: 0.3px; }
       .header-divider { color: var(--brand-blue); opacity: 0.7; }
       .header-hook-right a { color: var(--ocean-blue); text-decoration: none; transition: color 0.2s; }
@@ -91,21 +77,8 @@
           margin-top: 75px !important;
       }
 
-      .hero-section .main-title {
-          font-size: 2.8rem;
-          margin-bottom: 20px;
-          font-weight: 800;
-          letter-spacing: -0.5px;
-          padding: 0 10px;
-      }
-
-      .hero-section .subtitle {
-          font-size: 1.25rem;
-          max-width: 750px;
-          margin: 0 auto 35px auto;
-          color: #e2e8f0;
-          padding: 0 15px;
-      }
+      .hero-section .main-title { font-size: 2.8rem; margin-bottom: 20px; font-weight: 800; letter-spacing: -0.5px; padding: 0 10px; }
+      .hero-section .subtitle { font-size: 1.25rem; max-width: 750px; margin: 0 auto 35px auto; color: #e2e8f0; padding: 0 15px; }
 
       .btn-primary {
           display: inline-block;
@@ -123,60 +96,33 @@
       }
       .btn-primary:hover { background-color: #2563eb; transform: scale(1.02); }
 
-      /* --- SECCIÓN DE ISAPRES CON BACKGROUND GRAFITO --- */
+      /* --- SECCIÓN DE ISAPRES: DEGRADADO DE REFLEJO LÍQUIDO GRAFITO --- */
       .brands-section {
-          padding: 75px 0;
-          background: linear-gradient(180deg, #1e2530 0%, #2a3342 100%);
+          padding: 65px 0;
           text-align: center;
           border-bottom: 1px solid #111827;
-          position: relative;
-          overflow: hidden;
+          background: linear-gradient(270deg, #1e2530, #2a3545, #1e2530);
+          background-size: 400% 400%;
+          animation: fluidReflect 8s infinite ease-in-out;
       }
 
-      /* Reflejo dinámico de agua */
-      .brands-section::before {
-          content: "";
-          position: absolute;
-          top: -50%;
-          left: -50%;
-          width: 200%;
-          height: 200%;
-          background: radial-gradient(circle, rgba(2, 132, 199, 0.04) 0%, transparent 70%);
-          animation: waterMove 12s infinite alternate ease-in-out;
-          pointer-events: none;
+      @keyframes fluidReflect {
+          0% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+          100% { background-position: 0% 50%; }
       }
 
-      @keyframes waterMove {
-          0% { transform: translate(0, 0) scale(1); opacity: 0.7; }
-          100% { transform: translate(4%, 3%) scale(1.1); opacity: 1; }
-      }
-
-      .brands-subtitle {
-          color: #94a3b8;
-          font-size: 1.15rem;
-          margin: 0 0 45px 0;
-          position: relative;
-          z-index: 2;
-      }
-
-      .brands-grid {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-          gap: 20px;
-          padding: 0 10px;
-          position: relative;
-          z-index: 2;
-      }
-
+      .brands-subtitle { color: #94a3b8; font-size: 1.1rem; margin: 0 0 40px 0; }
+      .brands-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; padding: 0 10px; }
       .brand-box {
-          background: rgba(255, 255, 255, 0.04);
+          background: rgba(255, 255, 255, 0.05);
           padding: 0;
           border-radius: 12px;
           display: flex;
           flex-direction: column;
-          box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+          box-shadow: 0 4px 10px rgba(0,0,0,0.15);
           transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-          border: 1px solid rgba(255, 255, 255, 0.08);
+          border: 1px solid rgba(255, 255, 255, 0.1);
           overflow: hidden;
       }
 
@@ -199,20 +145,25 @@
       .brand-name-tag { font-weight: 800; font-size: 1.05rem; letter-spacing: 0.5px; color: #f1f5f9; transition: color 0.25s ease; }
       .brand-action-btn { font-size: 1.3rem; font-weight: bold; color: #38bdf8; transition: transform 0.25s ease, color 0.25s ease; }
 
-      .brand-detail-wrapper { max-height: 0; overflow: hidden; transition: max-height 0.3s cubic-bezier(0, 1, 0, 1), background-color 0.25s ease; background-color: transparent; width: 100%; }
+      .brand-detail-wrapper { max-height: 0; overflow: hidden; transition: max-height 0.3s cubic-bezier(0, 1, 0, 1); background-color: transparent; width: 100%; }
       .brand-detail-text { font-size: 0.95rem; color: #cbd5e1; line-height: 1.5; padding: 0 22px 20px 22px; margin: 0; }
 
-      /* --- COMPORTAMIENTO HOVER INTERACTIVO --- */
-      .brand-box.box-unificado:hover { transform: translateY(-3px); background-color: #0f766e; border-color: #14b8a6; box-shadow: 0 10px 25px rgba(15, 118, 110, 0.3); }
+      /* HOVER UNIFICADO VERDE AZULADO */
+      .brand-box.box-unificado:hover { transform: translateY(-4px); background-color: #0f766e; border-color: #14b8a6; box-shadow: 0 8px 25px rgba(15, 118, 110, 0.4); }
       .brand-box.box-unificado:hover .brand-action-btn { color: #ffffff !important; }
 
-      /* Halo dorado envolvente para Colmena */
-      .brand-box.box-colmena { border-color: rgba(217, 119, 6, 0.2); box-shadow: 0 0 15px rgba(217, 119, 6, 0.05); }
+      /* --- EXCLUSIVO COLMENA: ANIMACIÓN HALO DORADO CONSTANTE EN REPOSO Y HOVER ORO --- */
+      .brand-box.box-colmena { border-color: rgba(217, 119, 6, 0.3); animation: goldenGlow 2.5s infinite alternate ease-in-out; }
       .brand-box.box-colmena .brand-action-btn { color: #f59e0b; }
-      .brand-box.box-colmena:hover { transform: translateY(-3px); background-color: #d97706; border-color: #fbbf24; box-shadow: 0 0 25px rgba(217, 119, 6, 0.45), 0 10px 20px rgba(217, 119, 6, 0.2); }
+
+      @keyframes goldenGlow {
+          0% { box-shadow: 0 4px 10px rgba(0,0,0,0.15), 0 0 6px rgba(217, 119, 6, 0.1); }
+          100% { box-shadow: 0 4px 10px rgba(0,0,0,0.15), 0 0 16px rgba(217, 119, 6, 0.35); }
+      }
+
+      .brand-box.box-colmena:hover { transform: translateY(-4px); background-color: #d97706; border-color: #fbbf24; box-shadow: 0 0 28px rgba(217, 119, 6, 0.6), 0 10px 20px rgba(217, 119, 6, 0.2) !important; animation: none; }
       .brand-box.box-colmena:hover .brand-action-btn { color: #ffffff !important; }
 
-      /* --- COMPORTAMIENTO ACORDEÓN ABIERTO --- */
       .brand-box.box-unificado .brand-toggle:checked ~ .brand-header-label { background-color: #0f766e; }
       .brand-box.box-unificado .brand-toggle:checked ~ .brand-header-label .brand-action-btn { color: #ffffff !important; transform: rotate(45deg); }
       .brand-box.box-unificado .brand-toggle:checked ~ .brand-detail-wrapper { background-color: #0f766e; }
@@ -221,20 +172,10 @@
       .brand-box.box-colmena .brand-toggle:checked ~ .brand-header-label { background-color: #d97706; }
       .brand-box.box-colmena .brand-toggle:checked ~ .brand-header-label .brand-action-btn { color: #ffffff !important; transform: rotate(45deg); }
       .brand-box.box-colmena .brand-toggle:checked ~ .brand-detail-wrapper { background-color: #d97706; }
-      .brand-box.box-colmena:has(.brand-toggle:checked) { border-color: #fbbf24; background-color: #d97706; box-shadow: 0 0 25px rgba(217, 119, 6, 0.4); }
+      .brand-box.box-colmena:has(.brand-toggle:checked) { border-color: #fbbf24; background-color: #d97706; box-shadow: 0 0 25px rgba(217, 119, 6, 0.4) !important; animation: none; }
 
       .brand-toggle:checked ~ .brand-detail-wrapper { max-height: 200px; }
-      .carousel-wrapper {
-          max-width: 950px;
-          margin: 3.5rem auto 1rem auto;
-          position: relative;
-          padding-bottom: 35%;
-          overflow: hidden;
-          border-radius: 12px;
-          box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
-          border: 1px solid var(--border-color);
-          background-color: #ffffff !important;
-      }
+      .carousel-wrapper { max-width: 950px; margin: 3.5rem auto 1rem auto; position: relative; padding-bottom: 35%; overflow: hidden; border-radius: 12px; box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15); border: 1px solid var(--border-color); background-color: #ffffff !important; }
       .carousel-open { display: none; }
       .carousel-inner { position: absolute; top: 0; left: 0; width: 200%; height: 100%; display: flex; transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
       .carousel-slide { width: 50%; height: 100%; background-color: #ffffff !important; display: flex; align-items: center; justify-content: center; position: relative; box-sizing: border-box; }
@@ -348,7 +289,7 @@
       </div>
     </section>
 
-    <!-- VITRINA CON ACORDEONES GRAFITO -->
+    <!-- VITRINA INTERACTIVA -->
     <section class="brands-section">
       <div class="container">
         <p class="brands-subtitle">
@@ -449,7 +390,6 @@
               </p>
             </div>
           </div>
-
           <!-- Nueva Masvida -->
           <div class="brand-box box-unificado">
             <input type="checkbox" id="toggle-masvida" class="brand-toggle" />
@@ -488,6 +428,7 @@
         </div>
       </div>
     </section>
+
     <!-- CAROUSEL -->
     <div class="container">
       <div class="carousel-wrapper">
