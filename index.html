@@ -578,8 +578,8 @@
         </div>
       </div>
     </section>
-        <!-- ========================================== -->
-    <!--  FORMULARIO INTERACTIVO 100% AUTOMATIZADO  -->
+           <!-- ========================================== -->
+    <!--  FORMULARIO INTERACTIVO AUTOMATIZADO REAL  -->
     <!-- ========================================== -->
     <section style="padding: 60px 0; background-color: #f1f5f9; width: 100%; border-top: 1px solid #cbd5e1; border-bottom: 1px solid #cbd5e1;">
       <div class="container" style="max-width: 650px; margin: 0 auto; padding: 0 20px; box-sizing: border-box;">
@@ -587,11 +587,11 @@
         <h2 style="text-align: center; color: #0f2b48; font-size: 2rem; font-weight: 800; margin: 0 0 10px 0;">Solicitar Estudio de Isapre</h2>
         <p style="text-align: center; color: #475569; font-size: 1rem; margin: 0 0 30px 0;">Ingresa tus datos para recibir tu propuesta de optimización de salud de forma automática.</p>
         
-        <!-- Formulario conectado a un procesador automático invisible para el cliente -->
-<form action="https://api.web3forms.com/submit" method="POST" id="formAyudaPlan" style="background: #ffffff; padding: 40px; border-radius: 14px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); border: 1px solid #cbd5e1; box-sizing: border-box;">
+        <!-- Formulario conectado a la ruta oficial de Web3Forms -->
+        <form action="https://api.web3forms.com/submit" method="POST" id="formAyudaPlan" style="background: #ffffff; padding: 40px; border-radius: 14px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); border: 1px solid #cbd5e1; box-sizing: border-box;">
           
-          <!-- LLAVE DE ACCESO: Reemplaza 'TU-LLAVE-AQUÍ' por tu clave gratuita de web3forms.com si deseas activarlo de forma real -->
-<input type="hidden" name="access_key" value="5f7a6d57-a887-459c-975a-c1215f0f7129">
+          <!-- Clave real de acceso de AyudaPlan vinculada con éxito -->
+          <input type="hidden" name="access_key" value="5f7a6d57-a887-459c-975a-c1215f0f7129">
           <input type="hidden" name="subject" value="Nueva Solicitud de Asesoría - AyudaPlan.cl">
           <input type="hidden" name="from_name" value="AyudaPlan Web">
 
@@ -619,7 +619,7 @@
 
           <div style="display: flex; flex-direction: column; gap: 6px; margin-bottom: 20px;">
             <label style="font-weight: 700; color: #0f2b48; font-size: 0.95rem;">Isapre Actual o Sistema Previsional</label>
-            <select name="Isapre_Actual" required style="padding: 14px 16px; border-radius: 8px; border: 1px solid #cbd5e1; font-size: 1rem; outline: none; background-color: #ffffff; color: #0f172a; transition: all 0.2s ease; cursor: pointer; appearance: none; -webkit-appearance: none; background-image: url('data:image/svg+xml;charset=UTF-8,%3csvg xmlns=\'http://w3.org\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'%230f2b48\' stroke-width=\'3\' stroke-linecap=\'round\' stroke-linejoin=\'round\'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e'); background-repeat: no-repeat; background-position: right 16px center; background-size: 14px; padding-right: 40px;" onfocus="this.style.borderColor='#0f766e'; this.style.boxShadow='0 0 0 3px rgba(15, 118, 110, 0.15)'" onblur="this.style.borderColor='#cbd5e1'; this.style.boxShadow='none'">
+            <select name="Isapre_Actual" required style="padding: 14px 16px; border-radius: 8px; border: 1px solid #cbd5e1; font-size: 1rem; outline: none; background-color: #ffffff; color: #0f172a; transition: all 0.2s ease; cursor: pointer; appearance: none; -webkit-appearance: none; background-image: url('data:image/svg+xml;charset=UTF-8,%3csvg xmlns=\'http://w3.org\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'%230f2b48\' stroke-width=\'3\' stroke-linecap=\'round\' stroke-linejoin=\'round\'%3e%3cpolyline points=\'6 9 12 15 18 9\'%3e%3c/polyline%3e%3c/svg%3e'); background-repeat: no-repeat; background-position: right 16px center; background-size: 14px; padding-right: 40px;" onfocus="this.style.borderColor='#0f766e'; this.style.boxShadow='0 0 0 3px rgba(15, 118, 110, 0.15)'" onblur="this.style.borderColor='#cbd5e1'; this.style.boxShadow='none'">
               <option value="" disabled selected hidden>Selecciona una opción</option>
               <option value="Fonasa">Fonasa</option>
               <option value="Banmedica">Banmédica</option>
@@ -642,14 +642,14 @@
             Enviar Solicitud Gratuita
           </button>
           
-          <!-- Contenedor para la respuesta interactiva -->
-          <div id="formResult" style="margin-top: 15px; text-align: center; font-weight: 700; font-size: 0.95rem; display: none;"></div>
+          <!-- Contenedor para el aviso de éxito o error en pantalla -->
+          <div id="formResult" style="margin-top: 15px; text-align: center; font-weight: 700; font-size: 1.05rem; display: none;"></div>
 
         </form>
       </div>
     </section>
 
-    <!-- Pequeño script inteligente para procesar la información de forma nativa e invisible -->
+    <!-- Script de procesamiento invisible corregido -->
     <script>
       const form = document.getElementById('formAyudaPlan');
       const result = document.getElementById('formResult');
@@ -659,11 +659,12 @@
         const formData = new FormData(form);
         const object = Object.fromEntries(formData);
         const json = JSON.stringify(object);
+        
         result.style.display = "block";
         result.style.color = "#0f2b48";
         result.innerHTML = "Procesando tu solicitud...";
 
-        fetch('https://web3forms.com', {
+        fetch('https://api.web3forms.com/submit', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
