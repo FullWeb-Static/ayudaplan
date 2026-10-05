@@ -578,70 +578,116 @@
         </div>
       </div>
     </section>
-    <!-- RECUADRO DE FORMULARIO DATOS PERSONAES DE CAPTURA INTERACTIVO -->
-<section style="padding: 60px 0; background-color: #f1f5f9; width: 100%; border-top: 1px solid #cbd5e1; border-bottom: 1px solid #cbd5e1;">
-  <div class="container" style="max-width: 650px; margin: 0 auto; padding: 0 20px; box-sizing: border-box;">
-    
-    <h2 style="text-align: center; color: #0f2b48; font-size: 2rem; font-weight: 800; margin: 0 0 10px 0;">Solicitar Estudio de Isapre</h2>
-    <p style="text-align: center; color: #475569; font-size: 1rem; margin: 0 0 30px 0;">Ingresa tus datos para diseñar tu propuesta de optimización de salud.</p>
-    
-    <form action="mailto:contacto@ayudaplan.cl" method="GET" enctype="text/plain" style="background: #ffffff; padding: 40px; border-radius: 14px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); border: 1px solid #cbd5e1; box-sizing: border-box;">
-      
-      <!-- Fila de Nombre y Teléfono -->
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; margin-bottom: 20px;">
-        <div style="display: flex; flex-direction: column; gap: 6px;">
-          <label style="font-weight: 700; color: #0f2b48; font-size: 0.95rem;">Nombre y Apellido Completo</label>
-          <input type="text" name="Nombre" placeholder="Ej: Juan Pérez" required style="padding: 14px 16px; border-radius: 8px; border: 1px solid #cbd5e1; font-size: 1rem; outline: none; background-color: #ffffff; color: #0f172a; transition: all 0.2s ease;" onfocus="this.style.borderColor='#0f766e'; this.style.boxShadow='0 0 0 3px rgba(15, 118, 110, 0.15)'" onblur="this.style.borderColor='#cbd5e1'; this.style.boxShadow='none'" />
-        </div>
-        <div style="display: flex; flex-direction: column; gap: 6px;">
-          <label style="font-weight: 700; color: #0f2b48; font-size: 0.95rem;">Teléfono / WhatsApp</label>
-          <input type="tel" name="Telefono" placeholder="Ej: +56912345678" required style="padding: 14px 16px; border-radius: 8px; border: 1px solid #cbd5e1; font-size: 1rem; outline: none; background-color: #ffffff; color: #0f172a; transition: all 0.2s ease;" onfocus="this.style.borderColor='#0f766e'; this.style.boxShadow='0 0 0 3px rgba(15, 118, 110, 0.15)'" onblur="this.style.borderColor='#cbd5e1'; this.style.boxShadow='none'" />
-        </div>
+        <!-- ========================================== -->
+    <!--  FORMULARIO INTERACTIVO 100% AUTOMATIZADO  -->
+    <!-- ========================================== -->
+    <section style="padding: 60px 0; background-color: #f1f5f9; width: 100%; border-top: 1px solid #cbd5e1; border-bottom: 1px solid #cbd5e1;">
+      <div class="container" style="max-width: 650px; margin: 0 auto; padding: 0 20px; box-sizing: border-box;">
+        
+        <h2 style="text-align: center; color: #0f2b48; font-size: 2rem; font-weight: 800; margin: 0 0 10px 0;">Solicitar Estudio de Isapre</h2>
+        <p style="text-align: center; color: #475569; font-size: 1rem; margin: 0 0 30px 0;">Ingresa tus datos para recibir tu propuesta de optimización de salud de forma automática.</p>
+        
+        <!-- Formulario conectado a un procesador automático invisible para el cliente -->
+        <form action="https://web3forms.com" method="POST" id="formAyudaPlan" style="background: #ffffff; padding: 40px; border-radius: 14px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); border: 1px solid #cbd5e1; box-sizing: border-box;">
+          
+          <!-- LLAVE DE ACCESO: Reemplaza 'TU-LLAVE-AQUÍ' por tu clave gratuita de web3forms.com si deseas activarlo de forma real -->
+          <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+          <input type="hidden" name="subject" value="Nueva Solicitud de Asesoría - AyudaPlan.cl">
+          <input type="hidden" name="from_name" value="AyudaPlan Web">
+
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; margin-bottom: 20px;">
+            <div style="display: flex; flex-direction: column; gap: 6px;">
+              <label style="font-weight: 700; color: #0f2b48; font-size: 0.95rem;">Nombre Completo</label>
+              <input type="text" name="Nombre" placeholder="Ej: Juan Pérez" required style="padding: 14px 16px; border-radius: 8px; border: 1px solid #cbd5e1; font-size: 1rem; outline: none; background-color: #ffffff; color: #0f172a; transition: all 0.2s ease;" onfocus="this.style.borderColor='#0f766e'; this.style.boxShadow='0 0 0 3px rgba(15, 118, 110, 0.15)'" onblur="this.style.borderColor='#cbd5e1'; this.style.boxShadow='none'" />
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 6px;">
+              <label style="font-weight: 700; color: #0f2b48; font-size: 0.95rem;">Teléfono / WhatsApp</label>
+              <input type="tel" name="Telefono" placeholder="Ej: +56912345678" required style="padding: 14px 16px; border-radius: 8px; border: 1px solid #cbd5e1; font-size: 1rem; outline: none; background-color: #ffffff; color: #0f172a; transition: all 0.2s ease;" onfocus="this.style.borderColor='#0f766e'; this.style.boxShadow='0 0 0 3px rgba(15, 118, 110, 0.15)'" onblur="this.style.borderColor='#cbd5e1'; this.style.boxShadow='none'" />
+            </div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; margin-bottom: 20px;">
+            <div style="display: flex; flex-direction: column; gap: 6px;">
+              <label style="font-weight: 700; color: #0f2b48; font-size: 0.95rem;">Correo Electrónico</label>
+              <input type="email" name="Email" placeholder="juan@correo.com" required style="padding: 14px 16px; border-radius: 8px; border: 1px solid #cbd5e1; font-size: 1rem; outline: none; background-color: #ffffff; color: #0f172a; transition: all 0.2s ease;" onfocus="this.style.borderColor='#0f766e'; this.style.boxShadow='0 0 0 3px rgba(15, 118, 110, 0.15)'" onblur="this.style.borderColor='#cbd5e1'; this.style.boxShadow='none'" />
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 6px;">
+              <label style="font-weight: 700; color: #0f2b48; font-size: 0.95rem;">Edad del Titular</label>
+              <input type="number" name="Edad" placeholder="Ej: 35" min="18" max="99" required style="padding: 14px 16px; border-radius: 8px; border: 1px solid #cbd5e1; font-size: 1rem; outline: none; background-color: #ffffff; color: #0f172a; transition: all 0.2s ease;" onfocus="this.style.borderColor='#0f766e'; this.style.boxShadow='0 0 0 3px rgba(15, 118, 110, 0.15)'" onblur="this.style.borderColor='#cbd5e1'; this.style.boxShadow='none'" />
+            </div>
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: 6px; margin-bottom: 20px;">
+            <label style="font-weight: 700; color: #0f2b48; font-size: 0.95rem;">Isapre Actual o Sistema Previsional</label>
+            <select name="Isapre_Actual" required style="padding: 14px 16px; border-radius: 8px; border: 1px solid #cbd5e1; font-size: 1rem; outline: none; background-color: #ffffff; color: #0f172a; transition: all 0.2s ease; cursor: pointer; appearance: none; -webkit-appearance: none; background-image: url('data:image/svg+xml;charset=UTF-8,%3csvg xmlns=\'http://w3.org\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'%230f2b48\' stroke-width=\'3\' stroke-linecap=\'round\' stroke-linejoin=\'round\'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e'); background-repeat: no-repeat; background-position: right 16px center; background-size: 14px; padding-right: 40px;" onfocus="this.style.borderColor='#0f766e'; this.style.boxShadow='0 0 0 3px rgba(15, 118, 110, 0.15)'" onblur="this.style.borderColor='#cbd5e1'; this.style.boxShadow='none'">
+              <option value="" disabled selected hidden>Selecciona una opción</option>
+              <option value="Fonasa">Fonasa</option>
+              <option value="Banmedica">Banmédica</option>
+              <option value="Colmena">Colmena</option>
+              <option value="Consalud">Consalud</option>
+              <option value="CruzBlanca">Cruz Blanca</option>
+              <option value="Esencial">Esencial</option>
+              <option value="NuevaMasvida">Nueva Masvida</option>
+              <option value="VidaTres">Vida Tres</option>
+              <option value="Particular / Independiente">No tengo (Particular)</option>
+            </select>
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: 6px; margin-bottom: 25px;">
+            <label style="font-weight: 700; color: #0f2b48; font-size: 0.95rem;">¿Qué buscas mejorar en tu cobertura?</label>
+            <textarea name="Detalles_Adicionales" rows="3" placeholder="Ej: Agregar cargas, mejorar cobertura hospitalaria..." style="padding: 14px 16px; border-radius: 8px; border: 1px solid #cbd5e1; font-size: 1rem; outline: none; background-color: #ffffff; color: #0f172a; transition: all 0.2s ease; resize: none;" onfocus="this.style.borderColor='#0f766e'; this.style.boxShadow='0 0 0 3px rgba(15, 118, 110, 0.15)'" onblur="this.style.borderColor='#cbd5e1'; this.style.boxShadow='none'"></textarea>
+          </div>
+
+          <button type="submit" style="width: 100%; background-color: #0f766e; color: #ffffff; padding: 16px; border-radius: 8px; border: none; font-size: 1.1rem; font-weight: bold; cursor: pointer; transition: background-color 0.2s, transform 0.1s; box-shadow: 0 4px 12px rgba(15, 118, 110, 0.25);" onmouseover="this.style.backgroundColor='#0d635c'" onmouseout="this.style.backgroundColor='#0f766e'" onmousedown="this.style.transform='scale(0.99)'" onmouseup="this.style.transform='scale(1)'">
+            Enviar Solicitud Gratuita
+          </button>
+          
+          <!-- Contenedor para la respuesta interactiva -->
+          <div id="formResult" style="margin-top: 15px; text-align: center; font-weight: 700; font-size: 0.95rem; display: none;"></div>
+
+        </form>
       </div>
+    </section>
 
-      <!-- Fila de Correo y Edad -->
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; margin-bottom: 20px;">
-        <div style="display: flex; flex-direction: column; gap: 6px;">
-          <label style="font-weight: 700; color: #0f2b48; font-size: 0.95rem;">Correo Electrónico</label>
-          <input type="email" name="Email" placeholder="juan@correo.com" required style="padding: 14px 16px; border-radius: 8px; border: 1px solid #cbd5e1; font-size: 1rem; outline: none; background-color: #ffffff; color: #0f172a; transition: all 0.2s ease;" onfocus="this.style.borderColor='#0f766e'; this.style.boxShadow='0 0 0 3px rgba(15, 118, 110, 0.15)'" onblur="this.style.borderColor='#cbd5e1'; this.style.boxShadow='none'" />
-        </div>
-        <div style="display: flex; flex-direction: column; gap: 6px;">
-          <label style="font-weight: 700; color: #0f2b48; font-size: 0.95rem;">Edad del Titular</label>
-          <input type="number" name="Edad" placeholder="Ej: 35" min="18" max="99" required style="padding: 14px 16px; border-radius: 8px; border: 1px solid #cbd5e1; font-size: 1rem; outline: none; background-color: #ffffff; color: #0f172a; transition: all 0.2s ease;" onfocus="this.style.borderColor='#0f766e'; this.style.boxShadow='0 0 0 3px rgba(15, 118, 110, 0.15)'" onblur="this.style.borderColor='#cbd5e1'; this.style.boxShadow='none'" />
-        </div>
-      </div>
+    <!-- Pequeño script inteligente para procesar la información de forma nativa e invisible -->
+    <script>
+      const form = document.getElementById('formAyudaPlan');
+      const result = document.getElementById('formResult');
 
-      <!-- Menú Desplegable: Isapre Actual -->
-      <div style="display: flex; flex-direction: column; gap: 6px; margin-bottom: 20px;">
-        <label style="font-weight: 700; color: #0f2b48; font-size: 0.95rem;">Isapre Actual o Sistema Previsional</label>
-        <select name="Isapre_Actual" required style="padding: 14px 16px; border-radius: 8px; border: 1px solid #cbd5e1; font-size: 1rem; outline: none; background-color: #ffffff; color: #0f172a; transition: all 0.2s ease; cursor: pointer; appearance: none; -webkit-appearance: none; background-image: url('data:image/svg+xml;charset=UTF-8,%3csvg xmlns=\'http://w3.org\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'%230f2b48\' stroke-width=\'3\' stroke-linecap=\'round\' stroke-linejoin=\'round\'%3e%3cpolyline points=\'6 9 12 15 18 9\'%3e%3c/polyline%3e%3c/svg%3e'); background-repeat: no-repeat; background-position: right 16px center; background-size: 14px; padding-right: 40px;" onfocus="this.style.borderColor='#0f766e'; this.style.boxShadow='0 0 0 3px rgba(15, 118, 110, 0.15)'" onblur="this.style.borderColor='#cbd5e1'; this.style.boxShadow='none'">
-          <option value="" disabled selected hidden>Selecciona una opción</option>
-          <option value="Fonasa">Fonasa</option>
-          <option value="Banmedica">Banmédica</option>
-          <option value="Colmena">Colmena</option>
-          <option value="Consalud">Consalud</option>
-          <option value="CruzBlanca">Cruz Blanca</option>
-          <option value="Esencial">Esencial</option>
-          <option value="NuevaMasvida">Nueva Masvida</option>
-          <option value="VidaTres">Vida Tres</option>
-          <option value="Particular / Independiente">No tengo (Particular)</option>
-        </select>
-      </div>
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const formData = new FormData(form);
+        const object = Object.fromEntries(formData);
+        const json = JSON.stringify(object);
+        result.style.display = "block";
+        result.style.color = "#0f2b48";
+        result.innerHTML = "Procesando tu solicitud...";
 
-      <!-- Cuadro de Texto: Detalles Extra -->
-      <div style="display: flex; flex-direction: column; gap: 6px; margin-bottom: 25px;">
-        <label style="font-weight: 700; color: #0f2b48; font-size: 0.95rem;">¿Qué buscas mejorar en tu cobertura?</label>
-        <textarea name="Detalles_Adicionales" rows="3" placeholder="Ej: Agregar cargas, mejorar cobertura hospitalaria en Clínica Alemana, bajar costo..." style="padding: 14px 16px; border-radius: 8px; border: 1px solid #cbd5e1; font-size: 1rem; outline: none; background-color: #ffffff; color: #0f172a; transition: all 0.2s ease; resize: none;" onfocus="this.style.borderColor='#0f766e'; this.style.boxShadow='0 0 0 3px rgba(15, 118, 110, 0.15)'" onblur="this.style.borderColor='#cbd5e1'; this.style.boxShadow='none'"></textarea>
-      </div>
-
-      <!-- Botón de Envío Verde Azulado -->
-      <button type="submit" style="width: 100%; background-color: #0f766e; color: #ffffff; padding: 16px; border-radius: 8px; border: none; font-size: 1.1rem; font-weight: bold; cursor: pointer; transition: background-color 0.2s, transform 0.1s; box-shadow: 0 4px 12px rgba(15, 118, 110, 0.25);" onmouseover="this.style.backgroundColor='#0d635c'" onmouseout="this.style.backgroundColor='#0f766e'" onmousedown="this.style.transform='scale(0.99)'" onmouseup="this.style.transform='scale(1)'">
-        Enviar Solicitud Gratuita
-      </button>
-
-    </form>
-  </div>
-</section>
+        fetch('https://web3forms.com', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: json
+        })
+        .then(async (response) => {
+            let res = await response.json();
+            if (response.status == 200) {
+                result.style.color = "#0f766e";
+                result.innerHTML = "¡Muchas gracias! Tu solicitud fue enviada con éxito. Te contactaremos a la brevedad.";
+                form.reset();
+            } else {
+                result.style.color = "#b91c1c";
+                result.innerHTML = res.message;
+            }
+        })
+        .catch(error => {
+            result.style.color = "#b91c1c";
+            result.innerHTML = "Hubo un problema de conexión. Por favor, intenta de nuevo.";
+        });
+      });
+    </script>
 
     <!-- CONTACTO -->
     <section class="contact-section">
