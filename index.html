@@ -1,11 +1,7 @@
 <!DOCTYPE html>
-<html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
-    />
+<html lang="es"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Ayuda Plan - Asesoría Previsional</title>
     <style>
       /* =========================================================================
@@ -187,23 +183,22 @@
           gap: 20px;
           padding: 0 10px;
       }
-      /* =========================================================================
+                /* =========================================================================
          SECTOR 5: DISEÑO DE TARJETAS DE ISAPRES (.brand-box)
-         Controla los contenedores individuales de la vitrina y sus reacciones.
          ========================================================================= */
       .brand-box {
-          background: rgba(255, 255, 255, 0.05);             /* Fondo oscuro semi-transparente */
+          background: rgba(255, 255, 255, 0.05);             
           padding: 0;
           border-radius: 12px;
           display: flex;
           flex-direction: column;
           box-shadow: 0 4px 10px rgba(0,0,0,0.15);
           transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-          border: 1px solid rgba(255, 255, 255, 0.1);          /* Contorno gris suave */
+          border: 1px solid rgba(255, 255, 255, 0.1);          
           overflow: hidden;
       }
 
-      .brand-toggle { display: none; }                        /* Esconde el checkbox nativo */
+      .brand-toggle { display: none; }                        
 
       .brand-header-label {
           display: flex;
@@ -219,62 +214,71 @@
 
       .brand-header-inline { display: flex; align-items: center; gap: 12px; }
       .brand-text-icon { font-size: 1.5rem; }
-      .brand-text-icon-blue { color: #38bdf8; }               /* Clase para pintar de azul los íconos de hospital */
+      .brand-text-icon-blue { color: #38bdf8; }               
       .brand-name-tag { font-weight: 800; font-size: 1.05rem; letter-spacing: 0.5px; color: #f1f5f9; transition: color 0.25s ease; }
       .brand-action-btn { font-size: 1.3rem; font-weight: bold; color: #38bdf8; transition: transform 0.25s ease, color 0.25s ease; }
 
       .brand-detail-wrapper { max-height: 0; overflow: hidden; transition: max-height 0.3s cubic-bezier(0, 1, 0, 1); background-color: transparent; width: 100%; }
-      .brand-detail-text { font-size: 0.95rem; color: #cbd5e1; line-height: 1.5; padding: 0 22px 20px 22px; margin: 0; }
+      
+      /* 🌟 AQUÍ LE DAMOS EL MILÍMETRO EXTRA DE TAMAÑO A LA LETRA POR DEFECTO */
+      .brand-detail-text, .brand-detail-wrapper p { 
+          font-size: 12.5px !important; 
+          color: #cbd5e1; 
+          line-height: 1.35 !important; 
+          padding: 0 22px 20px 22px; 
+          margin: 0; 
+      }
 
-      /* <--- HOVER UNIFICADO VERDE AZULADO DE LAS TARJETAS COMUNES */
+      /* 🎨 CAMBIA EL #0f766e POR EL NUEVO COLOR PARA LAS TARJETAS COMUNES EN HOVER */
       .brand-box.box-unificado:hover {
           transform: translateY(-4px);
-          background-color: #0f766e;                          /* Color de fondo al posicionar el mouse */
-          border-color: #14b8a6;                              /* Contorno brillante en hover */
+          background-color: #0f766e;                          
+          border-color: #14b8a6;                              
           box-shadow: 0 8px 25px rgba(15, 118, 110, 0.4);
       }
       .brand-box.box-unificado:hover .brand-action-btn { color: #ffffff !important; }
 
       /* =========================================================================
          SECTOR 6: REGLAS EXCLUSIVAS DE COLMENA (.box-colmena)
-         Controla el halo dorado continuo en reposo y el hover color oro.
          ========================================================================= */
       .brand-box.box-colmena {
           border-color: rgba(217, 119, 6, 0.3);
-          animation: goldenGlow 2.5s infinite alternate ease-in-out; /* Activa el brillo constante */
+          animation: goldenGlow 2.5s infinite alternate ease-in-out; 
       }
       .brand-box.box-colmena .brand-action-btn { color: #f59e0b; }
 
-      /* <--- ANIMACIÓN HALO DORADO CONSTANTE EN REPOSO */
       @keyframes goldenGlow {
           0% { box-shadow: 0 4px 10px rgba(0,0,0,0.15), 0 0 6px rgba(217, 119, 6, 0.1); }
           100% { box-shadow: 0 4px 10px rgba(0,0,0,0.15), 0 0 16px rgba(217, 119, 6, 0.35); }
       }
 
-      /* <--- HOVER EXCLUSIVO COLOR ORO DE COLMENA */
+      /* 🎨 CAMBIA EL #d97706 POR EL NUEVO COLOR DE HOVER DE COLMENA SI LO DESEAS */
       .brand-box.box-colmena:hover {
           transform: translateY(-4px);
-          background-color: #d97706;                          /* Fondo dorado al posicionar el mouse */
-          border-color: #fbbf24;                              /* Contorno brillante dorado */
+          background-color: #d97706;                          
+          border-color: #fbbf24;                              
           box-shadow: 0 0 28px rgba(217, 119, 6, 0.6), 0 10px 20px rgba(217, 119, 6, 0.2) !important;
-          animation: none;                                    /* Apaga el halo en reposo mientras se toca */
+          animation: none;                                    
       }
       .brand-box.box-colmena:hover .brand-action-btn { color: #ffffff !important; }
+
       /* =========================================================================
          SECTOR 7: APERTURAS MECÁNICAS DE ACORDEONES DE ISAPRES
-         Controla los cambios de color cuando una tarjeta se pincha y se abre.
          ========================================================================= */
+      /* 🎨 CAMBIA EL #0f766e AQUÍ TAMBIÉN PARA EL COLOR DE LA TARJETA ABIERTA */
       .brand-box.box-unificado .brand-toggle:checked ~ .brand-header-label { background-color: #0f766e; }
       .brand-box.box-unificado .brand-toggle:checked ~ .brand-header-label .brand-action-btn { color: #ffffff !important; transform: rotate(45deg); }
       .brand-box.box-unificado .brand-toggle:checked ~ .brand-detail-wrapper { background-color: #0f766e; }
       .brand-box.box-unificado:has(.brand-toggle:checked) { border-color: #14b8a6; background-color: #0f766e; }
 
+      /* 🎨 CAMBIA EL #d97706 AQUÍ TAMBIÉN PARA EL COLOR DE COLMENA ABIERTA */
       .brand-box.box-colmena .brand-toggle:checked ~ .brand-header-label { background-color: #d97706; }
       .brand-box.box-colmena .brand-toggle:checked ~ .brand-header-label .brand-action-btn { color: #ffffff !important; transform: rotate(45deg); }
       .brand-box.box-colmena .brand-toggle:checked ~ .brand-detail-wrapper { background-color: #d97706; }
       .brand-box.box-colmena:has(.brand-toggle:checked) { border-color: #fbbf24; background-color: #d97706; box-shadow: 0 0 25px rgba(217, 119, 6, 0.4) !important; animation: none; }
 
-      .brand-toggle:checked ~ .brand-detail-wrapper { max-height: 200px; }
+      /* 🌟 SUBIMOS LA ALTURA A MAX 300px PORQUE AL AGRANDAR LA LETRA EL CONTENEDOR DEBE ESTIRARSE MÁS */
+      .brand-toggle:checked ~ .brand-detail-wrapper { max-height: 360px; }
 
       /* =========================================================================
          SECTOR 8: VITRINA DE CARRUSEL DE ESTUDIOS INTERACTIVOS (.carousel-wrapper)
@@ -446,10 +450,7 @@
         <div class="header-hook-right">
           <span class="header-web-text">www.ayudaplan.cl</span>
           <span class="header-divider">|</span>
-          <a
-            href="mailto:contacto@ayudaplan.cl?subject=Solicitud%20de%20Evaluación%20de%20Isapre"
-            >contacto@ayudaplan.cl</a
-          >
+          <a href="mailto:contacto@ayudaplan.cl?subject=Solicitud%20de%20Evaluación%20de%20Isapre">contacto@ayudaplan.cl</a>
         </div>
       </div>
     </header>
@@ -459,18 +460,12 @@
          ========================================================================= */ -->
     <section class="hero-section">
       <div class="container">
-        <h1 class="main-title">Tu salud merece el mejor plan</h1>
+        <h1 class="main-title">Tu salud merece la mejor orientación</h1>
         <p class="subtitle">
-          Te asesoro de forma transparente y personalizada para encontrar la
-          cobertura de Isapre que realmente se adapta a tus necesidades,
-          optimizando tu presupuesto de salud.
+          Tu bienestar es nuestro compromiso. Nuestro equipos de expertos te acompaña y asesora de forma personalizada para elegir tu cobertura médica ideal.
         </p>
 
-        <a
-          href="mailto:contacto@ayudaplan.cl?subject=Solicitud%20de%20Evaluación%20de%20Isapre"
-          class="btn-primary"
-          >Solicitar Asesoría Gratuita</a
-        >
+        <a href="mailto:contacto@ayudaplan.cl?subject=Solicitud%20de%20Evaluación%20de%20Isapre" class="btn-primary">CONECTA CON TU CONSULTOR</a>
       </div>
     </section>
     <!-- =========================================================================
@@ -479,137 +474,143 @@
     <section class="brands-section">
       <div class="container">
         <p class="brands-subtitle">
-          Analizamos, optimizamos y cotizamos tus coberturas en las principales
-          instituciones de salud del país
+          Analizamos, comparamos y cotizamos tu plan de salud con las principales
+          instituciones del país.
         </p>
         <div class="brands-grid">
           <!-- Banmédica -->
           <div class="brand-box box-unificado">
-            <input type="checkbox" id="toggle-banmedica" class="brand-toggle" />
+            <input type="checkbox" id="toggle-banmedica" class="brand-toggle">
             <label for="toggle-banmedica" class="brand-header-label">
               <div class="brand-header-inline">
                 <span class="brand-text-icon brand-text-icon-blue">🏥</span>
-                <span class="brand-name-tag">BANMÉDICA</span>
+                <span class="brand-name-tag">BanméDica</span>
               </div>
               <span class="brand-action-btn">+</span>
             </label>
             <div class="brand-detail-wrapper">
-              <p class="brand-detail-text">
-                Ofrece una amplia red prestadora y planes con accesos económicos
-                iniciales.
-              </p>
+              <p <strong="">Fortaleza: Una de las redes de salud integradas más grandes y estables dentro de todo el país, con planes preferentes y cerrados.<br><br>
+  <strong>Clínicas que más funcionan:</strong> Cobertura masiva y excelente conectividad en Clínica Santa María, Red Dávila y centros médicos Vidaintegra.<br><br>
+  <strong>Beneficios gratuitos y más:</strong> Alianzas con beneficios complementarios sin costo, asistencia en viajes y coberturas adicionales gratuitas según el plan.<br><br>
+  <strong>Plan Dental:</strong> Puedes complementar tu cobertura y contratar un plan dental adicional para asegurar la sonrisa de toda tu familia.
+</p>
             </div>
           </div>
 
           <!-- Colmena -->
           <div class="brand-box box-colmena">
-            <input type="checkbox" id="toggle-colmena" class="brand-toggle" />
+            <input type="checkbox" id="toggle-colmena" class="brand-toggle">
             <label for="toggle-colmena" class="brand-header-label">
               <div class="brand-header-inline">
                 <span class="brand-text-icon">🐝</span>
-                <span class="brand-name-tag">COLMENA</span>
+                <span class="brand-name-tag">Colmena 
+  <br>
+  <span style="font-size: 0.8rem; font-weight: 500; opacity: 0.9; display: block; margin-top: 3px;">(Líder en Salud Integral y Cobertura)</span>
+</span>
               </div>
               <span class="brand-action-btn">+</span>
             </label>
             <div class="brand-detail-wrapper">
-              <p class="brand-detail-text">
-                Cuenta con una gran variedad de planes y promedios competitivos
-                en el mercado.
-              </p>
+              <p <strong="">Fortaleza: Reconocida por su sólida protección familiar, programas vanguardistas de medicina preventiva y acceso directo a la red de salud más prestigiosa y mejor valorada del país.<br><br>
+  <strong>Clínicas que más funcionan:</strong> Diseñada para ofrecer un rendimiento y bonificación excepcional en los centros médicos líderes: UC Christus, Clínica Alemana y Clínica Indisa, Clínica Las Condes, dentro de una variada gama de clínicas y centros médicos.<br><br>
+  <strong>Beneficios gratuitos y más:</strong> Cobertura del 100% en exámenes preventivos anuales [Colmena], una robusta cartola de Beneficios Complementarios costo cero, telemedicina resolutiva inmediata y un ecosistema de descuentos farmacéuticos premium.<br><br>
+  <strong>Plan Dental:</strong> Una cobertura de alta calidad exige la mejor protección integral; puedes contratar tu plan dental complementario de forma rápida y potenciar al máximo el cuidado de tu salud bucal.
+</p>
             </div>
           </div>
 
           <!-- Consalud -->
           <div class="brand-box box-unificado">
-            <input type="checkbox" id="toggle-consalud" class="brand-toggle" />
+            <input type="checkbox" id="toggle-consalud" class="brand-toggle">
             <label for="toggle-consalud" class="brand-header-label">
               <div class="brand-header-inline">
                 <span class="brand-text-icon brand-text-icon-blue">🏥</span>
-                <span class="brand-name-tag">CONSALUD</span>
+                <span class="brand-name-tag">Consalud</span>
               </div>
               <span class="brand-action-btn">+</span>
             </label>
             <div class="brand-detail-wrapper">
-              <p class="brand-detail-text">
-                Destaca por su cobertura hospitalaria focalizada en su red de
-                prestadores.
-              </p>
+              <p <strong="">Fortaleza: Amplia presencia territorial y una excelente gama de planes cerrados y preferentes ideales para coberturas inteligentes a nivel regional y nacional.<br><br>
+  <strong>Clínicas que más funcionan:</strong> Cobertura total y convenios sumamente fuertes en toda la red de centros médicos y clínicas de RedSalud y sus centros médicos RedSalud.<br><br>
+  <strong>Beneficios gratuitos y más:</strong> Beneficios complementarios incluidos de forma gratuita, acceso preferencial a telemedicina y descuentos en medicamentos. Programa, camina contigo, para acompañarte en eso momentos difíciles.<br><br>
+  <strong>Plan Dental:</strong> Aprovecha los mejores convenios a nivel nacional y contrata tu plan dental para obtener aranceles preferenciales en tus consultas.
+</p>
             </div>
           </div>
 
           <!-- CruzBlanca -->
           <div class="brand-box box-unificado">
-            <input
-              type="checkbox"
-              id="toggle-cruzblanca"
-              class="brand-toggle"
-            />
+            <input type="checkbox" id="toggle-cruzblanca" class="brand-toggle">
             <label for="toggle-cruzblanca" class="brand-header-label">
               <div class="brand-header-inline">
                 <span class="brand-text-icon brand-text-icon-blue">🏥</span>
-                <span class="brand-name-tag">CRUZ BLANCA</span>
+                <span class="brand-name-tag">Cruz Blanca</span>
               </div>
               <span class="brand-action-btn">+</span>
             </label>
             <div class="brand-detail-wrapper">
-              <p class="brand-detail-text">
-                Posee una oferta extensa de planes de libre elección y red
-                cerrada asistencial.
-              </p>
+              <p <strong="">Fortaleza: Respaldo internacional de primer nivel, solidez financiera y especialista en planes cerrados para optimizar al máximo tus costos, además de sus planes preferentes.<br><br>
+  <strong>Clínicas que más funcionan:</strong> Convenios preferenciales y máxima eficiencia en Clínica Bupa, centros de salud Integramédica además de una plataforma digital muy amigable.<br><br>
+  <strong>Beneficios gratuitos y más:</strong> Descuentos preferenciales en farmacias, programas preventivos costo cero y beneficios complementarios gratuitos en tu plan.<br><br>
+  <strong>Plan Dental:</strong> Disfruta de una cobertura integral; pregúntanos cómo y contrata tu plan dental junto con tu plan de salud.
+</p>
             </div>
           </div>
 
           <!-- Esencial -->
           <div class="brand-box box-unificado">
-            <input type="checkbox" id="toggle-esencial" class="brand-toggle" />
+            <input type="checkbox" id="toggle-esencial" class="brand-toggle">
             <label for="toggle-esencial" class="brand-header-label">
               <div class="brand-header-inline">
                 <span class="brand-text-icon brand-text-icon-blue">🏥</span>
-                <span class="brand-name-tag">ESENCIAL</span>
+                <span class="brand-name-tag">Esencial</span>
               </div>
               <span class="brand-action-btn">+</span>
             </label>
             <div class="brand-detail-wrapper">
-              <p class="brand-detail-text">
-                Una de las alternativas más nuevas enfocada en simplificar la
-                cobertura previsional.
-              </p>
+              <p <strong="">Fortaleza: Innovación tecnológica, modernidad y el respaldo directo del prestigioso Grupo Alemana.<br><br>
+  <strong>Clínicas que más funcionan:</strong> Vínculo preferencial, accesos exclusivos y máxima cobertura en la Clínica Alemana de Santiago, además de alianzas con RedSalud.<br><br>
+  <strong>Beneficios gratuitos y más:</strong> Chequeo médico preventivo 100% gratuito en Clínica Alemana, telemedicina preferente y descuentos en Salcobrand y RedSalud Dental.<br><br>
+  <strong>Plan Dental:</strong> Suma máxima protección a tu plan; puedes contratar tu plan dental con tecnología y especialistas de primer nivel.
+</p>
             </div>
           </div>
 
           <!-- Nueva Masvida -->
           <div class="brand-box box-unificado">
-            <input type="checkbox" id="toggle-masvida" class="brand-toggle" />
+            <input type="checkbox" id="toggle-masvida" class="brand-toggle">
             <label for="toggle-masvida" class="brand-header-label">
               <div class="brand-header-inline">
                 <span class="brand-text-icon brand-text-icon-blue">🏥</span>
-                <span class="brand-name-tag">NUEVA MASVIDA</span>
+                <span class="brand-name-tag">Nueva Masvida</span>
               </div>
               <span class="brand-action-btn">+</span>
             </label>
             <div class="brand-detail-wrapper">
-              <p class="brand-detail-text">
-                Presente en gran parte del territorio nacional con planes
-                altamente flexibles.
-              </p>
+              <p <strong="">Fortaleza: La mejor relación calidad-precio del mercado, ideal para quienes buscan maximizar su presupuesto de salud.<br><br>
+  <strong>Clínicas que más funcionan:</strong> Excelente funcionamiento en Clínica Indisa y Clínica Bupa Santiago con coberturas de alta gama.<br><br>
+  <strong>Beneficios gratuitos y más:</strong> Acceso a beneficios complementarios (BC) sin costo adicional, telemedicina incluida y promociones en ópticas.<br><br>
+  <strong>Plan Dental:</strong> ¡No descuides tu salud bucal! Aquí también puedes contratar tu plan dental con excelentes descuentos.
+</p>
             </div>
           </div>
 
           <!-- Vida Tres -->
           <div class="brand-box box-unificado">
-            <input type="checkbox" id="toggle-vidatres" class="brand-toggle" />
+            <input type="checkbox" id="toggle-vidatres" class="brand-toggle">
             <label for="toggle-vidatres" class="brand-header-label">
               <div class="brand-header-inline">
                 <span class="brand-text-icon brand-text-icon-blue">🏥</span>
-                <span class="brand-name-tag">VIDA TRES</span>
+                <span class="brand-name-tag">Vida Tres</span>
               </div>
               <span class="brand-action-btn">+</span>
             </label>
             <div class="brand-detail-wrapper">
-              <p class="brand-detail-text">
-                Enfocada tradicionalmente en segmentos de mayores ingresos y
-                prestadores preferentes.
-              </p>
+              <p <strong="">Fortaleza: Coberturas de alta complejidad, excelencia médica y orientación a la salud de primer nivel.<br><br>
+  <strong>Clínicas que más funcionan:</strong> Clínica Santa María, Red Davila, Clínica las Condes, UC Christus.<br><br>
+  <strong>Beneficios gratuitos y más:</strong> Chequeos preventivos anuales costo cero, programas de bienestar exclusivos y descuentos permanentes en farmacias asociadas.<br><br>
+  <strong>Plan Dental:</strong> Puedes complementar tu cobertura y contratar un plan dental adicional para asegurar la sonrisa de toda tu familia.
+</p>
             </div>
           </div>
         </div>
@@ -620,19 +621,8 @@
          ========================================================================= */ -->
     <div class="container">
       <div class="carousel-wrapper">
-        <input
-          type="radio"
-          name="carousel-control"
-          id="slide1"
-          checked
-          style="display:none;"
-        />
-        <input
-          type="radio"
-          name="carousel-control"
-          id="slide2"
-          style="display:none;"
-        />
+        <input type="radio" name="carousel-control" id="slide1" checked="" style="display:none;">
+        <input type="radio" name="carousel-control" id="slide2" style="display:none;">
         <div class="carousel-inner">
           <div class="carousel-slide">
             <!-- MIGRACIÓN DE CLASES fijos: Se eliminó background inline e important para permitir edición real fijos -->
@@ -647,9 +637,7 @@
                 de alta complejidad.
               </p>
             </div>
-            <label for="slide2" class="carousel-control control-next"
-              >&gt;</label
-            >
+            <label for="slide2" class="carousel-control control-next">&gt;</label>
             <div class="slide-caption">
               Análisis Normativo: Optimización Estratégica de tu Cobertura de
               Salud
@@ -668,9 +656,7 @@
                 eliminando cobros invisibles.
               </p>
             </div>
-            <label for="slide1" class="carousel-control control-prev"
-              >&lt;</label
-            >
+            <label for="slide1" class="carousel-control control-prev">&lt;</label>
             <div class="slide-caption">
               Consultoría de Nicho: Mitigación de Costos y Estructuración de
               Excedentes
@@ -685,27 +671,24 @@
          ========================================================================= */ -->
     <section class="services-section">
       <div class="container">
-        <h2>Mis Servicios de Asesoría</h2>
+        <h2>Nuestra Consultoría</h2>
         <div class="services-grid">
           <div class="service-card">
             <h3>🔍 Análisis de Cobertura</h3>
             <p>
-              Evaluamos tu plan vigente para identificar si estás pagando de más
-              o si existen brechas de cobertura en clínicas de tu interés.
+              Analizamos todas las opciones del mercado en a Isapres y seguros complementarios para encontrar la alternativa ideal para ti y tu familia.
             </p>
           </div>
           <div class="service-card">
             <h3>📈 Optimización de Planes</h3>
             <p>
-              Búsqueda y comparación objetiva entre las mejores alternativas del
-              mercado para maximizar tus excedentes y coberturas.
+              Nos ajustamos exclusivamente a tus necesidades actuales, revisando en conjunto tu mejor opción.
             </p>
           </div>
           <div class="service-card">
             <h3>💼 Orientación Completa</h3>
             <p>
-              Te acompaño en todo el proceso administrativo de incorporación o
-              cambio de Isapre de manera rápida y transparente.
+              Te ayudamos a comprender mejor tu cobertura, brindando claridad y un respaldo constante. 
             </p>
           </div>
         </div>
@@ -719,31 +702,20 @@
         <h2>¿Listo para optimizar tu previsión?</h2>
         <p>
           Elige el canal que te resulte más cómodo para agendar tu
-          pre-evaluación inmediata con la asesora:
+          pre-evaluación inmediata con un asesor:
         </p>
         <div class="contact-group">
-          <a
-            href="https://wa.me"
-            target="_blank"
-            class="btn-contact btn-whatsapp"
-          >
+          <a href="https://wa.me" target="_blank" class="btn-contact btn-whatsapp">
             <svg class="icon-svg" viewBox="0 0 24 24">
-              <path
-                d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.713-1.457L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.37 9.863-9.748.002-2.607-1.01-5.057-2.85-6.897-1.84-1.84-4.291-2.853-6.899-2.854-5.444 0-9.871 4.372-9.874 9.75-.001 1.73.458 3.422 1.33 4.925l-.995 3.636 3.7-.962zm10.974-6.93c-.3-.15-1.771-.875-2.04-.972-.269-.099-.465-.148-.659.15s-.752.972-.922 1.167c-.17.195-.341.213-.641.064-1.138-.57-1.83-1.034-2.54-2.246-.188-.328.188-.305.541-1.012.06-.121.03-.226-.015-.317s-.465-1.12-.638-1.53c-.169-.406-.341-.35-.465-.356l-.396-.007c-.136 0-.357.051-.543.254-.187.203-.714.698-.714 1.701 0 1.003.731 1.973.833 2.11s1.44 2.194 3.488 3.077c1.378.595 1.947.674 2.645.57.439-.065 1.351-.552 1.542-1.057.19-.504.19-.937.133-1.029-.056-.092-.208-.142-.508-.292z"
-              />
+              <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.713-1.457L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.37 9.863-9.748.002-2.607-1.01-5.057-2.85-6.897-1.84-1.84-4.291-2.853-6.899-2.854-5.444 0-9.871 4.372-9.874 9.75-.001 1.73.458 3.422 1.33 4.925l-.995 3.636 3.7-.962zm10.974-6.93c-.3-.15-1.771-.875-2.04-.972-.269-.099-.465-.148-.659.15s-.752.972-.922 1.167c-.17.195-.341.213-.641.064-1.138-.57-1.83-1.034-2.54-2.246-.188-.328.188-.305.541-1.012.06-.121.03-.226-.015-.317s-.465-1.12-.638-1.53c-.169-.406-.341-.35-.465-.356l-.396-.007c-.136 0-.357.051-.543.254-.187.203-.714.698-.714 1.701 0 1.003.731 1.973.833 2.11s1.44 2.194 3.488 3.077c1.378.595 1.947.674 2.645.57.439-.065 1.351-.552 1.542-1.057.19-.504.19-.937.133-1.029-.056-.092-.208-.142-.508-.292z"></path>
             </svg>
             Contactar por WhatsApp
           </a>
-          <a
-            href="mailto:contacto@ayudaplan.cl?subject=Solicitud%20de%20Evaluación%20de%20Isapre"
-            class="btn-contact btn-email"
-          >
+          <a href="mailto:contacto@ayudaplan.cl?subject=Solicitud%20de%20Evaluación%20de%20Isapre" class="btn-contact btn-email">
             <svg class="icon-svg" viewBox="0 0 24 24">
-              <path
-                d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z"
-              />
+              <path d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z"></path>
             </svg>
-            Enviar un Correo
+            Contactar por Correo
           </a>
         </div>
       </div>
@@ -759,8 +731,8 @@
           <p class="notice-text">
             <strong>Nota de Alcance Comercial:</strong> El diagnóstico de
             <em>Pre-Evaluación previsional inicial no posee costo</em> para el
-            afiliado. Tras el análisis de su caso por parte de la especialista,
-            si el requerimiento amerita una consultoría avanzada, las
+            afiliado. Tras el análisis de su caso por parte del especialista.
+            Si el requerimiento amerita una consultoría avanzada, las
             condiciones serán notificadas vía correo electrónico.
           </p>
         </div>
@@ -772,13 +744,11 @@
          ========================================================================= */ -->
     <section class="faq-section">
       <div class="container">
-        <h2>Información Útil para el Afiliado</h2>
+        <h2>Información útil para el afiliado</h2>
         <div class="faq-wrapper">
           <div class="faq-item">
-            <input type="checkbox" id="faq1" class="faq-input" />
-            <label for="faq1" class="faq-label"
-              >¿Cuál es la diferencia entre Excedentes y Excesos?</label
-            >
+            <input type="checkbox" id="faq1" class="faq-input">
+            <label for="faq1" class="faq-label">¿Cuál es la diferencia entre Excedentes y Excesos?</label>
             <div class="faq-content">
               <p>
                 Los excedentes se generan cuando tu cotización legal (7%) es
@@ -789,11 +759,9 @@
             </div>
           </div>
           <div class="faq-item">
-            <input type="checkbox" id="faq2" class="faq-input" />
-            <label for="faq2" class="faq-label"
-              >¿Por qué es importante revisar mi plan de salud
-              periódicamente?</label
-            >
+            <input type="checkbox" id="faq2" class="faq-input">
+            <label for="faq2" class="faq-label">¿Por qué es importante revisar mi plan de salud
+              periódicamente?</label>
             <div class="faq-content">
               <p>
                 El mercado previsional cambia y las Isapres lanzan nuevos planes
@@ -804,10 +772,8 @@
             </div>
           </div>
           <div class="faq-item">
-            <input type="checkbox" id="faq3" class="faq-input" />
-            <label for="faq3" class="faq-label"
-              >¿Qué costo tiene la Consultoría Previsional?</label
-            >
+            <input type="checkbox" id="faq3" class="faq-input">
+            <label for="faq3" class="faq-label">¿Qué costo tiene la Consultoría Previsional?</label>
             <div class="faq-content">
               <p>
                 La revisión técnica inicial básica no tiene valor asociado. En
@@ -825,37 +791,25 @@
     <!-- =========================================================================
          ESTRUCTURA VISUAL HTML: POR QUÉ ELEGIR ASESORÍA PROFESIONAL (VENTAJAS)
          ========================================================================= */ -->
-    <section
-      class="services-section"
-      style="background-color: var(--bg-pure-white); border: none; padding-top: 10px !important; margin-top: -30px !important;"
-    >
+    <section class="services-section" style="background-color: var(--bg-pure-white); border: none; padding-top: 10px !important; margin-top: -30px !important;">
       <div class="container">
-        <h2>Por qué elegir una asesoría profesional</h2>
+        <h2>Por qué elegir una consultoria profesional</h2>
         <div class="services-grid">
-          <div
-            class="service-card"
-            style="background-color: var(--bg-light-clean); padding: 35px; border-radius: 10px; border-left: 5px solid var(--navy-blue); box-shadow: 0 4px 10px rgba(0,0,0,0.05); text-align: left;"
-          >
+          <div class="service-card" style="background-color: var(--bg-light-clean); padding: 35px; border-radius: 10px; border-left: 5px solid var(--navy-blue); box-shadow: 0 4px 10px rgba(0,0,0,0.05); text-align: left;">
             <h3>Pre-Evaluación Inicial</h3>
             <p>
               Estudiamos la viabilidad y factibilidad de tu caso de forma ágil y
               de manera confidencial.
             </p>
           </div>
-          <div
-            class="service-card"
-            style="background-color: var(--bg-light-clean); padding: 35px; border-radius: 10px; border-left: 5px solid var(--navy-blue); box-shadow: 0 4px 10px rgba(0,0,0,0.05); text-align: left;"
-          >
+          <div class="service-card" style="background-color: var(--bg-light-clean); padding: 35px; border-radius: 10px; border-left: 5px solid var(--navy-blue); box-shadow: 0 4px 10px rgba(0,0,0,0.05); text-align: left;">
             <h3>Transparencia Total</h3>
             <p>
               Explicaciones claras, sin letra chica. Sabrás exactamente qué
               cubre tu plan.
             </p>
           </div>
-          <div
-            class="service-card"
-            style="background-color: var(--bg-light-clean); padding: 35px; border-radius: 10px; border-left: 5px solid var(--navy-blue); box-shadow: 0 4px 10px rgba(0,0,0,0.05); text-align: left;"
-          >
+          <div class="service-card" style="background-color: var(--bg-light-clean); padding: 35px; border-radius: 10px; border-left: 5px solid var(--navy-blue); box-shadow: 0 4px 10px rgba(0,0,0,0.05); text-align: left;">
             <h3>Especialización Avanzada</h3>
             <p>
               Análisis estratégico a medida para perfiles que buscan optimizar
@@ -872,21 +826,14 @@
     <footer class="main-footer">
       <div class="container">
         <p>
-          &copy; 2026 AyudaPlan.cl. Todos los derechos reservados. Asesoría
+          © 2026 AyudaPlan.cl. Todos los derechos reservados. Asesoría
           Previsional de Calidad.
         </p>
-        <p
-          style="font-size: 0.85rem; color: #475569; margin-top: 10px; font-weight: 600; letter-spacing: 0.3px; margin-bottom: 0;"
-        >
+        <p style="font-size: 0.85rem; color: #475569; margin-top: 10px; font-weight: 600; letter-spacing: 0.3px; margin-bottom: 0;">
           Interconexiones y Administración por
-          <a
-            href="https://fullweb.cl"
-            target="_blank"
-            class="footer-credits-link"
-            >www.fullweb.cl</a
-          >
+          <a href="https://fullweb.cl" target="_blank" class="footer-credits-link">www.fullweb.cl</a>
         </p>
       </div>
     </footer>
-  </body>
-</html>
+  
+</body></html>
