@@ -1,72 +1,70 @@
 <!DOCTYPE html>
-<html lang="es"><head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
     <title>Ayuda Plan - Asesoría Previsional</title>
     <style>
+      /* =========================================================================
+         PALETA MAESTRA: VARIABLES GLOBALES DE ALTA JOYERÍA
+         Usa el buscador (Ctrl+B) para ubicar y cambiar estos tonos principales de un viaje.
+         ========================================================================= */
       :root {
-          --ocean-blue: #0f2b48;
-          --navy-blue: #1e40af;
-          --brand-blue: #0284c7;
-          --brand-hover: #0369a1;
-          --accent-green: #25d366;
-          --accent-green-hover: #128c7e;
-          --text-dark: #0f172a;
-          --text-muted: #475569;
-          --text-light: #ffffff;
-          --bg-pure-white: #ffffff;
-          --bg-light-clean: #f1f5f9;
-          --border-color: #cbd5e1;
-          --primary-darker: #071e33;
+          --ocean-blue: #0f2b48;           /* Azul Oceánico Base de la Marca */
+          --navy-blue: #1e40af;            /* Azul Marino de Botones y Detalles */
+          --brand-blue: #0284c7;           /* Azul Claro de Enlaces y Bordes */
+          --brand-hover: #0369a1;          /* Tono de Reacción del Azul Claro */
+          --accent-green: #25d366;         /* Verde Oficial para el WhatsApp */
+          --accent-green-hover: #128c7e;   /* Verde Oscuro de Reacción de WhatsApp */
+          --text-dark: #0f172a;            /* Tipografía Principal Oscura */
+          --text-muted: #475569;           /* Tipografía Secundaria Grisácea */
+          --text-light: #ffffff;           /* Tipografía Blanca Corporativa */
+          --bg-pure-white: #ffffff;        /* Fondo Blanco Limpio */
+          --bg-light-clean: #f1f5f9;       /* Fondo Gris Claro de Contenedores */
+          --border-color: #cbd5e1;         /* Gris de Contornos y Divisiones */
+          --primary-darker: #071e33;       /* Azul Profundo de Notas Especiales */
       }
-
+      /* =========================================================================
+         CONFIGURACIÓN BASE DEL CUERPO (HTML & BODY)
+         ========================================================================= */
       html, body {
           font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
-          background-color: var(--bg-pure-white);
-          color: var(--text-dark);
+          background-color: var(--bg-pure-white); /* Fondo general de toda la página */
+          color: var(--text-dark);               /* Color de los textos por defecto */
           margin: 0;
           padding: 0;
           line-height: 1.6;
-          overflow-x: hidden !important;
+          overflow-x: hidden !important;          /* Bloquea el scroll horizontal rebelde */
           width: 100%;
           -webkit-tap-highlight-color: transparent;
       }
 
+      /* =========================================================================
+         ANCHO MAESTRO DE LA INTERFAZ (.container)
+         Mantiene todo el diseño centrado y alineado en pantallas grandes.
+         ========================================================================= */
       .container {
-          max-width: 1200px;
-          margin: 0 auto;
+          max-width: 1200px;                      /* Ancho máximo de la web */
+          margin: 0 auto;                         /* Centra el bloque de forma automática */
           padding: 0 20px;
           width: 100%;
           box-sizing: border-box;
       }
-
-      /* --- ANIMACIONES DE HOVER MAESTRAS --- */
-      @keyframes glassShine {
-          0% { left: -100%; }
-          100% { left: 200%; }
-      }
-
-      @keyframes lightningShine {
-          0% { left: -120%; opacity: 0; }
-          10%, 14% { left: 150%; opacity: 0.4; }
-          15% { left: 150%; opacity: 0; }
-          100% { left: 150%; opacity: 0; }
-      }
-
-      @keyframes fluidWave {
-          0% { background-position: 0% 50%; }
-          50% { background-position: 100% 50%; }
-          100% { background-position: 0% 50%; }
-      }
-      /* --- STICKY HEADER ORIGINAL REVISADO --- */
+      /* =========================================================================
+         SECTOR 1: CABECERA FIJA SUPERIOR (.main-header)
+         Usa el buscador para cambiar el borde azul inferior o el color de los textos.
+         ========================================================================= */
       .main-header {
-          background-color: var(--bg-pure-white) !important;
-          border-bottom: 3px solid var(--navy-blue);
-          position: fixed !important;
+          background-color: var(--bg-pure-white) !important; /* Fondo blanco de la cabecera */
+          border-bottom: 3px solid var(--navy-blue);          /* Línea azul gruesa inferior */
+          position: fixed !important;                         /* Se clava arriba al hacer scroll */
           top: 0;
           left: 0;
           z-index: 1000;
-          box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+          box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);         /* Sombra suave de separación */
           width: 100%;
       }
 
@@ -77,119 +75,195 @@
           padding: 15px 20px;
       }
 
-      .logo h1 { margin: 0; font-size: 1.8rem; color: var(--ocean-blue); font-weight: 800; }
-      .header-hook-right { display: flex; align-items: center; gap: 0.8rem; font-size: 1rem; font-weight: 600; color: var(--ocean-blue); }
-      .header-web-text { color: var(--text-muted); letter-spacing: 0.3px; }
-      .header-divider { color: var(--brand-blue); opacity: 0.7; }
-      .header-hook-right a { color: var(--ocean-blue); text-decoration: none; transition: color 0.2s; }
-      .header-hook-right a:hover { color: var(--navy-blue); }
-
-      /* --- SECCIÓN HERO CON ONDAS Y BORDE DE SEPARACIÓN FLUIDO --- */
-      .hero-section {
-          color: var(--text-light);
-          padding: 75px 0 85px 0;
-          text-align: center;
-          width: 100%;
-          margin-top: 75px !important;
-          position: relative;
-          background: linear-gradient(135deg, #0f2b48, #1a4066, #0f2b48);
-          background-size: 400% 400%;
-          animation: fluidWave 10s infinite ease-in-out;
-          /* División blanca/platinada translúcida que suaviza el corte con la vitrina oscura */
-          border-bottom: 4px solid rgba(255, 255, 255, 0.25);
-          box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      .logo h1 {
+          margin: 0;
+          font-size: 1.8rem;
+          color: var(--ocean-blue);                           /* Color del título Ayuda Plan */
+          font-weight: 800;
       }
 
-      .hero-section .main-title { font-size: 2.8rem; margin-bottom: 20px; font-weight: 800; letter-spacing: -0.5px; padding: 0 10px; }
-      .hero-section .subtitle { font-size: 1.25rem; max-width: 750px; margin: 0 auto 35px auto; color: #e2e8f0; padding: 0 15px; }
+      .header-hook-right {
+          display: flex;
+          align-items: center;
+          gap: 0.8rem;
+          font-size: 1rem;
+          font-weight: 600;
+          color: var(--ocean-blue);
+      }
 
-      .btn-primary-lightning {
+      .header-web-text { color: var(--text-muted); letter-spacing: 0.3px; }
+      .header-divider { color: var(--brand-blue); opacity: 0.7; }
+
+      .header-hook-right a {
+          color: var(--ocean-blue);                           /* Color del enlace del correo */
+          text-decoration: none;
+          transition: color 0.2s;
+      }
+      .header-hook-right a:hover {
+          color: var(--navy-blue);                            /* Tono al pasar el mouse por el mail */
+      }
+      /* =========================================================================
+         SECTOR 2: PRESENTACIÓN PRINCIPAL (HERO SECTION)
+         Usa el buscador para cambiar el degradado azul del fondo o el tamaño de la letra.
+         ========================================================================= */
+      .hero-section {
+          background: linear-gradient(135deg, var(--ocean-blue) 0%, #1e3a8a 100%); /* <--- DEGRADADO AZUL DE FONDO */
+          color: var(--text-light);
+          padding: 60px 0;
+          text-align: center;
+          width: 100%;
+          margin-top: 75px !important;                       /* Evita que la cabecera fija tape el título */
+      }
+
+      .hero-section .main-title {
+          font-size: 2.8rem;
+          margin-bottom: 20px;
+          font-weight: 800;
+          letter-spacing: -0.5px;
+          padding: 0 10px;
+      }
+
+      .hero-section .subtitle {
+          font-size: 1.25rem;
+          max-width: 750px;
+          margin: 0 auto 35px auto;
+          color: #e2e8f0;                                     /* Texto del subtítulo descriptivo */
+          padding: 0 15px;
+      }
+
+      /* =========================================================================
+         SECTOR 3: BOTÓN DE ACCIÓN ("Solicitar Asesoría Gratuita")
+         Usa el buscador para cambiar el contorno o el color del botón principal.
+         ========================================================================= */
+      .btn-primary {
           display: inline-block;
-          background-color: #1e40af;
+          background-color: var(--navy-blue);                 /* <--- COLOR DE FONDO EN REPOSO */
           color: var(--text-light);
           padding: 16px 38px;
           border-radius: 8px;
           text-decoration: none;
           font-weight: bold;
           font-size: 1.1rem;
-          border: 2px solid #3b82f6;
+          border: 2px solid #3b82f6;                          /* Borde azul brillante decorativo */
           transition: all 0.2s ease;
-          box-shadow: 0 4px 12px rgba(30, 64, 175, 0.3);
+          box-shadow: 0 4px 12px rgba(30, 64, 175, 0.3);       /* Sombra del botón */
           cursor: pointer;
-          position: relative;
-          overflow: hidden;
       }
-      .btn-primary-lightning::before {
-          content: "";
-          position: absolute;
-          top: 0;
-          left: -120%;
-          width: 60%;
-          height: 100%;
-          background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.65), transparent);
-          transform: skewX(-25deg);
-          animation: lightningShine 5.5s infinite linear;
+      .btn-primary:hover {
+          background-color: #2563eb;                          /* <--- COLOR DE REACCIÓN AL PASAR EL MOUSE */
+          transform: scale(1.02);                             /* Hace que el botón crezca un poco */
       }
-      .btn-primary-lightning:hover { background-color: #2563eb; transform: scale(1.02); }
-      /* --- SECCIÓN DE ISAPRES: ACORDEÓN CON MÁXIMO CONTRASTE --- */
+      /* =========================================================================
+         SECTOR 4: SECCIÓN FONDO VITRINA DE ISAPRES (.brands-section)
+         Contiene la animación del degradado líquido grafito de fondo.
+         Cambia estos tres códigos hexadecimales para alterar los tonos del fondo.
+         ========================================================================= */
       .brands-section {
           padding: 65px 0;
           text-align: center;
           border-bottom: 1px solid #111827;
+          /* <--- TONOS MAESTROS DEL DEGRADADO FLUIDO (Grafito Oscuro) */
           background: linear-gradient(270deg, #1e2530, #2a3545, #1e2530);
           background-size: 400% 400%;
-          animation: fluidWave 8s infinite ease-in-out;
+          animation: fluidReflect 8s infinite ease-in-out;
       }
 
-      .brands-subtitle { color: #94a3b8; font-size: 1.1rem; margin: 0 0 40px 0; }
-      .brands-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; padding: 0 10px; }
+      /* INSTRUCTIVO ANIMACIÓN: Mueve el degradado de fondo suavemente solo en bucle */
+      @keyframes fluidReflect {
+          0% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+          100% { background-position: 0% 50%; }
+      }
 
+      .brands-subtitle {
+          color: #94a3b8;                                     /* Texto aclaratorio superior */
+          font-size: 1.1rem;
+          margin: 0 0 40px 0;
+      }
+
+      .brands-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+          gap: 20px;
+          padding: 0 10px;
+      }
+      /* =========================================================================
+         SECTOR 5: DISEÑO DE TARJETAS DE ISAPRES (.brand-box)
+         Controla los contenedores individuales de la vitrina y sus reacciones.
+         ========================================================================= */
       .brand-box {
-          background: rgba(255, 255, 255, 0.05);
+          background: rgba(255, 255, 255, 0.05);             /* Fondo oscuro semi-transparente */
           padding: 0;
           border-radius: 12px;
           display: flex;
           flex-direction: column;
           box-shadow: 0 4px 10px rgba(0,0,0,0.15);
           transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-          border: 1px solid rgba(255, 255, 255, 0.1);
+          border: 1px solid rgba(255, 255, 255, 0.1);          /* Contorno gris suave */
           overflow: hidden;
-          position: relative;
       }
 
-      .brand-box::after, .service-card::after, .faq-item::after {
-          content: ""; position: absolute; top: 0; left: -100%; width: 50%; height: 100%;
-          background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.12), transparent);
-          transform: skewX(-25deg); pointer-events: none;
-      }
-      .brand-box:hover::after, .service-card:hover::after, .faq-item:hover::after {
-          animation: glassShine 0.85s ease-in-out;
+      .brand-toggle { display: none; }                        /* Esconde el checkbox nativo */
+
+      .brand-header-label {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 20px 22px;
+          width: 100%;
+          cursor: pointer;
+          user-select: none;
+          box-sizing: border-box;
+          transition: background-color 0.25s ease;
       }
 
-      .brand-toggle { display: none; }
-      .brand-header-label { display: flex; align-items: center; justify-content: space-between; padding: 20px 22px; width: 100%; cursor: pointer; user-select: none; box-sizing: border-box; transition: background-color 0.25s ease; }
       .brand-header-inline { display: flex; align-items: center; gap: 12px; }
       .brand-text-icon { font-size: 1.5rem; }
+      .brand-text-icon-blue { color: #38bdf8; }               /* Clase para pintar de azul los íconos de hospital */
       .brand-name-tag { font-weight: 800; font-size: 1.05rem; letter-spacing: 0.5px; color: #f1f5f9; transition: color 0.25s ease; }
       .brand-action-btn { font-size: 1.3rem; font-weight: bold; color: #38bdf8; transition: transform 0.25s ease, color 0.25s ease; }
 
       .brand-detail-wrapper { max-height: 0; overflow: hidden; transition: max-height 0.3s cubic-bezier(0, 1, 0, 1); background-color: transparent; width: 100%; }
       .brand-detail-text { font-size: 0.95rem; color: #cbd5e1; line-height: 1.5; padding: 0 22px 20px 22px; margin: 0; }
 
-      .brand-box.box-unificado:hover { transform: translateY(-4px); background-color: #0f766e; border-color: #14b8a6; box-shadow: 0 8px 25px rgba(15, 118, 110, 0.4); }
+      /* <--- HOVER UNIFICADO VERDE AZULADO DE LAS TARJETAS COMUNES */
+      .brand-box.box-unificado:hover {
+          transform: translateY(-4px);
+          background-color: #0f766e;                          /* Color de fondo al posicionar el mouse */
+          border-color: #14b8a6;                              /* Contorno brillante en hover */
+          box-shadow: 0 8px 25px rgba(15, 118, 110, 0.4);
+      }
       .brand-box.box-unificado:hover .brand-action-btn { color: #ffffff !important; }
 
-      .brand-box.box-colmena { border-color: rgba(217, 119, 6, 0.3); animation: colmenaGlow 2.5s infinite alternate ease-in-out; }
+      /* =========================================================================
+         SECTOR 6: REGLAS EXCLUSIVAS DE COLMENA (.box-colmena)
+         Controla el halo dorado continuo en reposo y el hover color oro.
+         ========================================================================= */
+      .brand-box.box-colmena {
+          border-color: rgba(217, 119, 6, 0.3);
+          animation: goldenGlow 2.5s infinite alternate ease-in-out; /* Activa el brillo constante */
+      }
       .brand-box.box-colmena .brand-action-btn { color: #f59e0b; }
 
-      @keyframes colmenaGlow {
-          0% { box-shadow: 0 4px 10px rgba(0,0,0,0.15), 0 0 5px rgba(217, 119, 6, 0.15); }
-          100% { box-shadow: 0 4px 10px rgba(0,0,0,0.15), 0 0 15px rgba(217, 119, 6, 0.4); }
+      /* <--- ANIMACIÓN HALO DORADO CONSTANTE EN REPOSO */
+      @keyframes goldenGlow {
+          0% { box-shadow: 0 4px 10px rgba(0,0,0,0.15), 0 0 6px rgba(217, 119, 6, 0.1); }
+          100% { box-shadow: 0 4px 10px rgba(0,0,0,0.15), 0 0 16px rgba(217, 119, 6, 0.35); }
       }
-      .brand-box.box-colmena:hover { transform: translateY(-4px); background-color: #d97706; border-color: #fbbf24; box-shadow: 0 0 28px rgba(217, 119, 6, 0.6) !important; animation: none; }
-      .brand-box.box-colmena:hover .brand-name-tag { color: #ffffff !important; }
-      .brand-box.box-colmena:hover .brand-action-btn { color: #ffffff !important; }
 
+      /* <--- HOVER EXCLUSIVO COLOR ORO DE COLMENA */
+      .brand-box.box-colmena:hover {
+          transform: translateY(-4px);
+          background-color: #d97706;                          /* Fondo dorado al posicionar el mouse */
+          border-color: #fbbf24;                              /* Contorno brillante dorado */
+          box-shadow: 0 0 28px rgba(217, 119, 6, 0.6), 0 10px 20px rgba(217, 119, 6, 0.2) !important;
+          animation: none;                                    /* Apaga el halo en reposo mientras se toca */
+      }
+      .brand-box.box-colmena:hover .brand-action-btn { color: #ffffff !important; }
+      /* =========================================================================
+         SECTOR 7: APERTURAS MECÁNICAS DE ACORDEONES DE ISAPRES
+         Controla los cambios de color cuando una tarjeta se pincha y se abre.
+         ========================================================================= */
       .brand-box.box-unificado .brand-toggle:checked ~ .brand-header-label { background-color: #0f766e; }
       .brand-box.box-unificado .brand-toggle:checked ~ .brand-header-label .brand-action-btn { color: #ffffff !important; transform: rotate(45deg); }
       .brand-box.box-unificado .brand-toggle:checked ~ .brand-detail-wrapper { background-color: #0f766e; }
@@ -201,77 +275,148 @@
       .brand-box.box-colmena:has(.brand-toggle:checked) { border-color: #fbbf24; background-color: #d97706; box-shadow: 0 0 25px rgba(217, 119, 6, 0.4) !important; animation: none; }
 
       .brand-toggle:checked ~ .brand-detail-wrapper { max-height: 200px; }
-      .services-section {
-          padding: 60px 0;
-          background-color: var(--bg-light-clean);
-          border-top: 1px solid var(--border-color);
-          border-bottom: 1px solid var(--border-color);
-          width: 100%;
+
+      /* =========================================================================
+         SECTOR 8: VITRINA DE CARRUSEL DE ESTUDIOS INTERACTIVOS (.carousel-wrapper)
+         Maneja los contenedores deslizantes de los testimonios y estudios de nicho.
+         ========================================================================= */
+      .carousel-wrapper {
+          max-width: 950px;
+          margin: 3.5rem auto 1rem auto;
+          position: relative;
+          padding-bottom: 35%;
+          overflow: hidden;
+          border-radius: 12px;
+          box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+          border: 1px solid var(--border-color);
+          background-color: #ffffff !important;
       }
-
-      .services-section h2, .faq-section h2 { text-align: center; color: var(--ocean-blue); font-size: 2rem; font-weight: 800; margin-bottom: 10px; }
-      .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-top: 30px; }
-
-      .service-card {
-          background-color: var(--bg-pure-white);
-          padding: 30px; border-radius: 12px; border-left: 5px solid var(--navy-blue);
-          box-shadow: 0 4px 15px rgba(0,0,0,0.04); transition: all 0.25s ease;
-          position: relative; overflow: hidden;
-      }
-      .service-card:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(0,0,0,0.08); }
-      .service-card h3 { color: var(--ocean-blue); margin-top: 0; margin-bottom: 10px; font-size: 1.3rem; }
-
-      .carousel-wrapper { max-width: 950px; margin: 3.5rem auto 1rem auto; position: relative; padding-bottom: 35%; overflow: hidden; border-radius: 12px; box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15); border: 1px solid var(--border-color); background-color: #ffffff !important; }
       .carousel-open { display: none; }
       .carousel-inner { position: absolute; top: 0; left: 0; width: 200%; height: 100%; display: flex; transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
       .carousel-slide { width: 50%; height: 100%; background-color: #ffffff !important; display: flex; align-items: center; justify-content: center; position: relative; box-sizing: border-box; }
+
+      /* TARJETAS INTERNAS DEL CARRUSEL (MIGRACIÓN LIMPIA fijos) */
+      .slide-content-card {
+          padding: 1.8rem;
+          background: #ffffff !important;
+          width: 85%;
+          border-radius: 8px;
+          border: 1px solid #cbd5e1;
+          text-align: left;
+          box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      }
+      .slide-badge {
+          background: var(--ocean-blue);
+          color: #ffffff !important;
+          padding: 0.2rem 0.6rem;
+          border-radius: 4px;
+          font-size: 0.8rem;
+          font-weight: 700;
+          text-transform: uppercase;
+          display: inline-block;
+      }
+      .slide-heading {
+          font-size: 1.4rem;
+          margin: 0.5rem 0 0.3rem 0;
+          font-weight: 800;
+          color: #0f2b48 !important;
+          -webkit-text-fill-color: #0f2b48 !important;
+      }
+      .slide-text-body {
+          font-size: 0.95rem;
+          color: #334155 !important;
+          -webkit-text-fill-color: #334155 !important;
+          font-weight: 600;
+          line-height: 1.6;
+      }
+      /* FLECHAS Y DESCRIPCIONES DEL CARRUSEL fijos */
       .carousel-control { position: absolute; top: 50%; transform: translateY(-50%); background-color: rgba(15, 43, 72, 0.95); color: var(--text-light); width: 46px; height: 46px; display: flex; align-items: center; justify-content: center; border-radius: 50%; cursor: pointer; font-weight: bold; font-size: 1.5rem; user-select: none; z-index: 10; transition: all 0.2s; border: none; box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
       .carousel-control:hover { background-color: var(--brand-blue); transform: translateY(-50%) scale(1.08); }
-      .control-prev { left: 15px; } .control-next { right: 15px; }
-      .slide-caption { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(180deg, rgba(15, 43, 72, 0.35) 0%, rgba(7, 24, 43, 0.55) 100%) !important; color: var(--text-light) !important; padding: 12px 40px; font-size: 0.95rem; font-weight: 700; text-align: center !important; width: 100%; display: block; z-index: 5; text-shadow: 0 1px 2px rgba(0,0,0,0.6) !important; }
+      .carousel-control:active { transform: translateY(-50%) scale(0.92); }
+      .control-prev { left: 15px; }
+      .control-next { right: 15px; }
+      .slide-caption { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(180deg, rgba(15, 43, 72, 0.35) 0%, rgba(7, 24, 43, 0.55) 100%) !important; color: var(--text-light) !important; padding: 12px 40px; font-size: 0.95rem; font-weight: 700; text-align: center !important; box-sizing: border-box; width: 100%; display: block; z-index: 5; text-shadow: 0 1px 2px rgba(0,0,0,0.6) !important; }
       #slide1:checked ~ .carousel-inner { transform: translateX(0); }
       #slide2:checked ~ .carousel-inner { transform: translateX(-50%); }
 
+      /* =========================================================================
+         SECTOR 9: SECCIÓN DE SERVICIOS PREVISIONALES (.services-section)
+         Usa el buscador para cambiar el fondo gris claro o los contornos de las tarjetas.
+         ========================================================================= */
+      .services-section { padding: 60px 0; background-color: var(--bg-light-clean); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); width: 100%; }
+      .services-section h2 { text-align: center; color: var(--ocean-blue); font-size: 2rem; font-weight: 800; margin-bottom: 10px; }
+      .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-top: 30px; }
+
+      /* TARJETAS DE SERVICIOS INDIVIDUALES fijos */
+      .service-card {
+          background-color: var(--bg-pure-white);
+          padding: 30px;
+          border-radius: 12px;
+          border-left: 5px solid var(--navy-blue); /* <--- LÍNEA DE COLOR GRUESA DE LA IZQUIERDA */
+          box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+          transition: transform 0.2s;
+      }
+      .service-card:hover { transform: translateY(-3px); }
+      .service-card h3 { color: var(--ocean-blue); margin-top: 0; margin-bottom: 10px; font-size: 1.3rem; }
+      /* =========================================================================
+         SECTOR 10: ACORDEONES DE PREGUNTAS FRECUENTES (FAQ)
+         Usa el buscador para cambiar el comportamiento del signo '+' o las cajas.
+         ========================================================================= */
       .faq-section { padding: 60px 0; background-color: var(--bg-pure-white); width: 100%; }
+      .faq-section h2 { text-align: center; color: var(--ocean-blue); font-size: 2rem; margin-bottom: 35px; font-weight: 800; }
       .faq-wrapper { max-width: 750px; margin: 0 auto; padding: 0 5px; }
-      .faq-item { border: 1px solid var(--border-color); border-radius: 10px; padding: 0; margin-bottom: 15px; background-color: var(--bg-light-clean); overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.02); position: relative; }
+      .faq-item { border: 1px solid var(--border-color); border-radius: 10px; padding: 0; margin-bottom: 15px; background-color: var(--bg-light-clean); overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.02); }
       .faq-input { display: none; }
       .faq-label { display: flex; justify-content: space-between; align-items: center; color: var(--ocean-blue); font-weight: 700; font-size: 1.1rem; padding: 18px 20px; cursor: pointer; user-select: none; }
       .faq-label::after { content: '+'; font-size: 1.4rem; color: var(--brand-blue); transition: transform 0.2s; font-weight: bold; }
       .faq-content { max-height: 0; overflow: hidden; transition: max-height 0.3s cubic-bezier(0, 1, 0, 1); background-color: var(--bg-pure-white); }
-      .faq-content p { padding: 18px 20px; margin: 0; color: #475569; font-size: 1rem; border-top: 1px solid var(--border-color); }
+      .faq-content p { padding: 18px 20px; margin: 0; color: var(--text-muted); font-size: 1rem; border-top: 1px solid var(--border-color); }
       .faq-input:checked ~ .faq-content { max-height: 1000px; }
       .faq-input:checked ~ .faq-label::after { transform: rotate(45deg); color: var(--ocean-blue); }
 
+      /* =========================================================================
+         SECTOR 11: BLOQUE DE CONTACTO UNIFICADO Y REDES (.contact-section)
+         Usa el buscador para cambiar el fondo azul oceánico o el color de los botones.
+         ========================================================================= */
       .contact-section { padding: 60px 0; background-color: var(--ocean-blue); color: var(--text-light); text-align: center; border-top: 3px solid var(--brand-blue); width: 100%; }
       .contact-section h2 { font-size: 2rem; margin-bottom: 12px; font-weight: 800; }
       .contact-section p { color: #cbd5e1; margin-bottom: 30px; font-size: 1.1rem; padding: 0 15px; }
       .contact-group { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; padding: 0 15px; }
       .btn-contact { display: inline-flex; align-items: center; justify-content: center; gap: 10px; text-decoration: none; padding: 15px 30px; border-radius: 50px; font-weight: 700; transition: all 0.2s ease; font-size: 1.05rem; min-height: 48px; }
+
+      /* BOTONES DE REDES INDIVIDUALES fijos */
       .btn-whatsapp { background-color: var(--accent-green); color: var(--text-light); box-shadow: 0 4px 14px rgba(37, 211, 102, 0.3); }
       .btn-whatsapp:hover { background-color: var(--accent-green-hover); transform: translateY(-2px); }
       .btn-email { background-color: var(--brand-blue); color: var(--text-light); box-shadow: 0 4px 14px rgba(2, 132, 199, 0.3); }
       .btn-email:hover { background-color: var(--brand-hover); transform: translateY(-2px); }
       .icon-svg { width: 20px; height: 22px; fill: currentColor; }
-
+      /* =========================================================================
+         SECTOR 12: NOTA DE REGULACIÓN COMERCIAL Y FOOTER BASE
+         Usa el buscador para cambiar el fondo azul oscuro de los créditos.
+         ========================================================================= */
       .pricing-notice-section { background-color: var(--primary-darker); padding: 20px 15px; color: #94a3b8; border-bottom: 3px solid var(--brand-blue); text-align: center; font-size: 0.95rem; }
       .notice-content { display: flex; align-items: center; justify-content: center; gap: 12px; max-width: 900px; margin: 0 auto; text-align: left; }
       .notice-icon { font-size: 1.4rem; color: var(--brand-blue); flex-shrink: 0; }
       .main-footer { background-color: #081a2d; color: #94a3b8; padding: 30px 15px; text-align: center; border-top: 1px solid #1e293b; width: 100%; font-size: 0.95rem; }
+      .footer-credits-link { color: #0284c7; text-decoration: none; }
 
+      /* =========================================================================
+         SECTOR 13: SOPORTE RESPONSIVO MÓVIL CRUCIAL (.main-header .container)
+         Maneja el reordenamiento automático de cajas y letras en teléfonos celulares.
+         ========================================================================= */
       @media (max-width: 768px) {
           html, body { overflow-x: hidden !important; width: 100% !important; }
           .main-header .container { flex-direction: column; text-align: center; gap: 10px; padding: 12px 10px; }
           .header-hook-right { font-size: 0.9rem; gap: 0.5rem; justify-content: center; width: 100%; }
-          .hero-section { padding: 65px 0; margin-top: 110px !important; }
+          .hero-section { padding: 45px 0; margin-top: 110px !important; }
           .hero-section .main-title { font-size: 2.1rem; }
           .hero-section .subtitle { font-size: 1.1rem; margin-bottom: 25px; }
-          .btn-primary-lightning { width: 100%; max-width: 320px; box-sizing: border-box; }
+          .btn-primary { width: 100%; max-width: 320px; box-sizing: border-box; }
           .carousel-wrapper { padding-bottom: 85%; margin: 2rem 10px 0 10px; border-radius: 8px; width: auto !important; }
           .carousel-slide { padding: 0 10px; }
-          .carousel-slide > div { width: 100% !important; padding: 1.2rem !important; box-sizing: border-box !important; }
-          .carousel-slide h2 { font-size: 1.2rem !important; }
-          .carousel-slide p { font-size: 0.85rem !important; line-height: 1.4 !important; }
+          .carousel-slide .slide-content-card { width: 100% !important; padding: 1.2rem !important; box-sizing: border-box !important; }
+          .carousel-slide .slide-heading { font-size: 1.2rem !important; }
+          .carousel-slide .slide-text-body { font-size: 0.85rem !important; line-height: 1.4 !important; }
           .carousel-control { width: 38px; height: 46px; font-size: 1.2rem; border-radius: 4px; background-color: rgba(15, 43, 72, 0.85); }
           .control-prev { left: 0px; border-radius: 0 4px 4px 0; }
           .control-next { right: 0px; border-radius: 4px 0 0 4px; }
@@ -290,7 +435,9 @@
     </style>
   </head>
   <body>
-    <!-- HEADER -->
+    <!-- =========================================================================
+         ESTRUCTURA VISUAL HTML: CABECERA FIJA SUPERIOR
+         ========================================================================= */ -->
     <header class="main-header">
       <div class="container">
         <div class="logo">
@@ -299,24 +446,36 @@
         <div class="header-hook-right">
           <span class="header-web-text">www.ayudaplan.cl</span>
           <span class="header-divider">|</span>
-          <a href="mailto:contacto@ayudaplan.cl?subject=Solicitud%20de%20Evaluación%20de%20Isapre">contacto@ayudaplan.cl</a>
+          <a
+            href="mailto:contacto@ayudaplan.cl?subject=Solicitud%20de%20Evaluación%20de%20Isapre"
+            >contacto@ayudaplan.cl</a
+          >
         </div>
       </div>
     </header>
 
-    <!-- HERO ANIMADO CON ONDAS Y BORDE DE TRANSICIÓN SUAVE -->
+    <!-- =========================================================================
+         ESTRUCTURA VISUAL HTML: SECCIÓN HERO PRINCIPAL DE BIENVENIDA
+         ========================================================================= */ -->
     <section class="hero-section">
       <div class="container">
-        <h1 class="main-title">Tu salud merece la mejor orientación</h1>
+        <h1 class="main-title">Tu salud merece el mejor plan</h1>
         <p class="subtitle">
-          Somos un equipo de consultores profesionales, comprometidos con tu bienestar. Te acompañamos en cada paso para que tomes la mejor decisión.
+          Te asesoro de forma transparente y personalizada para encontrar la
+          cobertura de Isapre que realmente se adapta a tus necesidades,
+          optimizando tu presupuesto de salud.
         </p>
 
-        <a href="mailto:contacto@ayudaplan.cl?subject=Solicitud%20de%20Evaluación%20de%20Isapre" class="btn-primary-lightning">CONECTAR A TU CONSULTORA</a>
+        <a
+          href="mailto:contacto@ayudaplan.cl?subject=Solicitud%20de%20Evaluación%20de%20Isapre"
+          class="btn-primary"
+          >Solicitar Asesoría Gratuita</a
+        >
       </div>
     </section>
-
-    <!-- VITRINA INTERACTIVA CON CONTRASTE OPTIMIZADO -->
+    <!-- =========================================================================
+         ESTRUCTURA VISUAL HTML: VITRINA INTERACTIVA DE ISAPRES
+         ========================================================================= */ -->
     <section class="brands-section">
       <div class="container">
         <p class="brands-subtitle">
@@ -326,10 +485,10 @@
         <div class="brands-grid">
           <!-- Banmédica -->
           <div class="brand-box box-unificado">
-            <input type="checkbox" id="toggle-banmedica" class="brand-toggle">
+            <input type="checkbox" id="toggle-banmedica" class="brand-toggle" />
             <label for="toggle-banmedica" class="brand-header-label">
               <div class="brand-header-inline">
-                <span class="brand-text-icon" style="color: #38bdf8;">🏥</span>
+                <span class="brand-text-icon brand-text-icon-blue">🏥</span>
                 <span class="brand-name-tag">BANMÉDICA</span>
               </div>
               <span class="brand-action-btn">+</span>
@@ -344,7 +503,7 @@
 
           <!-- Colmena -->
           <div class="brand-box box-colmena">
-            <input type="checkbox" id="toggle-colmena" class="brand-toggle">
+            <input type="checkbox" id="toggle-colmena" class="brand-toggle" />
             <label for="toggle-colmena" class="brand-header-label">
               <div class="brand-header-inline">
                 <span class="brand-text-icon">🐝</span>
@@ -362,10 +521,10 @@
 
           <!-- Consalud -->
           <div class="brand-box box-unificado">
-            <input type="checkbox" id="toggle-consalud" class="brand-toggle">
+            <input type="checkbox" id="toggle-consalud" class="brand-toggle" />
             <label for="toggle-consalud" class="brand-header-label">
               <div class="brand-header-inline">
-                <span class="brand-text-icon" style="color: #38bdf8;">🏥</span>
+                <span class="brand-text-icon brand-text-icon-blue">🏥</span>
                 <span class="brand-name-tag">CONSALUD</span>
               </div>
               <span class="brand-action-btn">+</span>
@@ -380,10 +539,14 @@
 
           <!-- CruzBlanca -->
           <div class="brand-box box-unificado">
-            <input type="checkbox" id="toggle-cruzblanca" class="brand-toggle">
+            <input
+              type="checkbox"
+              id="toggle-cruzblanca"
+              class="brand-toggle"
+            />
             <label for="toggle-cruzblanca" class="brand-header-label">
               <div class="brand-header-inline">
-                <span class="brand-text-icon" style="color: #38bdf8;">🏥</span>
+                <span class="brand-text-icon brand-text-icon-blue">🏥</span>
                 <span class="brand-name-tag">CRUZ BLANCA</span>
               </div>
               <span class="brand-action-btn">+</span>
@@ -398,10 +561,10 @@
 
           <!-- Esencial -->
           <div class="brand-box box-unificado">
-            <input type="checkbox" id="toggle-esencial" class="brand-toggle">
+            <input type="checkbox" id="toggle-esencial" class="brand-toggle" />
             <label for="toggle-esencial" class="brand-header-label">
               <div class="brand-header-inline">
-                <span class="brand-text-icon" style="color: #38bdf8;">🏥</span>
+                <span class="brand-text-icon brand-text-icon-blue">🏥</span>
                 <span class="brand-name-tag">ESENCIAL</span>
               </div>
               <span class="brand-action-btn">+</span>
@@ -413,12 +576,13 @@
               </p>
             </div>
           </div>
+
           <!-- Nueva Masvida -->
           <div class="brand-box box-unificado">
-            <input type="checkbox" id="toggle-masvida" class="brand-toggle">
+            <input type="checkbox" id="toggle-masvida" class="brand-toggle" />
             <label for="toggle-masvida" class="brand-header-label">
               <div class="brand-header-inline">
-                <span class="brand-text-icon" style="color: #38bdf8;">🏥</span>
+                <span class="brand-text-icon brand-text-icon-blue">🏥</span>
                 <span class="brand-name-tag">NUEVA MASVIDA</span>
               </div>
               <span class="brand-action-btn">+</span>
@@ -433,10 +597,10 @@
 
           <!-- Vida Tres -->
           <div class="brand-box box-unificado">
-            <input type="checkbox" id="toggle-vidatres" class="brand-toggle">
+            <input type="checkbox" id="toggle-vidatres" class="brand-toggle" />
             <label for="toggle-vidatres" class="brand-header-label">
               <div class="brand-header-inline">
-                <span class="brand-text-icon" style="color: #38bdf8;">🏥</span>
+                <span class="brand-text-icon brand-text-icon-blue">🏥</span>
                 <span class="brand-name-tag">VIDA TRES</span>
               </div>
               <span class="brand-action-btn">+</span>
@@ -451,45 +615,62 @@
         </div>
       </div>
     </section>
-
-    <!-- CAROUSEL -->
+    <!-- =========================================================================
+         ESTRUCTURA VISUAL HTML: VITRINA DEL CARRUSEL DE ESTUDIOS (CLASES LIMPIAS)
+         ========================================================================= */ -->
     <div class="container">
       <div class="carousel-wrapper">
-        <input type="radio" name="carousel-control" id="slide1" checked="" style="display:none;">
-        <input type="radio" name="carousel-control" id="slide2" style="display:none;">
+        <input
+          type="radio"
+          name="carousel-control"
+          id="slide1"
+          checked
+          style="display:none;"
+        />
+        <input
+          type="radio"
+          name="carousel-control"
+          id="slide2"
+          style="display:none;"
+        />
         <div class="carousel-inner">
           <div class="carousel-slide">
-            <div style="padding: 1.8rem; background: #ffffff !important; width: 85%; border-radius: 8px; border: 1px solid #cbd5e1; text-align: left; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
-              <span style="background: var(--ocean-blue); color: #ffffff !important; padding: 0.2rem 0.6rem; border-radius: 4px; font-size: 0.8rem; font-weight: 700; text-transform: uppercase;">Estudio Técnico Avanzado</span>
-              <h2 style="font-size: 1.4rem; margin: 0.5rem 0 0.3rem 0; font-weight: 800; color: #0f2b48 !important; -webkit-text-fill-color: #0f2b48 !important;">
+            <!-- MIGRACIÓN DE CLASES fijos: Se eliminó background inline e important para permitir edición real fijos -->
+            <div class="slide-content-card">
+              <span class="slide-badge">Estudio Técnico Avanzado</span>
+              <h2 class="slide-heading">
                 📊 Planificación y Adecuación de Cobertura
               </h2>
-              <p style="font-size: 0.95rem; color: #334155 !important; -webkit-text-fill-color: #334155 !important; font-weight: 600;">
+              <p class="slide-text-body">
                 Análisis comparativo de planes según el marco normativo de la
                 Superintendencia de Salud. Maximizamos tu 7% legal en clínicas
                 de alta complejidad.
               </p>
             </div>
-            <label for="slide2" class="carousel-control control-next">&gt;</label>
+            <label for="slide2" class="carousel-control control-next"
+              >&gt;</label
+            >
             <div class="slide-caption">
-              Análisis Normativo: Optimización Strategica de tu Cobertura de
+              Análisis Normativo: Optimización Estratégica de tu Cobertura de
               Salud
             </div>
           </div>
 
           <div class="carousel-slide">
-            <div style="padding: 1.8rem; background: #ffffff !important; width: 85%; border-radius: 8px; border: 1px solid #cbd5e1; text-align: left; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
-              <span style="background: var(--ocean-blue); color: #ffffff !important; padding: 0.2rem 0.6rem; border-radius: 4px; font-size: 0.8rem; font-weight: 700; text-transform: uppercase;">Solución de Finanzas Médicas</span>
-              <h2 style="font-size: 1.4rem; margin: 0.5rem 0 0.3rem 0; font-weight: 800; color: #0f2b48 !important; -webkit-text-fill-color: #0f2b48 !important;">
+            <div class="slide-content-card">
+              <span class="slide-badge">Solución de Finanzas Médicas</span>
+              <h2 class="slide-heading">
                 💎 Reestructuración de Excedentes e Isapres
               </h2>
-              <p style="font-size: 0.95rem; color: #334155 !important; -webkit-text-fill-color: #334155 !important; font-weight: 600;">
+              <p class="slide-text-body">
                 Diseño de planes con foco en la acumulación eficiente de
                 excedentes para uso en farmacias y prestaciones ambulatorias,
                 eliminando cobros invisibles.
               </p>
             </div>
-            <label for="slide1" class="carousel-control control-prev">&lt;</label>
+            <label for="slide1" class="carousel-control control-prev"
+              >&lt;</label
+            >
             <div class="slide-caption">
               Consultoría de Nicho: Mitigación de Costos y Estructuración de
               Excedentes
@@ -499,136 +680,40 @@
       </div>
     </div>
 
-    <!-- SERVICIOS -->
+    <!-- =========================================================================
+         ESTRUCTURA VISUAL HTML: MIS SERVICIOS DE ASESORÍA
+         ========================================================================= */ -->
     <section class="services-section">
       <div class="container">
-        <h2>Nuestra Consultoría</h2>
+        <h2>Mis Servicios de Asesoría</h2>
         <div class="services-grid">
           <div class="service-card">
             <h3>🔍 Análisis de Cobertura</h3>
             <p>
-              Analizamos todas las opciones del mercado en Isapres y Seguros complementarios para encontrar la alternativa ideal para ti y tu familia.
+              Evaluamos tu plan vigente para identificar si estás pagando de más
+              o si existen brechas de cobertura en clínicas de tu interés.
             </p>
           </div>
           <div class="service-card">
             <h3>📈 Optimización de Planes</h3>
             <p>
-              Nos ajustamos exclusivamente a tus necesidades actuales, revisando en conjunto tu mejor opción.
+              Búsqueda y comparación objetiva entre las mejores alternativas del
+              mercado para maximizar tus excedentes y coberturas.
             </p>
           </div>
           <div class="service-card">
             <h3>💼 Orientación Completa</h3>
             <p>
-              Te apoyamos a comprender de mejor manera tu cobertura, brindando claridad y un respaldo constante.
+              Te acompaño en todo el proceso administrativo de incorporación o
+              cambio de Isapre de manera rápida y transparente.
             </p>
           </div>
         </div>
       </div>
     </section>
-                <!-- ========================================== -->
-    <!--  FORMULARIO INTERACTIVO AUTOMATIZADO REAL  -->
-    <!-- ========================================== -->
-    <section style="padding: 60px 0; background-color: #f1f5f9; width: 100%; border-top: 1px solid #cbd5e1; border-bottom: 1px solid #cbd5e1;">
-      <div class="container" style="max-width: 650px; margin: 0 auto; padding: 0 20px; box-sizing: border-box;">
-        
-        <h2 style="text-align: center; color: #0f2b48; font-size: 2rem; font-weight: 800; margin: 0 0 10px 0;">Solicitar Estudio de Isapre</h2>
-        <p style="text-align: center; color: #475569; font-size: 1rem; margin: 0 0 30px 0;">Ingresa tus datos para recibir tu propuesta de optimización de salud de forma automática.</p>
-        
-        <form action="https://api.web3forms.com/submit" method="POST" id="formAyudaPlan" style="background: #ffffff; padding: 40px; border-radius: 14px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); border: 1px solid #cbd5e1; box-sizing: border-box;">
-          
-          <!-- Configuración obligatoria del Servidor para que GitHub no bloquee la conexión -->
-          <input type="hidden" name="access_key" value="5f7a6d57-a887-459c-975a-c1215f0f7129">
-          <input type="hidden" name="from_name" value="Web AyudaPlan">
-
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; margin-bottom: 20px;">
-            <div style="display: flex; flex-direction: column; gap: 6px;">
-              <label style="font-weight: 700; color: #0f2b48; font-size: 0.95rem;">Nombre Completo</label>
-              <input type="text" name="name" placeholder="Ej: Juan Pérez" required="" style="padding: 14px 16px; border-radius: 8px; border: 1px solid #cbd5e1; font-size: 1rem; outline: none; background-color: #ffffff; color: #0f172a; transition: all 0.2s ease;" onfocus="this.style.borderColor='#0f766e'; this.style.boxShadow='0 0 0 3px rgba(15, 118, 110, 0.15)'" onblur="this.style.borderColor='#cbd5e1'; this.style.boxShadow='none'">
-            </div>
-            <div style="display: flex; flex-direction: column; gap: 6px;">
-              <label style="font-weight: 700; color: #0f2b48; font-size: 0.95rem;">Teléfono / WhatsApp</label>
-              <input type="tel" name="phone" placeholder="Ej: +56912345678" required="" style="padding: 14px 16px; border-radius: 8px; border: 1px solid #cbd5e1; font-size: 1rem; outline: none; background-color: #ffffff; color: #0f172a; transition: all 0.2s ease;" onfocus="this.style.borderColor='#0f766e'; this.style.boxShadow='0 0 0 3px rgba(15, 118, 110, 0.15)'" onblur="this.style.borderColor='#cbd5e1'; this.style.boxShadow='none'">
-            </div>
-          </div>
-
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; margin-bottom: 20px;">
-            <div style="display: flex; flex-direction: column; gap: 6px;">
-              <label style="font-weight: 700; color: #0f2b48; font-size: 0.95rem;">Correo Electrónico</label>
-              <input type="email" name="email" placeholder="juan@correo.com" required="" style="padding: 14px 16px; border-radius: 8px; border: 1px solid #cbd5e1; font-size: 1rem; outline: none; background-color: #ffffff; color: #0f172a; transition: all 0.2s ease;" onfocus="this.style.borderColor='#0f766e'; this.style.boxShadow='0 0 0 3px rgba(15, 118, 110, 0.15)'" onblur="this.style.borderColor='#cbd5e1'; this.style.boxShadow='none'">
-            </div>
-            <div style="display: flex; flex-direction: column; gap: 6px;">
-              <label style="font-weight: 700; color: #0f2b48; font-size: 0.95rem;">Edad del Titular</label>
-              <input type="number" name="edad" placeholder="Ej: 35" min="18" max="99" required="" style="padding: 14px 16px; border-radius: 8px; border: 1px solid #cbd5e1; font-size: 1rem; outline: none; background-color: #ffffff; color: #0f172a; transition: all 0.2s ease;" onfocus="this.style.borderColor='#0f766e'; this.style.boxShadow='0 0 0 3px rgba(15, 118, 110, 0.15)'" onblur="this.style.borderColor='#cbd5e1'; this.style.boxShadow='none'">
-            </div>
-          </div>
-
-          <div style="display: flex; flex-direction: column; gap: 6px; margin-bottom: 20px;">
-            <label style="font-weight: 700; color: #0f2b48; font-size: 0.95rem;">Isapre Actual o Sistema Previsional</label>
-            <select name="isapre" required="" style="padding: 14px 16px; border-radius: 8px; border: 1px solid #cbd5e1; font-size: 1rem; outline: none; background-color: #ffffff; color: #0f172a; transition: all 0.2s ease; cursor: pointer; appearance: none; -webkit-appearance: none; background-image: url('data:image/svg+xml;charset=UTF-8,%3csvg xmlns=\'http://w3.org\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'%230f2b48\' stroke-width=\'3\' stroke-linecap=\'round\' stroke-linejoin=\'round\'%3e%3cpolyline points=\'6 9 12 15 18 9\'%3e%3c/polyline%3e%3c/svg%3e'); background-repeat: no-repeat; background-position: right 16px center; background-size: 14px; padding-right: 40px;" onfocus="this.style.borderColor='#0f766e'; this.style.boxShadow='0 0 0 3px rgba(15, 118, 110, 0.15)'" onblur="this.style.borderColor='#cbd5e1'; this.style.boxShadow='none'">
-              <option value="" disabled="" selected="" hidden="">Selecciona una opción</option>
-              <option value="Fonasa">Fonasa</option>
-              <option value="Banmedica">Banmédica</option>
-              <option value="Colmena">Colmena</option>
-              <option value="Consalud">Consalud</option>
-              <option value="CruzBlanca">Cruz Blanca</option>
-              <option value="Esencial">Esencial</option>
-              <option value="NuevaMasvida">Nueva Masvida</option>
-              <option value="VidaTres">Vida Tres</option>
-              <option value="Particular / Independiente">No tengo (Particular)</option>
-            </select>
-          </div>
-
-          <div style="display: flex; flex-direction: column; gap: 6px; margin-bottom: 25px;">
-            <label style="font-weight: 700; color: #0f2b48; font-size: 0.95rem;">¿Qué buscas mejorar en tu cobertura?</label>
-            <textarea name="message" rows="3" placeholder="Ej: Agregar cargas, mejorar cobertura hospitalaria..." style="padding: 14px 16px; border-radius: 8px; border: 1px solid #cbd5e1; font-size: 1rem; outline: none; background-color: #ffffff; color: #0f172a; transition: all 0.2s ease; resize: none;" onfocus="this.style.borderColor='#0f766e'; this.style.boxShadow='0 0 0 3px rgba(15, 118, 110, 0.15)'" onblur="this.style.borderColor='#cbd5e1'; this.style.boxShadow='none'"></textarea>
-          </div>
-
-          <button type="submit" style="width: 100%; background-color: #0f766e; color: #ffffff; padding: 16px; border-radius: 8px; border: none; font-size: 1.1rem; font-weight: bold; cursor: pointer; transition: background-color 0.2s, transform 0.1s; box-shadow: 0 4px 12px rgba(15, 118, 110, 0.25);" onmouseover="this.style.backgroundColor='#0d635c'" onmouseout="this.style.backgroundColor='#0f766e'" onmousedown="this.style.transform='scale(0.99)'" onmouseup="this.style.transform='scale(1)'">
-            Enviar Solicitud Gratuita
-          </button>
-          
-          <div id="formResult" style="margin-top: 15px; text-align: center; font-weight: 700; font-size: 1.05rem; display: none;"></div>
-
-        </form>
-      </div>
-    </section>
-
-    <!-- Lector universal de datos nativo -->
-    <script>
-      const form = document.getElementById('formAyudaPlan');
-      const result = document.getElementById('formResult');
-
-      form.addEventListener('submit', function(e) {
-        e.preventDefault();
-        result.style.display = "block";
-        result.style.color = "#0f2b48";
-        result.innerHTML = "Procesando tu solicitud...";
-
-        const formData = new FormData(form);
-
-        fetch('https://api.web3forms.com/submit', {
-            method: 'POST',
-            body: formData
-        })
-        .then(async (response) => {
-            if (response.ok) {
-                result.style.color = "#0f766e";
-                result.innerHTML = "¡Muchas gracias! Tu solicitud fue enviada con éxito. Te contactaremos a la brevedad.";
-                form.reset();
-            } else {
-                const res = await response.json();
-                result.style.color = "#b91c1c";
-                result.innerHTML = res.message || "Error en el servidor.";
-            }
-        })
-        .catch(error => {
-            result.style.color = "#b91c1c";
-            result.innerHTML = "Hubo un problema de conexión. Por favor, intenta de nuevo.";
-        });
-      });
-    </script>
-
-    <!-- CONTACTO -->
+    <!-- =========================================================================
+         ESTRUCTURA VISUAL HTML:¿LISTO PARA OPTIMIZAR? CONTACTO Y REDES
+         ========================================================================= */ -->
     <section class="contact-section">
       <div class="container">
         <h2>¿Listo para optimizar tu previsión?</h2>
@@ -637,15 +722,26 @@
           pre-evaluación inmediata con la asesora:
         </p>
         <div class="contact-group">
-          <a href="https://wa.me/56931182494" target="_blank" class="btn-contact btn-whatsapp">
+          <a
+            href="https://wa.me"
+            target="_blank"
+            class="btn-contact btn-whatsapp"
+          >
             <svg class="icon-svg" viewBox="0 0 24 24">
-              <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.713-1.457L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.37 9.863-9.748.002-2.607-1.01-5.057-2.85-6.897-1.84-1.84-4.291-2.853-6.899-2.854-5.444 0-9.871 4.372-9.874 9.75-.001 1.73.458 3.422 1.33 4.925l-.995 3.636 3.7-.962zm10.974-6.93c-.3-.15-1.771-.875-2.04-.972-.269-.099-.465-.148-.659.15s-.752.972-.922 1.167c-.17.195-.341.213-.641.064-1.138-.57-1.83-1.034-2.54-2.246-.188-.328.188-.305.541-1.012.06-.121.03-.226-.015-.317s-.465-1.12-.638-1.53c-.169-.406-.341-.35-.465-.356l-.396-.007c-.136 0-.357.051-.543.254-.187.203-.714.698-.714 1.701 0 1.003.731 1.973.833 2.11s1.44 2.194 3.488 3.077c1.378.595 1.947.674 2.645.57.439-.065 1.351-.552 1.542-1.057.19-.504.19-.937.133-1.029-.056-.092-.208-.142-.508-.292z"></path>
+              <path
+                d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.713-1.457L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.37 9.863-9.748.002-2.607-1.01-5.057-2.85-6.897-1.84-1.84-4.291-2.853-6.899-2.854-5.444 0-9.871 4.372-9.874 9.75-.001 1.73.458 3.422 1.33 4.925l-.995 3.636 3.7-.962zm10.974-6.93c-.3-.15-1.771-.875-2.04-.972-.269-.099-.465-.148-.659.15s-.752.972-.922 1.167c-.17.195-.341.213-.641.064-1.138-.57-1.83-1.034-2.54-2.246-.188-.328.188-.305.541-1.012.06-.121.03-.226-.015-.317s-.465-1.12-.638-1.53c-.169-.406-.341-.35-.465-.356l-.396-.007c-.136 0-.357.051-.543.254-.187.203-.714.698-.714 1.701 0 1.003.731 1.973.833 2.11s1.44 2.194 3.488 3.077c1.378.595 1.947.674 2.645.57.439-.065 1.351-.552 1.542-1.057.19-.504.19-.937.133-1.029-.056-.092-.208-.142-.508-.292z"
+              />
             </svg>
             Contactar por WhatsApp
           </a>
-          <a href="mailto:contacto@ayudaplan.cl?subject=Solicitud%20de%20Evaluación%20de%20Isapre" class="btn-contact btn-email">
+          <a
+            href="mailto:contacto@ayudaplan.cl?subject=Solicitud%20de%20Evaluación%20de%20Isapre"
+            class="btn-contact btn-email"
+          >
             <svg class="icon-svg" viewBox="0 0 24 24">
-              <path d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z"></path>
+              <path
+                d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z"
+              />
             </svg>
             Enviar un Correo
           </a>
@@ -653,7 +749,9 @@
       </div>
     </section>
 
-    <!-- NOTA -->
+    <!-- =========================================================================
+         ESTRUCTURA VISUAL HTML: NOTA COMERCIAL PROTECTORA
+         ========================================================================= */ -->
     <section class="pricing-notice-section">
       <div class="container">
         <div class="notice-content">
@@ -669,14 +767,18 @@
       </div>
     </section>
 
-    <!-- FAQ -->
+    <!-- =========================================================================
+         ESTRUCTURA VISUAL HTML: INFORMACIÓN ÚTIL (FAQ ACORDEÓN)
+         ========================================================================= */ -->
     <section class="faq-section">
       <div class="container">
-        <h2>Information Útil para el Afiliado</h2>
+        <h2>Información Útil para el Afiliado</h2>
         <div class="faq-wrapper">
           <div class="faq-item">
-            <input type="checkbox" id="faq1" class="faq-input">
-            <label for="faq1" class="faq-label">¿Cuál es la diferencia entre Excedentes y Excesos?</label>
+            <input type="checkbox" id="faq1" class="faq-input" />
+            <label for="faq1" class="faq-label"
+              >¿Cuál es la diferencia entre Excedentes y Excesos?</label
+            >
             <div class="faq-content">
               <p>
                 Los excedentes se generan cuando tu cotización legal (7%) es
@@ -687,9 +789,11 @@
             </div>
           </div>
           <div class="faq-item">
-            <input type="checkbox" id="faq2" class="faq-input">
-            <label for="faq2" class="faq-label">¿Por qué es importante revisar mi plan de salud
-              periódicamente?</label>
+            <input type="checkbox" id="faq2" class="faq-input" />
+            <label for="faq2" class="faq-label"
+              >¿Por qué es importante revisar mi plan de salud
+              periódicamente?</label
+            >
             <div class="faq-content">
               <p>
                 El mercado previsional cambia y las Isapres lanzan nuevos planes
@@ -700,8 +804,10 @@
             </div>
           </div>
           <div class="faq-item">
-            <input type="checkbox" id="faq3" class="faq-input">
-            <label for="faq3" class="faq-label">¿Qué costo tiene la Consultoría Previsional?</label>
+            <input type="checkbox" id="faq3" class="faq-input" />
+            <label for="faq3" class="faq-label"
+              >¿Qué costo tiene la Consultoría Previsional?</label
+            >
             <div class="faq-content">
               <p>
                 La revisión técnica inicial básica no tiene valor asociado. En
@@ -716,26 +822,40 @@
       </div>
     </section>
 
-    <!-- VENTAJAS -->
-    <section class="services-section" style="background-color: var(--bg-pure-white); border: none; padding-top: 10px !important; margin-top: -30px !important;">
+    <!-- =========================================================================
+         ESTRUCTURA VISUAL HTML: POR QUÉ ELEGIR ASESORÍA PROFESIONAL (VENTAJAS)
+         ========================================================================= */ -->
+    <section
+      class="services-section"
+      style="background-color: var(--bg-pure-white); border: none; padding-top: 10px !important; margin-top: -30px !important;"
+    >
       <div class="container">
         <h2>Por qué elegir una asesoría profesional</h2>
         <div class="services-grid">
-          <div class="service-card" style="background-color: var(--bg-light-clean); padding: 35px; border-radius: 10px; border-left: 5px solid var(--navy-blue); box-shadow: 0 4px 10px rgba(0,0,0,0.05); text-align: left;">
+          <div
+            class="service-card"
+            style="background-color: var(--bg-light-clean); padding: 35px; border-radius: 10px; border-left: 5px solid var(--navy-blue); box-shadow: 0 4px 10px rgba(0,0,0,0.05); text-align: left;"
+          >
             <h3>Pre-Evaluación Inicial</h3>
             <p>
               Estudiamos la viabilidad y factibilidad de tu caso de forma ágil y
               de manera confidencial.
             </p>
           </div>
-          <div class="service-card" style="background-color: var(--bg-light-clean); padding: 35px; border-radius: 10px; border-left: 5px solid var(--navy-blue); box-shadow: 0 4px 10px rgba(0,0,0,0.05); text-align: left;">
+          <div
+            class="service-card"
+            style="background-color: var(--bg-light-clean); padding: 35px; border-radius: 10px; border-left: 5px solid var(--navy-blue); box-shadow: 0 4px 10px rgba(0,0,0,0.05); text-align: left;"
+          >
             <h3>Transparencia Total</h3>
             <p>
               Explicaciones claras, sin letra chica. Sabrás exactamente qué
               cubre tu plan.
             </p>
           </div>
-          <div class="service-card" style="background-color: var(--bg-light-clean); padding: 35px; border-radius: 10px; border-left: 5px solid var(--navy-blue); box-shadow: 0 4px 10px rgba(0,0,0,0.05); text-align: left;">
+          <div
+            class="service-card"
+            style="background-color: var(--bg-light-clean); padding: 35px; border-radius: 10px; border-left: 5px solid var(--navy-blue); box-shadow: 0 4px 10px rgba(0,0,0,0.05); text-align: left;"
+          >
             <h3>Especialización Avanzada</h3>
             <p>
               Análisis estratégico a medida para perfiles que buscan optimizar
@@ -746,18 +866,27 @@
       </div>
     </section>
 
-    <!-- FOOTER -->
+    <!-- =========================================================================
+         ESTRUCTURA VISUAL HTML: PIE DE PÁGINA (FOOTER DE CRÉDITOS FIJOS)
+         ========================================================================= */ -->
     <footer class="main-footer">
       <div class="container">
         <p>
-          © 2026 AyudaPlan.cl. Todos los derechos reservados. Asesoría
+          &copy; 2026 AyudaPlan.cl. Todos los derechos reservados. Asesoría
           Previsional de Calidad.
         </p>
-        <p style="font-size: 0.85rem; color: #475569; margin-top: 10px; font-weight: 600; letter-spacing: 0.3px; margin-bottom: 0;">
+        <p
+          style="font-size: 0.85rem; color: #475569; margin-top: 10px; font-weight: 600; letter-spacing: 0.3px; margin-bottom: 0;"
+        >
           Interconexiones y Administración por
-          <a href="https://fullweb.cl" target="_blank" style="color: #0284c7; text-decoration: none;">www.fullweb.cl</a>
+          <a
+            href="https://fullweb.cl"
+            target="_blank"
+            class="footer-credits-link"
+            >www.fullweb.cl</a
+          >
         </p>
       </div>
     </footer>
-  
-</body></html>
+  </body>
+</html>
