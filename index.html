@@ -316,14 +316,16 @@
 
       /* TARJETAS INTERNAS DEL CARRUSEL (MIGRACIÓN LIMPIA fijos) */
       .slide-content-card {
-          padding: 1.8rem;
-          background: #ffffff !important;
-          width: 85%;
-          border-radius: 8px;
-          border: 1px solid #cbd5e1;
-          text-align: left;
-          box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-      }
+    padding: 1.8rem;
+    background: #ffffff !important;
+    width: 99%; /* <--- REEMPLAZA EL 85% POR ESTE VALOR PARA HACERLO MÁS ANCHO */
+    border-radius: 8px;
+    border: 1px solid #cbd5e1;
+    text-align: left;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    box-sizing: border-box; /* Evita que el cuadro se desarme en pantallas pequeñas */
+}
+
       .slide-badge {
           background: var(--ocean-blue);
           color: #ffffff !important;
@@ -680,6 +682,54 @@
         </div>
       </div>
     </div>
+        
+    <!-- =========================================================================
+         NUEVA SECCIÓN: CÓMO FUNCIONA EN 3 PASOS SIMPLES
+         ========================================================================= -->
+    <section style="padding: 60px 0; background-color: var(--bg-pure-white); width: 100%; text-align: center;">
+      <div class="container">
+        
+        <h2 style="color: var(--ocean-blue); font-size: 2rem; font-weight: 800; margin: 0 0 10px 0;">Tu Optimización en 3 Pasos Simples</h2>
+        <p style="color: var(--text-muted); font-size: 1.1rem; max-width: 600px; margin: 0 auto 40px auto; padding: 0 15px;">
+          Descubre lo fácil y rápido que es tomar el control de tu salud y optimizar tu presupuesto previsional.
+        </p>
+
+        <!-- Contenedor Flex / Grid Responsivo -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; padding: 0 10px;">
+          
+          <!-- PASO 1 -->
+          <div style="background-color: var(--bg-light-clean); padding: 35px 25px; border-radius: 12px; border-top: 5px solid var(--brand-blue); box-shadow: 0 4px 15px rgba(0,0,0,0.02); position: relative;">
+            <div style="position: absolute; top: -20px; left: 50%; transform: translateX(-50%); background-color: var(--ocean-blue); color: #ffffff; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.1rem; border: 3px solid #ffffff;">1</div>
+            <div style="font-size: 2.5rem; margin-top: 10px; margin-bottom: 15px;">📝</div>
+            <h3 style="color: var(--ocean-blue); font-size: 1.3rem; margin: 0 0 10px 0; font-weight: 700;">Ingresa tus Datos</h3>
+            <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.5; margin: 0;">
+              Completa el formulario interactivo en menos de un minuto de forma segura y confidencial.
+            </p>
+          </div>
+
+          <!-- PASO 2 -->
+          <div style="background-color: var(--bg-light-clean); padding: 35px 25px; border-radius: 12px; border-top: 5px solid var(--navy-blue); box-shadow: 0 4px 15px rgba(0,0,0,0.02); position: relative;">
+            <div style="position: absolute; top: -20px; left: 50%; transform: translateX(-50%); background-color: var(--ocean-blue); color: #ffffff; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.1rem; border: 3px solid #ffffff;">2</div>
+            <div style="font-size: 2.5rem; margin-top: 10px; margin-bottom: 15px;">📊</div>
+            <h3 style="color: var(--ocean-blue); font-size: 1.3rem; margin: 0 0 10px 0; font-weight: 700;">Estudio Técnico</h3>
+            <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.5; margin: 0;">
+              Analizamos tu situación actual frente al mercado para diseñar una propuesta a tu medida.
+            </p>
+          </div>
+
+          <!-- PASO 3 -->
+          <div style="background-color: var(--bg-light-clean); padding: 35px 25px; border-radius: 12px; border-top: 5px solid var(--accent-green); box-shadow: 0 4px 15px rgba(0,0,0,0.02); position: relative;">
+            <div style="position: absolute; top: -20px; left: 50%; transform: translateX(-50%); background-color: var(--ocean-blue); color: #ffffff; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.1rem; border: 3px solid #ffffff;">3</div>
+            <div style="font-size: 2.5rem; margin-top: 10px; margin-bottom: 15px;">💎</div>
+            <h3 style="color: var(--ocean-blue); font-size: 1.3rem; margin: 0 0 10px 0; font-weight: 700;">Recibe tu Propuesta</h3>
+            <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.5; margin: 0;">
+              Te presentamos las mejores alternativas para mejorar coberturas y optimizar tus excedentes.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
 
     <!-- =========================================================================
          ESTRUCTURA VISUAL HTML: MIS SERVICIOS DE ASESORÍA
@@ -710,6 +760,105 @@
       </div>
     </section>
 
+        <!-- =========================================================================
+         NUEVA SECCIÓN: ¿ES ESTA ASESORÍA PARA TI? CON EFECTO INTERACTIVO REAL
+         ========================================================================= -->
+    <section style="padding: 60px 0; background-color: var(--bg-light-clean); width: 100%; border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); overflow: hidden;">
+      <div class="container">
+        
+        <!-- Estilos de Reacción Interactiva Inmediata (Hover Eficiente) -->
+        <style>
+          .tarjeta-premium {
+            background-color: var(--bg-pure-white);
+            padding: 30px 22px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+            text-align: left;
+            /* Controla el movimiento fluido al pasar el mouse */
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+            cursor: pointer;
+          }
+          
+          /* EFECTO DE MOVIMIENTO: Levanta la tarjeta y duplica su sombra al posicionarse encima */
+          .tarjeta-premium:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 24px rgba(15, 43, 72, 0.12);
+            border-color: var(--ocean-blue) !important;
+          }
+        </style>
+
+        <!-- Etiqueta de Última Actualización -->
+        <div style="text-align: center; margin-bottom: 15px;">
+          <span style="background-color: var(--ocean-blue); color: #ffffff; padding: 6px 14px; border-radius: 50px; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; display: inline-flex; align-items: center; gap: 6px; box-shadow: 0 2px 8px rgba(15, 43, 72, 0.15);">
+            ⚡ PLANES Y COBERTURAS ACTUALIZADOS A 2026
+          </span>
+        </div>
+
+        <h2 style="text-align: center; color: var(--ocean-blue); font-size: 2rem; font-weight: 800; margin: 0 0 10px 0;">¿Es esta Consultoría para Ti?</h2>
+        <p style="text-align: center; color: var(--text-muted); font-size: 1.1rem; max-width: 650px; margin: 0 auto 45px auto; padding: 0 15px;">
+          Si te identificas con alguna de las siguientes situaciones, nuestro equipo técnico tiene una solución estratégica diseñada a tu medida.
+        </p>
+
+        <!-- Matriz de Casos Típicos - Cuadrícula Armónica de 6 Elementos -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; padding: 0 10px;">
+          
+          <!-- Caso 1 -->
+          <div class="tarjeta-premium" style="border-left: 4px solid var(--brand-blue);">
+            <div style="font-size: 1.8rem; margin-bottom: 10px;">💸</div>
+            <h3 style="color: var(--ocean-blue); font-size: 1.15rem; margin: 0 0 8px 0; font-weight: 700;">Estás perdiendo dinero</h3>
+            <p style="color: var(--text-muted); font-size: 0.92rem; line-height: 1.5; margin: 0;">
+              Tu 7% legal es mayor al costo real de tu plan de salud y no sabes cómo usar de forma eficiente tus excedentes acumulados.
+            </p>
+          </div>
+
+          <!-- Caso 2 -->
+          <div class="tarjeta-premium" style="border-left: 4px solid var(--navy-blue);">
+            <div style="font-size: 1.8rem; margin-bottom: 10px;">🏥</div>
+            <h3 style="color: var(--ocean-blue); font-size: 1.15rem; margin: 0 0 8px 0; font-weight: 700;">Buscas cobertura específica</h3>
+            <p style="color: var(--text-muted); font-size: 0.92rem; line-height: 1.5; margin: 0;">
+              Necesitas un plan preferente o de libre elección que te brinde la máxima bonificación en clínicas o centros médicos de tu interés.
+            </p>
+          </div>
+
+          <!-- Caso 3 -->
+          <div class="tarjeta-premium" style="border-left: 4px solid var(--accent-green);">
+            <div style="font-size: 1.8rem; margin-bottom: 10px;">👨‍👩‍👧‍👦</div>
+            <h3 style="color: var(--ocean-blue); font-size: 1.15rem; margin: 0 0 8px 0; font-weight: 700;">Cambios en tu familia</h3>
+            <p style="color: var(--text-muted); font-size: 0.92rem; line-height: 1.5; margin: 0;">
+              Necesitas incorporar o remover cargas familiares, enfrentar un proceso de preexistencias o evaluar opciones para recién nacidos.
+            </p>
+          </div>
+
+          <!-- Caso 4 -->
+          <div class="tarjeta-premium" style="border-left: 4px solid #f59e0b;">
+            <div style="font-size: 1.8rem; margin-bottom: 10px;">💡</div>
+            <h3 style="color: var(--ocean-blue); font-size: 1.15rem; margin: 0 0 8px 0; font-weight: 700;">Quieres aprender el sistema</h3>
+            <p style="color: var(--text-muted); font-size: 0.92rem; line-height: 1.5; margin: 0;">
+              No entiendes cómo funcionan las Isapres ni tus derechos. Te enseñamos a usar tus bonos, farmacias y excedentes paso a paso.
+            </p>
+          </div>
+
+          <!-- Caso 5 -->
+          <div class="tarjeta-premium" style="border-left: 4px solid #0f766e;">
+            <div style="font-size: 1.8rem; margin-bottom: 10px;">🚀</div>
+            <h3 style="color: var(--ocean-blue); font-size: 1.15rem; margin: 0 0 8px 0; font-weight: 700;">Tu primer trabajo</h3>
+            <p style="color: var(--text-muted); font-size: 0.92rem; line-height: 1.5; margin: 0;">
+              Estás empezando a cotizar tu 7% legal y necesitas decidir de manera informada si te conviene Fonasa o ingresar a una Isapre.
+            </p>
+          </div>
+
+          <!-- Caso 6 -->
+          <div class="tarjeta-premium" style="border-left: 4px solid #ec4899;">
+            <div style="font-size: 1.8rem; margin-bottom: 10px;">💼</div>
+            <h3 style="color: var(--ocean-blue); font-size: 1.15rem; margin: 0 0 8px 0; font-weight: 700;">Independientes y PYMES</h3>
+            <p style="color: var(--text-muted); font-size: 0.92rem; line-height: 1.5; margin: 0;">
+              Emites boletas de honorarios o eres emprendedor y buscas declarar tu salud estratégicamente para asegurar una cobertura de alta calidad.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
 <!-- ========================================== -->
     <!--  FORMULARIO INTERACTIVO AUTOMATIZADO REAL  -->
     <!-- ========================================== -->
@@ -812,6 +961,96 @@
         });
       });
     </script>
+<!-- =========================================================================
+         NUEVO BLOQUE COMPLEMENTARIO: CARRUSEL DE TESTIMONIOS CON ESTRELLAS (3 RESEÑAS)
+         ========================================================================= -->
+    <div class="container" style="margin-top: 3.5rem; margin-bottom: 2rem;">
+      <style>
+        /* Reglas exclusivas para controlar el deslizamiento independiente de 3 tarjetas */
+        #slideT1:checked ~ .carousel-inner-3 { transform: translateX(0); }
+        #slideT2:checked ~ .carousel-inner-3 { transform: translateX(-33.333%); }
+        #slideT3:checked ~ .carousel-inner-3 { transform: translateX(-66.666%); }
+      </style>
+      
+      <div class="carousel-wrapper">
+        <!-- SE AÑADIÓ: Un tercer botón de control interactivo -->
+        <input type="radio" name="carousel-control-testimonios" id="slideT1" checked style="display:none;">
+        <input type="radio" name="carousel-control-testimonios" id="slideT2" style="display:none;">
+        <input type="radio" name="carousel-control-testimonios" id="slideT3" style="display:none;">
+        
+        <!-- SE OPTIMIZÓ: El contenedor interno ahora mide 300% de ancho para soportar las 3 celdas -->
+        <div class="carousel-inner-3" style="position: absolute; top: 0; left: 0; width: 300%; height: 100%; display: flex; transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);">
+          
+          <!-- TESTIMONIO 1 -->
+          <div class="carousel-slide" style="width: 33.333%; height: 100%; background-color: #ffffff !important; display: flex; align-items: center; justify-content: center; position: relative; box-sizing: border-box;">
+            <div class="slide-content-card">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; flex-wrap: wrap; gap: 8px;">
+                <span class="slide-badge" style="background-color: #0f766e;">Caso de Éxito: Excedentes</span>
+                <span style="color: #fbbf24; font-size: 1.1rem; letter-spacing: 1px;">⭐⭐⭐⭐⭐</span>
+              </div>
+              <h2 class="slide-heading" style="margin-top: 0.2rem;">
+                🚀 "¡Logré bajar mi costo mensual y acumular excedentes!"
+              </h2>
+              <p class="slide-text-body" style="font-style: italic; color: #475569 !important;">
+                "Llevaba años en Consalud pagando de más sin revisar mi plan. Los asesores de Ayuda Plan me hicieron un estudio técnico avanzado y me adecuaron la cobertura a mis necesidades reales en clínicas de Santiago. Ahora mi 7% rinde al máximo y me eliminaron cobros invisibles."
+              </p>
+              <div style="margin-top: 0.8rem; text-align: right;">
+                <strong style="color: var(--ocean-blue); font-size: 0.9rem;">— Carlos M., Santiago (Ex-Consalud)</strong>
+              </div>
+            </div>
+            <!-- La flecha Siguiente lleva al slideT2 -->
+            <label for="slideT2" class="carousel-control control-next">&gt;</label>
+            <div class="slide-caption">Evaluación Técnica: Clientes Reales Satisfechos con su Cobertura de Salud</div>
+          </div>
+
+          <!-- TESTIMONIO 2 -->
+          <div class="carousel-slide" style="width: 33.333%; height: 100%; background-color: #ffffff !important; display: flex; align-items: center; justify-content: center; position: relative; box-sizing: border-box;">
+            <div class="slide-content-card">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; flex-wrap: wrap; gap: 8px;">
+                <span class="slide-badge" style="background-color: #0f766e;">Caso de Éxito: Plan Familiar</span>
+                <span style="color: #fbbf24; font-size: 1.1rem; letter-spacing: 1px;">⭐⭐⭐⭐⭐</span>
+              </div>
+              <h2 class="slide-heading" style="margin-top: 0.2rem;">
+                💎 "Máxima transparencia y excelente cobertura en clínicas"
+              </h2>
+              <p class="slide-text-body" style="font-style: italic; color: #475569 !important;">
+                "Necesitaba incorporar a mis cargas familiares en un plan de libre elección que funcionara bien en UC Christus y Clínica Alemana. La orientación fue impecable, sin letra chica. Nos cambiamos a Colmena y la bonificación hospitalaria y de farmacias ha sido espectacular."
+              </p>
+              <div style="margin-top: 0.8rem; text-align: right;">
+                <strong style="color: var(--ocean-blue); font-size: 0.9rem;">— Marcela G., Providencia (Afiliada Colmena)</strong>
+              </div>
+            </div>
+            <!-- Atrás lleva al 1, Siguiente lleva al 3 -->
+            <label for="slideT1" class="carousel-control control-prev">&lt;</label>
+            <label for="slideT3" class="carousel-control control-next">&gt;</label>
+            <div class="slide-caption">Consultoría de Nicho: Mitigación de Costos y Planificación de Cargas Familiares</div>
+          </div>
+
+          <!-- NUEVO TESTIMONIO 3 (AGREGADO) -->
+          <div class="carousel-slide" style="width: 33.333%; height: 100%; background-color: #ffffff !important; display: flex; align-items: center; justify-content: center; position: relative; box-sizing: border-box;">
+            <div class="slide-content-card">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; flex-wrap: wrap; gap: 8px;">
+                <span class="slide-badge" style="background-color: #0f766e;">Caso de Éxito: Optimización Legal</span>
+                <span style="color: #fbbf24; font-size: 1.1rem; letter-spacing: 1px;">⭐⭐⭐⭐⭐</span>
+              </div>
+              <h2 class="slide-heading" style="margin-top: 0.2rem;">
+                📈 "Excelente servicio, mi cotización ahora rinde de verdad"
+              </h2>
+              <p class="slide-text-body" style="font-style: italic; color: #475569 !important;">
+                "No entendía bien la diferencia entre excedentes y excesos hasta que me asesoraron aquí. El análisis de mi caso previsional fue rápido y muy profesional. Recomiendo totalmente la consultoría avanzada si buscas proteger a tu familia sin pagar de más."
+              </p>
+              <div style="margin-top: 0.8rem; text-align: right;">
+                <strong style="color: var(--ocean-blue); font-size: 0.9rem;">— Ricardo J., Las Condes (Usuario Banmédica)</strong>
+              </div>
+            </div>
+            <!-- La flecha de Atrás vuelve al slideT2 -->
+            <label for="slideT2" class="carousel-control control-prev">&lt;</label>
+            <div class="slide-caption">Gestión Previsional: Transparencia y Asesoría a Medida para Afiliados</div>
+          </div>
+
+        </div>
+      </div>
+    </div>
 
     <!-- =========================================================================
          ESTRUCTURA VISUAL HTML:¿LISTO PARA OPTIMIZAR? CONTACTO Y REDES
