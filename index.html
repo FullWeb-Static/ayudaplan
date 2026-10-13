@@ -140,13 +140,54 @@
          Usa el buscador para cambiar el degradado azul del fondo o el tamaño de la letra.
          ========================================================================= */
       .hero-section {
-          background: linear-gradient(135deg, var(--ocean-blue) 0%, #1e3a8a 100%); /* <--- DEGRADADO AZUL DE FONDO */
-          color: var(--text-light);
-          padding: 60px 0;
-          text-align: center;
-          width: 100%;
-          margin-top: 75px !important;                       /* Evita que la cabecera fija tape el título */
-      }
+    background: linear-gradient(135deg, var(--ocean-blue) 0%, #1e3a8a 100%); /* <--- DEGRADADO AZUL DE FONDO */
+    color: var(--text-light);
+    padding: 60px 0 120px 0; /* <-- NOTA: Cambié el último '0' por '120px' para darle espacio abajo a las ondas */
+    text-align: center;
+    width: 100%;
+    margin-top: 75px !important;            /* /* Evita que la cabecera fija tape el título */
+    position: relative;                     /* <-- AGREGA ESTO: Permite acomodar las ondas abajo */
+    overflow: hidden;                       /* <-- AGREGA ESTO: Evita que las ondas se salgan de la sección */
+}
+
+/* --- CONTROL Y ANIMACIÓN DE LAS ONDAS VÍTREAS --- */
+.waves-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    max-height: 120px;
+    min-height: 40px;
+    z-index: 1;
+}
+
+.waves {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.parallax > use {
+    animation: move-forever 25s cubic-bezier(.55,.5,.45,.5) infinite;
+}
+.parallax > use:nth-child(1) {
+    animation-delay: -2s;
+    animation-duration: 7s;
+}
+.parallax > use:nth-child(2) {
+    animation-delay: -3s;
+    animation-duration: 10s;
+}
+.parallax > use:nth-child(3) {
+    animation-delay: -4s;
+    animation-duration: 13s;
+}
+
+@keyframes move-forever {
+    0% { transform: translate3d(-90px,0,0); }
+    100% { transform: translate3d(85px,0,0); }
+}
 
       .hero-section .main-title {
           font-size: 2.8rem;
