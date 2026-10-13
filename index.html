@@ -63,16 +63,17 @@
          CONFIGURACIÓN BASE DEL CUERPO (HTML & BODY)
          ========================================================================= */
       html, body {
-          font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
-          background-color: var(--bg-pure-white); /* Fondo general de toda la página */
-          color: var(--text-dark);               /* Color de los textos por defecto */
-          margin: 0;
-          padding: 0;
-          line-height: 1.6;
-          overflow-x: hidden !important;          /* Bloquea el scroll horizontal rebelde */
-          width: 100%;
-          -webkit-tap-highlight-color: transparent;
-      }
+    font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+    background-color: var(--bg-pure-white); /* Fondo general de toda la página */
+    color: var(--text-dark);               /* Color de los textos por defecto */
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    overflow-x: hidden !important;          /* Bloquea el scroll horizontal rebelde */
+    width: 100%;
+    -webkit-tap-highlight-color: transparent;
+    scroll-behavior: smooth;                /* <--- NUEVO: AGREGA ESTA LÍNEA EXACTAMENTE ACÁ */
+}
 
       /* =========================================================================
          ANCHO MAESTRO DE LA INTERFAZ (.container)
@@ -176,15 +177,22 @@
           text-decoration: none;
           font-weight: bold;
           font-size: 1.1rem;
-          border: 2px solid #3b82f6;                          /* Borde azul brillante decorativo */
+          border: 2px solid #D4AF37;                          /* Borde Dorado brillante decorativo */
           transition: all 0.2s ease;
-          box-shadow: 0 4px 12px rgba(30, 64, 175, 0.3);       /* Sombra del botón */
+          box-shadow: 0 4px 15px rgba(30, 64, 175, 0.3);       /* Sombra del botón */
           cursor: pointer;
       }
       .btn-primary:hover {
-          background-color: #2563eb;                          /* <--- COLOR DE REACCIÓN AL PASAR EL MOUSE */
-          transform: scale(1.02);                             /* Hace que el botón crezca un poco */
-      }
+    background-color: #E27012;
+    border-color: #E27012;
+    animation: none; 
+    /* Múltiples parámetros actuando juntos */
+    transform: scale(1.10);                        /* Mantiene tu súper crecimiento */
+    box-shadow: 0 12px 28px rgba(226, 112, 18, 0.5); /* <--- Sombra profunda de "vuelo" */
+    border-radius: 15px;                           /* <--- Redondea más las esquinas en hover */
+    filter: brightness(1.05);                      /* <--- Le da un ligero destello de luz */
+}
+
       /* =========================================================================
          SECTOR 4: SECCIÓN FONDO VITRINA DE ISAPRES (.brands-section)
          Contiene la animación del degradado líquido grafito de fondo.
@@ -498,12 +506,23 @@
          ========================================================================= */ -->
     <section class="hero-section">
       <div class="container">
-        <h1 class="main-title">Tu salud merece la mejor orientación</h1>
+        <h1 class="main-title">
+
+Expertos en Isapres dedicados a proteger tu bienestar
+
+</h1>
         <p class="subtitle">
-          Tu bienestar es nuestro compromiso. Por eso nuestro equipo de expertos te asesora de forma transparente y personalizada para encontrar la cobertura de Isapre que realmente se adapta a tus necesidades actuales. 
+          
+Somos un equipo de consultores dedicados a guiarte de forma
+transparente, porque sabemos que elegir una isapre puede ser complejo. Como
+asesores de salud, simplificamos el proceso comparando las mejores opciones
+para ti y tu familia.
+<br>
+Contacta a tu consultor y recibe hoy la orientación que mereces. 
+
         </p>
 
-        <a href="mailto:contacto@ayudaplan.cl?subject=Solicitud%20de%20Evaluación%20de%20Isapre" class="btn-primary">CONTACTA A TU CONSULTOR</a>
+<a href="#formulario-estudio" class="btn-primary">Solicitar Estudio de Isapre📝</a>
       </div>
     </section>
     <!-- =========================================================================
@@ -684,7 +703,7 @@
 <!-- ========================================== -->
     <!--  FORMULARIO INTERACTIVO AUTOMATIZADO REAL  -->
     <!-- ========================================== -->
-    <section style="padding: 60px 0; background-color: #f1f5f9; width: 100%; border-top: 1px solid #cbd5e1; border-bottom: 1px solid #cbd5e1;">
+<section id="formulario-estudio" style="padding: 60px 0; background-color: #f1f5f9; width: 100%; border-top: 1px solid #cbd5e1; border-bottom: 1px solid #cbd5e1;">
       <div class="container" style="max-width: 650px; margin: 0 auto; padding: 0 20px; box-sizing: border-box;">
  <!-- =========================================================================
      TITULO DE FORMULARIO (VERSIÓN CORTA)
@@ -695,7 +714,7 @@
      ========================================================================= -->
 <p style="margin: 15px 0 0 0; text-align: center; font-size: 0.8rem; color: #64748b; font-weight: 600; letter-spacing: 0.2px;">
   🔒 <span style="text-transform: uppercase; font-size: 0.75rem; color: #475569; font-weight: 700;">Privacidad Garantizada (ley 19.628):</span> Ingresa tus datos para recibir tu propuesta de optimización de salud.
-        <form action="https://api.web3forms.com/submit" method="POST" id="formAyudaPlan" style="background: #ffffff; padding: 40px; border-radius: 14px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); border: 1px solid #cbd5e1; box-sizing: border-box;">
+        </p><form action="https://api.web3forms.com/submit" method="POST" id="formAyudaPlan" style="background: #ffffff; padding: 40px; border-radius: 14px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); border: 1px solid #cbd5e1; box-sizing: border-box;">
           
           <!-- Configuración obligatoria del Servidor para que GitHub no bloquee la conexión -->
           <input type="hidden" name="access_key" value="5f7a6d57-a887-459c-975a-c1215f0f7129">
@@ -703,7 +722,7 @@
 
           <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; margin-bottom: 20px;">
             <div style="display: flex; flex-direction: column; gap: 6px;">
-              <label style="font-weight: 700; color: #0f2b48; font-size: 0.95rem;">Nombre & Apellido Completo</label>
+              <label style="font-weight: 700; color: #0f2b48; font-size: 0.95rem;">Nombre &amp; Apellido Completo</label>
               <input type="text" name="name" placeholder="Ej: Juan Pérez" required="" style="padding: 14px 16px; border-radius: 8px; border: 1px solid #cbd5e1; font-size: 1rem; outline: none; background-color: #ffffff; color: #0f172a; transition: all 0.2s ease;" onfocus="this.style.borderColor='#0f766e'; this.style.boxShadow='0 0 0 3px rgba(15, 118, 110, 0.15)'" onblur="this.style.borderColor='#cbd5e1'; this.style.boxShadow='none'">
             </div>
             <div style="display: flex; flex-direction: column; gap: 6px;">
@@ -1000,7 +1019,7 @@
       
       <div class="carousel-wrapper">
         <!-- SE AÑADIÓ: Un tercer botón de control interactivo -->
-        <input type="radio" name="carousel-control-testimonios" id="slideT1" checked style="display:none;">
+        <input type="radio" name="carousel-control-testimonios" id="slideT1" checked="" style="display:none;">
         <input type="radio" name="carousel-control-testimonios" id="slideT2" style="display:none;">
         <input type="radio" name="carousel-control-testimonios" id="slideT3" style="display:none;">
         
