@@ -1,20 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <!-- 1. Página Principal (Comercial) -->
   <url>
     <loc>https://ayudaplan.cl</loc>
     <lastmod>2026-11-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
+    <priority>1.00</priority>
   </url>
-  
-  <!-- Si tienes otras páginas, agrégalas aquí abajo. Ejemplo: -->
-  <!-- 
-  <url>
-    <loc>https://ayudaplan.cl/contacto</loc>
-    <lastmod>2026-11-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  -->
 </urlset>
