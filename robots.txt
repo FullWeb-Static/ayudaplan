@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 
 # Indica a Google dónde encontrar tu mapa del sitio
-Sitemap: https://www.ayudaplan.cl
+Sitemap: https://ayudaplan.cl/sitemap.xml
