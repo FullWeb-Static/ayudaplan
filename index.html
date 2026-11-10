@@ -27,7 +27,7 @@
 
 <style>
 /* =========================================================================
-   TOKENS
+   TOKENS Y RESET
    ========================================================================= */
 :root{
   --ocean-blue:#0f2b48;
@@ -73,16 +73,13 @@
   --fs-body:clamp(.95rem,1vw,1.05rem);
 }
 
-/* =========================================================================
-   RESET
-   ========================================================================= */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:90px}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:90px; overflow-x:hidden !important;}
 body{
   font-family:'Plus Jakarta Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,Roboto,sans-serif;
   font-size:var(--fs-body);line-height:1.65;color:var(--text-dark);
   background:var(--white);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
-  -webkit-tap-highlight-color:transparent;overflow-x:hidden
+  -webkit-tap-highlight-color:transparent;overflow-x:hidden !important; width:100%;
 }
 img,svg{display:block;max-width:100%}
 a{color:inherit;text-decoration:none}
@@ -97,11 +94,26 @@ button,input,textarea,select{font:inherit}
 
 .container{width:100%;max-width:1240px;margin:0 auto;padding:0 24px}
 
+/* DIVISORES PREMIUM (Más gruesos, llamativos y sin icono) */
+.section-divider {
+  width: 100%;
+  height: 6px;
+  background: linear-gradient(90deg, transparent 0%, var(--gold) 20%, var(--rose-gold) 50%, var(--gold) 80%, transparent 100%);
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.9;
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+}
+.section-divider::after { display: none; }
+.dark-divider { background: linear-gradient(90deg, transparent 0%, var(--gold) 20%, var(--rose-gold) 50%, var(--gold) 80%, transparent 100%); box-shadow: 0 0 20px rgba(183, 110, 121, 0.4); }
+
 /* =========================================================================
    HEADER
    ========================================================================= */
 .site-header{position:fixed;inset:0 0 auto 0;z-index:1000;
-  background:rgba(255,255,255,.75);backdrop-filter:saturate(180%) blur(16px);
+  background:rgba(255,255,255,.85);backdrop-filter:saturate(180%) blur(16px);
   -webkit-backdrop-filter:saturate(180%) blur(16px);
   border-bottom:1px solid rgba(15,43,72,.08);
   transition:padding .35s var(--ease),background .35s var(--ease),box-shadow .35s var(--ease);
@@ -206,7 +218,7 @@ button,input,textarea,select{font:inherit}
 /* =========================================================================
    CALCULADORA DE AHORRO
    ========================================================================= */
-.section-calc{position:relative;padding:0 0 60px;background:var(--white);z-index:10;margin-top:-40px;}
+.section-calc{position:relative;padding:0 0 60px;background:var(--white);z-index:10;margin-top:-40px; overflow:hidden;}
 .calc-card{
   max-width:900px;margin:0 auto;
   background:linear-gradient(145deg,#ffffff 0%,#f8fafc 100%);
@@ -225,33 +237,17 @@ button,input,textarea,select{font:inherit}
 /* ARREGLO DEL SLIDER */
 .slider-wrap{position:relative;margin-bottom:24px;}
 input[type=range] {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 100%;
-  height: 8px;
-  background: #cbd5e1;
-  border-radius: 4px;
-  outline: none;
-  margin: 15px 0;
+  -webkit-appearance: none; appearance: none; width: 100%; height: 8px;
+  background: #cbd5e1; border-radius: 4px; outline: none; margin: 15px 0;
 }
 input[type=range]::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  height: 24px;
-  width: 24px;
-  border-radius: 50%;
-  background: var(--gold);
-  cursor: pointer;
+  -webkit-appearance: none; appearance: none; height: 24px; width: 24px; border-radius: 50%;
+  background: var(--gold); cursor: pointer;
   box-shadow: 0 2px 6px rgba(0,0,0,0.2), 0 0 0 4px rgba(212,175,55,0.2);
-  transition: transform 0.1s;
-  margin-top: -8px;
+  transition: transform 0.1s; margin-top: -8px;
 }
 input[type=range]::-moz-range-thumb {
-  height: 24px;
-  width: 24px;
-  border-radius: 50%;
-  background: var(--gold);
-  cursor: pointer;
+  height: 24px; width: 24px; border-radius: 50%; background: var(--gold); cursor: pointer;
   box-shadow: 0 2px 6px rgba(0,0,0,0.2), 0 0 0 4px rgba(212,175,55,0.2);
 }
 input[type=range]::-webkit-slider-thumb:hover {transform:scale(1.15);}
@@ -266,15 +262,14 @@ input[type=range]::-webkit-slider-thumb:hover {transform:scale(1.15);}
 .calc-result-msg.good{background:rgba(15,118,110,.1);color:#0f766e;border:1px solid rgba(15,118,110,.3);}
 
 /* =========================================================================
-   ESTADÍSTICAS (DISEÑO ENCASILLADO ELEGANTE)
+   ESTADÍSTICAS
    ========================================================================= */
-.section-stats{padding:60px 0;background:var(--bg-soft);}
+.section-stats{padding:60px 0;background:var(--bg-soft); overflow: hidden;}
 .stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;text-align:center;}
 .stat-box{
   background:linear-gradient(145deg, var(--ink-800) 0%, var(--ink-950) 100%);
   border: 1px solid rgba(212, 175, 55, 0.3);
-  border-radius: 20px;
-  padding: 36px 24px;
+  border-radius: 20px; padding: 36px 24px;
   box-shadow: 0 15px 30px rgba(6,22,38,0.15), inset 0 1px 0 rgba(255,255,255,0.1);
   position: relative; overflow: hidden;
 }
@@ -288,44 +283,28 @@ input[type=range]::-webkit-slider-thumb:hover {transform:scale(1.15);}
 /* =========================================================================
    REVEAL Y ANIMACIONES 3D
    ========================================================================= */
-[data-reveal="up"]{opacity:0;transform:translateY(40px);
-  transition:opacity .85s ease,transform 1.1s var(--bounce)}
+[data-reveal="up"]{opacity:0;transform:translateY(40px);transition:opacity .85s ease,transform 1.1s var(--bounce)}
 [data-reveal="up"].is-visible{opacity:1;transform:none}
 
-[data-reveal="3d-left"] {
-  opacity: 0; transform: translateX(-150px) rotateY(45deg) scale(0.8);
-  transition: opacity 1s ease, transform 1.2s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
+[data-reveal="3d-left"] {opacity: 0; transform: translateX(-150px) rotateY(45deg) scale(0.8); transition: opacity 1s ease, transform 1.2s cubic-bezier(0.34, 1.56, 0.64, 1);}
 [data-reveal="3d-left"].is-visible {opacity: 1; transform: translateX(0) rotateY(0) scale(1);}
-
-[data-reveal="3d-right"] {
-  opacity: 0; transform: translateX(150px) rotateY(-45deg) scale(0.8);
-  transition: opacity 1s ease, transform 1.2s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
+[data-reveal="3d-right"] {opacity: 0; transform: translateX(150px) rotateY(-45deg) scale(0.8); transition: opacity 1s ease, transform 1.2s cubic-bezier(0.34, 1.56, 0.64, 1);}
 [data-reveal="3d-right"].is-visible {opacity: 1; transform: translateX(0) rotateY(0) scale(1);}
 
-[data-reveal="right-seq"]{
-  opacity:0;transform:translateX(100px) scale(0.95);
-  transition:opacity 0.8s ease, transform 0.9s cubic-bezier(0.34, 1.56, 0.64, 1);
-  transition-delay: var(--delay, 0s);
-}
+[data-reveal="right-seq"]{opacity:0;transform:translateX(100px) scale(0.95);transition:opacity 0.8s ease, transform 0.9s cubic-bezier(0.34, 1.56, 0.64, 1);transition-delay: var(--delay, 0s);}
 [data-reveal="right-seq"].is-visible{opacity:1;transform:translateX(0) scale(1)}
 
-[data-reveal="magic"] {
-  opacity: 0; transform: translateY(40px) rotateX(-20deg) scale(0.9); filter: blur(12px);
-  transition: opacity 1s ease, transform 1.2s cubic-bezier(0.2, 0.8, 0.2, 1.2), filter 1s ease;
-  transition-delay: var(--delay, 0s);
-}
+[data-reveal="magic"] {opacity: 0; transform: translateY(40px) rotateX(-20deg) scale(0.9); filter: blur(12px); transition: opacity 1s ease, transform 1.2s cubic-bezier(0.2, 0.8, 0.2, 1.2), filter 1s ease; transition-delay: var(--delay, 0s);}
 [data-reveal="magic"].is-visible { opacity: 1; transform: translateY(0) rotateX(0) scale(1); filter: blur(0); }
 
-@media(prefers-reduced-motion:reduce){
-  [data-reveal]{opacity:1!important;transform:none!important;transition:none!important;filter:none!important}
-  .puzzle-word{animation:none!important;opacity:1!important;filter:none!important;transform:none!important}
-  .orb,.parallax>use,.hero-title .accent,.brand-logo::after{animation:none!important}
+@media(max-width: 768px) {
+  [data-reveal="3d-left"] {transform: translateY(40px) scale(0.95) !important;}
+  [data-reveal="3d-right"] {transform: translateY(40px) scale(0.95) !important;}
+  [data-reveal="3d-left"].is-visible, [data-reveal="3d-right"].is-visible {transform: translateY(0) scale(1) !important;}
 }
 
 /* =========================================================================
-   ISAPRES (Cajas 3D con Tilt)
+   ISAPRES (7 TARJETAS RESTAURADAS CON BORDES FIJOS)
    ========================================================================= */
 .section-brands{position:relative;padding:90px 0 80px;
   background: linear-gradient(180deg, #051324 0%, #0a1f33 50%, #040e18 100%);
@@ -342,22 +321,21 @@ input[type=range]::-webkit-slider-thumb:hover {transform:scale(1.15);}
   background: linear-gradient(145deg, #102946 0%, #0c2036 100%);
   border:1px solid rgba(255,255,255,.12);border-radius:var(--r-lg);overflow:hidden;
   box-shadow: 0 10px 30px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.1);
-  transition: transform 0.1s ease-out, border-color .4s, box-shadow 0.5s; /* Tilt transition */
+  transition: transform 0.3s ease, border-color .4s, box-shadow 0.5s; 
   will-change:transform; transform-style: preserve-3d;}
   
 .brand-box::before{content:"";position:absolute;top:0;left:20px;right:20px;height:3px;
   background:linear-gradient(90deg,transparent,var(--rose-gold),var(--gold),var(--rose-gold),transparent);
   opacity:0.8;pointer-events:none;z-index:2; transition: height 0.3s;}
   
-.brand-box:hover{
-  border-color:rgba(212,175,55,.5);
+.brand-box:hover, .brand-box:has(.brand-toggle:checked){
+  border-color: var(--gold);
+  border-left: 4px solid var(--rose-gold);
   box-shadow: 0 30px 60px -15px rgba(0,0,0,0.6), 0 0 30px rgba(212,175,55,0.15), inset 0 1px 0 rgba(255,255,255,0.2);
   background: linear-gradient(145deg, #143054 0%, #0f2943 100%);
+  transform: translateY(-5px);
 }
-.brand-box:hover::before{height: 4px;}
-
-.brand-box.is-gold{border-color:rgba(212,175,55,.4); box-shadow: 0 10px 30px rgba(0,0,0,0.3), 0 0 20px rgba(212,175,55,0.1), inset 0 1px 0 rgba(255,255,255,0.1);}
-.brand-box.is-gold:hover{border-color:var(--gold-light); box-shadow: 0 30px 60px -15px rgba(0,0,0,0.6), 0 0 40px rgba(212,175,55,0.3), inset 0 1px 0 rgba(255,255,255,0.2);}
+.brand-box:hover::before, .brand-box:has(.brand-toggle:checked)::before{height: 4px;}
 
 .brand-toggle{position:absolute;opacity:0;pointer-events:none}
 .brand-head{display:flex;align-items:center;justify-content:space-between;gap:14px;
@@ -391,10 +369,9 @@ input[type=range]::-webkit-slider-thumb:hover {transform:scale(1.15);}
 .brand-toggle:checked~.brand-body{grid-template-rows:1fr}
 .brand-toggle:checked~.brand-head .brand-plus{transform:rotate(135deg);
   background:var(--gold);border-color:var(--gold);color:var(--ink-900)}
-.brand-box:has(.brand-toggle:checked){border-color:var(--gold); background:linear-gradient(145deg, #18365c 0%, #112b45 100%);}
 
 /* =========================================================================
-   CONTACTO (DISEÑO PREMIUM)
+   CONTACTO (REDISEÑADO PREMIUM)
    ========================================================================= */
 .section-contact{
   padding:100px 0; position: relative; overflow: hidden;
@@ -428,30 +405,21 @@ input[type=range]::-webkit-slider-thumb:hover {transform:scale(1.15);}
   position:relative;overflow:hidden; min-width: 260px; border: 1px solid transparent;}
 .btn-channel svg{width:22px;height:22px;fill:currentColor;flex-shrink:0}
 
-/* WhatsApp Metálico */
 .btn-wa{
   background: linear-gradient(145deg, #34d399 0%, #059669 40%, #064e3b 100%);
   color:#fff; border-color: rgba(255,255,255,0.3);
   box-shadow: 0 10px 25px rgba(6,78,59,0.5), inset 0 2px 3px rgba(255,255,255,0.4), inset 0 -3px 6px rgba(0,0,0,0.4);
   text-shadow: 0 1px 2px rgba(0,0,0,0.3);
 }
-.btn-wa:hover{
-  transform:translateY(-5px) scale(1.02);
-  box-shadow: 0 18px 35px rgba(6,78,59,0.7), inset 0 2px 3px rgba(255,255,255,0.5), inset 0 -3px 6px rgba(0,0,0,0.4);
-}
+.btn-wa:hover{transform:translateY(-5px) scale(1.02); box-shadow: 0 18px 35px rgba(6,78,59,0.7), inset 0 2px 3px rgba(255,255,255,0.5), inset 0 -3px 6px rgba(0,0,0,0.4);}
 
-/* Email Metálico Oscuro */
 .btn-mail{
   background: linear-gradient(145deg, #475569 0%, #1e293b 50%, #0f172a 100%);
   color:#fff; border-color: rgba(255,255,255,0.2);
   box-shadow: 0 10px 25px rgba(0,0,0,0.5), inset 0 2px 3px rgba(255,255,255,0.2), inset 0 -3px 6px rgba(0,0,0,0.6);
   text-shadow: 0 1px 2px rgba(0,0,0,0.5);
 }
-.btn-mail:hover{
-  transform:translateY(-5px) scale(1.02);
-  border-color: var(--gold);
-  box-shadow: 0 18px 35px rgba(0,0,0,0.6), 0 0 20px rgba(212,175,55,0.3), inset 0 2px 3px rgba(255,255,255,0.3);
-}
+.btn-mail:hover{transform:translateY(-5px) scale(1.02); border-color: var(--gold); box-shadow: 0 18px 35px rgba(0,0,0,0.6), 0 0 20px rgba(212,175,55,0.3), inset 0 2px 3px rgba(255,255,255,0.3);}
 
 @media(max-width: 768px) {
   .contact-card { padding: 40px 20px; border-radius: 20px; }
@@ -459,52 +427,64 @@ input[type=range]::-webkit-slider-thumb:hover {transform:scale(1.15);}
 }
 
 /* =========================================================================
-   FORMULARIO (Bóveda interactiva)
+   FORMULARIO (ESTILO WINDOWS 11 - FLUENT DESIGN)
    ========================================================================= */
 .section-form{padding:80px 0;
   background: radial-gradient(800px 500px at 50% 0%, #e2e8f0, #f8fafc);
   border-top:1px solid var(--border); border-bottom:1px solid var(--border);
-  perspective: 1200px;
 }
-.form-shell{max-width:660px;margin:0 auto;padding:0 8px; transform-style: preserve-3d;}
+.form-shell{max-width:660px;margin:0 auto;padding:0 8px;}
 .form-head{text-align:center;margin-bottom:32px}
 .form-head h2{font-size:var(--fs-h2);color:var(--ink-800);margin-bottom:10px}
 .form-head .legal{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:var(--r-pill);
   background:rgba(14,165,233,.06);border:1px solid rgba(14,165,233,.15);
   font-size:.75rem;font-weight:700;color:var(--ink-800);letter-spacing:.02em}
 
+/* BÓVEDA ESTILO WIN11 */
 .form-card{
   position: relative;
-  background: linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%) padding-box,
-              linear-gradient(135deg, var(--brand-blue), var(--rose-gold), var(--gold), var(--brand-blue)) border-box;
-  background-size: 100% 100%, 300% 300%;
-  animation: gradientBorder 6s ease infinite;
-  border: 2px solid transparent;
-  border-radius: var(--r-xl);
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  border-radius: 20px;
   padding: clamp(20px, 3vw, 36px);
   box-shadow: 
-    0 20px 40px -10px rgba(6,22,38,.12),
-    inset 0 2px 5px rgba(255,255,255,0.9),
-    inset 0 -2px 5px rgba(0,0,0,0.02);
-  transform-style: preserve-3d;
-  transition: transform 0.2s ease-out, box-shadow 0.3s ease;
-  will-change: transform;
+    0 4px 6px -1px rgba(0, 0, 0, 0.05),
+    0 10px 15px -3px rgba(0, 0, 0, 0.05),
+    0 20px 25px -5px rgba(0, 0, 0, 0.05),
+    0 25px 50px -12px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255,255,255,1);
+  transition: box-shadow 0.3s ease;
+}
+.form-card:hover {
+  box-shadow: 
+    0 4px 6px -1px rgba(0, 0, 0, 0.05),
+    0 15px 25px -5px rgba(0, 0, 0, 0.08),
+    0 35px 60px -15px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255,255,255,1);
 }
 
-@keyframes gradientBorder {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+/* BARRA DE PROGRESO DEL FORMULARIO (Ahora más gruesa y rosa gold intenso) */
+.form-progress-wrap {
+  position: absolute; top: 0; left: 0; right: 0; height: 12px;
+  background: #f1f5f9; border-radius: 20px 20px 0 0; overflow: hidden;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
 }
-
-/* Barra de progreso del formulario */
-.form-progress-wrap{position:absolute;top:0;left:0;right:0;height:6px;background:#e2e8f0;border-radius:var(--r-xl) var(--r-xl) 0 0;overflow:hidden;}
-.form-progress-bar{height:100%;width:0%;background:linear-gradient(90deg,var(--brand-blue),var(--rose-gold),var(--gold));transition:width 0.4s ease;}
+.form-progress-bar {
+  height: 100%; width: 0%;
+  background: linear-gradient(90deg, #b76e79, #e8b4a0, #d4af37);
+  transition: width 0.4s ease;
+  box-shadow: 4px 0 12px rgba(183, 110, 121, 0.8);
+  border-radius: 0 6px 6px 0;
+}
 
 .form-card::before {
-  content: ""; position: absolute; top: 12px; left: 12px; right: 12px; bottom: 12px;
-  border: 1px dashed rgba(183,110,121,0.25); border-radius: calc(var(--r-xl) - 6px);
-  pointer-events: none; z-index: 0;
+  content: ""; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  border: 2px solid transparent; border-radius: 20px; pointer-events: none; z-index: 0;
+  background: linear-gradient(135deg, rgba(212,175,55,0.3), rgba(183,110,121,0.1)) border-box;
+  -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor; mask-composite: exclude;
 }
 
 .ley-mini{
@@ -515,7 +495,7 @@ input[type=range]::-webkit-slider-thumb:hover {transform:scale(1.15);}
   background: #fffdfa;
   color:var(--slate-600); font-size:.8rem;line-height:1.5;
   box-shadow: 0 2px 6px rgba(0,0,0,.02);
-  position: relative; z-index: 1; transform: translateZ(15px);
+  position: relative; z-index: 1;
 }
 .ley-mini svg{flex:0 0 18px;width:18px;height:18px;stroke:var(--burgundy);stroke-width:2;fill:none;margin-top:1px}
 .ley-mini-body{min-width:0;flex:1}
@@ -523,20 +503,19 @@ input[type=range]::-webkit-slider-thumb:hover {transform:scale(1.15);}
 .ley-mini-body a{color:var(--burgundy);font-weight:700;text-decoration:underline;text-underline-offset:2px}
 .ley-mini-body a:hover{color:var(--rose-gold)}
 
-.form-row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-bottom:16px; position: relative; z-index: 1; transform: translateZ(20px);}
+.form-row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-bottom:16px; position: relative; z-index: 1;}
 .form-row.full{grid-template-columns:1fr}
 .field{display:flex;flex-direction:column;gap:5px; position:relative;}
 .field label{font-size:.82rem;font-weight:700;color:var(--ink-800);letter-spacing:.01em}
-.field input,.field textarea{width:100%;padding:13px 15px;border-radius:var(--r-sm);
-  border:1px solid var(--slate-300);background:#f8fafc;color:var(--slate-900);
+.field input,.field textarea{width:100%;padding:13px 15px;border-radius:8px;
+  border:1px solid var(--slate-300);background:#ffffff;color:var(--slate-900);
   font-size:.95rem;font-weight:500;
-  transition:border-color .25s var(--ease),box-shadow .25s var(--ease), background .25s;
-  outline:none; box-shadow: inset 0 2px 4px rgba(0,0,0,0.03), 0 1px 0 rgba(255,255,255,1);
+  transition:border-color .25s var(--ease),box-shadow .25s var(--ease);
+  outline:none; box-shadow: inset 0 1px 2px rgba(0,0,0,0.02);
 }
 .field input::placeholder,.field textarea::placeholder{color:var(--slate-400);font-weight:400}
 .field input:focus,.field textarea:focus{
-  background:#ffffff; border-color:var(--brand-blue);
-  box-shadow:0 0 0 3px rgba(2,132,199,.15), inset 0 1px 2px rgba(0,0,0,0.01);
+  border-color:var(--gold); box-shadow:0 0 0 3px rgba(212,175,55,.15);
 }
 .field.valid input, .field.valid textarea { border-color: #0f766e; }
 .field.valid::after {
@@ -548,9 +527,7 @@ input[type=range]::-webkit-slider-thumb:hover {transform:scale(1.15);}
 .field textarea{resize:vertical;min-height:80px}
 
 /* SELECTOR VISUAL DE ISAPRES */
-.visual-selector {
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 6px;
-}
+.visual-selector { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 6px; }
 @media (max-width: 520px) { .visual-selector { grid-template-columns: repeat(2, 1fr); } }
 .isapre-btn {
   background: #fff; border: 1.5px solid #cbd5e1; border-radius: 8px;
@@ -566,20 +543,19 @@ input[type=range]::-webkit-slider-thumb:hover {transform:scale(1.15);}
   transform: translateY(-2px);
 }
 .isapre-btn.selected svg { opacity: 1; }
-.input-hidden { display: none !important; }
 
-.btn-submit{width:100%;padding:15px;border-radius:var(--r-sm);border:none;
+.btn-submit{width:100%;padding:15px;border-radius:8px;border:none;
   background:linear-gradient(135deg,var(--ink-800) 0%,var(--navy-blue) 100%);
   color:#fff;font-size:1rem;font-weight:800;letter-spacing:.02em;cursor:pointer;
-  box-shadow:0 8px 24px -8px rgba(30,64,175,.6);
-  transition:transform .45s var(--ease-bounce),box-shadow .4s var(--ease),filter .3s var(--ease);
-  position:relative;overflow:hidden; transform: translateZ(25px);
+  box-shadow:0 4px 12px -4px rgba(30,64,175,.4);
+  transition:transform .3s ease,box-shadow .3s ease,filter .3s ease;
+  position:relative;overflow:hidden;
 }
 .btn-submit::before{content:"";position:absolute;inset:0;
   background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.3) 50%,transparent 70%);
   transform:translateX(-120%);transition:transform .85s var(--ease)}
-.btn-submit:hover:not(:disabled){transform:translateZ(25px) translateY(-3px) scale(1.01);
-  box-shadow:0 16px 32px -8px rgba(30,64,175,.7);filter:brightness(1.05)}
+.btn-submit:hover:not(:disabled){transform:translateY(-2px);
+  box-shadow:0 8px 20px -6px rgba(30,64,175,.6);filter:brightness(1.1)}
 .btn-submit:hover:not(:disabled)::before{transform:translateX(120%)}
 .btn-submit:disabled{opacity:.65;cursor:progress}
 
@@ -588,31 +564,49 @@ input[type=range]::-webkit-slider-thumb:hover {transform:scale(1.15);}
   border:1px solid #ecd9b0;background:#fffdfa;
   color:var(--slate-600);font-size:.8rem;font-weight:500;line-height:1.5;cursor:pointer;
   transition:border-color .25s var(--ease),box-shadow .25s var(--ease);
-  box-shadow: 0 2px 6px rgba(0,0,0,.02);
-  position: relative; z-index: 1; transform: translateZ(15px);
 }
 .ley-check:hover{border-color:#d4bb89}
-.ley-check:focus-within{border-color:var(--rose-gold);box-shadow:0 0 0 3px rgba(183,110,121,.12)}
 .ley-check input{flex:0 0 18px;width:18px;height:18px;padding:0;margin:1px 0 0;accent-color:var(--burgundy);cursor:pointer}
 .ley-check b{color:var(--burgundy);font-weight:800}
 .ley-check a{color:var(--burgundy);font-weight:700;text-decoration:underline;text-underline-offset:2px}
 .ley-check a:hover{color:var(--rose-gold)}
 
-.form-result{display:none;margin-top:12px;padding:10px 14px;border-radius:var(--r-sm);
-  font-weight:700;font-size:.9rem;text-align:center; position: relative; z-index: 1;}
+.form-result{display:none;margin-top:12px;padding:10px 14px;border-radius:8px;
+  font-weight:700;font-size:.9rem;text-align:center;}
 .form-result.is-ok{display:block;background:rgba(15,118,110,.08);border:1px solid rgba(15,118,110,.25);color:#0f766e}
 .form-result.is-error{display:block;background:rgba(185,28,28,.06);border:1px solid rgba(185,28,28,.2);color:#b91c1c}
 
 /* =========================================================================
-   NOTA LEGAL
+   NOTA LEGAL (Rediseñada estilo Glassmorphism Premium)
    ========================================================================= */
-.section-notice{background:var(--ink-950);color:var(--slate-400);padding:22px 0;border-top:2px solid var(--gold)}
-.notice-inner{display:flex;align-items:center;gap:16px;max-width:900px;margin:0 auto;padding:0 8px;
-  font-size:.88rem;line-height:1.6}
-.notice-icon{flex-shrink:0;width:38px;height:38px;display:inline-flex;align-items:center;justify-content:center;
-  border-radius:50%;background:rgba(212,175,55,.12);border:1px solid rgba(212,175,55,.3);font-size:1.05rem}
-.notice-inner strong{color:#fff;font-weight:700}
-.notice-inner em{color:var(--gold-pale);font-style:normal;font-weight:600}
+.section-notice {
+  padding: 60px 0;
+  background: radial-gradient(circle at 50% 50%, #173a5e 0%, #061626 100%);
+  color: #fff;
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+.notice-inner {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 30px 40px;
+  background: rgba(255,255,255,0.02);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(212,175,55,0.3);
+  border-radius: 20px;
+  box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.1);
+}
+.notice-icon {
+  flex-shrink: 0;
+  font-size: 2rem;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
+}
+.notice-inner p { margin: 0; line-height: 1.7; color: #e2e8f0; font-size: 0.95rem; }
+.notice-inner strong { color: var(--gold-light); }
+.notice-inner em { color: var(--gold-pale); font-style: normal; font-weight: 600; }
 
 /* =========================================================================
    CARRUSELES
@@ -865,36 +859,18 @@ input[type=range]::-webkit-slider-thumb:hover {transform:scale(1.15);}
   width: 66px; height: 66px; border-radius: 50%;
   background: linear-gradient(145deg, #34d399 0%, #059669 35%, #064e3b 100%);
   border: 2px solid rgba(255, 255, 255, 0.45);
-  box-shadow: 
-    0 12px 24px rgba(6, 78, 59, 0.6),
-    0 4px 8px rgba(0, 0, 0, 0.2),
-    inset 0 3px 5px rgba(255, 255, 255, 0.7),
-    inset 0 -4px 8px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 12px 24px rgba(6, 78, 59, 0.6), 0 4px 8px rgba(0, 0, 0, 0.2), inset 0 3px 5px rgba(255, 255, 255, 0.7), inset 0 -4px 8px rgba(0, 0, 0, 0.5);
   transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s;
   animation: floatWA 3.5s ease-in-out infinite;
 }
-.wa-float:hover {
-  transform: translateY(-6px) scale(1.05);
-  box-shadow: 
-    0 18px 36px rgba(6, 78, 59, 0.8),
-    0 8px 15px rgba(0, 0, 0, 0.25),
-    inset 0 4px 6px rgba(255, 255, 255, 0.9),
-    inset 0 -4px 8px rgba(0, 0, 0, 0.5);
-}
-.wa-float svg {
-  width: 34px; height: 34px; fill: #ffffff;
-  filter: drop-shadow(0 2px 2px rgba(0,0,0,0.4)) drop-shadow(0 0 4px rgba(255,255,255,0.4));
-}
-.wa-pulse {
-  position: absolute; inset: -4px; border-radius: 50%;
-  border: 2px solid #34d399; opacity: 0;
-  animation: pulseWA 2.5s ease-out infinite; pointer-events: none;
-}
+.wa-float:hover { transform: translateY(-6px) scale(1.05); box-shadow: 0 18px 36px rgba(6, 78, 59, 0.8), 0 8px 15px rgba(0, 0, 0, 0.25), inset 0 4px 6px rgba(255, 255, 255, 0.9), inset 0 -4px 8px rgba(0, 0, 0, 0.5); }
+.wa-float svg { width: 34px; height: 34px; fill: #ffffff; filter: drop-shadow(0 2px 2px rgba(0,0,0,0.4)) drop-shadow(0 0 4px rgba(255,255,255,0.4)); }
+.wa-pulse { position: absolute; inset: -4px; border-radius: 50%; border: 2px solid #34d399; opacity: 0; animation: pulseWA 2.5s ease-out infinite; pointer-events: none; }
 @keyframes floatWA { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
 @keyframes pulseWA { 0% { transform: scale(1); opacity: 0.7; } 100% { transform: scale(1.5); opacity: 0; } }
 
 /* =========================================================================
-   RESPONSIVE
+   RESPONSIVE (ARREGLADO PARA CELULAR)
    ========================================================================= */
 @media(max-width:960px){
   .carousel{padding-bottom:58%}
@@ -916,18 +892,15 @@ input[type=range]::-webkit-slider-thumb:hover {transform:scale(1.15);}
     gap:16px;padding:8px 24px 24px;margin:0 -24px;-webkit-overflow-scrolling:touch;scrollbar-width:none}
   .brands-grid::-webkit-scrollbar{display:none}
   .brand-box{flex:0 0 85%;max-width:85%;scroll-snap-align:center}
-  .brand-box:hover{transform:translateY(-4px)}
 
   .services-grid,.who-grid,.why-grid{
     display:flex!important;flex-wrap:nowrap;overflow-x:auto;scroll-snap-type:x mandatory;
     gap:16px;padding:8px 24px 24px;margin:0 -24px;-webkit-overflow-scrolling:touch;scrollbar-width:none}
-  .services-grid::-webkit-scrollbar,.who-grid::-webkit-scrollbar,
-  .why-grid::-webkit-scrollbar{display:none}
+  .services-grid::-webkit-scrollbar,.who-grid::-webkit-scrollbar, .why-grid::-webkit-scrollbar{display:none}
   .service-card,.tarjeta-premium,.why-card{flex:0 0 85%;max-width:85%;scroll-snap-align:center}
-  .service-card:hover,.tarjeta-premium:hover,.why-card:hover{transform:translateY(-4px)}
 
-  .contact-grid{flex-direction:column;align-items:center}
-  .btn-channel{width:100%;max-width:340px}
+  .contact-grid{flex-direction:column;align-items:center; justify-content: center;}
+  .btn-channel{width:100%;max-width:340px; margin: 0 auto;}
 
   .form-row{grid-template-columns:1fr;gap:14px}
   .form-card{padding:20px 16px}
@@ -942,8 +915,8 @@ input[type=range]::-webkit-slider-thumb:hover {transform:scale(1.15);}
   .carousel-dots{bottom:10px;padding:4px 10px;gap:6px}
   .carousel-dots label{width:8px;height:8px}
 
-  .notice-inner{flex-direction:column;text-align:center;gap:12px}
-  .notice-inner p{font-size:.86rem}
+  .notice-inner { flex-direction: column; text-align: center; gap: 16px; padding: 24px 20px; }
+  .notice-inner p{font-size:.86rem;}
 
   .footer-inner{grid-template-columns:1fr;text-align:center;gap:20px}
   .footer-links{text-align:center}
@@ -967,6 +940,8 @@ input[type=range]::-webkit-slider-thumb:hover {transform:scale(1.15);}
   
   .section-calc{margin-top:-20px;padding:0 0 40px;}
   .calc-results{flex-direction:column;gap:12px;text-align:center;}
+  .calc-card { padding: 24px; gap: 24px;}
+  .calc-text h3 { font-size: 1.5rem; }
 }
 @media(max-width:480px){
   .container{padding:0 18px}
@@ -980,6 +955,8 @@ input[type=range]::-webkit-slider-thumb:hover {transform:scale(1.15);}
   .ley-carousel{padding:0 40px}
   .ley-stage{height:400px}
   .ley-ring{width:220px;height:340px;margin-left:-110px;margin-top:-170px}
+  
+  .contact-card { padding: 30px 15px; }
 }
 </style>
 </head>
@@ -1073,7 +1050,9 @@ input[type=range]::-webkit-slider-thumb:hover {transform:scale(1.15);}
   </div>
 </section>
 
-<!-- ===================== ESTADÍSTICAS (DISEÑO ENCASILLADO ELEGANTE) ===================== -->
+<div class="section-divider"></div>
+
+<!-- ===================== ESTADÍSTICAS ===================== -->
 <section class="section-stats" data-reveal="up">
   <div class="container">
     <div class="stats-grid">
@@ -1093,6 +1072,8 @@ input[type=range]::-webkit-slider-thumb:hover {transform:scale(1.15);}
   </div>
 </section>
 
+<div class="section-divider"></div>
+
 <!-- ===================== ISAPRES ===================== -->
 <section class="section-brands">
   <div class="container">
@@ -1102,9 +1083,8 @@ input[type=range]::-webkit-slider-thumb:hover {transform:scale(1.15);}
     </div>
 
     <div class="brands-grid">
-
       <!-- Alternando 3D izquierda / derecha -->
-      <article class="brand-box tilt-card" data-reveal="3d-left">
+      <article class="brand-box" data-reveal="3d-left">
         <input type="checkbox" id="toggle-banmedica" class="brand-toggle">
         <label for="toggle-banmedica" class="brand-head">
           <div class="brand-id">
@@ -1121,7 +1101,7 @@ input[type=range]::-webkit-slider-thumb:hover {transform:scale(1.15);}
         </p></div></div>
       </article>
 
-      <article class="brand-box is-gold tilt-card" data-reveal="3d-right">
+      <article class="brand-box is-gold" data-reveal="3d-right">
         <input type="checkbox" id="toggle-colmena" class="brand-toggle">
         <label for="toggle-colmena" class="brand-head">
           <div class="brand-id">
@@ -1141,7 +1121,7 @@ input[type=range]::-webkit-slider-thumb:hover {transform:scale(1.15);}
         </p></div></div>
       </article>
 
-      <article class="brand-box tilt-card" data-reveal="3d-left">
+      <article class="brand-box" data-reveal="3d-left">
         <input type="checkbox" id="toggle-consalud" class="brand-toggle">
         <label for="toggle-consalud" class="brand-head">
           <div class="brand-id">
@@ -1158,7 +1138,7 @@ input[type=range]::-webkit-slider-thumb:hover {transform:scale(1.15);}
         </p></div></div>
       </article>
 
-      <article class="brand-box tilt-card" data-reveal="3d-right">
+      <article class="brand-box" data-reveal="3d-right">
         <input type="checkbox" id="toggle-cruzblanca" class="brand-toggle">
         <label for="toggle-cruzblanca" class="brand-head">
           <div class="brand-id">
@@ -1175,7 +1155,7 @@ input[type=range]::-webkit-slider-thumb:hover {transform:scale(1.15);}
         </p></div></div>
       </article>
 
-      <article class="brand-box tilt-card" data-reveal="3d-left">
+      <article class="brand-box" data-reveal="3d-left">
         <input type="checkbox" id="toggle-esencial" class="brand-toggle">
         <label for="toggle-esencial" class="brand-head">
           <div class="brand-id">
@@ -1192,7 +1172,7 @@ input[type=range]::-webkit-slider-thumb:hover {transform:scale(1.15);}
         </p></div></div>
       </article>
 
-      <article class="brand-box tilt-card" data-reveal="3d-right">
+      <article class="brand-box" data-reveal="3d-right">
         <input type="checkbox" id="toggle-masvida" class="brand-toggle">
         <label for="toggle-masvida" class="brand-head">
           <div class="brand-id">
@@ -1209,7 +1189,7 @@ input[type=range]::-webkit-slider-thumb:hover {transform:scale(1.15);}
         </p></div></div>
       </article>
 
-      <article class="brand-box tilt-card" data-reveal="3d-left">
+      <article class="brand-box" data-reveal="3d-left">
         <input type="checkbox" id="toggle-vidatres" class="brand-toggle">
         <label for="toggle-vidatres" class="brand-head">
           <div class="brand-id">
@@ -1225,12 +1205,13 @@ input[type=range]::-webkit-slider-thumb:hover {transform:scale(1.15);}
           <strong>Plan Dental:</strong> Complementa tu cobertura con un plan dental adicional para toda la familia.
         </p></div></div>
       </article>
-
     </div>
   </div>
 </section>
 
-<!-- ===================== CONTACTO (REDISEÑADO PREMIUM) ===================== -->
+<div class="section-divider dark-divider"></div>
+
+<!-- ===================== CONTACTO ===================== -->
 <section class="section-contact">
   <div class="contact-bg-glow"></div>
   <div class="container">
@@ -1252,9 +1233,11 @@ input[type=range]::-webkit-slider-thumb:hover {transform:scale(1.15);}
   </div>
 </section>
 
-<!-- ===================== FORMULARIO (BÓVEDA 3D) ===================== -->
+<div class="section-divider"></div>
+
+<!-- ===================== FORMULARIO (BÓVEDA WIN11) ===================== -->
 <section class="section-form" id="formulario-estudio">
-  <div class="container form-shell" id="form3dShell">
+  <div class="container form-shell">
     <div class="form-head" data-reveal="up">
       <h2>Solicitar Estudio de Isapre</h2>
       <div class="legal">
@@ -1267,7 +1250,7 @@ input[type=range]::-webkit-slider-thumb:hover {transform:scale(1.15);}
       <input type="hidden" name="access_key" value="5f7a6d57-a887-459c-975a-c1215f0f7129">
       <input type="hidden" name="from_name" value="Web AyudaPlan">
       
-      <!-- Barra de Progreso -->
+      <!-- Barra de Progreso Mejorada -->
       <div class="form-progress-wrap"><div class="form-progress-bar" id="formProgress"></div></div>
 
       <div class="ley-mini">
@@ -1300,7 +1283,6 @@ input[type=range]::-webkit-slider-thumb:hover {transform:scale(1.15);}
         </div>
       </div>
 
-      <!-- SELECTOR VISUAL DE ISAPRES -->
       <div class="form-row full" style="margin-bottom: 20px;">
         <div class="field">
           <label>Isapre Actual o Sistema Previsional</label>
@@ -1338,6 +1320,8 @@ input[type=range]::-webkit-slider-thumb:hover {transform:scale(1.15);}
   </div>
 </section>
 
+<div class="section-divider"></div>
+
 <!-- ===================== NOTA LEGAL ===================== -->
 <section class="section-notice">
   <div class="container">
@@ -1353,6 +1337,8 @@ input[type=range]::-webkit-slider-thumb:hover {transform:scale(1.15);}
     </div>
   </div>
 </section>
+
+<div class="section-divider dark-divider"></div>
 
 <!-- ===================== CARRUSEL 1 ===================== -->
 <section class="carousel-section">
@@ -1426,6 +1412,8 @@ input[type=range]::-webkit-slider-thumb:hover {transform:scale(1.15);}
   </div>
 </section>
 
+<div class="section-divider"></div>
+
 <!-- ===================== ¿ES PARA TI? ===================== -->
 <section class="section-foryou">
   <div class="container">
@@ -1468,6 +1456,8 @@ input[type=range]::-webkit-slider-thumb:hover {transform:scale(1.15);}
     </div>
   </div>
 </section>
+
+<div class="section-divider"></div>
 
 <!-- ===================== TESTIMONIOS ===================== -->
 <section class="carousel-section">
@@ -1528,6 +1518,8 @@ input[type=range]::-webkit-slider-thumb:hover {transform:scale(1.15);}
   </div>
 </section>
 
+<div class="section-divider"></div>
+
 <!-- ===================== POR QUÉ ELEGIRNOS ===================== -->
 <section class="section-why">
   <div class="container">
@@ -1551,6 +1543,8 @@ input[type=range]::-webkit-slider-thumb:hover {transform:scale(1.15);}
     </div>
   </div>
 </section>
+
+<div class="section-divider"></div>
 
 <!-- ===================== LEY 21.719 · CARRUSEL 360° ===================== -->
 <section id="ley-datos" class="ley-section" aria-labelledby="ley-datos-h">
@@ -1678,7 +1672,6 @@ function updateCalc() {
   const sueldo = parseInt(sueldoInput.value);
   const siete = Math.round(sueldo * 0.07);
   
-  // Asumimos un plan de salud promedio en Chile de ~$110.000 (aprox 2.3 UF)
   const planPromedio = 110000; 
   let ahorro = 0;
   
@@ -1698,14 +1691,14 @@ function updateCalc() {
 
 if (sueldoInput) {
   sueldoInput.addEventListener('input', updateCalc);
-  updateCalc(); // Ejecutar al inicio
+  updateCalc(); 
 }
 
 /* =========================================================================
    2. CONTADORES ANIMADOS
    ========================================================================= */
 const counters = document.querySelectorAll('.stat-number');
-const speed = 200; // The lower the slower
+const speed = 200;
 
 const animateCounters = (entries, observer) => {
   entries.forEach(entry => {
@@ -1713,7 +1706,6 @@ const animateCounters = (entries, observer) => {
       const target = +entry.target.getAttribute('data-target');
       const updateCount = () => {
         const count = +entry.target.innerText;
-        // Ajustar la velocidad basada en el número objetivo
         const inc = target / speed;
         if (count < target) {
           entry.target.innerText = Math.ceil(count + inc);
@@ -1752,34 +1744,7 @@ if('IntersectionObserver' in window){
 }
 
 /* =========================================================================
-   4. EFECTO TILT 3D EN ISAPRES
-   ========================================================================= */
-const tiltCards = document.querySelectorAll('.tilt-card');
-if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
-  tiltCards.forEach(card => {
-    card.addEventListener('mousemove', e => {
-      const rect = card.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      const centerX = rect.width / 2;
-      const centerY = rect.height / 2;
-      
-      const rotateX = ((y - centerY) / centerY) * -10; // Máximo 10deg
-      const rotateY = ((x - centerX) / centerX) * 10;
-      
-      card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
-      card.style.boxShadow = `0 30px 60px -15px rgba(0,0,0,0.6), 0 0 30px rgba(212,175,55,0.15)`;
-    });
-    
-    card.addEventListener('mouseleave', () => {
-      card.style.transform = `perspective(1000px) rotateX(0) rotateY(0) scale(1)`;
-      card.style.boxShadow = ``; // Vuelve a la sombra CSS original
-    });
-  });
-}
-
-/* =========================================================================
-   5. ROMPECABEZAS HERO
+   4. ROMPECABEZAS HERO
    ========================================================================= */
 document.addEventListener('DOMContentLoaded', () => {
   const title = document.querySelector('.js-puzzle');
@@ -1788,7 +1753,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function wrapWords(element) {
     const nodes = Array.from(element.childNodes);
     nodes.forEach(node => {
-      if (node.nodeType === 3) { // Text node
+      if (node.nodeType === 3) { 
         const words = node.nodeValue.trim().split(/\s+/);
         const fragment = document.createDocumentFragment();
         words.forEach((word, index) => {
@@ -1801,7 +1766,7 @@ document.addEventListener('DOMContentLoaded', () => {
           }
         });
         element.replaceChild(fragment, node);
-      } else if (node.nodeType === 1) { // Element node
+      } else if (node.nodeType === 1) { 
         wrapWords(node);
       }
     });
@@ -1823,32 +1788,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /* =========================================================================
-   6. BÓVEDA 3D (Efecto Parallax en el Formulario)
-   ========================================================================= */
-const formShell = document.getElementById('form3dShell');
-const formCard = document.getElementById('formAyudaPlan');
-
-if (formShell && formCard && window.matchMedia('(hover: hover)').matches) {
-  formShell.addEventListener('mousemove', (e) => {
-    const rect = formShell.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    const centerX = rect.width / 2;
-    const centerY = rect.height / 2;
-    
-    const rotateX = ((y - centerY) / centerY) * -3;
-    const rotateY = ((x - centerX) / centerX) * 3;
-
-    formCard.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-  });
-
-  formShell.addEventListener('mouseleave', () => {
-    formCard.style.transform = `rotateX(0) rotateY(0)`;
-  });
-}
-
-/* =========================================================================
-   7. INTERACTIVIDAD DEL FORMULARIO (Progreso, checks, selector)
+   5. INTERACTIVIDAD DEL FORMULARIO (Progreso, checks, selector)
    ========================================================================= */
 const form = document.getElementById('formAyudaPlan');
 const formProgress = document.getElementById('formProgress');
@@ -1871,7 +1811,7 @@ isapreBtns.forEach(btn => {
 const inputs = form.querySelectorAll('input[required], textarea');
 function updateFormProgress() {
   let validCount = 0;
-  const totalRequired = 5; // name, phone, email, edad, isapre (checkbox is extra)
+  const totalRequired = 5; 
 
   inputs.forEach(input => {
     const field = input.closest('.field');
@@ -1885,12 +1825,10 @@ function updateFormProgress() {
     }
   });
 
-  // Chequeo del selector visual
   if (isapreValue.value) validCount++;
 
-  // Actualizar barra
   let percent = (validCount / totalRequired) * 100;
-  if (leyCheck.checked) percent = 100; // Si aceptó la ley, visualmente está al 100
+  if (leyCheck.checked) percent = 100; 
   
   formProgress.style.width = `${Math.min(percent, 100)}%`;
 }
@@ -1902,16 +1840,14 @@ inputs.forEach(input => {
 leyCheck.addEventListener('change', updateFormProgress);
 
 /* =========================================================================
-   8. WEB3FORMS
+   6. WEB3FORMS
    ========================================================================= */
 const result=document.getElementById('formResult');
 form.addEventListener('submit',async e=>{
   e.preventDefault();
   
-  // Validar que se haya elegido una Isapre visualmente
   if (!isapreValue.value) {
-    isapreValue.focus(); // O mostrar un alert
-    // Forzamos la validación del input hidden
+    isapreValue.focus();
     isapreValue.setCustomValidity("Por favor, selecciona una opción.");
     form.reportValidity();
     return;
@@ -1935,7 +1871,6 @@ form.addEventListener('submit',async e=>{
       result.className='form-result is-ok';
       result.innerHTML='✓ ¡Muchas gracias! Tu solicitud fue enviada con éxito. Te contactaremos a la brevedad.';
       form.reset();
-      // Limpiar UI
       isapreBtns.forEach(b => b.classList.remove('selected'));
       formProgress.style.width = '0%';
       document.querySelectorAll('.field').forEach(f => f.classList.remove('valid'));
@@ -1953,7 +1888,7 @@ form.addEventListener('submit',async e=>{
 });
 
 /* =========================================================================
-   9. CARRUSELES (Flechas externas)
+   7. CARRUSELES (Flechas externas)
    ========================================================================= */
 document.querySelectorAll('.carousel-arrow').forEach(btn=>{
   btn.addEventListener('click',()=>{
@@ -2004,7 +1939,7 @@ function initAutoplay(carousel){
 document.querySelectorAll('.carousel').forEach(initAutoplay);
 
 /* =========================================================================
-   10. CARRUSEL 360° LEY 21.719
+   8. CARRUSEL 360° LEY 21.719
    ========================================================================= */
 (function(){
   const stage=document.getElementById('leyStage');
