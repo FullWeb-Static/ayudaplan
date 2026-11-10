@@ -94,7 +94,7 @@ button,input,textarea,select{font:inherit}
 
 .container{width:100%;max-width:1240px;margin:0 auto;padding:0 24px}
 
-/* DIVISORES PREMIUM (Más gruesos, llamativos y sin icono) */
+/* DIVISORES PREMIUM */
 .section-divider {
   width: 100%;
   height: 6px;
@@ -304,7 +304,7 @@ input[type=range]::-webkit-slider-thumb:hover {transform:scale(1.15);}
 }
 
 /* =========================================================================
-   ISAPRES (7 TARJETAS RESTAURADAS CON BORDES FIJOS)
+   ISAPRES (MODO 2 HILERAS DESLIZANTES EN MÓVIL)
    ========================================================================= */
 .section-brands{position:relative;padding:90px 0 80px;
   background: linear-gradient(180deg, #051324 0%, #0a1f33 50%, #040e18 100%);
@@ -315,6 +315,7 @@ input[type=range]::-webkit-slider-thumb:hover {transform:scale(1.15);}
   color:var(--gold-pale);font-size:.72rem;font-weight:800;letter-spacing:.15em;text-transform:uppercase;margin-bottom:18px}
 .section-lead p{font-size:clamp(1rem,1.3vw,1.1rem);color:rgba(203,213,225,.85);line-height:1.7}
 
+/* Desktop: Grid normal */
 .brands-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:24px; perspective: 1200px;}
 
 .brand-box{flex:0 1 320px;min-width:0;position:relative;
@@ -870,7 +871,7 @@ input[type=range]::-webkit-slider-thumb:hover {transform:scale(1.15);}
 @keyframes pulseWA { 0% { transform: scale(1); opacity: 0.7; } 100% { transform: scale(1.5); opacity: 0; } }
 
 /* =========================================================================
-   RESPONSIVE (ARREGLADO PARA CELULAR)
+   RESPONSIVE (ARREGLADO PARA MÓVIL, 2 HILERAS DESLIZANTES)
    ========================================================================= */
 @media(max-width:960px){
   .carousel{padding-bottom:58%}
@@ -888,10 +889,38 @@ input[type=range]::-webkit-slider-thumb:hover {transform:scale(1.15);}
   .hero-subtitle{font-size:.98rem}
   .btn-cta{padding:16px 32px;font-size:.98rem;width:100%;max-width:340px}
 
-  .brands-grid{display:flex;flex-wrap:nowrap;overflow-x:auto;scroll-snap-type:x mandatory;
-    gap:16px;padding:8px 24px 24px;margin:0 -24px;-webkit-overflow-scrolling:touch;scrollbar-width:none}
-  .brands-grid::-webkit-scrollbar{display:none}
-  .brand-box{flex:0 0 85%;max-width:85%;scroll-snap-align:center}
+  /* =========================================================================
+     AQUÍ ESTÁ LA MAGIA: GRID DE 2 HILERAS DESLIZANTES EN MÓVIL
+     ========================================================================= */
+  .brands-grid {
+    display: grid !important;
+    grid-template-rows: repeat(2, auto);
+    grid-auto-flow: column;
+    grid-auto-columns: 80%; /* Cada columna ocupa el 80% para que se vea la siguiente */
+    gap: 16px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding: 8px 24px 24px;
+    margin: 0 -24px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    align-items: start;
+  }
+  .brands-grid::-webkit-scrollbar { display: none; }
+  
+  .brand-box {
+    width: 100% !important;
+    max-width: 100% !important;
+    flex: none !important;
+    scroll-snap-align: start;
+    margin-bottom: 0;
+  }
+  
+  /* Forzamos altura uniforme para las tarjetas cerradas */
+  .brand-box:not(:has(.brand-toggle:checked)) {
+     height: max-content;
+  }
+  /* ========================================================================= */
 
   .services-grid,.who-grid,.why-grid{
     display:flex!important;flex-wrap:nowrap;overflow-x:auto;scroll-snap-type:x mandatory;
