@@ -3,81 +3,211 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-    <title>Política de Privacidad | e-WEB</title>
+    <title>Política de Privacidad | AyudaPlan</title>
+    <meta name="description" content="Política de Privacidad y Protección de Datos de AyudaPlan. Cumplimiento de la Ley 21.719 en Chile.">
+    <meta name="robots" content="noindex, follow">
+    <link rel="icon" type="image/jpeg" href="/ayudaplan.jpg">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
     <style>
+        :root{
+            --gold: #d4af37;
+            --gold-light: #e5c76b;
+            --rose-gold: #b76e79;
+            --ink-950: #061626;
+            --ink-900: #0a1f33;
+            --ink-800: #0f2b48;
+            --slate-300: #cbd5e1;
+            --slate-400: #94a3b8;
+            --slate-600: #475569;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
         body { 
-            background-color: #0d1b2a; 
+            background: radial-gradient(circle at 50% 0%, #173a5e 0%, #061626 100%);
             color: #ffffff; 
-            font-family: system-ui, -apple-system, sans-serif; 
-            padding: 40px 20px; 
+            font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif; 
+            padding: 80px 20px; 
             line-height: 1.7; 
-            max-width: 750px; 
-            margin: 0 auto; 
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            -webkit-font-smoothing: antialiased;
         }
-        .container {
-            background-color: #1b263b;
-            padding: 30px;
-            border-radius: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+
+        .privacy-container {
+            position: relative;
+            max-width: 800px; 
+            width: 100%;
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            padding: 50px;
+            border-radius: 24px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.1);
+            z-index: 1;
         }
+
+        .brand-logo {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #fff;
+            text-decoration: none;
+            margin-bottom: 30px;
+            letter-spacing: -0.035em;
+            transition: transform 0.4s cubic-bezier(0.68,-0.55,0.265,1.55);
+        }
+        .brand-logo:hover {
+            transform: scale(1.04);
+        }
+        .brand-logo::after {
+            content: "";
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--gold);
+            margin-left: 2px;
+            box-shadow: 0 0 12px var(--gold);
+        }
+
         h1 { 
-            color: #00bcff; 
-            font-size: 26px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
-            padding-bottom: 15px; 
-            margin-top: 0;
+            color: var(--gold-light);
+            font-size: clamp(1.8rem, 4vw, 2.4rem);
+            font-weight: 800;
+            letter-spacing: -0.025em;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2); 
+            padding-bottom: 20px; 
+            margin-bottom: 30px;
+            line-height: 1.2;
         }
+
+        .update-date {
+            display: inline-block;
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            color: var(--gold-light);
+            padding: 6px 14px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
         h2 { 
-            color: #f0a85d; 
-            font-size: 18px;
-            margin-top: 30px; 
-            margin-bottom: 10px;
+            color: #ffffff; 
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-top: 40px; 
+            margin-bottom: 15px;
+            border-left: 4px solid var(--rose-gold);
+            padding-left: 15px;
+            line-height: 1.3;
         }
+
         p, li {
-            color: #e0e1dd;
-            font-size: 15px;
+            color: var(--slate-300);
+            font-size: 1rem;
+            margin-bottom: 15px;
         }
+
         ul {
             padding-left: 20px;
+            margin-bottom: 20px;
         }
+
+        li::marker {
+            color: var(--gold);
+        }
+
+        strong {
+            color: #ffffff;
+            font-weight: 600;
+        }
+
         .btn-volver { 
-            display: inline-block;
-            margin-top: 40px;
-            color: #00bcff; 
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 50px;
+            color: #142b43; 
+            background: linear-gradient(115deg, #fff0bd 0%, var(--gold-light) 26%, #c9953d 54%, #f2d99b 78%, #d9ad58 100%);
+            padding: 14px 28px;
+            border-radius: 12px;
             text-decoration: none; 
-            font-size: 14px;
-            font-weight: 500;
-            transition: opacity 0.2s;
+            font-size: 1rem;
+            font-weight: 800;
+            border: 1px solid var(--gold-light);
+            box-shadow: 0 4px 0 #a66b52, 0 10px 22px rgba(181,139,60,.2), inset 0 1px 0 rgba(255,255,255,.5);
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
+
         .btn-volver:hover {
-            opacity: 0.8;
+            transform: translateY(-4px);
+            box-shadow: 0 6px 0 #a66b52, 0 16px 28px rgba(181,139,60,.35), 0 0 18px rgba(228,193,106,.4);
+        }
+
+        @media (max-width: 768px) {
+            body { padding: 40px 15px; }
+            .privacy-container { padding: 30px 20px; border-radius: 20px; }
+            h1 { font-size: 1.8rem; }
+            h2 { font-size: 1.15rem; }
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
+    <div class="privacy-container">
+        <a href="/" class="brand-logo">AyudaPlan</a>
+        
         <h1>POLÍTICA DE PRIVACIDAD Y PROTECCIÓN DE DATOS</h1>
-        <p><strong>Última actualización:</strong> Noviembre 2026</p>
-        <p>En cumplimiento con la legislación chilena vigente (Ley N° 21.719), se detalla de forma clara y transparente el tratamiento de la información recolectada en este sitio web:</p>
+        
+        <span class="update-date">Última actualización: Noviembre 2026</span>
+
+        <p>En <strong>AyudaPlan</strong> nos tomamos muy en serio la seguridad y confidencialidad de tu información. En cumplimiento con la legislación chilena vigente (Ley N° 21.719 sobre Protección de Datos Personales), detallamos de forma clara y transparente cómo tratamos los datos que nos entregas a través de nuestro sitio web.</p>
         
         <h2>1. Responsable del Tratamiento</h2>
-        <p>El responsable del tratamiento de los datos recolectados es <strong>e-WEB</strong>, bajo el dominio y marca corporativa <strong>economicaweb.cl</strong>. Para cualquier requerimiento legal o consulta formal sobre tus datos, puedes comunicarte al canal exclusivo: <strong>privacidad@economicaweb.cl</strong>.</p>
+        <p>El responsable del tratamiento de los datos recolectados es <strong>AyudaPlan</strong>, bajo el dominio <strong>ayudaplan.cl</strong>. Para cualquier requerimiento legal, consulta formal sobre tus datos o dudas sobre tu asesoría, puedes comunicarte directamente a nuestro canal exclusivo: <strong>contacto@ayudaplan.cl</strong>.</p>
         
         <h2>2. Datos Recolectados y Finalidad</h2>
-        <p>A través de nuestro formulario de "Solicitud de Estudio Landing Page", solicitamos exclusivamente datos técnicos y de contacto comercial para evaluar la viabilidad de tu infraestructura digital. Tu nombre y correo electrónico se utilizan únicamente para procesar y enviar la propuesta formal. No solicitamos RUT ni documentos financieros en esta etapa.</p>
+        <p>A través de nuestro formulario de "Solicitud de Estudio de Isapre", solicitamos exclusivamente datos de contacto y antecedentes previsionales básicos:</p>
+        <ul>
+            <li>Nombre completo</li>
+            <li>Teléfono / WhatsApp</li>
+            <li>Correo electrónico</li>
+            <li>Edad del titular</li>
+            <li>Isapre actual o sistema previsional</li>
+        </ul>
+        <p>La finalidad de estos datos es <strong>estrictamente realizar un análisis y pre-evaluación de tu situación de salud</strong>, para ofrecerte alternativas de mejora en tu cobertura. No solicitamos RUT, claves bancarias ni datos financieros sensibles.</p>
         
-        <h2>3. Cookies y Datos de Navegación</h2>
-        <p>Este sitio web <strong>no utiliza cookies de seguimiento, marketing ni analítica de terceros</strong>. Toda la analítica de red y el procesamiento de direcciones IP se ejecutan estrictamente a nivel de infraestructura técnica mediante la red de <strong>Cloudflare Tunnel</strong>, con el único propósito de mitigar ataques cibernéticos y optimizar los tiempos de carga.</p>
+        <h2>3. Confidencialidad y No Cesión de Datos</h2>
+        <p>Tu información es estrictamente confidencial. <strong>No vendemos, alquilamos ni compartimos tus datos con terceros ajenos a AyudaPlan</strong> sin tu consentimiento explícito, excepto cuando sea requerido por la ley o para la gestión directa de la asesoría previsional que has solicitado con nosotros.</p>
         
         <h2>4. Seguridad y Cifrado de Información</h2>
-        <p>Todo el flujo de datos viaja de forma cifrada bajo protocolo seguro <strong>HTTPS</strong> mediante el túnel seguro de Cloudflare, garantizando un aislamiento técnico para evitar que terceros puedan interceptar tu solicitud.</p>
+        <p>Todo el flujo de datos viaja de forma cifrada bajo protocolo seguro <strong>HTTPS</strong>. Utilizamos servidores seguros y protocolos de encriptación de vanguardia para evitar que terceros no autorizados puedan interceptar, alterar o acceder a tu información personal.</p>
         
         <h2>5. Derechos del Usuario (ARCO)</h2>
-        <p>Conforme a la normativa de protección de datos personales en Chile, eres dueño de tu información. Puedes ejercer en cualquier momento tus derechos de <strong>Acceso, Rectificación, Cancelación y Oposición (ARCO)</strong> escribiendo formalmente desde el correo de tu consulta hacia: <strong>privacidad@economicaweb.cl</strong>.</p>
+        <p>Conforme a la normativa de protección de datos personales en Chile, eres el dueño absoluto de tu información. Puedes ejercer en cualquier momento tus derechos de <strong>Acceso, Rectificación, Cancelación y Oposición (ARCO)</strong> escribiendo formalmente desde el correo de tu consulta hacia: <strong>contacto@ayudaplan.cl</strong>. Responderemos a tu solicitud en un plazo máximo de 15 días hábiles.</p>
 
-        <a href="/" class="btn-volver">← Volver al sitio principal</a>
+        <a href="/" class="btn-volver">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-right:4px;"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+            Volver a la página principal
+        </a>
     </div>
 
 </body>
