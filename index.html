@@ -13,8 +13,10 @@
 <meta property="og:image:secure_url" content="https://ayudaplan.cl/ayudaplan.jpg">
 <meta property="og:image:type" content="image/jpeg">
 
+<!-- FAVICON CONFIGURADO -->
 <link rel="icon" type="image/jpeg" href="/ayudaplan.jpg">
 <link rel="shortcut icon" type="image/jpeg" href="/ayudaplan.jpg">
+<link rel="apple-touch-icon" href="/ayudaplan.jpg">
 
 <meta name="description" content="Asesoría y consultoría de Isapres en Chile. Analizamos tu 7% legal, optimizamos tus excedentes y mejoramos tus coberturas en clínicas sin costo inicial.">
 <meta name="keywords" content="ayudaplan, asesor de isapre, optimizar plan de salud, cotizar isapre chile, excedentes isapre, asesoria previsional chile">
@@ -316,7 +318,7 @@ button,input,textarea,select{font:inherit}
 [data-reveal="magic"].is-visible { opacity: 1; transform: translateY(0) rotateX(0) scale(1); filter: blur(0); }
 
 /* =========================================================================
-   ISAPRES (3D CAROUSEL EN MÓVIL, GRID EN DESKTOP)
+   ISAPRES (3D CAROUSEL EN MÓVIL)
    ========================================================================= */
 .section-brands{position:relative;padding:90px 0 80px;
   background: linear-gradient(180deg, #051324 0%, #0a1f33 50%, #040e18 100%);
@@ -333,7 +335,7 @@ button,input,textarea,select{font:inherit}
   max-width: 1080px;
   margin: 0 auto;
   perspective: 1200px;
-  min-height: 400px; /* Previene saltos de layout */
+  min-height: 400px;
 }
 
 /* Desktop (Default) */
@@ -933,7 +935,7 @@ button,input,textarea,select{font:inherit}
     margin-top: 20px;
   }
   .brands-grid {
-    display: block; /* Sobrescribe flexbox */
+    display: block; 
     position: absolute;
     left: 50%;
     top: 50%;
@@ -953,7 +955,6 @@ button,input,textarea,select{font:inherit}
     transition: opacity 0.4s ease, border-color 0.4s ease;
     pointer-events: none;
     margin: 0;
-    /* Transform controlado por JS */
   }
   .brand-box.is-active {
     opacity: 1;
@@ -963,16 +964,21 @@ button,input,textarea,select{font:inherit}
     border-color: var(--gold) !important;
   }
   
-  /* Acordeón adaptado para caber en la tarjeta 3D */
+  /* Acordeón con scroll interno automático */
   .brand-body {
     display: block;
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.4s ease;
+    -webkit-overflow-scrolling: touch;
   }
   .brand-toggle:checked ~ .brand-body {
-    max-height: 280px;
+    max-height: 320px; /* Más altura para leer todo */
     overflow-y: auto;
+    scrollbar-width: none;
+  }
+  .brand-toggle:checked ~ .brand-body::-webkit-scrollbar {
+    display: none;
   }
   
   .brand-head { padding: 20px; }
@@ -2055,7 +2061,7 @@ form.addEventListener('submit',async e=>{
 });
 
 /* =========================================================================
-   7. CARRUSEL 3D ISAPRES (MÓVIL)
+   7. CARRUSEL 3D ISAPRES (MÓVIL CON AUTO-DESPLIEGUE)
    ========================================================================= */
 const brandsGrid = document.getElementById('brandsGrid');
 const brandCards = Array.from(brandsGrid.querySelectorAll('.brand-box'));
@@ -2071,7 +2077,7 @@ function layoutBrands() {
   if (window.innerWidth <= 768) {
     // Mobile 3D
     const w = brandCards[0].offsetWidth || 290;
-    bRadius = Math.round((w / 2) / Math.tan(Math.PI / brandCards.length)) + 40; // Añadimos padding de separación
+    bRadius = Math.round((w / 2) / Math.tan(Math.PI / brandCards.length)) + 40; 
     
     brandCards.forEach((card, i) => {
       card.style.transform = `rotateY(${i * bStep}deg) translateZ(${bRadius}px)`;
@@ -2081,6 +2087,9 @@ function layoutBrands() {
     // Desktop Grid
     brandCards.forEach(card => {
       card.style.transform = 'none';
+      // Asegurar que se cierren al pasar a desktop
+      const toggle = card.querySelector('.brand-toggle');
+      if (toggle) toggle.checked = false;
     });
     brandsGrid.style.transform = 'none';
   }
@@ -2091,10 +2100,13 @@ function updateBrandActive() {
   if (window.innerWidth <= 768) {
     const activeIdx = ((Math.round(bAngle / bStep) % brandCards.length) + brandCards.length) % brandCards.length;
     brandCards.forEach((card, i) => {
-      card.classList.toggle('is-active', i === activeIdx);
-      if (i !== activeIdx) {
-        const toggle = card.querySelector('.brand-toggle');
-        if (toggle) toggle.checked = false;
+      const isActive = i === activeIdx;
+      card.classList.toggle('is-active', isActive);
+      
+      // AUTO DESPLIEGUE: Si está activa, se abre automáticamente. Si no, se cierra.
+      const toggle = card.querySelector('.brand-toggle');
+      if (toggle) {
+        toggle.checked = isActive;
       }
     });
   } else {
