@@ -216,50 +216,68 @@ button,input,textarea,select{font:inherit}
 @keyframes waveMove{0%{transform:translate3d(-90px,0,0)}100%{transform:translate3d(85px,0,0)}}
 
 /* =========================================================================
-   CALCULADORA DE AHORRO
+   CALCULADORA DE AHORRO (NUEVO DISEÑO ESPECTACULAR)
    ========================================================================= */
 .section-calc{position:relative;padding:0 0 60px;background:var(--white);z-index:10;margin-top:-40px; overflow:hidden;}
 .calc-card{
-  max-width:900px;margin:0 auto;
+  max-width:950px;margin:0 auto;
   background:linear-gradient(145deg,#ffffff 0%,#f8fafc 100%);
-  border-radius:24px;padding:32px;
-  box-shadow: 0 20px 40px -10px rgba(6,22,38,0.1), 0 0 0 1px rgba(255,255,255,0.5);
+  border-radius:24px;padding:40px;
+  box-shadow: 0 20px 40px -10px rgba(6,22,38,0.12), 0 0 0 1px rgba(255,255,255,0.5);
   border:1px solid #e2e8f0;
-  display:flex;flex-wrap:wrap;gap:32px;align-items:center;
+  display:flex;flex-wrap:wrap;gap:40px;align-items:center;
 }
-@media(max-width:768px){.calc-card{flex-direction:column;padding:24px;}}
+@media(max-width:850px){.calc-card{flex-direction:column;padding:24px;gap:24px;}}
 .calc-text{flex:1;min-width:280px;}
-.calc-text h3{font-size:1.8rem;color:var(--ink-800);margin-bottom:12px;line-height:1.2;}
+.calc-text h3{font-size:2rem;color:var(--ink-800);margin-bottom:12px;line-height:1.1;letter-spacing:-.03em;}
 .calc-text p{color:var(--slate-600);font-size:1rem;}
-.calc-interaction{flex:1;min-width:280px;background:#f1f5f9;padding:24px;border-radius:16px;border:1px solid #e2e8f0;}
-.calc-interaction label{display:block;font-weight:700;color:var(--ink-800);margin-bottom:12px;font-size:1rem;}
+.calc-interaction{flex:1.2;min-width:320px;background:#ffffff;padding:28px;border-radius:16px;border:2px solid var(--slate-100); box-shadow: 0 4px 12px rgba(0,0,0,0.03);}
+.calc-interaction label{display:block;font-weight:800;color:var(--ink-800);margin-bottom:12px;font-size:1rem;}
 
-/* ARREGLO DEL SLIDER */
-.slider-wrap{position:relative;margin-bottom:24px;}
-input[type=range] {
-  -webkit-appearance: none; appearance: none; width: 100%; height: 8px;
-  background: #cbd5e1; border-radius: 4px; outline: none; margin: 15px 0;
+/* Input de Moneda */
+.currency-wrap {
+  position: relative; display: flex; align-items: center;
+  background: #f8fafc; border: 2px solid #cbd5e1; border-radius: 12px;
+  padding: 0 16px; transition: all 0.3s ease;
 }
-input[type=range]::-webkit-slider-thumb {
-  -webkit-appearance: none; appearance: none; height: 24px; width: 24px; border-radius: 50%;
-  background: var(--gold); cursor: pointer;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2), 0 0 0 4px rgba(212,175,55,0.2);
-  transition: transform 0.1s; margin-top: -8px;
+.currency-wrap:focus-within {
+  border-color: var(--gold); background: #fff; box-shadow: 0 0 0 4px rgba(212,175,55,0.15);
 }
-input[type=range]::-moz-range-thumb {
-  height: 24px; width: 24px; border-radius: 50%; background: var(--gold); cursor: pointer;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2), 0 0 0 4px rgba(212,175,55,0.2);
+.currency-symbol {
+  font-size: 1.6rem; font-weight: 800; color: var(--slate-400); margin-right: 8px;
 }
-input[type=range]::-webkit-slider-thumb:hover {transform:scale(1.15);}
+.currency-input {
+  border: none; background: transparent; width: 100%; padding: 16px 0;
+  font-size: 1.8rem; font-weight: 800; color: var(--ink-900); outline: none;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+.currency-input::placeholder { color: #cbd5e1; font-weight: 600; }
 
+/* Botones de acceso rápido (Pills) */
+.quick-pay {
+  display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; margin-bottom: 24px;
+}
+.quick-btn {
+  background: #f1f5f9; border: 1px solid #cbd5e1; color: var(--slate-600);
+  padding: 6px 14px; border-radius: 20px; font-size: 0.85rem; font-weight: 700;
+  cursor: pointer; transition: all 0.2s ease;
+}
+.quick-btn:hover, .quick-btn.active {
+  background: linear-gradient(135deg, #fff0bd, #e5c76b); border-color: var(--gold);
+  color: var(--ink-900); transform: translateY(-2px); box-shadow: 0 4px 8px rgba(212,175,55,0.2);
+}
+
+/* Resultados */
 .calc-results{display:flex;justify-content:space-between;gap:16px;border-top:1px dashed #cbd5e1;padding-top:20px;}
-.res-box span{display:block;font-size:.75rem;font-weight:700;color:var(--slate-500);text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px;}
-.res-box strong{font-size:1.4rem;color:var(--ink-800);}
+.res-box span{display:block;font-size:.75rem;font-weight:800;color:var(--slate-500);text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px;}
+.res-box strong{font-size:1.6rem;color:var(--ink-900); font-weight: 800;}
 .res-box.alert strong{color:var(--rose-gold);}
-.calc-result-msg{margin-top:16px;padding:12px;border-radius:8px;font-size:.9rem;font-weight:600;display:none;}
-.calc-result-msg.show{display:block;}
-.calc-result-msg.bad{background:rgba(183,110,121,.1);color:var(--burgundy);border:1px solid rgba(183,110,121,.3);}
-.calc-result-msg.good{background:rgba(15,118,110,.1);color:#0f766e;border:1px solid rgba(15,118,110,.3);}
+.calc-result-msg{margin-top:16px;padding:14px;border-radius:10px;font-size:.9rem;font-weight:600;display:none; line-height: 1.5;}
+.calc-result-msg.show{display:block; animation: fadeIn 0.4s ease;}
+@keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: none; } }
+.calc-result-msg.bad{background:rgba(183,110,121,.08);color:var(--burgundy);border:1px solid rgba(183,110,121,.2);}
+.calc-result-msg.good{background:rgba(15,118,110,.08);color:#0f766e;border:1px solid rgba(15,118,110,.2);}
+.calc-result-msg.expert{background: #f8fafc; color: var(--slate-600); border: 1px solid #cbd5e1; font-size: 0.82rem;}
 
 /* =========================================================================
    ESTADÍSTICAS
@@ -297,14 +315,8 @@ input[type=range]::-webkit-slider-thumb:hover {transform:scale(1.15);}
 [data-reveal="magic"] {opacity: 0; transform: translateY(40px) rotateX(-20deg) scale(0.9); filter: blur(12px); transition: opacity 1s ease, transform 1.2s cubic-bezier(0.2, 0.8, 0.2, 1.2), filter 1s ease; transition-delay: var(--delay, 0s);}
 [data-reveal="magic"].is-visible { opacity: 1; transform: translateY(0) rotateX(0) scale(1); filter: blur(0); }
 
-@media(max-width: 768px) {
-  [data-reveal="3d-left"] {transform: translateY(40px) scale(0.95) !important;}
-  [data-reveal="3d-right"] {transform: translateY(40px) scale(0.95) !important;}
-  [data-reveal="3d-left"].is-visible, [data-reveal="3d-right"].is-visible {transform: translateY(0) scale(1) !important;}
-}
-
 /* =========================================================================
-   ISAPRES (MODO 2 HILERAS DESLIZANTES EN MÓVIL)
+   ISAPRES
    ========================================================================= */
 .section-brands{position:relative;padding:90px 0 80px;
   background: linear-gradient(180deg, #051324 0%, #0a1f33 50%, #040e18 100%);
@@ -315,7 +327,6 @@ input[type=range]::-webkit-slider-thumb:hover {transform:scale(1.15);}
   color:var(--gold-pale);font-size:.72rem;font-weight:800;letter-spacing:.15em;text-transform:uppercase;margin-bottom:18px}
 .section-lead p{font-size:clamp(1rem,1.3vw,1.1rem);color:rgba(203,213,225,.85);line-height:1.7}
 
-/* Desktop: Grid normal */
 .brands-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:24px; perspective: 1200px;}
 
 .brand-box{flex:0 1 320px;min-width:0;position:relative;
@@ -422,11 +433,6 @@ input[type=range]::-webkit-slider-thumb:hover {transform:scale(1.15);}
 }
 .btn-mail:hover{transform:translateY(-5px) scale(1.02); border-color: var(--gold); box-shadow: 0 18px 35px rgba(0,0,0,0.6), 0 0 20px rgba(212,175,55,0.3), inset 0 2px 3px rgba(255,255,255,0.3);}
 
-@media(max-width: 768px) {
-  .contact-card { padding: 40px 20px; border-radius: 20px; }
-  .btn-channel { width: 100%; min-width: auto; }
-}
-
 /* =========================================================================
    FORMULARIO (ESTILO WINDOWS 11 - FLUENT DESIGN)
    ========================================================================= */
@@ -441,7 +447,6 @@ input[type=range]::-webkit-slider-thumb:hover {transform:scale(1.15);}
   background:rgba(14,165,233,.06);border:1px solid rgba(14,165,233,.15);
   font-size:.75rem;font-weight:700;color:var(--ink-800);letter-spacing:.02em}
 
-/* BÓVEDA ESTILO WIN11 */
 .form-card{
   position: relative;
   background: rgba(255, 255, 255, 0.85);
@@ -466,7 +471,6 @@ input[type=range]::-webkit-slider-thumb:hover {transform:scale(1.15);}
     inset 0 1px 0 rgba(255,255,255,1);
 }
 
-/* BARRA DE PROGRESO DEL FORMULARIO (Ahora más gruesa y rosa gold intenso) */
 .form-progress-wrap {
   position: absolute; top: 0; left: 0; right: 0; height: 12px;
   background: #f1f5f9; border-radius: 20px 20px 0 0; overflow: hidden;
@@ -527,7 +531,6 @@ input[type=range]::-webkit-slider-thumb:hover {transform:scale(1.15);}
 @keyframes popIn { 0% { transform: scale(0); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
 .field textarea{resize:vertical;min-height:80px}
 
-/* SELECTOR VISUAL DE ISAPRES */
 .visual-selector { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 6px; }
 @media (max-width: 520px) { .visual-selector { grid-template-columns: repeat(2, 1fr); } }
 .isapre-btn {
@@ -578,7 +581,7 @@ input[type=range]::-webkit-slider-thumb:hover {transform:scale(1.15);}
 .form-result.is-error{display:block;background:rgba(185,28,28,.06);border:1px solid rgba(185,28,28,.2);color:#b91c1c}
 
 /* =========================================================================
-   NOTA LEGAL (Rediseñada estilo Glassmorphism Premium)
+   NOTA LEGAL
    ========================================================================= */
 .section-notice {
   padding: 60px 0;
@@ -889,19 +892,27 @@ input[type=range]::-webkit-slider-thumb:hover {transform:scale(1.15);}
   .hero-subtitle{font-size:.98rem}
   .btn-cta{padding:16px 32px;font-size:.98rem;width:100%;max-width:340px}
 
-  /* =========================================================================
-     AQUÍ ESTÁ LA MAGIA: GRID DE 2 HILERAS DESLIZANTES EN MÓVIL
-     ========================================================================= */
+  [data-reveal="3d-left"], [data-reveal="3d-right"] {
+    transform: translateY(30px) !important;
+    opacity: 0;
+    transition: opacity 0.6s ease, transform 0.6s ease !important;
+  }
+  [data-reveal="3d-left"].is-visible, [data-reveal="3d-right"].is-visible {
+    transform: translateY(0) !important;
+    opacity: 1;
+  }
+
   .brands-grid {
     display: grid !important;
     grid-template-rows: repeat(2, auto);
     grid-auto-flow: column;
-    grid-auto-columns: 80%; /* Cada columna ocupa el 80% para que se vea la siguiente */
+    grid-auto-columns: 85%;
     gap: 16px;
+    padding: 10px 20px 30px;
+    margin: 0;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
-    padding: 8px 24px 24px;
-    margin: 0 -24px;
+    scroll-padding: 0 20px;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
     align-items: start;
@@ -911,22 +922,16 @@ input[type=range]::-webkit-slider-thumb:hover {transform:scale(1.15);}
   .brand-box {
     width: 100% !important;
     max-width: 100% !important;
-    flex: none !important;
     scroll-snap-align: start;
-    margin-bottom: 0;
+    margin: 0;
   }
-  
-  /* Forzamos altura uniforme para las tarjetas cerradas */
-  .brand-box:not(:has(.brand-toggle:checked)) {
-     height: max-content;
-  }
-  /* ========================================================================= */
 
   .services-grid,.who-grid,.why-grid{
     display:flex!important;flex-wrap:nowrap;overflow-x:auto;scroll-snap-type:x mandatory;
-    gap:16px;padding:8px 24px 24px;margin:0 -24px;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+    gap:16px;padding:10px 20px 30px;margin:0;
+    -webkit-overflow-scrolling:touch;scrollbar-width:none;}
   .services-grid::-webkit-scrollbar,.who-grid::-webkit-scrollbar, .why-grid::-webkit-scrollbar{display:none}
-  .service-card,.tarjeta-premium,.why-card{flex:0 0 85%;max-width:85%;scroll-snap-align:center}
+  .service-card,.tarjeta-premium,.why-card{flex:0 0 85%;max-width:85%;scroll-snap-align:start}
 
   .contact-grid{flex-direction:column;align-items:center; justify-content: center;}
   .btn-channel{width:100%;max-width:340px; margin: 0 auto;}
@@ -969,8 +974,10 @@ input[type=range]::-webkit-slider-thumb:hover {transform:scale(1.15);}
   
   .section-calc{margin-top:-20px;padding:0 0 40px;}
   .calc-results{flex-direction:column;gap:12px;text-align:center;}
-  .calc-card { padding: 24px; gap: 24px;}
+  .calc-card { padding: 24px; gap: 24px; align-items: stretch; }
+  .calc-text { text-align: center; }
   .calc-text h3 { font-size: 1.5rem; }
+  .calc-interaction { min-width: 0; width: 100%; padding: 20px; }
 }
 @media(max-width:480px){
   .container{padding:0 18px}
@@ -1055,21 +1062,32 @@ input[type=range]::-webkit-slider-thumb:hover {transform:scale(1.15);}
   <div class="container">
     <div class="calc-card" data-reveal="up">
       <div class="calc-text">
-        <h3>¿Cuánto dinero estás perdiendo?</h3>
-        <p>En Chile, muchos afiliados pagan un plan que no se ajusta a sus necesidades reales. Calcula tu 7% y descubre tu potencial de ahorro.</p>
+        <h3>¿Cuánto estás pagando de más?</h3>
+        <p>En Chile, el 7% de salud es obligatorio, pero muchos pagan planes que no usan. Descubre tu potencial de ahorro mensual.</p>
       </div>
       <div class="calc-interaction">
-        <label for="sueldoInput">Ingresa tu sueldo bruto aproximado:</label>
-        <div class="slider-wrap">
-          <input type="range" id="sueldoInput" min="500000" max="4000000" step="50000" value="1500000">
+        <label for="sueldoInput">Ingresa tu sueldo bruto:</label>
+        
+        <div class="currency-wrap">
+          <span class="currency-symbol">$</span>
+          <input type="text" id="sueldoInput" class="currency-input" placeholder="1.500.000" value="1.500.000" maxlength="12" autocomplete="off">
         </div>
+
+        <!-- Botones de acceso rápido -->
+        <div class="quick-pay">
+          <button type="button" class="quick-btn" data-val="800000">$800K</button>
+          <button type="button" class="quick-btn" data-val="1500000">$1.5M</button>
+          <button type="button" class="quick-btn" data-val="2500000">$2.5M</button>
+          <button type="button" class="quick-btn" data-val="3500000">$3.5M +</button>
+        </div>
+
         <div class="calc-results">
           <div class="res-box">
             <span>Tu 7% Legal</span>
             <strong id="calc7">$105.000</strong>
           </div>
           <div class="res-box alert">
-            <span>Posible ahorro</span>
+            <span>Ahorro estimado</span>
             <strong id="calcSavings">$0</strong>
           </div>
         </div>
@@ -1112,7 +1130,6 @@ input[type=range]::-webkit-slider-thumb:hover {transform:scale(1.15);}
     </div>
 
     <div class="brands-grid">
-      <!-- Alternando 3D izquierda / derecha -->
       <article class="brand-box" data-reveal="3d-left">
         <input type="checkbox" id="toggle-banmedica" class="brand-toggle">
         <label for="toggle-banmedica" class="brand-head">
@@ -1279,7 +1296,6 @@ input[type=range]::-webkit-slider-thumb:hover {transform:scale(1.15);}
       <input type="hidden" name="access_key" value="5f7a6d57-a887-459c-975a-c1215f0f7129">
       <input type="hidden" name="from_name" value="Web AyudaPlan">
       
-      <!-- Barra de Progreso Mejorada -->
       <div class="form-progress-wrap"><div class="form-progress-bar" id="formProgress"></div></div>
 
       <div class="ley-mini">
@@ -1686,41 +1702,86 @@ window.addEventListener('scroll',()=>{
 },{passive:true});
 
 /* =========================================================================
-   1. CALCULADORA DE AHORRO
+   1. CALCULADORA DE AHORRO (LÓGICA AVANZADA CON TOPE IMPONIBLE)
    ========================================================================= */
 const sueldoInput = document.getElementById('sueldoInput');
 const calc7 = document.getElementById('calc7');
 const calcSavings = document.getElementById('calcSavings');
 const calcMsg = document.getElementById('calcMsg');
+const quickBtns = document.querySelectorAll('.quick-btn');
 
+const TOPE_IMPONIBLE = 3200000; // Aprox 81.6 UF
+const PLAN_PROMEDIO = 85000; // Asumimos un costo de plan base
+
+// Formateador de moneda (miles con punto)
 function formatCLP(num) {
   return '$' + num.toLocaleString('es-CL');
 }
 
+// Formatear input en tiempo real
+sueldoInput.addEventListener('input', function(e) {
+  let value = this.value.replace(/\D/g, ''); // Solo números
+  if (value === '') {
+    this.value = '';
+  } else {
+    this.value = parseInt(value, 10).toLocaleString('es-CL');
+  }
+  updateCalc();
+});
+
+// Botones de acceso rápido
+quickBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    quickBtns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    
+    const val = btn.getAttribute('data-val');
+    sueldoInput.value = parseInt(val, 10).toLocaleString('es-CL');
+    updateCalc();
+  });
+});
+
 function updateCalc() {
-  const sueldo = parseInt(sueldoInput.value);
-  const siete = Math.round(sueldo * 0.07);
+  const rawVal = sueldoInput.value.replace(/\D/g, '');
+  let sueldo = parseInt(rawVal, 10);
+
+  if (isNaN(sueldo) || sueldo === 0) {
+    calc7.textContent = '$0';
+    calcSavings.textContent = '$0';
+    calcMsg.className = 'calc-result-msg';
+    return;
+  }
+
+  let baseCalculo = sueldo;
+  let msgExtra = '';
   
-  const planPromedio = 110000; 
+  // Lógica del Tope Imponible
+  if (sueldo > TOPE_IMPONIBLE) {
+    baseCalculo = TOPE_IMPONIBLE;
+    msgExtra = `<br><br><span style="font-size:0.8rem; color:#64748b; display:flex; gap:6px; align-items:flex-start;"><svg style="width:16px;height:16px;flex-shrink:0;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg> <b>Nota Experta:</b> El 7% legal tiene un tope imponible (aprox $3.2M). Tu pago obligatorio se calcula sobre ese tope, no sobre el total de tu sueldo.</span>`;
+  }
+
+  const siete = Math.round(baseCalculo * 0.07);
+  
+  // Calcular ahorro (si el 7% es mayor al plan promedio)
   let ahorro = 0;
-  
-  if (siete > planPromedio) {
-    ahorro = siete - planPromedio;
+  if (siete > PLAN_PROMEDIO) {
+    ahorro = siete - PLAN_PROMEDIO;
     calcMsg.className = 'calc-result-msg bad show';
-    calcMsg.innerHTML = `💸 Estás pagando <strong>$${ahorro.toLocaleString('es-CL')} de más</strong> al mes. Con AyudaPlan puedes optimizar tu 7% y destinar ese dinero a tu familia.`;
+    calcMsg.innerHTML = `💸 Pagas <strong>$${ahorro.toLocaleString('es-CL')} de más</strong> al mes respecto al plan promedio. Con AyudaPlan puedes optimizar tu 7% y destinar ese dinero a tu familia.` + msgExtra;
   } else {
     ahorro = 0;
     calcMsg.className = 'calc-result-msg good show';
-    calcMsg.innerHTML = `✅ Tu 7% está en un rango bajo. Un asesor puede verificar si tu cobertura es suficiente o si necesitas un plan con más beneficios.`;
+    calcMsg.innerHTML = `✅ Tu 7% está en un rango bajo. Un asesor puede verificar si tu cobertura es suficiente o si necesitas un plan con más beneficios.` + msgExtra;
   }
 
   calc7.textContent = formatCLP(siete);
   calcSavings.textContent = formatCLP(ahorro);
 }
 
-if (sueldoInput) {
-  sueldoInput.addEventListener('input', updateCalc);
-  updateCalc(); 
+// Inicializar al cargar
+if (sueldoInput.value) {
+  updateCalc();
 }
 
 /* =========================================================================
