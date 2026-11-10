@@ -216,7 +216,7 @@ button,input,textarea,select{font:inherit}
 @keyframes waveMove{0%{transform:translate3d(-90px,0,0)}100%{transform:translate3d(85px,0,0)}}
 
 /* =========================================================================
-   CALCULADORA DE AHORRO (NUEVO DISEÑO ESPECTACULAR)
+   CALCULADORA DE AHORRO
    ========================================================================= */
 .section-calc{position:relative;padding:0 0 60px;background:var(--white);z-index:10;margin-top:-40px; overflow:hidden;}
 .calc-card{
@@ -316,7 +316,7 @@ button,input,textarea,select{font:inherit}
 [data-reveal="magic"].is-visible { opacity: 1; transform: translateY(0) rotateX(0) scale(1); filter: blur(0); }
 
 /* =========================================================================
-   ISAPRES
+   ISAPRES (3D CAROUSEL EN MÓVIL, GRID EN DESKTOP)
    ========================================================================= */
 .section-brands{position:relative;padding:90px 0 80px;
   background: linear-gradient(180deg, #051324 0%, #0a1f33 50%, #040e18 100%);
@@ -327,63 +327,97 @@ button,input,textarea,select{font:inherit}
   color:var(--gold-pale);font-size:.72rem;font-weight:800;letter-spacing:.15em;text-transform:uppercase;margin-bottom:18px}
 .section-lead p{font-size:clamp(1rem,1.3vw,1.1rem);color:rgba(203,213,225,.85);line-height:1.7}
 
-.brands-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:24px; perspective: 1200px;}
+/* Contenedor del Carrusel 3D */
+.brands-stage {
+  position: relative;
+  max-width: 1080px;
+  margin: 0 auto;
+  perspective: 1200px;
+  min-height: 400px; /* Previene saltos de layout */
+}
 
-.brand-box{flex:0 1 320px;min-width:0;position:relative;
+/* Desktop (Default) */
+.brands-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+  transform-style: preserve-3d;
+  transition: transform 0.75s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.brand-box {
+  flex: 0 1 320px;
+  min-width: 0;
+  position: relative;
   background: linear-gradient(145deg, #102946 0%, #0c2036 100%);
-  border:1px solid rgba(255,255,255,.12);border-radius:var(--r-lg);overflow:hidden;
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: var(--r-lg);
+  overflow: hidden;
   box-shadow: 0 10px 30px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.1);
   transition: transform 0.3s ease, border-color .4s, box-shadow 0.5s; 
-  will-change:transform; transform-style: preserve-3d;}
-  
-.brand-box::before{content:"";position:absolute;top:0;left:20px;right:20px;height:3px;
-  background:linear-gradient(90deg,transparent,var(--rose-gold),var(--gold),var(--rose-gold),transparent);
-  opacity:0.8;pointer-events:none;z-index:2; transition: height 0.3s;}
-  
-.brand-box:hover, .brand-box:has(.brand-toggle:checked){
+  will-change: transform;
+  transform-style: preserve-3d;
+}
+.brand-box::before {
+  content: ""; position: absolute; top: 0; left: 20px; right: 20px; height: 3px;
+  background: linear-gradient(90deg, transparent, var(--rose-gold), var(--gold), var(--rose-gold), transparent);
+  opacity: 0.8; pointer-events: none; z-index: 2; transition: height 0.3s;
+}
+.brand-box:hover, .brand-box:has(.brand-toggle:checked) {
   border-color: var(--gold);
   border-left: 4px solid var(--rose-gold);
   box-shadow: 0 30px 60px -15px rgba(0,0,0,0.6), 0 0 30px rgba(212,175,55,0.15), inset 0 1px 0 rgba(255,255,255,0.2);
   background: linear-gradient(145deg, #143054 0%, #0f2943 100%);
   transform: translateY(-5px);
 }
-.brand-box:hover::before, .brand-box:has(.brand-toggle:checked)::before{height: 4px;}
+.brand-box:hover::before, .brand-box:has(.brand-toggle:checked)::before { height: 4px; }
 
-.brand-toggle{position:absolute;opacity:0;pointer-events:none}
-.brand-head{display:flex;align-items:center;justify-content:space-between;gap:14px;
-  padding:24px 26px;cursor:pointer;user-select:none;transition:background .35s;position:relative;z-index:3}
-.brand-head:hover{background:rgba(255,255,255,.03)}
-.brand-id{display:flex;align-items:center;gap:16px;min-width:0}
+.brand-toggle { position: absolute; opacity: 0; pointer-events: none; }
+.brand-head {
+  display: flex; align-items: center; justify-content: space-between; gap: 14px;
+  padding: 24px 26px; cursor: pointer; user-select: none; transition: background .35s;
+  position: relative; z-index: 3;
+}
+.brand-head:hover { background: rgba(255,255,255,.03); }
+.brand-id { display: flex; align-items: center; gap: 16px; min-width: 0; }
 
-.brand-icon{flex-shrink:0;width:48px;height:48px;display:inline-flex;align-items:center;justify-content:center;
-  border-radius:14px;font-size:1.5rem;
-  background:linear-gradient(135deg,rgba(255,255,255,0.1),rgba(255,255,255,0.03));
-  border:1px solid rgba(255,255,255,.15); box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-  transition:transform .5s var(--ease-bounce),border-color .35s, box-shadow .35s}
-.brand-box:hover .brand-icon{transform:scale(1.1);border-color:rgba(212,175,55,.6); box-shadow: 0 6px 15px rgba(212,175,55,0.2);}
+.brand-icon {
+  flex-shrink: 0; width: 48px; height: 48px;
+  display: inline-flex; align-items: center; justify-content: center;
+  border-radius: 14px; font-size: 1.5rem;
+  background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.03));
+  border: 1px solid rgba(255,255,255,.15); box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  transition: transform .5s var(--ease-bounce), border-color .35s, box-shadow .35s;
+}
+.brand-box:hover .brand-icon { transform: scale(1.1); border-color: rgba(212,175,55,.6); box-shadow: 0 6px 15px rgba(212,175,55,0.2); }
 
-.brand-name{display:flex;flex-direction:column;gap:4px;min-width:0}
-.brand-name strong{font-size:1.1rem;font-weight:800;letter-spacing:.02em;color:#ffffff}
-.brand-name small{font-size:.8rem;font-weight:500;color:rgba(203,213,225,.8);letter-spacing:.02em}
+.brand-name { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.brand-name strong { font-size: 1.1rem; font-weight: 800; letter-spacing: .02em; color: #ffffff; }
+.brand-name small { font-size: .8rem; font-weight: 500; color: rgba(203,213,225,.8); letter-spacing: .02em; }
 
-.brand-plus{flex-shrink:0;width:36px;height:36px;display:inline-flex;align-items:center;justify-content:center;
-  border-radius:50%;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.05);
-  color:var(--gold-light);font-size:1.2rem;font-weight:700;
-  transition:transform .45s var(--ease-bounce),background .35s,border-color .35s,color .35s}
+.brand-plus {
+  flex-shrink: 0; width: 36px; height: 36px;
+  display: inline-flex; align-items: center; justify-content: center;
+  border-radius: 50%; border: 1px solid rgba(255,255,255,.2); background: rgba(255,255,255,.05);
+  color: var(--gold-light); font-size: 1.2rem; font-weight: 700;
+  transition: transform .45s var(--ease-bounce), background .35s, border-color .35s, color .35s;
+}
 .brand-box:hover .brand-plus { background: var(--gold); color: var(--ink-900); border-color: var(--gold); }
 
-.brand-body{display:grid;grid-template-rows:0fr;transition:grid-template-rows .5s var(--ease);position:relative;z-index:3}
-.brand-body>div{overflow:hidden}
-.brand-body p{padding:0 26px 26px;font-size:.92rem;line-height:1.7;color:rgba(203,213,225,.9)}
-.brand-body p strong{display:inline;color:var(--gold-light);font-weight:800}
-.brand-body br{line-height:2}
+.brand-body { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .5s var(--ease); position: relative; z-index: 3; }
+.brand-body > div { overflow: hidden; }
+.brand-body p { padding: 0 26px 26px; font-size: .92rem; line-height: 1.7; color: rgba(203,213,225,.9); }
+.brand-body p strong { display: inline; color: var(--gold-light); font-weight: 800; }
+.brand-body br { line-height: 2; }
 
-.brand-toggle:checked~.brand-body{grid-template-rows:1fr}
-.brand-toggle:checked~.brand-head .brand-plus{transform:rotate(135deg);
-  background:var(--gold);border-color:var(--gold);color:var(--ink-900)}
+.brand-toggle:checked ~ .brand-body { grid-template-rows: 1fr; }
+.brand-toggle:checked ~ .brand-head .brand-plus { transform: rotate(135deg); background: var(--gold); border-color: var(--gold); color: var(--ink-900); }
+
+/* Ocultar flechas en escritorio */
+.brands-arrow { display: none; }
 
 /* =========================================================================
-   CONTACTO (REDISEÑADO PREMIUM)
+   CONTACTO
    ========================================================================= */
 .section-contact{
   padding:100px 0; position: relative; overflow: hidden;
@@ -874,7 +908,7 @@ button,input,textarea,select{font:inherit}
 @keyframes pulseWA { 0% { transform: scale(1); opacity: 0.7; } 100% { transform: scale(1.5); opacity: 0; } }
 
 /* =========================================================================
-   RESPONSIVE (ARREGLADO PARA MÓVIL, 2 HILERAS DESLIZANTES)
+   RESPONSIVE (MÓVIL 3D CAROUSEL)
    ========================================================================= */
 @media(max-width:960px){
   .carousel{padding-bottom:58%}
@@ -892,39 +926,81 @@ button,input,textarea,select{font:inherit}
   .hero-subtitle{font-size:.98rem}
   .btn-cta{padding:16px 32px;font-size:.98rem;width:100%;max-width:340px}
 
-  [data-reveal="3d-left"], [data-reveal="3d-right"] {
-    transform: translateY(30px) !important;
-    opacity: 0;
-    transition: opacity 0.6s ease, transform 0.6s ease !important;
+  /* 3D CAROUSEL PARA ISAPRES */
+  .brands-stage {
+    height: 480px;
+    overflow: hidden;
+    margin-top: 20px;
   }
-  [data-reveal="3d-left"].is-visible, [data-reveal="3d-right"].is-visible {
-    transform: translateY(0) !important;
-    opacity: 1;
-  }
-
   .brands-grid {
-    display: grid !important;
-    grid-template-rows: repeat(2, auto);
-    grid-auto-flow: column;
-    grid-auto-columns: 85%;
-    gap: 16px;
-    padding: 10px 20px 30px;
-    margin: 0;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    scroll-padding: 0 20px;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    align-items: start;
+    display: block; /* Sobrescribe flexbox */
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 290px;
+    height: 400px;
+    margin-left: -145px;
+    margin-top: -200px;
+    gap: 0;
   }
-  .brands-grid::-webkit-scrollbar { display: none; }
-  
   .brand-box {
-    width: 100% !important;
-    max-width: 100% !important;
-    scroll-snap-align: start;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    flex: none;
+    opacity: 0.3;
+    transition: opacity 0.4s ease, border-color 0.4s ease;
+    pointer-events: none;
     margin: 0;
+    /* Transform controlado por JS */
   }
+  .brand-box.is-active {
+    opacity: 1;
+    pointer-events: auto;
+    z-index: 10;
+    box-shadow: 0 30px 60px -15px rgba(0,0,0,0.6), 0 0 30px rgba(212,175,55,0.15), inset 0 1px 0 rgba(255,255,255,0.2) !important;
+    border-color: var(--gold) !important;
+  }
+  
+  /* Acordeón adaptado para caber en la tarjeta 3D */
+  .brand-body {
+    display: block;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+  }
+  .brand-toggle:checked ~ .brand-body {
+    max-height: 280px;
+    overflow-y: auto;
+  }
+  
+  .brand-head { padding: 20px; }
+
+  /* Flechas móviles */
+  .brands-arrow {
+    display: flex;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(15,43,72,.92);
+    color: #fff;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    z-index: 20;
+    border: 1px solid rgba(255,255,255,.2);
+    cursor: pointer;
+    padding: 0;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  }
+  .brands-arrow.prev { left: 5px; }
+  .brands-arrow.next { right: 5px; }
+  .brands-arrow:active { background: var(--brand-blue); }
 
   .services-grid,.who-grid,.why-grid{
     display:flex!important;flex-wrap:nowrap;overflow-x:auto;scroll-snap-type:x mandatory;
@@ -1129,129 +1205,138 @@ button,input,textarea,select{font:inherit}
       <p>Analizamos, comparamos y cotizamos tu plan de salud con las principales instituciones del país.</p>
     </div>
 
-    <div class="brands-grid">
-      <article class="brand-box" data-reveal="3d-left">
-        <input type="checkbox" id="toggle-banmedica" class="brand-toggle">
-        <label for="toggle-banmedica" class="brand-head">
-          <div class="brand-id">
-            <span class="brand-icon" aria-hidden="true">🏥</span>
-            <span class="brand-name"><strong>Banmédica</strong><small>Red Dávila · Vidaintegra</small></span>
-          </div>
-          <span class="brand-plus" aria-hidden="true">+</span>
-        </label>
-        <div class="brand-body"><div><p>
-          <strong>Fortaleza:</strong> Una de las redes de salud integradas más grandes y estables dentro de todo el país, con planes preferentes y cerrados.<br><br>
-          <strong>Clínicas:</strong> Cobertura masiva y excelente conectividad en Clínica Santa María, Red Dávila y centros médicos Vidaintegra.<br><br>
-          <strong>Beneficios:</strong> Alianzas con beneficios complementarios sin costo, asistencia en viajes y coberturas adicionales gratuitas según el plan.<br><br>
-          <strong>Plan Dental:</strong> Complementa tu cobertura con un plan dental adicional para asegurar la sonrisa de toda tu familia.
-        </p></div></div>
-      </article>
+    <!-- CONTENEDOR DEL CARRUSEL 3D -->
+    <div class="brands-stage">
+      <button class="brands-arrow prev" id="brandPrev" aria-label="Anterior">‹</button>
+      
+      <div class="brands-grid" id="brandsGrid">
+        
+        <article class="brand-box" data-reveal="3d-left">
+          <input type="checkbox" id="toggle-banmedica" class="brand-toggle">
+          <label for="toggle-banmedica" class="brand-head">
+            <div class="brand-id">
+              <span class="brand-icon" aria-hidden="true">🏥</span>
+              <span class="brand-name"><strong>Banmédica</strong><small>Red Dávila · Vidaintegra</small></span>
+            </div>
+            <span class="brand-plus" aria-hidden="true">+</span>
+          </label>
+          <div class="brand-body"><div><p>
+            <strong>Fortaleza:</strong> Una de las redes de salud integradas más grandes y estables dentro de todo el país, con planes preferentes y cerrados.<br><br>
+            <strong>Clínicas:</strong> Cobertura masiva y excelente conectividad en Clínica Santa María, Red Dávila y centros médicos Vidaintegra.<br><br>
+            <strong>Beneficios:</strong> Alianzas con beneficios complementarios sin costo, asistencia en viajes y coberturas adicionales gratuitas según el plan.<br><br>
+            <strong>Plan Dental:</strong> Complementa tu cobertura con un plan dental adicional para asegurar la sonrisa de toda tu familia.
+          </p></div></div>
+        </article>
 
-      <article class="brand-box is-gold" data-reveal="3d-right">
-        <input type="checkbox" id="toggle-colmena" class="brand-toggle">
-        <label for="toggle-colmena" class="brand-head">
-          <div class="brand-id">
-            <span class="brand-icon" aria-hidden="true">🐝</span>
-            <span class="brand-name">
-              <strong>Colmena</strong>
-              <small>Líder en Salud Integral y Cobertura</small>
-            </span>
-          </div>
-          <span class="brand-plus" aria-hidden="true">+</span>
-        </label>
-        <div class="brand-body"><div><p>
-          <strong>Fortaleza:</strong> Reconocida por su sólida protección familiar, programas vanguardistas de medicina preventiva y acceso directo a la red de salud más prestigiosa del país.<br><br>
-          <strong>Clínicas:</strong> Rendimiento y bonificación excepcional en UC Christus, Clínica Alemana, Clínica Indisa y Clínica Las Condes.<br><br>
-          <strong>Beneficios:</strong> Cobertura del 100% en exámenes preventivos anuales, robusta cartola de Beneficios Complementarios costo cero, telemedicina resolutiva inmediata y descuentos farmacéuticos premium.<br><br>
-          <strong>Plan Dental:</strong> Protección integral con un plan dental complementario rápido de contratar.
-        </p></div></div>
-      </article>
+        <article class="brand-box is-gold" data-reveal="3d-right">
+          <input type="checkbox" id="toggle-colmena" class="brand-toggle">
+          <label for="toggle-colmena" class="brand-head">
+            <div class="brand-id">
+              <span class="brand-icon" aria-hidden="true">🐝</span>
+              <span class="brand-name">
+                <strong>Colmena</strong>
+                <small>Líder en Salud Integral y Cobertura</small>
+              </span>
+            </div>
+            <span class="brand-plus" aria-hidden="true">+</span>
+          </label>
+          <div class="brand-body"><div><p>
+            <strong>Fortaleza:</strong> Reconocida por su sólida protección familiar, programas vanguardistas de medicina preventiva y acceso directo a la red de salud más prestigiosa del país.<br><br>
+            <strong>Clínicas:</strong> Rendimiento y bonificación excepcional en UC Christus, Clínica Alemana, Clínica Indisa y Clínica Las Condes.<br><br>
+            <strong>Beneficios:</strong> Cobertura del 100% en exámenes preventivos anuales, robusta cartola de Beneficios Complementarios costo cero, telemedicina resolutiva inmediata y descuentos farmacéuticos premium.<br><br>
+            <strong>Plan Dental:</strong> Protección integral con un plan dental complementario rápido de contratar.
+          </p></div></div>
+        </article>
 
-      <article class="brand-box" data-reveal="3d-left">
-        <input type="checkbox" id="toggle-consalud" class="brand-toggle">
-        <label for="toggle-consalud" class="brand-head">
-          <div class="brand-id">
-            <span class="brand-icon" aria-hidden="true">🏥</span>
-            <span class="brand-name"><strong>Consalud</strong><small>RedSalud · Cobertura nacional</small></span>
-          </div>
-          <span class="brand-plus" aria-hidden="true">+</span>
-        </label>
-        <div class="brand-body"><div><p>
-          <strong>Fortaleza:</strong> Amplia presencia territorial y una excelente gama de planes cerrados y preferentes ideales para coberturas inteligentes a nivel regional y nacional.<br><br>
-          <strong>Clínicas:</strong> Cobertura total y convenios sumamente fuertes en toda la red de centros médicos y clínicas RedSalud.<br><br>
-          <strong>Beneficios:</strong> Beneficios complementarios gratuitos, acceso preferencial a telemedicina, descuentos en medicamentos y programa "Camina Conmigo" de acompañamiento.<br><br>
-          <strong>Plan Dental:</strong> Aprovecha los mejores convenios a nivel nacional y obtén aranceles preferenciales.
-        </p></div></div>
-      </article>
+        <article class="brand-box" data-reveal="3d-left">
+          <input type="checkbox" id="toggle-consalud" class="brand-toggle">
+          <label for="toggle-consalud" class="brand-head">
+            <div class="brand-id">
+              <span class="brand-icon" aria-hidden="true">🏥</span>
+              <span class="brand-name"><strong>Consalud</strong><small>RedSalud · Cobertura nacional</small></span>
+            </div>
+            <span class="brand-plus" aria-hidden="true">+</span>
+          </label>
+          <div class="brand-body"><div><p>
+            <strong>Fortaleza:</strong> Amplia presencia territorial y una excelente gama de planes cerrados y preferentes ideales para coberturas inteligentes a nivel regional y nacional.<br><br>
+            <strong>Clínicas:</strong> Cobertura total y convenios sumamente fuertes en toda la red de centros médicos y clínicas RedSalud.<br><br>
+            <strong>Beneficios:</strong> Beneficios complementarios gratuitos, acceso preferencial a telemedicina, descuentos en medicamentos y programa "Camina Conmigo" de acompañamiento.<br><br>
+            <strong>Plan Dental:</strong> Aprovecha los mejores convenios a nivel nacional y obtén aranceles preferenciales.
+          </p></div></div>
+        </article>
 
-      <article class="brand-box" data-reveal="3d-right">
-        <input type="checkbox" id="toggle-cruzblanca" class="brand-toggle">
-        <label for="toggle-cruzblanca" class="brand-head">
-          <div class="brand-id">
-            <span class="brand-icon" aria-hidden="true">🏥</span>
-            <span class="brand-name"><strong>Cruz Blanca</strong><small>Bupa · Integramédica</small></span>
-          </div>
-          <span class="brand-plus" aria-hidden="true">+</span>
-        </label>
-        <div class="brand-body"><div><p>
-          <strong>Fortaleza:</strong> Respaldo internacional de primer nivel, solidez financiera y especialista en planes cerrados para optimizar tus costos, además de sus planes preferentes.<br><br>
-          <strong>Clínicas:</strong> Convenios preferenciales y máxima eficiencia en Clínica Bupa, centros Integramédica y una plataforma digital muy amigable.<br><br>
-          <strong>Beneficios:</strong> Descuentos preferenciales en farmacias, programas preventivos costo cero y beneficios complementarios gratuitos en tu plan.<br><br>
-          <strong>Plan Dental:</strong> Disfruta de una cobertura integral; contrata tu plan dental junto con tu plan de salud.
-        </p></div></div>
-      </article>
+        <article class="brand-box" data-reveal="3d-right">
+          <input type="checkbox" id="toggle-cruzblanca" class="brand-toggle">
+          <label for="toggle-cruzblanca" class="brand-head">
+            <div class="brand-id">
+              <span class="brand-icon" aria-hidden="true">🏥</span>
+              <span class="brand-name"><strong>Cruz Blanca</strong><small>Bupa · Integramédica</small></span>
+            </div>
+            <span class="brand-plus" aria-hidden="true">+</span>
+          </label>
+          <div class="brand-body"><div><p>
+            <strong>Fortaleza:</strong> Respaldo internacional de primer nivel, solidez financiera y especialista en planes cerrados para optimizar tus costos, además de sus planes preferentes.<br><br>
+            <strong>Clínicas:</strong> Convenios preferenciales y máxima eficiencia en Clínica Bupa, centros Integramédica y una plataforma digital muy amigable.<br><br>
+            <strong>Beneficios:</strong> Descuentos preferenciales en farmacias, programas preventivos costo cero y beneficios complementarios gratuitos en tu plan.<br><br>
+            <strong>Plan Dental:</strong> Disfruta de una cobertura integral; contrata tu plan dental junto con tu plan de salud.
+          </p></div></div>
+        </article>
 
-      <article class="brand-box" data-reveal="3d-left">
-        <input type="checkbox" id="toggle-esencial" class="brand-toggle">
-        <label for="toggle-esencial" class="brand-head">
-          <div class="brand-id">
-            <span class="brand-icon" aria-hidden="true">🏥</span>
-            <span class="brand-name"><strong>Esencial</strong><small>Grupo Alemana · Tecnología</small></span>
-          </div>
-          <span class="brand-plus" aria-hidden="true">+</span>
-        </label>
-        <div class="brand-body"><div><p>
-          <strong>Fortaleza:</strong> Innovación tecnológica, modernidad y el respaldo directo del prestigioso Grupo Alemana.<br><br>
-          <strong>Clínicas:</strong> Vínculo preferencial, accesos exclusivos y máxima cobertura en Clínica Alemana de Santiago, además de alianzas con RedSalud.<br><br>
-          <strong>Beneficios:</strong> Chequeo médico preventivo 100% gratuito en Clínica Alemana, telemedicina preferente y descuentos en Salcobrand y RedSalud Dental.<br><br>
-          <strong>Plan Dental:</strong> Suma máxima protección con tecnología y especialistas de primer nivel.
-        </p></div></div>
-      </article>
+        <article class="brand-box" data-reveal="3d-left">
+          <input type="checkbox" id="toggle-esencial" class="brand-toggle">
+          <label for="toggle-esencial" class="brand-head">
+            <div class="brand-id">
+              <span class="brand-icon" aria-hidden="true">🏥</span>
+              <span class="brand-name"><strong>Esencial</strong><small>Grupo Alemana · Tecnología</small></span>
+            </div>
+            <span class="brand-plus" aria-hidden="true">+</span>
+          </label>
+          <div class="brand-body"><div><p>
+            <strong>Fortaleza:</strong> Innovación tecnológica, modernidad y el respaldo directo del prestigioso Grupo Alemana.<br><br>
+            <strong>Clínicas:</strong> Vínculo preferencial, accesos exclusivos y máxima cobertura en Clínica Alemana de Santiago, además de alianzas con RedSalud.<br><br>
+            <strong>Beneficios:</strong> Chequeo médico preventivo 100% gratuito en Clínica Alemana, telemedicina preferente y descuentos en Salcobrand y RedSalud Dental.<br><br>
+            <strong>Plan Dental:</strong> Suma máxima protección con tecnología y especialistas de primer nivel.
+          </p></div></div>
+        </article>
 
-      <article class="brand-box" data-reveal="3d-right">
-        <input type="checkbox" id="toggle-masvida" class="brand-toggle">
-        <label for="toggle-masvida" class="brand-head">
-          <div class="brand-id">
-            <span class="brand-icon" aria-hidden="true">🏥</span>
-            <span class="brand-name"><strong>Masvida</strong><small>Indisa · Bupa Santiago</small></span>
-          </div>
-          <span class="brand-plus" aria-hidden="true">+</span>
-        </label>
-        <div class="brand-body"><div><p>
-          <strong>Fortaleza:</strong> Flexibilidad y solidez en hospitalización y urgencias, diseñado para darte acceso inmediato a la medicina de vanguardia.<br><br>
-          <strong>Clínicas:</strong> Excelente funcionamiento en Clínica Indisa y Clínica Bupa Santiago con coberturas de alta gama.<br><br>
-          <strong>Beneficios:</strong> Acceso a beneficios complementarios sin costo adicional, telemedicina incluida y promociones en ópticas.<br><br>
-          <strong>Plan Dental:</strong> No descuides tu salud bucal; contrata tu plan dental con excelentes descuentos.
-        </p></div></div>
-      </article>
+        <article class="brand-box" data-reveal="3d-right">
+          <input type="checkbox" id="toggle-masvida" class="brand-toggle">
+          <label for="toggle-masvida" class="brand-head">
+            <div class="brand-id">
+              <span class="brand-icon" aria-hidden="true">🏥</span>
+              <span class="brand-name"><strong>Masvida</strong><small>Indisa · Bupa Santiago</small></span>
+            </div>
+            <span class="brand-plus" aria-hidden="true">+</span>
+          </label>
+          <div class="brand-body"><div><p>
+            <strong>Fortaleza:</strong> Flexibilidad y solidez en hospitalización y urgencias, diseñado para darte acceso inmediato a la medicina de vanguardia.<br><br>
+            <strong>Clínicas:</strong> Excelente funcionamiento en Clínica Indisa y Clínica Bupa Santiago con coberturas de alta gama.<br><br>
+            <strong>Beneficios:</strong> Acceso a beneficios complementarios sin costo adicional, telemedicina incluida y promociones en ópticas.<br><br>
+            <strong>Plan Dental:</strong> No descuides tu salud bucal; contrata tu plan dental con excelentes descuentos.
+          </p></div></div>
+        </article>
 
-      <article class="brand-box" data-reveal="3d-left">
-        <input type="checkbox" id="toggle-vidatres" class="brand-toggle">
-        <label for="toggle-vidatres" class="brand-head">
-          <div class="brand-id">
-            <span class="brand-icon" aria-hidden="true">🏥</span>
-            <span class="brand-name"><strong>Vida Tres</strong><small>Alta complejidad médica</small></span>
-          </div>
-          <span class="brand-plus" aria-hidden="true">+</span>
-        </label>
-        <div class="brand-body"><div><p>
-          <strong>Fortaleza:</strong> Coberturas de alta complejidad, excelencia médica y orientación a la salud de primer nivel.<br><br>
-          <strong>Clínicas:</strong> Clínica Santa María, Red Dávila, Clínica Las Condes y UC Christus.<br><br>
-          <strong>Beneficios:</strong> Chequeos preventivos anuales costo cero, programas de bienestar exclusivos y descuentos permanentes en farmacias asociadas.<br><br>
-          <strong>Plan Dental:</strong> Complementa tu cobertura con un plan dental adicional para toda la familia.
-        </p></div></div>
-      </article>
+        <article class="brand-box" data-reveal="3d-left">
+          <input type="checkbox" id="toggle-vidatres" class="brand-toggle">
+          <label for="toggle-vidatres" class="brand-head">
+            <div class="brand-id">
+              <span class="brand-icon" aria-hidden="true">🏥</span>
+              <span class="brand-name"><strong>Vida Tres</strong><small>Alta complejidad médica</small></span>
+            </div>
+            <span class="brand-plus" aria-hidden="true">+</span>
+          </label>
+          <div class="brand-body"><div><p>
+            <strong>Fortaleza:</strong> Coberturas de alta complejidad, excelencia médica y orientación a la salud de primer nivel.<br><br>
+            <strong>Clínicas:</strong> Clínica Santa María, Red Dávila, Clínica Las Condes y UC Christus.<br><br>
+            <strong>Beneficios:</strong> Chequeos preventivos anuales costo cero, programas de bienestar exclusivos y descuentos permanentes en farmacias asociadas.<br><br>
+            <strong>Plan Dental:</strong> Complementa tu cobertura con un plan dental adicional para toda la familia.
+          </p></div></div>
+        </article>
+
+      </div>
+      <button class="brands-arrow next" id="brandNext" aria-label="Siguiente">›</button>
     </div>
+
   </div>
 </section>
 
@@ -1702,7 +1787,7 @@ window.addEventListener('scroll',()=>{
 },{passive:true});
 
 /* =========================================================================
-   1. CALCULADORA DE AHORRO (LÓGICA AVANZADA CON TOPE IMPONIBLE)
+   1. CALCULADORA DE AHORRO
    ========================================================================= */
 const sueldoInput = document.getElementById('sueldoInput');
 const calc7 = document.getElementById('calc7');
@@ -1710,17 +1795,15 @@ const calcSavings = document.getElementById('calcSavings');
 const calcMsg = document.getElementById('calcMsg');
 const quickBtns = document.querySelectorAll('.quick-btn');
 
-const TOPE_IMPONIBLE = 3200000; // Aprox 81.6 UF
-const PLAN_PROMEDIO = 85000; // Asumimos un costo de plan base
+const TOPE_IMPONIBLE = 3200000; 
+const PLAN_PROMEDIO = 85000; 
 
-// Formateador de moneda (miles con punto)
 function formatCLP(num) {
   return '$' + num.toLocaleString('es-CL');
 }
 
-// Formatear input en tiempo real
 sueldoInput.addEventListener('input', function(e) {
-  let value = this.value.replace(/\D/g, ''); // Solo números
+  let value = this.value.replace(/\D/g, '');
   if (value === '') {
     this.value = '';
   } else {
@@ -1729,7 +1812,6 @@ sueldoInput.addEventListener('input', function(e) {
   updateCalc();
 });
 
-// Botones de acceso rápido
 quickBtns.forEach(btn => {
   btn.addEventListener('click', () => {
     quickBtns.forEach(b => b.classList.remove('active'));
@@ -1755,7 +1837,6 @@ function updateCalc() {
   let baseCalculo = sueldo;
   let msgExtra = '';
   
-  // Lógica del Tope Imponible
   if (sueldo > TOPE_IMPONIBLE) {
     baseCalculo = TOPE_IMPONIBLE;
     msgExtra = `<br><br><span style="font-size:0.8rem; color:#64748b; display:flex; gap:6px; align-items:flex-start;"><svg style="width:16px;height:16px;flex-shrink:0;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg> <b>Nota Experta:</b> El 7% legal tiene un tope imponible (aprox $3.2M). Tu pago obligatorio se calcula sobre ese tope, no sobre el total de tu sueldo.</span>`;
@@ -1763,7 +1844,6 @@ function updateCalc() {
 
   const siete = Math.round(baseCalculo * 0.07);
   
-  // Calcular ahorro (si el 7% es mayor al plan promedio)
   let ahorro = 0;
   if (siete > PLAN_PROMEDIO) {
     ahorro = siete - PLAN_PROMEDIO;
@@ -1779,7 +1859,6 @@ function updateCalc() {
   calcSavings.textContent = formatCLP(ahorro);
 }
 
-// Inicializar al cargar
 if (sueldoInput.value) {
   updateCalc();
 }
@@ -1886,7 +1965,6 @@ const isapreSelector = document.getElementById('isapreSelector');
 const isapreValue = document.getElementById('isapreValue');
 const leyCheck = form.querySelector('.ley-check input');
 
-// Selector Visual de Isapres
 const isapreBtns = isapreSelector.querySelectorAll('.isapre-btn');
 isapreBtns.forEach(btn => {
   btn.addEventListener('click', () => {
@@ -1897,7 +1975,6 @@ isapreBtns.forEach(btn => {
   });
 });
 
-// Feedback visual y barra de progreso
 const inputs = form.querySelectorAll('input[required], textarea');
 function updateFormProgress() {
   let validCount = 0;
@@ -1978,7 +2055,103 @@ form.addEventListener('submit',async e=>{
 });
 
 /* =========================================================================
-   7. CARRUSELES (Flechas externas)
+   7. CARRUSEL 3D ISAPRES (MÓVIL)
+   ========================================================================= */
+const brandsGrid = document.getElementById('brandsGrid');
+const brandCards = Array.from(brandsGrid.querySelectorAll('.brand-box'));
+const brandPrev = document.getElementById('brandPrev');
+const brandNext = document.getElementById('brandNext');
+
+let bIndex = 0;
+let bAngle = 0;
+let bRadius = 0;
+const bStep = 360 / brandCards.length;
+
+function layoutBrands() {
+  if (window.innerWidth <= 768) {
+    // Mobile 3D
+    const w = brandCards[0].offsetWidth || 290;
+    bRadius = Math.round((w / 2) / Math.tan(Math.PI / brandCards.length)) + 40; // Añadimos padding de separación
+    
+    brandCards.forEach((card, i) => {
+      card.style.transform = `rotateY(${i * bStep}deg) translateZ(${bRadius}px)`;
+    });
+    brandsGrid.style.transform = `translateZ(-${bRadius}px) rotateY(${-bAngle}deg)`;
+  } else {
+    // Desktop Grid
+    brandCards.forEach(card => {
+      card.style.transform = 'none';
+    });
+    brandsGrid.style.transform = 'none';
+  }
+  updateBrandActive();
+}
+
+function updateBrandActive() {
+  if (window.innerWidth <= 768) {
+    const activeIdx = ((Math.round(bAngle / bStep) % brandCards.length) + brandCards.length) % brandCards.length;
+    brandCards.forEach((card, i) => {
+      card.classList.toggle('is-active', i === activeIdx);
+      if (i !== activeIdx) {
+        const toggle = card.querySelector('.brand-toggle');
+        if (toggle) toggle.checked = false;
+      }
+    });
+  } else {
+    brandCards.forEach(card => card.classList.add('is-active'));
+  }
+}
+
+function rotateBrands(dir) {
+  if (window.innerWidth > 768) return;
+  bAngle += dir * bStep;
+  brandsGrid.style.transform = `translateZ(-${bRadius}px) rotateY(${-bAngle}deg)`;
+  updateBrandActive();
+}
+
+brandPrev.addEventListener('click', () => rotateBrands(-1));
+brandNext.addEventListener('click', () => rotateBrands(1));
+
+// Swipe para el carrusel de Isapres
+let bStartX = 0;
+let bCurrentX = 0;
+let bDragging = false;
+
+brandsGrid.addEventListener('touchstart', (e) => {
+  if (window.innerWidth > 768) return;
+  bStartX = e.touches[0].clientX;
+  bDragging = true;
+  brandsGrid.style.transition = 'none';
+}, { passive: true });
+
+brandsGrid.addEventListener('touchmove', (e) => {
+  if (!bDragging || window.innerWidth > 768) return;
+  bCurrentX = e.touches[0].clientX;
+  const diff = bCurrentX - bStartX;
+  const tempAngle = bAngle - (diff * 0.5);
+  brandsGrid.style.transform = `translateZ(-${bRadius}px) rotateY(${-tempAngle}deg)`;
+}, { passive: true });
+
+brandsGrid.addEventListener('touchend', (e) => {
+  if (!bDragging || window.innerWidth > 768) return;
+  bDragging = false;
+  brandsGrid.style.transition = 'transform 0.75s cubic-bezier(0.2, 0.8, 0.2, 1)';
+  
+  const diff = bCurrentX - bStartX;
+  if (Math.abs(diff) > 50) {
+    if (diff > 0) rotateBrands(-1);
+    else rotateBrands(1);
+  } else {
+    brandsGrid.style.transform = `translateZ(-${bRadius}px) rotateY(${-bAngle}deg)`;
+  }
+});
+
+window.addEventListener('resize', layoutBrands);
+window.addEventListener('load', layoutBrands);
+setTimeout(layoutBrands, 100);
+
+/* =========================================================================
+   8. CARRUSELES GENERALES
    ========================================================================= */
 document.querySelectorAll('.carousel-arrow').forEach(btn=>{
   btn.addEventListener('click',()=>{
@@ -2029,7 +2202,7 @@ function initAutoplay(carousel){
 document.querySelectorAll('.carousel').forEach(initAutoplay);
 
 /* =========================================================================
-   8. CARRUSEL 360° LEY 21.719
+   9. CARRUSEL 360° LEY 21.719
    ========================================================================= */
 (function(){
   const stage=document.getElementById('leyStage');
