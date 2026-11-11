@@ -27,6 +27,119 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
+<!-- ============================================================
+     SCHEMA JSON-LD PARA IA Y SEO (AyudaPlan)
+     ============================================================ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": ["ProfessionalService", "FinancialService"],
+      "@id": "https://ayudaplan.cl/#organization",
+      "name": "AyudaPlan",
+      "url": "https://ayudaplan.cl/",
+      "logo": "https://ayudaplan.cl/favicon.png",
+      "image": "https://ayudaplan.cl/imagen-redes.jpg",
+      "description": "Asesoría y consultoría previsional de élite en Chile. Analizamos tu 7% legal, optimizamos tus excedentes y mejoramos tus coberturas de Isapre.",
+      "telephone": "+56931182494",
+      "email": "contacto@ayudaplan.cl",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Santiago",
+        "addressCountry": "CL"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "Chile"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "customer service",
+        "telephone": "+56931182494",
+        "email": "contacto@ayudaplan.cl",
+        "availableLanguage": "Spanish"
+      },
+      "sameAs": [
+        "https://www.economicaweb.cl"
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Servicios de Asesoría Previsional",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Análisis y Optimización de 7% Legal",
+              "description": "Evaluación técnica para encontrar el plan de salud que mejor se adapte a tu presupuesto y necesidades."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Adecuación de Cobertura y Excedentes",
+              "description": "Revisión de excedentes, planes preferentes y cerrados en las principales clínicas del país."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Asesoría Ley Corta de Isapres (Ley 21.674)",
+              "description": "Orientación experta sobre devoluciones de excedentes y reestructuración de contratos bajo la nueva normativa."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://ayudaplan.cl/#website",
+      "url": "https://ayudaplan.cl/",
+      "name": "AyudaPlan",
+      "description": "Asesoría Previsional de Élite en Chile",
+      "publisher": {
+        "@id": "https://ayudaplan.cl/#organization"
+      },
+      "inLanguage": "es-CL"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://ayudaplan.cl/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Tiene algún costo la asesoría de AyudaPlan?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "La Pre-Evaluación previsional inicial no posee costo para el afiliado. Tras el análisis de tu caso, si el requerimiento amerita una consultoría avanzada, las condiciones serán notificadas."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué es el 7% legal y cómo lo optimizan?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "El 7% legal es el porcentaje obligatorio de tu sueldo destinado a salud. En AyudaPlan revisamos si tu plan actual está consumiendo este porcentaje de manera eficiente, buscando opciones con mejores coberturas y excedentes a favor."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cómo me afecta la Ley Corta de Isapres?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "La Ley 21.674 puso fin a la generación masiva de excedentes y obligó a las Isapres a reestructurar sus contratos. Nuestros asesores revisan si te corresponde recibir restituciones de dinero o cómo afectó el precio de tu plan mensual."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
 <style>
 /* =========================================================================
    TOKENS Y RESET
@@ -1799,7 +1912,7 @@ button,input,textarea,select{font:inherit}
       <div class="footer-credit-text">
         DISEÑADO E INTERCONECTADO POR 
         <a href="https://www.economicaweb.cl" target="_blank" rel="noopener" class="footer-credit-link">WWW.ECONOMICAWEB.CL</a>
-        <a href="https://economicaweb.cl/adn.html" target="_blank" rel="noopener" class="footer-know-us">Conócenos ↗</a>
+        <a href="adn.html" target="_blank" rel="noopener" class="footer-know-us">Conócenos ↗</a>
       </div>
     </div>
   </div>
