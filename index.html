@@ -9,11 +9,11 @@
 <meta property="og:title" content="AyudaPlan — Asesoría Previsional de Élite">
 <meta property="og:description" content="Analizamos, optimizamos y cotizamos tus coberturas en las principales instituciones de salud del país.">
 <meta property="og:url" content="https://ayudaplan.cl">
-<meta property="og:image" content="https://ayudaplan.cl/ayudaplan.jpg">
-<meta property="og:image:secure_url" content="https://ayudaplan.cl/ayudaplan.jpg">
+<meta property="og:image" content="https://ayudaplan.cl/imagen-redes.jpg">
+<meta property="og:image:secure_url" content="https://ayudaplan.cl/imagen-redes.jpg">
 <meta property="og:image:type" content="image/jpeg">
 
-<!-- FAVICON CONFIGURADO -->
+<!-- FAVICON Y APPLE TOUCH ICON SEGÚN REPOSITORIO -->
 <link rel="icon" type="image/png" href="/favicon.png">
 <link rel="shortcut icon" type="image/png" href="/favicon.png">
 <link rel="apple-touch-icon" href="/favicon.png">
@@ -872,7 +872,7 @@ button,input,textarea,select{font:inherit}
 .btn-gold:hover:before{transform:translateX(140%) skewX(-20deg)}
 
 /* =========================================================================
-   FOOTER
+   FOOTER (CON CRÉDITOS DORADOS Y CONÓCENOS)
    ========================================================================= */
 .main-footer{background:var(--ink-950);color:var(--slate-400);padding:48px 0 28px;
   border-top:1px solid rgba(255,255,255,.06);position:relative}
@@ -885,10 +885,45 @@ button,input,textarea,select{font:inherit}
 .footer-links{display:flex;flex-direction:column;gap:8px;text-align:right;font-size:.9rem;font-weight:600}
 .footer-links a{color:var(--slate-300);transition:color .25s,transform .35s var(--ease-bounce);display:inline-block}
 .footer-links a:hover{color:var(--gold-light);transform:translateX(-4px)}
-.footer-credits{padding-top:22px;display:flex;justify-content:space-between;align-items:center;
-  gap:16px;flex-wrap:wrap;font-size:.85rem;color:var(--slate-500)}
-.footer-credits a{color:var(--brand-blue);font-weight:700;transition:color .25s}
-.footer-credits a:hover{color:var(--gold-light)}
+
+.footer-credits{
+  padding-top:22px;
+  display:flex; justify-content:space-between; align-items:center;
+  gap:16px; flex-wrap:wrap;
+  font-size:.85rem; color:var(--slate-500);
+}
+.footer-credit-text { display:flex; align-items:center; flex-wrap:wrap; gap:6px; }
+.footer-credit-link {
+  background: linear-gradient(110deg, #f6e2a6 0%, #e8c46e 38%, #f0c3a8 72%, #e3a98d 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  transition: filter 0.3s, transform 0.3s;
+  display: inline-block;
+}
+.footer-credit-link:hover {
+  filter: brightness(1.2) drop-shadow(0 0 8px rgba(232, 196, 110, 0.6));
+  transform: translateY(-1px);
+}
+.footer-know-us {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--gold-light);
+  text-decoration: none;
+  margin-left: 6px;
+  border-bottom: 1px solid transparent;
+  transition: color 0.3s, border-color 0.3s;
+}
+.footer-know-us:hover {
+  color: #fff;
+  border-bottom-color: var(--gold-light);
+}
 
 /* =========================================================================
    BOTÓN FLOTANTE WHATSAPP METÁLICO
@@ -973,7 +1008,7 @@ button,input,textarea,select{font:inherit}
     -webkit-overflow-scrolling: touch;
   }
   .brand-toggle:checked ~ .brand-body {
-    max-height: 320px; /* Más altura para leer todo */
+    max-height: 320px; 
     overflow-y: auto;
     scrollbar-width: none;
   }
@@ -1036,7 +1071,7 @@ button,input,textarea,select{font:inherit}
 
   .footer-inner{grid-template-columns:1fr;text-align:center;gap:20px}
   .footer-links{text-align:center}
-  .footer-credits{flex-direction:column;text-align:center}
+  .footer-credits{flex-direction:column;text-align:center; justify-content:center;}
 
   .section-brands,.section-contact,.section-form,.carousel-section,
   .section-services,.section-foryou,.section-why,.ley-section{padding:60px 0}
@@ -1759,7 +1794,13 @@ button,input,textarea,select{font:inherit}
     </div>
     <div class="footer-credits">
       <span>© 2026 AyudaPlan.cl · Todos los derechos reservados.</span>
-      <span>Interconexiones y administración por <a href="https://fullweb.cl" target="_blank" rel="noopener">www.fullweb.cl</a></span>
+      
+      <!-- CRÉDITOS DE DISEÑO Y ENLACE A ADN -->
+      <div class="footer-credit-text">
+        DISEÑADO E INTERCONECTADO POR 
+        <a href="https://www.economicaweb.cl" target="_blank" rel="noopener" class="footer-credit-link">WWW.ECONOMICAWEB.CL</a>
+        <a href="adn.html" target="_blank" rel="noopener" class="footer-know-us">Conócenos ↗</a>
+      </div>
     </div>
   </div>
 </footer>
