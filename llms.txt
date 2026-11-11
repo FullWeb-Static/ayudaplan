@@ -1,0 +1,17 @@
+# AyudaPlan
+
+> AyudaPlan es una consultoría previsional chilena especializada en optimizar el 7% legal de salud, analizar coberturas de Isapres y gestionar excedentes sin costo inicial.
+
+## Servicios principales
+- Análisis de Cobertura: Evaluación de planes de salud en Chile.
+- Optimización de Planes: Búsqueda de mejores precios y coberturas en Isapres (Colmena, Banmédica, Consalud, Cruz Blanca, etc.).
+- Asesoría Ley Corta (Ley 21.674): Revisión de excedentes y restituciones.
+
+## Enlaces importantes
+- [Página principal](https://ayudaplan.cl/)
+- [Manifiesto o ADN](https://ayudaplan.cl/adn.html)
+- [Política de Privacidad](https://ayudaplan.cl/privacidad.html)
+
+## Contacto
+- Email: contacto@ayudaplan.cl
+- WhatsApp: +56931182494
