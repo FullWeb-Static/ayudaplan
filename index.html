@@ -12,8 +12,9 @@
 <meta property="og:image" content="https://ayudaplan.cl/imagen-redes.jpg">
 <meta property="og:image:secure_url" content="https://ayudaplan.cl/imagen-redes.jpg">
 <meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:alt" content="AyudaPlan - Asesoría Previsional en Chile">
 
-<!-- FAVICON Y APPLE TOUCH ICON SEGÚN REPOSITORIO -->
+<!-- FAVICON Y APPLE TOUCH ICON -->
 <link rel="icon" type="image/png" href="/favicon.png">
 <link rel="shortcut icon" type="image/png" href="/favicon.png">
 <link rel="apple-touch-icon" href="/favicon.png">
@@ -985,7 +986,7 @@ button,input,textarea,select{font:inherit}
 .btn-gold:hover:before{transform:translateX(140%) skewX(-20deg)}
 
 /* =========================================================================
-   FOOTER (CON CRÉDITOS DORADOS Y CONÓCENOS)
+   FOOTER (CON SELLO DE PORTAFOLIO)
    ========================================================================= */
 .main-footer{background:var(--ink-950);color:var(--slate-400);padding:48px 0 28px;
   border-top:1px solid rgba(255,255,255,.06);position:relative}
@@ -1007,19 +1008,23 @@ button,input,textarea,select{font:inherit}
 }
 .footer-credit-text { display:flex; align-items:center; flex-wrap:wrap; gap:6px; }
 .footer-credit-link {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+  transition: filter 0.3s, transform 0.3s;
+}
+.footer-credit-link:hover {
+  filter: brightness(1.2) drop-shadow(0 0 8px rgba(232, 196, 110, 0.6));
+  transform: translateY(-1px);
+}
+.footer-credit-link span {
   background: linear-gradient(110deg, #f6e2a6 0%, #e8c46e 38%, #f0c3a8 72%, #e3a98d 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   font-weight: 800;
   letter-spacing: 0.02em;
-  text-decoration: none;
-  transition: filter 0.3s, transform 0.3s;
-  display: inline-block;
-}
-.footer-credit-link:hover {
-  filter: brightness(1.2) drop-shadow(0 0 8px rgba(232, 196, 110, 0.6));
-  transform: translateY(-1px);
 }
 .footer-know-us {
   display: inline-flex;
@@ -1905,16 +1910,22 @@ button,input,textarea,select{font:inherit}
         <a href="privacidad.html" target="_blank">Política de Privacidad</a>
       </div>
     </div>
+    
+    <!-- NUEVO DISEÑO DE CRÉDITOS CON SELLO DE PORTAFOLIO -->
     <div class="footer-credits">
       <span>© 2026 AyudaPlan.cl · Todos los derechos reservados.</span>
       
-      <!-- CRÉDITOS DE DISEÑO Y ENLACE A ADN -->
-      <div class="footer-credit-text">
-        DISEÑADO E INTERCONECTADO POR 
-        <a href="https://www.economicaweb.cl" target="_blank" rel="noopener" class="footer-credit-link">WWW.ECONOMICAWEB.CL</a>
+      <div class="footer-credit-text" style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+        <span style="font-size: 0.75rem; color: #94a3b8;">Un sitio del portafolio de:</span>
+        <a href="https://www.economicaweb.cl" target="_blank" rel="noopener" class="footer-credit-link">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #d4af37;"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          <span>WWW.ECONOMICAWEB.CL</span>
+        </a>
+        <!-- Enlace a ADN (Mantenido por el acuerdo) -->
         <a href="adn.html" target="_blank" rel="noopener" class="footer-know-us">Conócenos ↗</a>
       </div>
     </div>
+    
   </div>
 </footer>
 
